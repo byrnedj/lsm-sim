@@ -63,6 +63,7 @@ lsc_multi::lsc_multi(stats stat, subpolicy eviction_policy)
             << " segment_count " << segments.size() << std::endl;
 
   // Check for enough segments to sustain cleaning width and head segment.
+  std::cerr << segments.size() << " > 2*" << stat.cleaning_width << "\n";
   assert(segments.size() > 2 * stat.cleaning_width);
 
   // Sets up head.

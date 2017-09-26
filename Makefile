@@ -1,6 +1,7 @@
 #CXX := g++-4.9
 CXX := g++
 CXXFLAGS := -std=c++14 -Wall -g -pedantic-errors -Werror -O3 \
+    						-Wno-init-self \
 						-Wno-unused-parameter -Wextra -Weffc++
 # REPLAY := yes enables a policy that can feed traces to memcached, but it
 # requires libmemcached to be linked in as a result. Only enable it if you

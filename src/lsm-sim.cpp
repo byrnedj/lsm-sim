@@ -108,7 +108,7 @@ float lsm_util = 1.0; //< default util factor
 std::string trace = "data/m.cap.out"; //< default filepath
 std::string app_str; //< for logging apps
 std::string app_steal_sizes_str;
-double hit_start_time = 86400; //< default warmup time
+double hit_start_time = 1; //< default warmup time
 size_t global_mem = 0;
 pol_type policy_type;
 lsc_multi::subpolicy subpolicy;
@@ -132,13 +132,16 @@ double USER_SVM_TH=1;
 /// Amount of dram memory allocated for ripq_shield active_blocks.
 size_t dram_size = 0;
 double threshold = 0.7;
-size_t cleaning_width = 100;
+size_t cleaning_width = 10;
 
 // Only parse this many requests from the CSV file before breaking.
 // Helpful for limiting runtime when playing around.
 int request_limit = 0;
 
 bool debug = false;
+
+//use synthetic traces
+bool syn = false;
 
 const std::string usage =
   "-f    specify file path\n"
@@ -165,6 +168,7 @@ const std::string usage =
   "-L    queue size in lruk policy\n"
   "-H    hit value in flashcache formula\n"
   "-n    number of flash sections for ripq and ripq_shield\n" 
+  "-Y    Use synthetic trace set\n" 
   "-d    number of dram sections for ripq_shield\n";
 
 // memcachier slab allocations at t=86400 (24 hours)
@@ -196,6 +200,12 @@ std::unordered_map<size_t, size_t> memcachier_app_size = { {1, 701423104}
                                                          };
 
 
+//i believe this is in bytes...
+std::unordered_map<size_t, size_t>        syn_app_size = { {1, 16250000}
+                                                         , {2, 16350000}
+                                                         };
+
+
 int main(int argc, char *argv[]) {
   // calculate global memory
   for (int i = 0; i < 15; i++)
@@ -207,10 +217,14 @@ int main(int argc, char *argv[]) {
   std::vector<int32_t> ordered_apps{};
   while ((c = getopt(argc, argv,
                      "p:s:l:f:a:ru:w:vhg:MP:S:B:E:N:W:T:t:"
-                     "m:d:F:n:D:L:K:k:C:c:A:")) != -1)
+                     "m:d:F:n:D:L:K:k:C:c:YP:A:")) != -1)
   {
     switch (c)
     {
+        //Y is for synthetic trace set 
+      case 'Y':
+        syn = true;
+        break;
       case 'f':
         trace = optarg;
         break;
@@ -494,19 +508,35 @@ int main(int argc, char *argv[]) {
         policy.reset(multi);
 
         for (size_t appid : apps) {
-          assert(memcachier_app_size[appid] > 0);
+          if (!syn)
+            assert(memcachier_app_size[appid] > 0);
+          else
+            assert(syn_app_size[appid] > 0);
           uint32_t app_steal_size = 65536;
           auto it = app_steal_sizes.find(appid);
           if (it != app_steal_sizes.end()) {
             app_steal_size = it->second;
           } 
-          size_t private_mem = use_percentage ? 
-            (size_t)(memcachier_app_size[appid] * priv_mem_percentage) :
-            min_mem_pct;         
-          multi->add_app(appid,
+          if (!syn)
+          {
+             size_t private_mem = use_percentage ? 
+               (size_t)(memcachier_app_size[appid] * 
+                       priv_mem_percentage) : min_mem_pct;         
+             multi->add_app(appid,
                          private_mem ,
                          memcachier_app_size[appid],
                          app_steal_size);
+          }
+          else
+          {
+             size_t private_mem = use_percentage ? 
+               (size_t)(syn_app_size[appid] * 
+                       priv_mem_percentage) : min_mem_pct;         
+             multi->add_app(appid,
+                         private_mem ,
+                         syn_app_size[appid],
+                         app_steal_size);
+          }
         }
 
         if (use_tax) {
@@ -527,7 +557,10 @@ int main(int argc, char *argv[]) {
       policy.reset(slmulti);
 
       for (size_t appid : apps) {
-        assert(memcachier_app_size[appid] > 0);
+          if (!syn)
+            assert(memcachier_app_size[appid] > 0);
+          else
+            assert(syn_app_size[appid] > 0);
         slmulti->add_app(appid, min_mem_pct, memcachier_app_size[appid]);
       }
       break;

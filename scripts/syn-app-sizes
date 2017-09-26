@@ -1,0 +1,30 @@
+# Sourced in other scripts.
+
+declare -A syn_app_size
+syn_app_size[1]=16250000
+syn_app_size[2]=16350000
+
+pids=""
+maxprocs=4
+
+wait_too_many() {
+  cnt=( $pids )
+  cnt="${#cnt[@]}"
+  if [[ "$cnt" == "$maxprocs" ]]; then
+    wait $pids
+    pids=""
+  fi
+}
+
+finish() {
+  pkill lsm-sim
+}
+trap finish EXIT
+
+total_size=0
+for app in $apps; do
+  bytes=${syn_app_size[$app]}
+  total_size=$(($total_size + $bytes))
+done
+
+app_lst=$(echo $apps | sed "s/ /,/g")
