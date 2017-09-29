@@ -201,8 +201,14 @@ std::unordered_map<size_t, size_t> memcachier_app_size = { {1, 701423104}
 
 
 //i believe this is in bytes...
-std::unordered_map<size_t, size_t>        syn_app_size = { {1, 16250000}
-                                                         , {2, 16350000}
+//std::unordered_map<size_t, size_t>        syn_app_size = { {1, 2425000000}
+//                                                         , {2, 820000000}
+//                                                         };
+
+
+//i believe this is in bytes...
+std::unordered_map<size_t, size_t>        syn_app_size = { {2, 50467374}
+                                                         , {1, 502803980}
                                                          };
 
 
@@ -682,9 +688,10 @@ int main(int argc, char *argv[]) {
     if (r.type != request::GET)
       continue;
 
+
     if (r.val_sz <= 0)
       continue;
-
+    
     const bool in_apps =
       std::find(std::begin(apps), std::end(apps), r.appid) != std::end(apps);
 
@@ -693,6 +700,9 @@ int main(int argc, char *argv[]) {
     } else if (!in_apps) {
       continue;
     }
+    
+    if (r.appid == 2)
+        std::cerr << r.kid << "," <<  r.val_sz << "\n";
 
     policy->proc(&r, r.time < hit_start_time);
     if (verbose 

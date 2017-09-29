@@ -1,8 +1,8 @@
 # Sourced in other scripts.
 
 declare -A syn_app_size
-syn_app_size[1]=16250000
-syn_app_size[2]=16350000
+syn_app_size[1]=820000000
+syn_app_size[2]=2425000000
 
 pids=""
 maxprocs=4
