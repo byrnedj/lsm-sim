@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source scripts/top-syn-apps
+apps="$top2"
+source scripts/syn-app-sizes
+
+./lsm-sim \
+  -a $app_lst \
+  -p multi \
+  -E normal \
+  -c 100 \
+  -N 50 \
+  -s $total_size \
+  -S $((1024 * 1024)) \
+  -Y \
+  -f ./data/syn.sim \
+      2> multi.normal.err \
+      > mult.normal.out 

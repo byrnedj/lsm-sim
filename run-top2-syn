@@ -10,19 +10,19 @@ source scripts/top-syn-apps
 apps="$top2"
 source scripts/syn-app-sizes
 
-# Run all of the apps together in a single slab cache.
-./lsm-sim \
-  -a $app_lst \
-  -p multislab \
-  -M \
-  -s $total_size \
-  -S $((1024 * 1024)) \
-  -Y \
-  -f ./data/50m.combined.sim \
-      2> err-top2-syn-managed-multislab-greedy.log \
-      > temp-multislab-greedy.data &
-pids="$pids $!"
-wait_too_many
+## Run all of the apps together in a single slab cache.
+#./lsm-sim \
+#  -a $app_lst \
+#  -p multislab \
+#  -M \
+#  -s $total_size \
+#  -S $((1024 * 1024)) \
+#  -Y \
+#  -f ./data/50m.combined.sim \
+#      2> err-top2-syn-managed-multislab-greedy.log \
+#      > temp-multislab-greedy.data &
+#pids="$pids $!"
+#wait_too_many
 
 # Run all of the apps together in a single LSC cache with various policies.
 for subpolicy in greedy static; do
@@ -34,7 +34,7 @@ for subpolicy in greedy static; do
     -s $total_size \
     -S $((1024 * 1024)) \
     -Y \
-    -f ./data/50m.combined.sim \
+    -f ./data/syn.sim \
         2> err-top2-syn-managed-multi-$subpolicy.log \
         > top2-syn-managed-multi-$subpolicy.data &
   pids="$pids $!"
@@ -51,30 +51,30 @@ for private in 0 25 50 75 100; do
     -s $total_size \
     -S $((1024 * 1024)) \
     -Y \
-    -f ./data/50m.combined.sim \
+    -f ./data/syn.sim \
         2> err-top2-syn-managed-multi-normal-$private-private.log \
         > top2-syn-managed-multi-normal-$private-private.data &
   pids="$pids $!"
   wait_too_many
 done 
 
-# Run each app in isolation with memcachier's slab setup.
-for app in $apps; do
-  ./lsm-sim \
-    -a $app \
-    -p multislab \
-    -M \
-    -s ${syn_app_size[$app]} \
-    -S $((1024 * 1024)) \
-    -Y \
-    -f ./data/50m.${app}.sim \
-        2> err-top2-syn-managed-multislab-static-app$app.log \
-        > temp-multislab-static-app$app.data &
-  pids="$pids $!"
-  wait_too_many
-done 
-
-wait $pids
+## Run each app in isolation with memcachier's slab setup.
+#for app in $apps; do
+#  ./lsm-sim \
+#    -a $app \
+#    -p multislab \
+#    -M \
+#    -s ${syn_app_size[$app]} \
+#    -S $((1024 * 1024)) \
+#    -Y \
+#    -f ./data/50m.${app}.sim \
+#        2> err-top2-syn-managed-multislab-static-app$app.log \
+#        > temp-multislab-static-app$app.data &
+#  pids="$pids $!"
+#  wait_too_many
+#done 
+#
+#wait $pids
 
 sed 's/multislab/slab-greedy/g' \
   < temp-multislab-greedy.data \

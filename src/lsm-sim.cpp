@@ -205,10 +205,10 @@ std::unordered_map<size_t, size_t> memcachier_app_size = { {1, 701423104}
 //                                                         , {2, 820000000}
 //                                                         };
 
-
-//i believe this is in bytes...
-std::unordered_map<size_t, size_t>        syn_app_size = { {2, 50467374}
-                                                         , {1, 502803980}
+//APP 1 is ETC
+//APP 2 is PSA
+std::unordered_map<size_t, size_t>        syn_app_size = { {1, 156000000}
+                                                         , {2, 668000000}
                                                          };
 
 
@@ -701,8 +701,6 @@ int main(int argc, char *argv[]) {
       continue;
     }
     
-    if (r.appid == 2)
-        std::cerr << r.kid << "," <<  r.val_sz << "\n";
 
     policy->proc(&r, r.time < hit_start_time);
     if (verbose 

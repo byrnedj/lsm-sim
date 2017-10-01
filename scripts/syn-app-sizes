@@ -1,8 +1,9 @@
 # Sourced in other scripts.
-
+# APP 1 is ETC
+# APP 2 is PSA
 declare -A syn_app_size
-syn_app_size[1]=820000000
-syn_app_size[2]=2425000000
+syn_app_size[1]=156000000
+syn_app_size[2]=668000000
 
 pids=""
 maxprocs=4
@@ -26,5 +27,7 @@ for app in $apps; do
   bytes=${syn_app_size[$app]}
   total_size=$(($total_size + $bytes))
 done
+total_size=$((total_size / (1024*1024)))
+total_size=$((total_size * (1024*1024)))
 
 app_lst=$(echo $apps | sed "s/ /,/g")

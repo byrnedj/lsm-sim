@@ -33,6 +33,8 @@ slab-based allocators with proposed log-structured allocators such as LSC.
 
   -M force memcachier slab class configuration
 
+  -Y use synthetic traces
+
 ### Output
 
 ## Trace Format Protocol
@@ -43,6 +45,40 @@ appearing as follows.
 
 time (floating point), app id, type (get, put etc.), key size in bytes, value
 size, key id, hit/miss bool.  
+
+## Running synthetic traces
+
+In order to evaluate the Memshare design, we use two synthetic traces. The
+first trace is the ETC workload from the Facebook study. It is a sequence
+of 50 million GET requests over 7 million records. The second trace is the
+first 50 million GET requests from the 3-phase workload presented in the
+periodic slab allocation paper (PSA). 
+
+Currently, you can get both of the traces, and the combined trace from
+www.cs.mtu.edu/~djbyrne
+
+### A typical run
+
+After doing `make` in the root directory. Create a data folder and
+place the traces in there.
+
+Then run the simulator with varying parameters. A good start is:
+
+./lsm-sim \
+  -a 1,2 \
+  -p multi \
+  -E normal \
+  -c 100 \
+  -N 50 \
+  -s 823132160  \
+  -S 1048576 \
+  -Y \
+  -f ./data/syn.sim \
+      2> multi.normal.err \
+      > mult.normal.out 
+
+
+The results of this run show ?
 
 ## Policy Details
 
