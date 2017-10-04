@@ -64,7 +64,7 @@ place the traces in there.
 
 Then run the simulator with varying parameters. A good start is:
 
-./lsm-sim \
+`./lsm-sim \
   -a 1,2 \
   -p multi \
   -E normal \
@@ -75,7 +75,7 @@ Then run the simulator with varying parameters. A good start is:
   -Y \
   -f ./data/syn.sim \
       2> multi.normal.err \
-      > mult.normal.out 
+      > multi.normal.out`
 
 
 The results of this run show ?
