@@ -41,7 +41,7 @@ class lsc_multi : public policy {
     };
 
     typedef std::list<item> lru_queue; 
-    typedef std::unordered_map<uint32_t, lru_queue::iterator> hash_map;
+    typedef std::unordered_map<uint64_t, lru_queue::iterator> hash_map;
 
     class segment {
       public:
@@ -54,9 +54,9 @@ class lsc_multi : public policy {
         {}
 
         lru_queue queue;
-        std::unordered_map<int32_t, size_t> app_bytes;
+        std::unordered_map<uint64_t, uint64_t> app_bytes;
 
-        size_t filled_bytes;
+        uint64_t filled_bytes;
 
         uint64_t access_count;
         double low_timestamp;
@@ -125,7 +125,9 @@ class lsc_multi : public policy {
                     << "survivor_bytes "
                     << "evicted_items "
                     << "evicted_bytes "
-                    << "hit_rate "
+                    << "hit_rate " //avg hit rate
+                    << "w_hit_rate " //get the window hit rate
+                    << "live_items " //number of objects currently in cache
                     << std::endl;
         }
 
@@ -134,6 +136,19 @@ class lsc_multi : public policy {
                                        , "greedy"
                                        , "static"
                                        };
+          //this is our window that we look at
+          //100k is good for average
+          double w_rate = -1;
+          //std::cout << "a: " << accesses << "\n";
+          //std::cout << "w: " << w_accesses << "\n";
+          //std::cout << "a-w: " << accesses-w_accesses << "\n";
+          if ( (accesses - w_accesses) >= 100000 )
+          {
+                w_rate = double(hits-w_hits) / (accesses-w_accesses); 
+                w_accesses = accesses;
+                w_hits = hits;
+          }
+
           std::cout << int64_t(time) << " "
                     << appid << " "
                     << policy_name[uint32_t(policy)] << " "
@@ -153,6 +168,8 @@ class lsc_multi : public policy {
                     << evicted_items << " "
                     << evicted_bytes << " "
                     << double(hits) / accesses << " "
+                    << w_rate << " "
+                    << live_items << " "
                     << std::endl;
         }
 
@@ -166,12 +183,15 @@ class lsc_multi : public policy {
         const size_t min_mem;
         const size_t steal_size;
 
-        ssize_t credit_bytes;
+        size_t credit_bytes;
 
         size_t bytes_in_use;
+        size_t live_items;
 
         size_t accesses;
         size_t hits;
+        size_t w_accesses;
+        size_t w_hits;
         size_t shadow_q_hits;
         size_t survivor_items;
         size_t survivor_bytes;

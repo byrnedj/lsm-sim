@@ -663,6 +663,8 @@ int main(int argc, char *argv[]) {
          (request_limit == 0 || i < request_limit))
   {
     request r{line};
+
+
     bytes += line.size();
 
     if (verbose && ((i & ((1 << 18) - 1)) == 0)) {

@@ -18,8 +18,11 @@ lsc_multi::application::application(
   , steal_size{steal_size}
   , credit_bytes{}
   , bytes_in_use{}
+  , live_items{}
   , accesses{}
   , hits{}
+  , w_accesses{}
+  , w_hits{}
   , shadow_q_hits{}
   , survivor_items{}
   , survivor_bytes{}
@@ -197,6 +200,10 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
       // would have had to have happened to shootdown the old stale
       // sized value. This is to be fair to other policies like gLRU
       // that don't detect these size changes.
+      if (!warmup) {
+        ++stat.hits;
+        ++app.hits;
+      }
     }
   } else {
     // If miss in hash table, then count a miss. This get will count
@@ -222,6 +229,7 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
 
   // Bill the correct app for its use of log space.
   app.bytes_in_use += r->size();
+  app.live_items += 1;
 
   std::vector<size_t> appids{};
   for (size_t appid : *stat.apps)
@@ -286,6 +294,7 @@ void lsc_multi::dump_usage()
 double lsc_multi::get_running_hit_rate() {
   return double(stat.hits) / stat.accesses;
 }
+
 
 auto lsc_multi::choose_cleaning_sources() -> std::vector<segment*>
 {
@@ -692,6 +701,7 @@ void lsc_multi::clean()
       // memory budget. Will get re-added for each object that gets
       // 'salvaged'.
       app.bytes_in_use -= item.req.size();
+      app.live_items -= 1;
 
       // Check to see if this version is still needed.
       auto it = map.find(item.req.kid);
@@ -796,6 +806,7 @@ void lsc_multi::clean()
 
     // Bill the app that hosts it for the space use for preserving this.
     selected_app->bytes_in_use += item->req.size();
+    selected_app->live_items += 1;
     ++selected_app->survivor_items;
     selected_app->survivor_bytes += item->req.size();
   }

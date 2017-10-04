@@ -1,9 +1,25 @@
 # Sourced in other scripts.
 # APP 1 is ETC
 # APP 2 is PSA
+# info is determined from the following calculation
+#
+#==> etc.size <==
+#APP1
+#avg obj: 194
+#median obj: 39
+#4M OBJ = 0.46 miss rate
+#bytes = 156000000
+#
+#==> psa.size <==
+#APP2
+#avg obj: 328
+#median obj: 167
+#4M OBJ = 0.09 miss rate
+#bytes = 668000000
+#
 declare -A syn_app_size
-syn_app_size[1]=156000000
-syn_app_size[2]=668000000
+syn_app_size[1]=$((156000000))
+syn_app_size[2]=$((668000000))
 
 pids=""
 maxprocs=4

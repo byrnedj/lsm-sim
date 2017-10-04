@@ -38,6 +38,12 @@ struct stats {
 
   /// Number of #accesses that resulted in a cache hit.
   size_t hits;
+  
+  /// Number of get requests this cache has processed in window 
+  size_t w_accesses;
+
+  /// Number of #accesses that resulted in a cache hit in window
+  size_t w_hits;
 
   /// Total size of all keys and values stored in the cache.
   size_t bytes_cached;
@@ -135,6 +141,8 @@ struct stats {
     , utilization{}
     , accesses{}
     , hits{}
+    , w_accesses{}
+    , w_hits{}
     , bytes_cached{}
     , missed_bytes{}
     , evicted_bytes{}

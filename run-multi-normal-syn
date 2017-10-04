@@ -4,15 +4,33 @@ source scripts/top-syn-apps
 apps="$top2"
 source scripts/syn-app-sizes
 
+#-E static \
 ./lsm-sim \
-  -a $app_lst \
+  -a 1,2 \
   -p multi \
   -E normal \
   -c 100 \
-  -N 50 \
+  -N 10 \
   -s $total_size \
   -S $((1024 * 1024)) \
   -Y \
+  -v \
+  -w 1 \
   -f ./data/syn.sim \
       2> multi.normal.err \
-      > mult.normal.out 
+      > multi.normal.out
+
+#Rscript process_output.R
+
+#echo "./lsm-sim \
+#  -a $app_lst \
+#  -p multi \
+#  -E normal \
+#  -c 7 \
+#  -N 10 \
+#  -s $total_size \
+#  -S $((1024 * 1024)) \
+#  -Y \
+#  -v \
+#  -w 1 \
+#  -f ./data/tiny.sim "

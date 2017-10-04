@@ -7,89 +7,114 @@ library(plyr)
 options(scipen=1)
 
 df <- read.table("multi.normal.out",header=TRUE)
-app1hr <- subset(df,app == 1 & subpolicy == "normal", select=c(time,hit_rate) )
-app2hr <- subset(df,app == 2 & subpolicy == "normal", select=c(time,hit_rate) )
+
+
+etchr <- subset(df,app == 1 & subpolicy == "normal" & w_hit_rate != -1, select=c(accesses,w_hit_rate) )
+psahr <- subset(df,app == 2 & subpolicy == "normal" & w_hit_rate != -1, select=c(accesses,w_hit_rate) )
+
 
 hrlist <- list()
-hrlist[["app1"]] = app1hr
-hrlist[["app2"]] = app2hr
+hrlist[["etc"]] = etchr
+hrlist[["psa"]] = psahr
 
 
-app1bytes <- subset(df,app == 1 & subpolicy == "normal", select=c(time,bytes_in_use) )
-app2bytes <- subset(df,app == 2 & subpolicy == "normal" , select=c(time,bytes_in_use) )
+etcbytes <- subset(df,app == 1 & subpolicy == "normal", select=c(accesses,bytes_in_use) )
+psabytes <- subset(df,app == 2 & subpolicy == "normal" , select=c(accesses,bytes_in_use) )
 
 byteslist <- list()
-byteslist[["app1"]] = app1bytes
-byteslist[["app2"]] = app2bytes
+byteslist[["etc"]] = etcbytes
+byteslist[["psa"]] = psabytes
 
-app1shq <- subset(df,app == 1  & subpolicy == "normal", select=c(time,shadow_q_hits) )
-app2shq <- subset(df,app == 2  & subpolicy == "normal", select=c(time,shadow_q_hits) )
+etcshq <- subset(df,app == 1  & subpolicy == "normal", select=c(accesses,shadow_q_hits) )
+psashq <- subset(df,app == 2  & subpolicy == "normal", select=c(accesses,shadow_q_hits) )
 
 shqlist <- list()
-shqlist[["app1"]] = app1shq
-shqlist[["app2"]] = app2shq
+shqlist[["etc"]] = etcshq
+shqlist[["psa"]] = psashq
 
-app1tmem <- subset(df,app == 1  & subpolicy == "normal", select=c(time,target_mem,credit_bytes) )
-app2tmem <- subset(df,app == 2  & subpolicy == "normal", select=c(time,target_mem,credit_bytes) )
+etctmem <- subset(df,app == 1  & subpolicy == "normal", select=c(accesses,share) )
+psatmem <- subset(df,app == 2  & subpolicy == "normal", select=c(accesses,share) )
 
-app1tmem$total = app1tmem$credit_bytes 
-app2tmem$total = app2tmem$credit_bytes 
+etctmem$total = etctmem$share 
+psatmem$total = psatmem$share
 
-app1tmem <- subset(app1tmem, select=c(time,total) )
-app2tmem <- subset(app2tmem, select=c(time,total) )
+etctmem <- subset(etctmem, select=c(accesses,total) )
+psatmem <- subset(psatmem, select=c(accesses,total) )
 
 tmemlist <- list()
-tmemlist[["app1"]] = app1tmem
-tmemlist[["app2"]] = app2tmem
+tmemlist[["etc"]] = etctmem
+tmemlist[["psa"]] = psatmem
 
-hrc_df = melt(hrlist, id="time")
+hrc_df = melt(hrlist, id="accesses")
 #rename(hrc_df,c("L1"="System"))
 
-ggplot(data=hrc_df, aes(x=time, y=value, colour=L1) ) +
+ggplot(data=hrc_df, aes(x=accesses, y=value, colour=L1) ) +
     geom_line() +
     theme_bw() +
     theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
     expand_limits(y=0) +
-    labs(title = "Hit Rate vs. Time", 
+    labs(title = "Hit Rate vs. accesses", 
          y = "Hit Rate", 
-         x = "Time (logical access)",
+         x = "accesses (logical access)",
          colour = "" ) 
 
-shq_df = melt(shqlist, id="time")
+shq_df = melt(shqlist, id="accesses")
 #rename(hrc_df,c("L1"="System"))
 
-ggplot(data=shq_df, aes(x=time, y=value, colour=L1) ) +
+ggplot(data=shq_df, aes(x=accesses, y=value, colour=L1) ) +
     geom_line() +
     theme_bw() +
     theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
     expand_limits(y=0) +
-    labs(title = "Shadow Queue Hits vs. Time", 
+    labs(title = "Shadow Queue Hits vs. accesses", 
          y = "Shadow Queue Hits", 
-         x = "Time (logical access)",
+         x = "accesses (logical access)",
          colour = "" ) 
 
-bytes_df = melt(byteslist, id="time")
+#bytes_df = melt(byteslist, id="accesses")
+##rename(hrc_df,c("L1"="System"))
+#
+#ggplot(data=bytes_df, aes(x=accesses, y=value, colour=L1) ) +
+#    geom_line() +
+#    theme_bw() +
+#    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
+#    expand_limits(y=0) +
+#    labs(title = "Bytes In Use vs. accesses", 
+#         y = "Bytes In Use", 
+#         x = "accesses (logical access)",
+#         colour = "" ) 
+
+tmem_df = melt(tmemlist, id="accesses")
 #rename(hrc_df,c("L1"="System"))
 
-ggplot(data=bytes_df, aes(x=time, y=value, colour=L1) ) +
+ggplot(data=tmem_df, aes(x=accesses, y=value, colour=L1) ) +
     geom_line() +
     theme_bw() +
     theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
     expand_limits(y=0) +
-    labs(title = "Bytes In Use vs. Time", 
-         y = "Bytes In Use", 
-         x = "Time (logical access)",
+    labs(title = "memory use vs. accesses", 
+         y = "memory use", 
+         x = "accesses (logical access)",
          colour = "" ) 
 
-tmem_df = melt(tmemlist, id="time")
+
+etchr <- subset(df,app == 1 & subpolicy == "normal" & w_hit_rate != -1, select=c(live_items,w_hit_rate) )
+psahr <- subset(df,app == 2 & subpolicy == "normal" & w_hit_rate != -1, select=c(live_items,w_hit_rate) )
+
+
+hrlist <- list()
+hrlist[["etc"]] = etchr
+hrlist[["psa"]] = psahr
+
+hrc_df = melt(hrlist, id="live_items")
 #rename(hrc_df,c("L1"="System"))
 
-ggplot(data=tmem_df, aes(x=time, y=value, colour=L1) ) +
+ggplot(data=hrc_df, aes(x=live_items, y=value, colour=L1) ) +
     geom_line() +
     theme_bw() +
     theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
     expand_limits(y=0) +
-    labs(title = "Credit Bytes vs. Time", 
-         y = "Credit Bytes", 
-         x = "Time (logical access)",
+    labs(title = "Hit Rate vs. items", 
+         y = "Hit Rate", 
+         x = "items",
          colour = "" ) 
