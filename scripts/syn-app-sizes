@@ -18,8 +18,8 @@
 #bytes = 668000000
 #
 declare -A syn_app_size
-syn_app_size[1]=$((156000000))
-syn_app_size[2]=$((668000000))
+syn_app_size[1]=$((800000000))
+syn_app_size[2]=$((800000000))
 
 pids=""
 maxprocs=4

@@ -57,6 +57,7 @@ ggplot(data=hrc_df, aes(x=accesses, y=value, colour=L1) ) +
          y = "Hit Rate", 
          x = "accesses (logical access)",
          colour = "" ) 
+#ggsave("cache_hit_rate.png")
 
 shq_df = melt(shqlist, id="accesses")
 #rename(hrc_df,c("L1"="System"))
@@ -70,6 +71,8 @@ ggplot(data=shq_df, aes(x=accesses, y=value, colour=L1) ) +
          y = "Shadow Queue Hits", 
          x = "accesses (logical access)",
          colour = "" ) 
+
+#ggsave("shadow_q_hits.png")
 
 #bytes_df = melt(byteslist, id="accesses")
 ##rename(hrc_df,c("L1"="System"))
@@ -97,24 +100,25 @@ ggplot(data=tmem_df, aes(x=accesses, y=value, colour=L1) ) +
          x = "accesses (logical access)",
          colour = "" ) 
 
+#ggsave("mem_use.png")
 
-etchr <- subset(df,app == 1 & subpolicy == "normal" & w_hit_rate != -1, select=c(live_items,w_hit_rate) )
-psahr <- subset(df,app == 2 & subpolicy == "normal" & w_hit_rate != -1, select=c(live_items,w_hit_rate) )
-
-
-hrlist <- list()
-hrlist[["etc"]] = etchr
-hrlist[["psa"]] = psahr
-
-hrc_df = melt(hrlist, id="live_items")
-#rename(hrc_df,c("L1"="System"))
-
-ggplot(data=hrc_df, aes(x=live_items, y=value, colour=L1) ) +
-    geom_line() +
-    theme_bw() +
-    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
-    expand_limits(y=0) +
-    labs(title = "Hit Rate vs. items", 
-         y = "Hit Rate", 
-         x = "items",
-         colour = "" ) 
+#etchr <- subset(df,app == 1 & subpolicy == "normal" & w_hit_rate != -1, select=c(live_items,w_hit_rate) )
+#psahr <- subset(df,app == 2 & subpolicy == "normal" & w_hit_rate != -1, select=c(live_items,w_hit_rate) )
+#
+#
+#hrlist <- list()
+#hrlist[["etc"]] = etchr
+#hrlist[["psa"]] = psahr
+#
+#hrc_df = melt(hrlist, id="live_items")
+##rename(hrc_df,c("L1"="System"))
+#
+#ggplot(data=hrc_df, aes(x=live_items, y=value, colour=L1) ) +
+#    geom_line() +
+#    theme_bw() +
+#    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
+#    expand_limits(y=0) +
+#    labs(title = "Hit Rate vs. items", 
+#         y = "Hit Rate", 
+#         x = "items",
+#         colour = "" ) 

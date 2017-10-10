@@ -10,7 +10,8 @@ lsc_multi::application::application(
     size_t appid,
     size_t min_mem_pct,
     size_t target_mem,
-    size_t steal_size)
+    size_t steal_size,
+    bool ua_mrc )
   : appid{appid}
   , min_mem_pct{min_mem_pct}
   , target_mem{target_mem}
@@ -28,6 +29,8 @@ lsc_multi::application::application(
   , survivor_bytes{}
   , evicted_items{}
   , evicted_bytes{}
+  , u_mrc{ua_mrc}
+  , AET{}
   , shadow_q{}
   , cleaning_q{}
   , cleaning_it{cleaning_q.end()}
@@ -71,6 +74,7 @@ lsc_multi::lsc_multi(stats stat, subpolicy eviction_policy)
 
   // Sets up head.
   rollover(0.);
+
 }
 
 lsc_multi::~lsc_multi() {}
@@ -78,11 +82,12 @@ lsc_multi::~lsc_multi() {}
 void lsc_multi::add_app(size_t appid,
                         size_t min_mem_pct,
                         size_t target_memory,
-                        size_t steal_size)
+                        size_t steal_size,
+                        bool u_mrc)
 {
   assert(head->filled_bytes == 0);
   assert(apps.find(appid) == apps.end());
-  apps.emplace(appid, application{appid, min_mem_pct, target_memory, steal_size});
+  apps.emplace(appid, application{appid, min_mem_pct, target_memory, steal_size,u_mrc});
 }
 
 void lsc_multi::dump_app_stats(double time) {
@@ -174,6 +179,10 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
     ++app.accesses;
   }
 
+  //if we are doing mrc, the take a sample
+  if (app.u_mrc)
+      app.AET.sample(r->kid);
+
   auto it = map.find(r->kid);
   if (it != map.end()) {
     auto list_it = it->second;
@@ -235,22 +244,135 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
   for (size_t appid : *stat.apps)
     appids.push_back(appid);
 
-  // Check to see if the access would have hit in the app's shadow Q.
-  if (app.would_hit(r)) {
-    ++app.shadow_q_hits;
-    // Hit in shadow Q! We get to steal!
-    size_t steal_size = 0;
-    if (!use_tax && eviction_policy == subpolicy::NORMAL)
-        steal_size = app.steal_size ;
-    for (int i = 0; i < 10; ++i) {
-      size_t victim = appids.at(rand() % appids.size());
-      auto it = apps.find(victim);
-      assert(it != apps.end());
-      application& other_app = it->second;
-      if (app.try_steal_from(other_app, steal_size))
-        break;
+
+  if (!app.u_mrc)
+  {
+
+    // Check to see if the access would have hit in the app's shadow Q.
+    if (app.would_hit(r)) {
+      ++app.shadow_q_hits;
+      // Hit in shadow Q! We get to steal!
+      size_t steal_size = 0;
+      if (!use_tax && eviction_policy == subpolicy::NORMAL)
+          steal_size = app.steal_size ;
+      for (int i = 0; i < 10; ++i) {
+        size_t victim = appids.at(rand() % appids.size());
+        auto it = apps.find(victim);
+        assert(it != apps.end());
+        application& other_app = it->second;
+        if (app.try_steal_from(other_app, steal_size))
+          break;
+      }
+      // May not have been able to steal, but oh well.
     }
-    // May not have been able to steal, but oh well.
+  }
+  else
+  {
+      if (  app.would_hit(r) )
+      {
+        std::cerr << app.appid << "  doing mrc\n ";
+        for (int i = 0; i < 10; ++i) {
+          size_t victim = appids.at(rand() % appids.size());
+          auto it = apps.find(victim);
+          assert(it != apps.end());
+          application& other_app = it->second;
+
+          //1. solve mrc for both apps
+          //2. steal size is in bytes, so n objects
+          //   is steal size/200
+          //3.1 do current app mrc(current_items) = cmr1
+          //    do steal app mrc(current_items) = cmr2
+          //
+          //3.2 do current app mrc(steal_size+current) mr1
+          //      steal app mrc(steal_size-current) = mr2
+          //   if ((mr1 + mr2)/2) > ((cmr1 + cmr2)/2))
+          //        => WE GET TO STEAL!
+          //4. don't forget to free cache_size_index and miss
+          //   rate arrays
+          
+          long long *app_cache_size_index;
+          double *app_miss_rate;
+          long long appN = app.AET.getN();
+
+          std::cerr << app.appid << " N " << appN << "\n";
+
+          app.AET.solve(app_cache_size_index,
+                        app_miss_rate);
+    
+          //make sure we got a result
+          if (!app_cache_size_index || !app_miss_rate )
+          {
+
+              std::cerr << app.appid << " no go mrc\n ";
+              break;
+          }
+            
+          std::cerr << app.appid << "  got mrc\n ";
+          
+
+          long long *other_cache_size_index;
+          double *other_miss_rate;
+          
+          long long otherN = other_app.AET.getN();
+
+          std::cerr << other_app.appid << " N " << otherN << "\n";
+
+          
+          other_app.AET.solve(other_cache_size_index,
+                               other_miss_rate);
+          
+          //make sure we got a result
+          if (!other_cache_size_index || !other_miss_rate )
+              break;
+
+          int app_c_size = (app.live_items/PGAP)*PGAP;
+          int other_c_size = (other_app.live_items/PGAP)*PGAP;
+
+          int j = 0;
+          while (app_cache_size_index[j] != app_c_size) i++;
+          int app_c_index = j;
+          
+          j = 0;
+          while (other_cache_size_index[j] != other_c_size) i++;
+          int other_c_index = j;
+
+          double app_curr_miss_rate = app_miss_rate[app_c_index];
+          double other_curr_miss_rate = other_miss_rate[other_c_index];
+        
+          std::cerr << app.appid << "  miss rate " << app_curr_miss_rate
+                    << " size " << app_c_size << "\n";
+          std::cerr << other_app.appid << "  miss rate " 
+                    << other_curr_miss_rate
+                    << " size " << other_c_size << "\n";
+          double avg_curr = (app_curr_miss_rate + 
+                             other_curr_miss_rate)/2;
+
+
+          
+          //make sure we actually have more space to allocate...
+          if (app_c_index+1 >= appN)
+              break;
+          if (other_c_index+1 >= otherN)
+              break;
+
+          double app_s_miss_rate = app_miss_rate[app_c_index+1];
+          double other_s_miss_rate = other_miss_rate[other_c_index+1];
+          
+          double avg_s = (app_s_miss_rate + other_s_miss_rate)/2;
+
+          free(other_cache_size_index);
+          free(other_miss_rate);
+          free(app_cache_size_index);
+          free(app_miss_rate);
+
+          if (avg_s > avg_curr)
+          {
+              if (app.try_steal_from(other_app, PGAP*200))
+                break;
+          }
+        }
+      }
+
   }
  
   return PROC_MISS;
@@ -934,5 +1056,4 @@ void lsc_multi::clean()
     std::cerr << std::endl;
   } 
 }
-
 

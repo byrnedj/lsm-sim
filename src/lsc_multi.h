@@ -3,13 +3,16 @@
 #include <vector>
 #include <deque>
 #include <algorithm>
+#include <map>
 
 #include "common.h"
 #include "lru.h"
+#include "mrc.h"
 #include "policy.h"
 
 #ifndef LSC_MULTI_H
 #define LSC_MULTI_H
+
 
 class lsc_multi : public policy {
   public:
@@ -67,7 +70,8 @@ class lsc_multi : public policy {
         application(size_t appid,
                     size_t min_mem_pct,
                     size_t target_mem,
-                    size_t steal_size);
+                    size_t steal_size,
+                    bool u_mrc);
         ~application();
 
         size_t bytes_limit() const {
@@ -197,11 +201,17 @@ class lsc_multi : public policy {
         size_t survivor_bytes;
         size_t evicted_items;
         size_t evicted_bytes;
+        //USE MRC over shadow queue
+        bool u_mrc;
+        mrc AET;
 
         lru shadow_q;
 
         std::deque<item*> cleaning_q;
         std::deque<item*>::iterator cleaning_it;
+        
+
+        
     };
 
   public:
@@ -211,7 +221,8 @@ class lsc_multi : public policy {
     void add_app(size_t appid,
                  size_t min_memory_pct,
                  size_t target_memory,
-                 size_t steal_size);
+                 size_t steal_size,
+                 bool u_mrc);
 
     void set_tax(double tax_rate)
     {
@@ -231,6 +242,9 @@ class lsc_multi : public policy {
     virtual void dump_stats(void) {}
 
   private:
+
+
+
 
     void rollover(double timestamp);
     void clean();

@@ -142,6 +142,7 @@ bool debug = false;
 
 //use synthetic traces
 bool syn = false;
+bool mrc = false;
 
 const std::string usage =
   "-f    specify file path\n"
@@ -169,6 +170,7 @@ const std::string usage =
   "-H    hit value in flashcache formula\n"
   "-n    number of flash sections for ripq and ripq_shield\n" 
   "-Y    Use synthetic trace set\n" 
+  "-R    Use full MRC guided partition\n" 
   "-d    number of dram sections for ripq_shield\n";
 
 // memcachier slab allocations at t=86400 (24 hours)
@@ -207,8 +209,8 @@ std::unordered_map<size_t, size_t> memcachier_app_size = { {1, 701423104}
 
 //APP 1 is ETC
 //APP 2 is PSA
-std::unordered_map<size_t, size_t>        syn_app_size = { {1, 156000000}
-                                                         , {2, 668000000}
+std::unordered_map<size_t, size_t>        syn_app_size = { {1, 800000000}
+                                                         , {2, 800000000}
                                                          };
 
 
@@ -223,13 +225,27 @@ int main(int argc, char *argv[]) {
   std::vector<int32_t> ordered_apps{};
   while ((c = getopt(argc, argv,
                      "p:s:l:f:a:ru:w:vhg:MP:S:B:E:N:W:T:t:"
-                     "m:d:F:n:D:L:K:k:C:c:YP:A:")) != -1)
+                     "m:d:F:n:D:L:K:k:C:c:YP:RP:x:y:A:")) != -1)
   {
     switch (c)
     {
         //Y is for synthetic trace set 
       case 'Y':
         syn = true;
+        break;
+        //R is for using full miss RATIO curve
+        //to guide allocation
+      case 'R':
+        mrc = true;
+        break;
+      //only if we are using synthetic apps, specify alloc sizes
+      //x == etc or APP1
+      //y == psa or APP2
+      case 'x':
+        syn_app_size[1] = atol(optarg);
+        break;
+      case 'y':
+        syn_app_size[2] = atol(optarg);
         break;
       case 'f':
         trace = optarg;
@@ -531,7 +547,8 @@ int main(int argc, char *argv[]) {
              multi->add_app(appid,
                          private_mem ,
                          memcachier_app_size[appid],
-                         app_steal_size);
+                         app_steal_size,
+                         mrc);
           }
           else
           {
@@ -541,7 +558,8 @@ int main(int argc, char *argv[]) {
              multi->add_app(appid,
                          private_mem ,
                          syn_app_size[appid],
-                         app_steal_size);
+                         app_steal_size,
+                         mrc);
           }
         }
 

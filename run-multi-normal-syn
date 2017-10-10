@@ -16,6 +16,7 @@ source scripts/syn-app-sizes
   -Y \
   -v \
   -w 1 \
+  -R \
   -f ./data/syn.sim \
       2> multi.normal.err \
       > multi.normal.out
