@@ -22,6 +22,7 @@
 #include "partslab.h"
 #include "lsm.h"
 #include "lsc_multi.h"
+#include "mrc.h"
 #include "slab_multi.h"
 #include "lru.h"
 #include "slab.h"
@@ -209,8 +210,8 @@ std::unordered_map<size_t, size_t> memcachier_app_size = { {1, 701423104}
 
 //APP 1 is ETC
 //APP 2 is PSA
-std::unordered_map<size_t, size_t>        syn_app_size = { {1, 800000000}
-                                                         , {2, 800000000}
+std::unordered_map<size_t, size_t>        syn_app_size = { {1, 3000000*OSIZE}
+                                                         , {2, 3000000*OSIZE}
                                                          };
 
 

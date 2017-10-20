@@ -17,9 +17,12 @@
 #4M OBJ = 0.09 miss rate
 #bytes = 668000000
 #
+#
+
+OSIZE=200
 declare -A syn_app_size
-syn_app_size[1]=$((800000000))
-syn_app_size[2]=$((800000000))
+syn_app_size[1]=$((3000000*OSIZE))
+syn_app_size[2]=$((3000000*OSIZE))
 
 pids=""
 maxprocs=4

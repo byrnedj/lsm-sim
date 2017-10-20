@@ -97,12 +97,112 @@ void mrc::sample(uint32_t kid)
 long long mrc::getN()
 {
     double N = AET_tott+1.0*AET_tott/
-                (AET_n-AET_m)*AET_m;
+                (AET_n-(AET_node_cnt*STEP))*(AET_node_cnt*STEP);
     return N;
 }
 
+
+void mrc::balance(long long *app_idx, double *app_mrc, 
+                  long long app_actual, long long app_upper,
+                  long long app_reserved, 
+                  long long *other_idx, double *other_mrc,
+                  long long other_actual, long long other_upper,
+                  long long other_reserved,
+                  long long *app_m, long long *other_m,
+                  double *m1, double *m2)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int l = 0;
+    double min1 = 2;
+    double min2 = 2;
+    
+    long long app_min1 = -1;
+    long long other_min1 = -1;
+    
+    long long app_min2 = -1;
+    long long other_min2 = -1;
+
+
+    while (app_idx[i] != app_actual ) i++;
+    while (other_idx[j] != other_actual) j++;
+
+    k = i;
+    l = j;
+
+    //print out rebalancing info
+    //std::cerr << "upper "  << "app " << app_upper <<  "\n";
+    //std::cerr << "actual " << "app " << app_idx[i] <<  "\n";
+    //std::cerr << "actual " << "other " << other_idx[j] <<  "\n";
+    //std::cerr << "lower "  << "other " << other_reserved <<  "\n";
+
+
+
+    while ( app_idx[i] < app_upper  &&
+            other_idx[j] > other_reserved )
+    {
+        double t = (app_mrc[i] + other_mrc[j])/2;
+        //std::cerr << "mr app[" << i*PGAP << "]: " << app_mrc[i] << "\n";
+        //std::cerr << "mr other[" << j*PGAP << "]: " << other_mrc[j] << "\n";
+        //std::cerr << "mr avg: " << t << "\n";
+        if (t < min1)
+        {
+            min1 = t;
+            app_min1 = app_idx[i];
+            other_min1 = other_idx[j];
+        }
+        i++;
+        j--;
+    }
+
+    //std::cerr << "second direction" << "\n";
+    
+    while ( other_idx[l] < other_upper  &&
+            app_idx[k] > app_reserved )
+    {
+        double t = (app_mrc[k] + other_mrc[l])/2;
+        //std::cerr << "mr app[" << k*PGAP << "]: " << app_mrc[k] << "\n";
+        //std::cerr << "mr other[" << l*PGAP << "]: " << other_mrc[l] << "\n";
+        //std::cerr << "mr avg: " << t << "\n";
+        if (t < min2)
+        {
+            min2 = t;
+            app_min2 = app_idx[k];
+            other_min2 = other_idx[l];
+        }
+        k--;
+        l++;
+    }
+
+    std::cerr << "app min1 " << app_min1 << "\n";
+    std::cerr << "other min1 " << other_min1 << "\n";
+    std::cerr << "min1 " << min1 << "\n";
+    
+    std::cerr << "app min2 " << app_min2 << "\n";
+    std::cerr << "other min2 " << other_min2 << "\n";
+    std::cerr << "min2 " << min2 << "\n";
+
+    if (min1 < min2)
+    {
+        *app_m = app_min1;
+        *other_m = other_min1;
+    }
+    else
+    {
+        *app_m = app_min2;
+        *other_m = other_min2;
+    }
+    *m1 = min1;
+    *m2 = min2;
+
+}
+
+
+//ADD N!
 long long mrc::solve(long long* cache_size_index, 
-                      double* miss_rate)
+                      double* miss_rate,
+                      long long *app_max)
 {
 
     //get number of cold misses
@@ -117,14 +217,10 @@ long long mrc::solve(long long* cache_size_index,
     //N should be total references including cold misses
     double N = AET_tott+1.0*AET_tott/
         (AET_n-AET_m)*AET_m;
+
     
-    cache_size_index = (long long*)malloc(
-                                     sizeof(long long)*(int)N);
-    miss_rate = (double*)malloc(sizeof(double)*(int)N);
-   
     double cmiss_rate = 2;
     long long cache_size = 0;
-
 
     long long step = 1; 
     int dom = 0;
@@ -164,34 +260,11 @@ long long mrc::solve(long long* cache_size_index,
             cache_size_index[c_index] = cache_size;
             miss_rate[c_index] = cmiss_rate;
             c_index++;
-            //if ((c/10000) >= (total_keys/10000) )
-            //{
-            //    //if (log == 1)
-            //    //    printf("AET cache size: %lld, 
-            //    //            AET miss rate: %.4f\n"
-            //    //            c,cmiss_rate);
-            //    break;
-            //}
+            //std::cerr << cmiss_rate << "," << c <<  "\n";
         }
         c++;
     }
-    
-    ////look for smaller cache size within miss-rate 
-    //threshold
-    //for (int i = 0; i < c_index; i++)
-    //{
-    //    if ( ((miss_rate[i] - cmiss_rate) <= threshold) )
-    //    {
-    //        cache_size = cache_size_index[i];
-    //        break;
-    //    }
-    //    //else if (last == 1)
-    //    //{
-    //    //    cache_size = cache_size_index[i];
-    //    //}
-    //}
-
-
-    //return cache_size;
+   
+    *app_max = cache_size_index[c_index-1];
     return 1;
 }

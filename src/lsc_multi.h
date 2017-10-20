@@ -146,11 +146,11 @@ class lsc_multi : public policy {
           //std::cout << "a: " << accesses << "\n";
           //std::cout << "w: " << w_accesses << "\n";
           //std::cout << "a-w: " << accesses-w_accesses << "\n";
-          if ( (accesses - w_accesses) >= 100000 )
+          if ( (w_accesses) >= 500000 )
           {
-                w_rate = double(hits-w_hits) / (accesses-w_accesses); 
-                w_accesses = accesses;
-                w_hits = hits;
+                w_rate = double(w_hits) / (w_accesses); 
+                w_accesses = 0;
+                w_hits = 0;
           }
 
           std::cout << int64_t(time) << " "
@@ -187,12 +187,13 @@ class lsc_multi : public policy {
         const size_t min_mem;
         const size_t steal_size;
 
-        size_t credit_bytes;
+        ssize_t credit_bytes;
 
         size_t bytes_in_use;
         size_t live_items;
 
         size_t accesses;
+        size_t lastmrc;
         size_t hits;
         size_t w_accesses;
         size_t w_hits;

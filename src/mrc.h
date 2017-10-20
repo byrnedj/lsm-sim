@@ -14,14 +14,15 @@
  * Constants in AET
  */
 
-#define PGAP 10000 //mrc output step
+#define PGAP 1000 //mrc output step
 #define MAXL 100000+3 //number of bins in  reuse time histogram
 #define MAXH 1000000 //size of hash table
 #define domain 256 //reuse time histogram compression factor
-#define STEP 10000 // sampling rate
+#define STEP 100 // sampling rate
 #define MAX_TENANTS 10 //max number of MRCs to create
                         //MAX_TENANTS+1 is the combined MRC
 
+#define OSIZE 200 //object size
 
 class mrc {
     
@@ -31,7 +32,18 @@ class mrc {
 
         void sample(uint32_t key);
         long long getN();
-        long long solve(long long *c_size_idx, double* miss_rate);
+        long long solve(long long *c_size_idx, 
+                        double* miss_rate,
+                        long long *max);
+        
+        void balance(long long *app_idx, double *app_mrc, 
+                     long long app_actual, long long app_upper,
+                     long long app_reserved, 
+                     long long *other_idx, double *other_mrc,
+                     long long other_actual, long long other_upper,
+                     long long other_reserved,
+                     long long *app_m, long long *other_m,
+                     double *m1, double *m2);
     private:
         long long AET_domain_value_to_index(long long value);
         long long AET_domain_index_to_value(long long index);

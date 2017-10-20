@@ -10,14 +10,14 @@ source scripts/syn-app-sizes
   -p multi \
   -E normal \
   -c 100 \
-  -N 10 \
+  -N 50 \
   -s $total_size \
   -S $((1024 * 1024)) \
   -Y \
   -v \
   -w 1 \
   -R \
-  -f ./data/syn.sim \
+  -f /tmp/syn.2.sim \
       2> multi.normal.err \
       > multi.normal.out
 
