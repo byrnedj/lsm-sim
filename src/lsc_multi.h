@@ -132,6 +132,8 @@ class lsc_multi : public policy {
                     << "hit_rate " //avg hit rate
                     << "w_hit_rate " //get the window hit rate
                     << "live_items " //number of objects currently in cache
+                    << "misses "
+                    << "miss_rate "
                     << std::endl;
         }
 
@@ -174,6 +176,8 @@ class lsc_multi : public policy {
                     << double(hits) / accesses << " "
                     << w_rate << " "
                     << live_items << " "
+                    << misses << " "
+                    << double(misses)/accesses << " "
                     << std::endl;
         }
 
@@ -195,6 +199,7 @@ class lsc_multi : public policy {
         size_t accesses;
         size_t lastmrc;
         size_t hits;
+        size_t misses;
         size_t w_accesses;
         size_t w_hits;
         size_t shadow_q_hits;

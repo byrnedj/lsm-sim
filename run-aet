@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# APP 1 is ETC
+# APP 2 is PSA
+# info is determined from the following calculation
+# INFO FOR SYN.SIM, 200.sim has all objects = 200 bytes
+#==> etc.size <==
+#APP1
+#avg obj: 194
+#median obj: 39
+#4M OBJ = 0.46 miss rate
+#bytes = 156000000
+#
+#==> psa.size <==
+#APP2
+#avg obj: 328
+#median obj: 167
+#4M OBJ = 0.09 miss rate
+#bytes = 668000000
+#
+#
+
+OSIZE=200
+declare -A syn_app_size
+syn_app_size[1]=$((4000000*OSIZE))
+syn_app_size[2]=$((4000000*OSIZE))
+
+total_size=0
+for app in $apps; do
+  bytes=${syn_app_size[$app]}
+  total_size=$(($total_size + $bytes))
+done
+
+#make a multiple of 1024
+total_size=$((total_size / (1024*1024)))
+total_size=$((total_size * (1024*1024)))
+
+# -c is number of candidate segments to clean
+# let each segment be 1M, then to reproduce
+# default (clean when we have 1% remain)
+# in memshare paper we must do the
+# following:
+#  c*1M/total_size = 0.01
+# so c = 0.01*total_size / 1M
+
+./lsm-sim \
+  -a 1,2 \
+  -x syn_app_size[1] \
+  -y syn_app_size[2] \
+  -p multi \
+  -E normal \
+  -c 16 \
+  -N 50 \
+  -s $total_size \
+  -S $((1024 * 1024)) \
+  -Y \
+  -v \
+  -w 1 \
+  -R \
+  -f /tmp/a \
+      2> output/aet.err \
+      > output/aet.out
+

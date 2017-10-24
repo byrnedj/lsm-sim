@@ -6,20 +6,21 @@ source scripts/syn-app-sizes
 
 #-E static \
 ./lsm-sim \
-  -a 1,2 \
+  -a 1 \
+  -x 771731200 \
   -p multi \
   -E normal \
-  -c 100 \
+  -c 8 \
   -N 50 \
-  -s $total_size \
+  -s 771731200 \
   -S $((1024 * 1024)) \
   -Y \
   -v \
   -w 1 \
   -R \
-  -f /tmp/syn.2.sim \
-      2> multi.normal.err \
-      > multi.normal.out
+  -f /tmp/200.sim \
+      2> multi.200.etc.normal.err \
+      > multi.200.etc.normal.out
 
 #Rscript process_output.R
 

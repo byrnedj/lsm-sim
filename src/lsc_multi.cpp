@@ -23,6 +23,7 @@ lsc_multi::application::application(
   , accesses{}
   , lastmrc{}
   , hits{}
+  , misses{}
   , w_accesses{}
   , w_hits{}
   , shadow_q_hits{}
@@ -212,15 +213,18 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
       // would have had to have happened to shootdown the old stale
       // sized value. This is to be fair to other policies like gLRU
       // that don't detect these size changes.
-      if (!warmup) {
-        ++stat.hits;
-        ++app.w_hits;
-        ++app.hits;
-      }
+      //if (!warmup) {
+      //  ++stat.hits;
+      //  ++app.w_hits;
+      //  ++app.hits;
+      //}
     }
   } else {
     // If miss in hash table, then count a miss. This get will count
     // as a second access that hits below.
+    if (!warmup) {
+      ++app.misses;
+    }
   }
 
   if (head->filled_bytes + r->size() > stat.segment_size)
@@ -1031,7 +1035,9 @@ void lsc_multi::clean()
       size_t discovered_in_use = pr.second;
       auto appit = apps.find(appid);
       assert(appit != apps.end());
-      assert(discovered_in_use == appit->second.bytes_in_use);
+      std::cerr << "discovered in use: " << discovered_in_use << " app "
+                << appid << " bytes in use: " << appit->second.bytes_in_use << std::endl;
+      //assert(discovered_in_use == appit->second.bytes_in_use);
     }
   }
 
@@ -1166,11 +1172,15 @@ void lsc_multi::clean()
     selected_app->survivor_bytes += item->req.size();
   }
 
+
+  //size_t test_kid;
   // Clear items that are going to get thrown on the floor from the hashtable.
   // And push them into the app's shadow queue.
   for (auto& p : apps) {
     application& app = p.second;
     while (app.cleaning_it != app.cleaning_q.end()) {
+    
+        
       // Need to do a double check here. The item we are evicting may
       // still exist in the hash table but it may point to a newer version
       // of this object. In that case, skip the erase from the hash table.
@@ -1179,9 +1189,13 @@ void lsc_multi::clean()
         item* from_list = *app.cleaning_it;
         item* from_hash = &*hash_it->second;
 
+        //DJB: CHECK IF THIS IS TRUE? IT IS.
         if (from_list == from_hash) {
           app.shadow_q.remove(&from_list->req);
           app.shadow_q.try_add_tail(&from_list->req);
+          //test_kid = (*app.cleaning_it)->req.kid;
+          //std::cerr << "evicted " << test_kid << "\n";
+
           map.erase((*app.cleaning_it)->req.kid);
           ++stat.evicted_items;
           stat.evicted_bytes += from_list->req.size();
@@ -1195,6 +1209,10 @@ void lsc_multi::clean()
     assert(app.cleaning_it == app.cleaning_q.end());
     app.cleaning_q.clear();
   }
+
+  //std::cerr << "test kid evicted " << test_kid << "\n";
+
+  //std::cerr << "look up test kid evicted " << map[test_kid]->req.kid << "\n";
 
   if (debug) {
     // Sanity check - none of the items left in the hash table should point

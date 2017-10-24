@@ -8,6 +8,7 @@ options(scipen=-1)
 
 
 plots <- c("aet.out","cliffhanger.out")
+#plots <- c("etc.out")
 
 for (i in plots ) 
 {
