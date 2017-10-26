@@ -104,30 +104,51 @@ for (i in plots )
         {
             lastaccess = dflist[[n]][nrow(dflist[[n]]),1]
             lastvalue = dflist[[n]][nrow(dflist[[n]]),2]
-            last.df[i,] = list(accesses=lastaccess,value=lastvalue,lbl = paste(as.character(round(lastvalue,3)),n) )
-            lbl.list[[n]] = paste(as.character(round(lastvalue,3)),n)
+            if (lastvalue < 1) 
+            {
+                last.df[i,] = list(accesses=lastaccess,value=lastvalue,lbl = paste(as.character(round(lastvalue,3)),n)) 
+                lbl.list[[n]] = paste(as.character(round(lastvalue,3)),n)
+            }
+            else
+            {
+                options(scipen=999)
+                last.df[i,] = list(accesses=lastaccess,value=lastvalue,lbl = paste(as.character(round(lastvalue,-3)),n)) 
+                lbl.list[[n]] = paste(as.character(round(lastvalue,-3)),n)
+                options(scipen=-1)
+            }
             i = i + 1
         }
         return (list(data=last.df,lbl=lbl.list))
     }
 
-    hr_vs_allocated <- function(ahrc_df,atmem_df,prefix,dflist)
+    hr_vs_allocated <- function(ahrc_df,atmem_df,prefix,dflist, odflist, hrt)
     {
        
-       title <- paste(prefix,"Hit Rate and Allocated Objects vs. Accesses",sep="")
+       title <- paste(prefix, hrt, " Hit Rate and Allocated Objects vs. Accesses",sep="")
        
        last = get_last_values(dflist)
        last.df = last[["data"]]
        labels = last[["lbl"]]
        
+       lasto = get_last_values(odflist)
+       lasto.df = lasto[["data"]]
+       labelso = lasto[["lbl"]]
+        
+       
        p <- ggplot() +
             geom_line(data=ahrc_df, aes(x=accesses, y=value, colour=L1) ) +
-            geom_line(data=atmem_df, aes(x=accesses, y=value/10000000, colour=L1)) +
+            geom_line(data=atmem_df, aes(x=accesses, y=value/10000000, colour=L1), linetype = "dashed") +
             theme_bw() +
             theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
             expand_limits(y=c(0,1)) +
-            scale_y_continuous(sec.axis = sec_axis(~.*10000000, name = "Allocated Objects")) +
+            scale_y_continuous(sec.axis = sec_axis(~.*10000000, name = "Allocated Objects", 
+                                                   breaks = round(seq(0,
+                                                                      10000000, 
+                                                                      by = 1000000),1)), 
+                               breaks = round(seq(0,1, by = 0.1),1)) +
+            scale_x_continuous(breaks = round(seq(0,50000000, by = 10000000),1)) +
             geom_text(data=last.df,aes(x=accesses, y=value, label=lbl),hjust=1,vjust=0) +
+            geom_text(data=lasto.df,aes(x=accesses, y=value/10000000, label=lbl),hjust=1,vjust=0) +
             scale_colour_manual(values = c("etc" = "#F8766D", "psa" = "#619CFF", "avg" = "#00BA38") ) +
             labs(title = title, 
                  y = "Hit Rate", 
@@ -136,22 +157,33 @@ for (i in plots )
         return(p)
     }
     
-    hr_vs_items <- function(ahrc_df,aitem_df,prefix,dflist)
+    hr_vs_items <- function(ahrc_df,aitem_df,prefix,dflist,odflist,hrt)
     {
-       title <- paste(prefix,"Hit Rate and Live Objects vs. Accesses",sep="")
+       title <- paste(prefix, hrt, " Hit Rate and Live Objects vs. Accesses",sep="")
 
        last = get_last_values(dflist)
        last.df = last[["data"]]
        labels = last[["lbl"]]
+       
+       lasto = get_last_values(odflist)
+       lasto.df = lasto[["data"]]
+       labelso = lasto[["lbl"]]
+       
       
        p <- ggplot() +
             geom_line(data=ahrc_df, aes(x=accesses, y=value, colour=L1) ) +
-            geom_line(data=aitem_df, aes(x=accesses, y=value/10000000, colour=L1)) +
+            geom_line(data=aitem_df, aes(x=accesses, y=value/10000000, colour=L1), linetype = "dashed") +
             theme_bw() +
             theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
             expand_limits(y=c(0,1)) +
-            scale_y_continuous(sec.axis = sec_axis(~.*10000000, name = "Live Objects")) +
+            scale_y_continuous(sec.axis = sec_axis(~.*10000000, name = "Live Objects",
+                                                   breaks = round(seq(0,
+                                                                      10000000, 
+                                                                      by = 1000000),1)), 
+                               breaks = round(seq(0,1, by = 0.1),1)) +
+            scale_x_continuous(breaks = round(seq(0,50000000, by = 10000000),1)) +
             geom_text(data=last.df,aes(x=accesses, y=value, label=lbl),hjust=1,vjust=0) +
+            geom_text(data=lasto.df,aes(x=accesses, y=value/10000000, label=lbl),hjust=1,vjust=0) +
             scale_colour_manual(values = c("etc" = "#F8766D", "psa" = "#619CFF", "avg" = "#00BA38") ) +
             labs(title = title, 
                  y = "Hit Rate", 
@@ -162,13 +194,13 @@ for (i in plots )
 
 
     #inst hr
-    plot(hr_vs_allocated(hrc_df,tmem_df,prefix,ihrlist))
-    plot(hr_vs_items(hrc_df,item_df,prefix,ihrlist))
+    plot(hr_vs_allocated(hrc_df,tmem_df,prefix,ihrlist,tmemlist,"Current"))
+    plot(hr_vs_items(hrc_df,item_df,prefix,ihrlist,itemslist,"Current"))
 
     #running avg hr
     hrc_df = melt(ahrlist, id="accesses")
-    plot(hr_vs_allocated(hrc_df,tmem_df,prefix,ahrlist))
-    plot(hr_vs_items(hrc_df,item_df,prefix,ahrlist))
+    plot(hr_vs_allocated(hrc_df,tmem_df,prefix,ahrlist,tmemlist,"Average"))
+    plot(hr_vs_items(hrc_df,item_df,prefix,ahrlist,itemslist,"Average"))
 
     #shadow queue 
     title <- paste(prefix,"Shadow Queue Hits vs. Accesses",sep="")

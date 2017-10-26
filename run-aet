@@ -20,6 +20,8 @@
 #
 #
 
+
+apps="1 2"
 OSIZE=200
 declare -A syn_app_size
 syn_app_size[1]=$((4000000*OSIZE))
@@ -27,13 +29,16 @@ syn_app_size[2]=$((4000000*OSIZE))
 
 total_size=0
 for app in $apps; do
+  echo $app
   bytes=${syn_app_size[$app]}
   total_size=$(($total_size + $bytes))
 done
 
+
 #make a multiple of 1024
 total_size=$((total_size / (1024*1024)))
 total_size=$((total_size * (1024*1024)))
+
 
 # -c is number of candidate segments to clean
 # let each segment be 1M, then to reproduce
@@ -43,10 +48,12 @@ total_size=$((total_size * (1024*1024)))
 #  c*1M/total_size = 0.01
 # so c = 0.01*total_size / 1M
 
+app1_size=${syn_app_size[1]}
+app2_size=${syn_app_size[2]}
 ./lsm-sim \
   -a 1,2 \
-  -x syn_app_size[1] \
-  -y syn_app_size[2] \
+  -x $app1_size \
+  -y $app2_size \
   -p multi \
   -E normal \
   -c 16 \
