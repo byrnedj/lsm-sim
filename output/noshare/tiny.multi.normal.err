@@ -1,0 +1,23 @@
+WARNING: global_mem not a multiple of segment_size
+global_mem 300000000 segment_size 1048576 segment_count 286
+286 > 2*20
+performing trace analysis on apps 1,2,
+with steal weights of 
+policy multi
+using trace file ./data/tiny.sim
+rounding off
+utilization rate 1
+start counting hits at t = 3e+07
+request limit 0
+global mem 300000000
+use tax 0
+tax rate 0.05
+cleaning width 20
+Progress: 6569372 Rate: 5.132129514 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 13153947 Rate: 4.900234713 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 19738661 Rate: 4.629366963 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 26312444 Rate: 4.84758668 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 32870417 Rate: 0.4291355753 MB/s Hit Rate: 18.76231839% Evicted Items: 106286 Evicted Bytes: 35456225 Utilization: 0
+Progress: 39443738 Rate: 0.3360704866 MB/s Hit Rate: 19.11865396% Evicted Items: 271146 Evicted Bytes: 90491320 Utilization: 0
+Progress: 46008679 Rate: 0.3107834019 MB/s Hit Rate: 19.35914009% Evicted Items: 439313 Evicted Bytes: 146694112 Utilization: 0
+total execution time: 68.105

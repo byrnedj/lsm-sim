@@ -1,0 +1,1196 @@
+global_mem 1599078400 segment_size 1048576 segment_count 1525
+1525 > 2*100
+performing trace analysis on apps 1,2,
+with steal weights of 
+policy multi
+using trace file /tmp/200.sim
+rounding off
+utilization rate 1
+start counting hits at t = 2e+07
+request limit 0
+global mem 1599078400
+use tax 0
+tax rate 0.05
+cleaning width 100
+Progress: 262145 Rate: 5.147120108 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 524289 Rate: 4.93135975 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 786433 Rate: 4.773192267 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 1048577 Rate: 5.001075102 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 1310721 Rate: 4.305106741 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 1572865 Rate: 5.087365359 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 1835009 Rate: 5.060668214 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 2097153 Rate: 5.0343528 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 2359297 Rate: 5.0203679 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 2621441 Rate: 4.994266628 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 2883585 Rate: 3.70425797 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 3145729 Rate: 5.158648544 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 3407873 Rate: 5.153496365 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 3670017 Rate: 5.154495855 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 3932161 Rate: 5.156229327 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 4194305 Rate: 5.157252688 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 4456449 Rate: 5.158397555 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 4718593 Rate: 5.154006047 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 4980737 Rate: 5.160699113 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 5242881 Rate: 5.165079149 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 5505025 Rate: 5.164345718 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 5767169 Rate: 5.164531329 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 6029313 Rate: 5.161995818 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 6291457 Rate: 5.144903881 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 6553601 Rate: 5.168026887 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 6815745 Rate: 5.171855019 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 7077889 Rate: 5.166760213 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 7340033 Rate: 5.170195026 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 7602177 Rate: 5.17100666 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 7864321 Rate: 5.172194207 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 8126465 Rate: 5.170153678 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 8388609 Rate: 5.175787577 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 8650753 Rate: 5.175810066 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 8912897 Rate: 3.012173883 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 9175041 Rate: 5.282816199 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 9437185 Rate: 5.271933629 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 9699329 Rate: 5.238937816 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 9961473 Rate: 5.299302073 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 10223617 Rate: 5.356160007 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 10485761 Rate: 5.361804793 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 10747905 Rate: 5.36477858 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 11010049 Rate: 5.367233971 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 11272193 Rate: 5.370458338 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 11534337 Rate: 5.365825635 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 11796481 Rate: 5.3693444 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 12058625 Rate: 5.370623073 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 12320769 Rate: 5.372759016 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 12582913 Rate: 5.373128774 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 12845057 Rate: 5.385075093 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 13107201 Rate: 5.382453281 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 13369345 Rate: 5.353095945 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 13631489 Rate: 5.377420071 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 13893633 Rate: 5.387113583 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 14155777 Rate: 5.38620974 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 14417921 Rate: 5.390550587 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 14680065 Rate: 5.392306216 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 14942209 Rate: 5.396896712 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 15204353 Rate: 5.39519087 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 15466497 Rate: 5.399308351 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 15728641 Rate: 5.397133666 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 15990785 Rate: 5.400869065 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 16252929 Rate: 5.39965643 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 16515073 Rate: 5.401239804 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 16777217 Rate: 5.39858851 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 17039361 Rate: 5.407884838 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 17301505 Rate: 5.407235024 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 17563649 Rate: 5.406549904 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 17825793 Rate: 5.403369255 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 18087937 Rate: 5.411500037 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 18350081 Rate: 5.367987774 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 18612225 Rate: 5.407964795 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 18874369 Rate: 5.406890737 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 19136513 Rate: 5.416350244 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 19398657 Rate: 5.409796947 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 19660801 Rate: 5.414827615 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 19922945 Rate: 5.422996693 MB/s Hit Rate: -nan% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 20185089 Rate: 5.267402192 MB/s Hit Rate: 91.6915646% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 20447233 Rate: 5.215239415 MB/s Hit Rate: 91.84183636% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 20709377 Rate: 5.223419826 MB/s Hit Rate: 91.9357408% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 20971521 Rate: 5.21778291 MB/s Hit Rate: 92.03990444% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 21233665 Rate: 5.215972886 MB/s Hit Rate: 92.13060272% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 21495809 Rate: 5.220701397 MB/s Hit Rate: 92.22139992% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 21757953 Rate: 5.219588066 MB/s Hit Rate: 92.29729122% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5245000
+other min1 2755000
+min1 0.3955271248
+app min2 4000000
+other min2 4000000
+min2 0.4221329015
+app 1, other app 2
+app size4000000, other app size 4000000
+1 steal 1245000 from 2
+1 stole from 2
+app min1 2755000
+other min1 5245000
+min1 0.3955161732
+app min2 2755000
+other min2 5245000
+min2 0.3955161732
+app 2, other app 1
+app size2755000, other app size 5245000
+2 steal 0 from 1
+2 stole from 1
+Progress: 22020097 Rate: 4.201529049 MB/s Hit Rate: 92.38071241% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 22282241 Rate: 5.047533001 MB/s Hit Rate: 92.46578254% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 22544385 Rate: 5.201661841 MB/s Hit Rate: 92.54271661% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 22806529 Rate: 5.221732976 MB/s Hit Rate: 92.62252412% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 23068673 Rate: 5.230560163 MB/s Hit Rate: 92.7051856% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 23330817 Rate: 5.226173644 MB/s Hit Rate: 92.77693731% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 23592961 Rate: 5.228289802 MB/s Hit Rate: 92.84598413% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 23855105 Rate: 5.222138828 MB/s Hit Rate: 92.92506949% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5245000
+other min1 2755000
+min1 0.3796298257
+app min2 5195000
+other min2 2805000
+min2 0.3794192776
+app 1, other app 2
+app size5245000, other app size 2755000
+min2 < min1
+2 steal 50000 from 1
+2 stole from 1
+app min1 2805000
+other min1 5195000
+min1 0.3794124769
+app min2 2805000
+other min2 5195000
+min2 0.3794124769
+app 2, other app 1
+app size2805000, other app size 5195000
+2 steal 0 from 1
+2 stole from 1
+Progress: 24117249 Rate: 4.125006578 MB/s Hit Rate: 92.99559002% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 24379393 Rate: 5.059593068 MB/s Hit Rate: 93.06853712% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 24641537 Rate: 5.21658824 MB/s Hit Rate: 93.13720864% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 24903681 Rate: 5.225588376 MB/s Hit Rate: 93.20477821% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 25165825 Rate: 5.232134226 MB/s Hit Rate: 93.27584655% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 25427969 Rate: 5.230870758 MB/s Hit Rate: 93.34390082% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 25690113 Rate: 5.23260222 MB/s Hit Rate: 93.41215192% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 25952257 Rate: 5.233236311 MB/s Hit Rate: 93.47686096% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5205000
+other min1 2795000
+min1 0.3658477938
+app min2 5177000
+other min2 2823000
+min2 0.3658250913
+app 1, other app 2
+app size5195000, other app size 2805000
+min2 < min1
+2 steal 18000 from 1
+2 stole from 1
+app min1 2823000
+other min1 5177000
+min1 0.3658173958
+app min2 2823000
+other min2 5177000
+min2 0.3658173958
+app 2, other app 1
+app size2823000, other app size 5177000
+2 steal 0 from 1
+2 stole from 1
+Progress: 26214401 Rate: 4.049994703 MB/s Hit Rate: 93.54233819% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 26476545 Rate: 5.058957935 MB/s Hit Rate: 93.60770287% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 26738689 Rate: 5.19733659 MB/s Hit Rate: 93.66961437% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 27000833 Rate: 5.229322239 MB/s Hit Rate: 93.73020325% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 27262977 Rate: 5.191304058 MB/s Hit Rate: 93.78941996% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 27525121 Rate: 5.231664892 MB/s Hit Rate: 93.85037131% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 27787265 Rate: 5.226842226 MB/s Hit Rate: 93.90771985% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5177000
+other min1 2823000
+min1 0.3545414434
+app min2 5173000
+other min2 2827000
+min2 0.3545303541
+app 1, other app 2
+app size5177000, other app size 2823000
+min2 < min1
+2 steal 4000 from 1
+2 stole from 1
+app min1 2827000
+other min1 5173000
+min1 0.3545311622
+app min2 2827000
+other min2 5173000
+min2 0.3545311622
+app 2, other app 1
+app size2827000, other app size 5173000
+2 steal 0 from 1
+2 stole from 1
+Progress: 28049409 Rate: 4.071188504 MB/s Hit Rate: 93.9639171% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 28311553 Rate: 5.074228766 MB/s Hit Rate: 94.01857872% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 28573697 Rate: 5.057361722 MB/s Hit Rate: 94.0735601% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 28835841 Rate: 5.180318065 MB/s Hit Rate: 94.12828954% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 29097985 Rate: 5.229781904 MB/s Hit Rate: 94.18326146% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 29360129 Rate: 5.241503071 MB/s Hit Rate: 94.23616918% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 29622273 Rate: 5.231104627 MB/s Hit Rate: 94.28805439% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 29884417 Rate: 5.232989577 MB/s Hit Rate: 94.34105218% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5184000
+other min1 2816000
+min1 0.3438347684
+app min2 5173000
+other min2 2827000
+min2 0.3438547573
+app 1, other app 2
+app size5173000, other app size 2827000
+1 steal 11000 from 2
+1 stole from 2
+app min1 2816000
+other min1 5184000
+min1 0.3438270387
+app min2 2816000
+other min2 5184000
+min2 0.3438270387
+app 2, other app 1
+app size2816000, other app size 5184000
+2 steal 0 from 1
+2 stole from 1
+Progress: 30146561 Rate: 3.995122001 MB/s Hit Rate: 94.39338117% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 30408705 Rate: 5.079517639 MB/s Hit Rate: 94.44225771% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 30670849 Rate: 5.069000416 MB/s Hit Rate: 94.49211586% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 30932993 Rate: 5.132655035 MB/s Hit Rate: 94.5410008% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 31195137 Rate: 5.243553472 MB/s Hit Rate: 94.59084779% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 31457281 Rate: 5.234431774 MB/s Hit Rate: 94.64015066% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 31719425 Rate: 5.231342626 MB/s Hit Rate: 94.68705163% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 31981569 Rate: 5.229764326 MB/s Hit Rate: 94.73330246% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5195000
+other min1 2805000
+min1 0.3350712996
+app min2 5170000
+other min2 2830000
+min2 0.3350202979
+app 1, other app 2
+app size5184000, other app size 2816000
+min2 < min1
+2 steal 14000 from 1
+2 stole from 1
+app min1 2830000
+other min1 5170000
+min1 0.3350271078
+app min2 2830000
+other min2 5170000
+min2 0.3350271078
+app 2, other app 1
+app size2830000, other app size 5170000
+2 steal 0 from 1
+2 stole from 1
+Progress: 32243713 Rate: 3.924702307 MB/s Hit Rate: 94.77890408% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 32505857 Rate: 5.087091477 MB/s Hit Rate: 94.82330559% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 32768001 Rate: 5.074268963 MB/s Hit Rate: 94.86820999% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 33030145 Rate: 5.074451185 MB/s Hit Rate: 94.91168364% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 33292289 Rate: 5.231581592 MB/s Hit Rate: 94.95657971% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 33554433 Rate: 5.247707645 MB/s Hit Rate: 95.00098602% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 33816577 Rate: 5.201822575 MB/s Hit Rate: 95.04404021% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5175000
+other min1 2825000
+min1 0.3269931539
+app min2 5170000
+other min2 2830000
+min2 0.3270021837
+app 1, other app 2
+app size5170000, other app size 2830000
+1 steal 5000 from 2
+1 stole from 2
+app min1 2825000
+other min1 5175000
+min1 0.3269862316
+app min2 2825000
+other min2 5175000
+min2 0.3269862316
+app 2, other app 1
+app size2825000, other app size 5175000
+2 steal 0 from 1
+2 stole from 1
+Progress: 34078721 Rate: 3.96179882 MB/s Hit Rate: 95.08742307% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 34340865 Rate: 5.060620878 MB/s Hit Rate: 95.12984049% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 34603009 Rate: 5.085161785 MB/s Hit Rate: 95.17029675% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 34865153 Rate: 5.071154861 MB/s Hit Rate: 95.21093392% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 35127297 Rate: 5.069223084 MB/s Hit Rate: 95.25192769% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 35389441 Rate: 5.102979561 MB/s Hit Rate: 95.29134294% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 35651585 Rate: 5.244961715 MB/s Hit Rate: 95.33086905% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 35913729 Rate: 5.249179137 MB/s Hit Rate: 95.36967106% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5246000
+other min1 2754000
+min1 0.3196216811
+app min2 5152000
+other min2 2848000
+min2 0.319697121
+app 1, other app 2
+app size5175000, other app size 2825000
+1 steal 71000 from 2
+1 stole from 2
+app min1 2754000
+other min1 5246000
+min1 0.3196045799
+app min2 2754000
+other min2 5246000
+min2 0.3196045799
+app 2, other app 1
+app size2754000, other app size 5246000
+2 steal 0 from 1
+2 stole from 1
+Progress: 36175873 Rate: 3.893696007 MB/s Hit Rate: 95.40790163% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 36438017 Rate: 5.070216524 MB/s Hit Rate: 95.44525961% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 36700161 Rate: 5.091086115 MB/s Hit Rate: 95.4829178% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 36962305 Rate: 5.080194782 MB/s Hit Rate: 95.51922336% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 37224449 Rate: 5.036913651 MB/s Hit Rate: 95.55478378% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 37486593 Rate: 5.079233993 MB/s Hit Rate: 95.5906791% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 37748737 Rate: 5.130203864 MB/s Hit Rate: 95.62635922% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5258000
+other min1 2742000
+min1 0.3128995112
+app min2 5223000
+other min2 2777000
+min2 0.3128076164
+app 1, other app 2
+app size5246000, other app size 2754000
+min2 < min1
+2 steal 23000 from 1
+2 stole from 1
+app min1 2777000
+other min1 5223000
+min1 0.3127856784
+app min2 2777000
+other min2 5223000
+min2 0.3127856784
+app 2, other app 1
+app size2777000, other app size 5223000
+2 steal 0 from 1
+2 stole from 1
+Progress: 38010881 Rate: 3.928972198 MB/s Hit Rate: 95.66105067% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 38273025 Rate: 5.061000607 MB/s Hit Rate: 95.69601092% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 38535169 Rate: 5.059803999 MB/s Hit Rate: 95.73032757% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 38797313 Rate: 5.094916031 MB/s Hit Rate: 95.76443718% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 39059457 Rate: 5.073500804 MB/s Hit Rate: 95.79750882% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 39321601 Rate: 5.074418834 MB/s Hit Rate: 95.83018509% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 39583745 Rate: 5.074232671 MB/s Hit Rate: 95.86272697% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 39845889 Rate: 5.071562635 MB/s Hit Rate: 95.89427816% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5236000
+other min1 2764000
+min1 0.3055858615
+app min2 5202000
+other min2 2798000
+min2 0.3056132765
+app 1, other app 2
+app size5223000, other app size 2777000
+1 steal 13000 from 2
+1 stole from 2
+app min1 2764000
+other min1 5236000
+min1 0.3055840136
+app min2 2764000
+other min2 5236000
+min2 0.3055840136
+app 2, other app 1
+app size2764000, other app size 5236000
+2 steal 0 from 1
+2 stole from 1
+Progress: 40108033 Rate: 3.810198674 MB/s Hit Rate: 95.92604607% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 40370177 Rate: 5.09790275 MB/s Hit Rate: 95.95763454% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 40632321 Rate: 5.070215672 MB/s Hit Rate: 95.98839607% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 40894465 Rate: 5.073807854 MB/s Hit Rate: 96.01940993% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 41156609 Rate: 5.115989889 MB/s Hit Rate: 96.0496883% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 41418753 Rate: 5.083396849 MB/s Hit Rate: 96.07922086% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 41680897 Rate: 5.067587851 MB/s Hit Rate: 96.10916928% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 41943041 Rate: 5.074834491 MB/s Hit Rate: 96.13860722% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5248000
+other min1 2752000
+min1 0.3004262967
+app min2 5222000
+other min2 2778000
+min2 0.3004575599
+app 1, other app 2
+app size5236000, other app size 2764000
+1 steal 12000 from 2
+1 stole from 2
+app min1 2752000
+other min1 5248000
+min1 0.3004549256
+app min2 2752000
+other min2 5248000
+min2 0.3004549256
+app 2, other app 1
+app size2752000, other app size 5248000
+2 steal 0 from 1
+2 stole from 1
+Progress: 42205185 Rate: 3.774129275 MB/s Hit Rate: 96.16765183% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 42467329 Rate: 5.059214766 MB/s Hit Rate: 96.19579168% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 42729473 Rate: 5.046528263 MB/s Hit Rate: 96.22378398% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 42991617 Rate: 5.098759517 MB/s Hit Rate: 96.25169904% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 43253761 Rate: 5.059876675 MB/s Hit Rate: 96.27937175% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 43515905 Rate: 5.01159221 MB/s Hit Rate: 96.30701434% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 43778049 Rate: 5.05724708 MB/s Hit Rate: 96.33368575% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5260000
+other min1 2740000
+min1 0.2940000617
+app min2 5244000
+other min2 2756000
+min2 0.2940172985
+app 1, other app 2
+app size5248000, other app size 2752000
+1 steal 12000 from 2
+1 stole from 2
+app min1 2740000
+other min1 5260000
+min1 0.2939519293
+app min2 2740000
+other min2 5260000
+min2 0.2939519293
+app 2, other app 1
+app size2740000, other app size 5260000
+2 steal 0 from 1
+2 stole from 1
+Progress: 44040193 Rate: 3.779378508 MB/s Hit Rate: 96.36026633% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 44302337 Rate: 5.067853216 MB/s Hit Rate: 96.38629404% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 44564481 Rate: 5.071872482 MB/s Hit Rate: 96.41256821% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 44826625 Rate: 5.07206532 MB/s Hit Rate: 96.43833586% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 45088769 Rate: 5.102951546 MB/s Hit Rate: 96.46406326% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 45350913 Rate: 5.074046542 MB/s Hit Rate: 96.48903769% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 45613057 Rate: 5.065010747 MB/s Hit Rate: 96.51406702% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 45875201 Rate: 5.076067619 MB/s Hit Rate: 96.53865104% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5278000
+other min1 2722000
+min1 0.2890581022
+app min2 5258000
+other min2 2742000
+min2 0.2891287281
+app 1, other app 2
+app size5260000, other app size 2740000
+1 steal 18000 from 2
+1 stole from 2
+app min1 2722000
+other min1 5278000
+min1 0.2889965652
+app min2 2721000
+other min2 5279000
+min2 0.2889960479
+app 2, other app 1
+app size2722000, other app size 5278000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 46137345 Rate: 3.731362223 MB/s Hit Rate: 96.56265011% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 46399489 Rate: 5.075669889 MB/s Hit Rate: 96.5866612% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 46661633 Rate: 5.117955918 MB/s Hit Rate: 96.61024139% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 46923777 Rate: 5.017904821 MB/s Hit Rate: 96.63351468% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 47185921 Rate: 5.074706016 MB/s Hit Rate: 96.65644581% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 47448065 Rate: 5.056366891 MB/s Hit Rate: 96.67919396% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 47710209 Rate: 5.063679538 MB/s Hit Rate: 96.70177515% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 47972353 Rate: 5.129245365 MB/s Hit Rate: 96.72406894% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5280000
+other min1 2720000
+min1 0.2847848444
+app min2 5279000
+other min2 2721000
+min2 0.2847952283
+app 1, other app 2
+app size5279000, other app size 2721000
+1 steal 1000 from 2
+1 stole from 2
+app min1 2720000
+other min1 5280000
+min1 0.2848032985
+app min2 2720000
+other min2 5280000
+min2 0.2848032985
+app 2, other app 1
+app size2720000, other app size 5280000
+2 steal 0 from 1
+2 stole from 1
+Progress: 48234497 Rate: 3.711156953 MB/s Hit Rate: 96.74628877% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 48496641 Rate: 5.070321364 MB/s Hit Rate: 96.76846475% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 48758785 Rate: 5.074270319 MB/s Hit Rate: 96.7902886% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 49020929 Rate: 5.069573158 MB/s Hit Rate: 96.8117561% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 49283073 Rate: 5.07721027 MB/s Hit Rate: 96.83304754% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 49545217 Rate: 5.086390546 MB/s Hit Rate: 96.85372763% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 49807361 Rate: 5.141099916 MB/s Hit Rate: 96.87450358% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5289000
+other min1 2711000
+min1 0.2809757516
+app min2 5274000
+other min2 2726000
+min2 0.2810183759
+app 1, other app 2
+app size5280000, other app size 2720000
+1 steal 9000 from 2
+1 stole from 2
+app min1 2712000
+other min1 5288000
+min1 0.2809661841
+app min2 2706000
+other min2 5294000
+min2 0.2809663802
+app 2, other app 1
+app size2711000, other app size 5289000
+2 steal 1000 from 1
+2 stole from 1
+Progress: 50069505 Rate: 3.684888809 MB/s Hit Rate: 96.89515674% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 50331649 Rate: 5.077068332 MB/s Hit Rate: 96.91543312% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 50593793 Rate: 5.07247743 MB/s Hit Rate: 96.93539471% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 50855937 Rate: 5.081096141 MB/s Hit Rate: 96.95527315% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 51118081 Rate: 5.062727493 MB/s Hit Rate: 96.97499663% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 51380225 Rate: 5.068662587 MB/s Hit Rate: 96.99475386% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 51642369 Rate: 5.082108101 MB/s Hit Rate: 97.01396567% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 51904513 Rate: 5.14975576 MB/s Hit Rate: 97.03288999% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5309000
+other min1 2691000
+min1 0.2771076923
+app min2 5284000
+other min2 2716000
+min2 0.2771148694
+app 1, other app 2
+app size5288000, other app size 2712000
+1 steal 21000 from 2
+1 stole from 2
+app min1 2691000
+other min1 5309000
+min1 0.2771000354
+app min2 2691000
+other min2 5309000
+min2 0.2771000354
+app 2, other app 1
+app size2691000, other app size 5309000
+2 steal 0 from 1
+2 stole from 1
+Progress: 52166657 Rate: 3.663459777 MB/s Hit Rate: 97.05159911% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 52428801 Rate: 5.071290306 MB/s Hit Rate: 97.07034497% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 52690945 Rate: 5.082014641 MB/s Hit Rate: 97.08870453% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 52953089 Rate: 5.078779071 MB/s Hit Rate: 97.10705725% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 53215233 Rate: 5.02288096 MB/s Hit Rate: 97.12516844% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 53477377 Rate: 5.062110557 MB/s Hit Rate: 97.14309756% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 53739521 Rate: 5.053760302 MB/s Hit Rate: 97.16091701% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5312000
+other min1 2688000
+min1 0.2732557498
+app min2 5298000
+other min2 2702000
+min2 0.273275727
+app 1, other app 2
+app size5309000, other app size 2691000
+1 steal 3000 from 2
+1 stole from 2
+Progress: 54001665 Rate: 4.213813454 MB/s Hit Rate: 97.17852052% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 2688000
+other min1 5312000
+min1 0.2731621414
+app min2 2688000
+other min2 5312000
+min2 0.2731621414
+app 2, other app 1
+app size2688000, other app size 5312000
+2 steal 0 from 1
+2 stole from 1
+Progress: 54263809 Rate: 4.233963401 MB/s Hit Rate: 97.19574377% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 54525953 Rate: 5.116556042 MB/s Hit Rate: 97.21303565% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 54788097 Rate: 5.073655916 MB/s Hit Rate: 97.22975936% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 55050241 Rate: 5.073926758 MB/s Hit Rate: 97.24658955% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 55312385 Rate: 5.050541289 MB/s Hit Rate: 97.26308772% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 55574529 Rate: 5.074036248 MB/s Hit Rate: 97.27967727% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 55836673 Rate: 5.071783157 MB/s Hit Rate: 97.2959376% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5320000
+other min1 2680000
+min1 0.2699548482
+app min2 5306000
+other min2 2694000
+min2 0.2699377404
+app 1, other app 2
+app size5312000, other app size 2688000
+min2 < min1
+2 steal 6000 from 1
+2 stole from 1
+app min1 2694000
+other min1 5306000
+min1 0.2698709228
+app min2 2694000
+other min2 5306000
+min2 0.2698709228
+app 2, other app 1
+app size2694000, other app size 5306000
+2 steal 0 from 1
+2 stole from 1
+Progress: 56098817 Rate: 3.60807755 MB/s Hit Rate: 97.31216123% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 56360961 Rate: 5.05502509 MB/s Hit Rate: 97.32817843% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 56623105 Rate: 5.062405658 MB/s Hit Rate: 97.34413289% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 56885249 Rate: 5.07837161 MB/s Hit Rate: 97.35979551% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 57147393 Rate: 5.052994139 MB/s Hit Rate: 97.37527745% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 57409537 Rate: 5.067052076 MB/s Hit Rate: 97.39061192% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 57671681 Rate: 5.168533508 MB/s Hit Rate: 97.4058657% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 57933825 Rate: 5.04634591 MB/s Hit Rate: 97.42095346% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5314000
+other min1 2686000
+min1 0.2667772471
+app min2 5287000
+other min2 2713000
+min2 0.2667611695
+app 1, other app 2
+app size5306000, other app size 2694000
+min2 < min1
+2 steal 19000 from 1
+2 stole from 1
+app min1 2713000
+other min1 5287000
+min1 0.2667217423
+app min2 2712000
+other min2 5288000
+min2 0.2667217199
+app 2, other app 1
+app size2713000, other app size 5287000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 58195969 Rate: 3.586756891 MB/s Hit Rate: 97.43584199% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 58458113 Rate: 5.063539022 MB/s Hit Rate: 97.45082657% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 58720257 Rate: 5.055375194 MB/s Hit Rate: 97.46546104% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 58982401 Rate: 5.074684817 MB/s Hit Rate: 97.47994743% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 59244545 Rate: 5.079038838 MB/s Hit Rate: 97.49414345% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 59506689 Rate: 5.071735382 MB/s Hit Rate: 97.5084118% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 59768833 Rate: 5.027348967 MB/s Hit Rate: 97.52247193% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5289000
+other min1 2711000
+min1 0.2635639062
+app min2 5288000
+other min2 2712000
+min2 0.2635642825
+app 1, other app 2
+app size5288000, other app size 2712000
+1 steal 1000 from 2
+1 stole from 2
+app min1 2711000
+other min1 5289000
+min1 0.2634982609
+app min2 2711000
+other min2 5289000
+min2 0.2634982609
+app 2, other app 1
+app size2711000, other app size 5289000
+2 steal 0 from 1
+2 stole from 1
+Progress: 60030977 Rate: 3.572342687 MB/s Hit Rate: 97.53634791% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 60293121 Rate: 5.065327743 MB/s Hit Rate: 97.55005079% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 60555265 Rate: 5.071215245 MB/s Hit Rate: 97.56375898% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 60817409 Rate: 5.073905862 MB/s Hit Rate: 97.5772176% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 61079553 Rate: 5.079707167 MB/s Hit Rate: 97.59072111% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 61341697 Rate: 5.08122512 MB/s Hit Rate: 97.6040074% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 61603841 Rate: 5.075260466 MB/s Hit Rate: 97.61718395% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 61865985 Rate: 5.078253706 MB/s Hit Rate: 97.63029103% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5294000
+other min1 2706000
+min1 0.2606569811
+app min2 5286000
+other min2 2714000
+min2 0.2606661344
+app 1, other app 2
+app size5289000, other app size 2711000
+1 steal 5000 from 2
+1 stole from 2
+app min1 2706000
+other min1 5294000
+min1 0.2606363386
+app min2 2706000
+other min2 5294000
+min2 0.2606363386
+app 2, other app 1
+app size2706000, other app size 5294000
+2 steal 0 from 1
+2 stole from 1
+Progress: 62128129 Rate: 3.624789238 MB/s Hit Rate: 97.64325399% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 62390273 Rate: 5.060942503 MB/s Hit Rate: 97.65593159% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 62652417 Rate: 5.081060521 MB/s Hit Rate: 97.66867374% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 62914561 Rate: 5.089783259 MB/s Hit Rate: 97.68121128% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 63176705 Rate: 5.078567139 MB/s Hit Rate: 97.6937008% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 63438849 Rate: 5.085115226 MB/s Hit Rate: 97.70599124% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 63700993 Rate: 5.089857787 MB/s Hit Rate: 97.71812965% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 63963137 Rate: 5.07210315 MB/s Hit Rate: 97.73028936% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5362000
+other min1 2638000
+min1 0.2584187094
+app min2 5293000
+other min2 2707000
+min2 0.2584283672
+app 1, other app 2
+app size5294000, other app size 2706000
+1 steal 68000 from 2
+1 stole from 2
+app min1 2638000
+other min1 5362000
+min1 0.2583998767
+app min2 2638000
+other min2 5362000
+min2 0.2583998767
+app 2, other app 1
+app size2638000, other app size 5362000
+2 steal 0 from 1
+2 stole from 1
+Progress: 64225281 Rate: 3.524574224 MB/s Hit Rate: 97.74226647% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 64487425 Rate: 5.069997852 MB/s Hit Rate: 97.75419234% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 64749569 Rate: 5.05132342 MB/s Hit Rate: 97.76590697% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 65011713 Rate: 5.083679935 MB/s Hit Rate: 97.77763846% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 65273857 Rate: 5.047672809 MB/s Hit Rate: 97.78903529% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 65536001 Rate: 5.063210824 MB/s Hit Rate: 97.80038656% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 65798145 Rate: 5.078325799 MB/s Hit Rate: 97.81168429% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5362000
+other min1 2638000
+min1 0.2559271604
+app min2 5354000
+other min2 2646000
+min2 0.255872234
+app 1, other app 2
+app size5362000, other app size 2638000
+min2 < min1
+2 steal 8000 from 1
+2 stole from 1
+app min1 2646000
+other min1 5354000
+min1 0.2558610102
+app min2 2646000
+other min2 5354000
+min2 0.2558610102
+app 2, other app 1
+app size2646000, other app size 5354000
+2 steal 0 from 1
+2 stole from 1
+Progress: 66060289 Rate: 3.472777619 MB/s Hit Rate: 97.82295113% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 66322433 Rate: 5.060422004 MB/s Hit Rate: 97.83403864% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 66584577 Rate: 5.083990122 MB/s Hit Rate: 97.84507864% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 66846721 Rate: 5.04543312 MB/s Hit Rate: 97.85605272% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 67108865 Rate: 5.064752673 MB/s Hit Rate: 97.86684948% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 67371009 Rate: 5.087591149 MB/s Hit Rate: 97.87754151% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 67633153 Rate: 5.045579669 MB/s Hit Rate: 97.88814316% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 67895297 Rate: 5.089771528 MB/s Hit Rate: 97.89866216% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5357000
+other min1 2643000
+min1 0.2535728953
+app min2 5344000
+other min2 2656000
+min2 0.2535570689
+app 1, other app 2
+app size5354000, other app size 2646000
+min2 < min1
+2 steal 10000 from 1
+2 stole from 1
+app min1 2656000
+other min1 5344000
+min1 0.2534022874
+app min2 2655000
+other min2 5345000
+min2 0.253400364
+app 2, other app 1
+app size2656000, other app size 5344000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 68157441 Rate: 3.470175271 MB/s Hit Rate: 97.90913101% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 68419585 Rate: 5.093467752 MB/s Hit Rate: 97.9194452% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 68681729 Rate: 5.089919113 MB/s Hit Rate: 97.92967707% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 68943873 Rate: 5.302350488 MB/s Hit Rate: 97.93983611% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 69206017 Rate: 5.098069386 MB/s Hit Rate: 97.94996819% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 69468161 Rate: 5.090127382 MB/s Hit Rate: 97.95998076% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 69730305 Rate: 5.091283657 MB/s Hit Rate: 97.96985761% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 69992449 Rate: 5.09070708 MB/s Hit Rate: 97.97961688% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5350000
+other min1 2650000
+min1 0.2516834354
+app min2 5325000
+other min2 2675000
+min2 0.2516780414
+app 1, other app 2
+app size5345000, other app size 2655000
+min2 < min1
+2 steal 20000 from 1
+2 stole from 1
+app min1 2675000
+other min1 5325000
+min1 0.2516576137
+app min2 2675000
+other min2 5325000
+min2 0.2516576137
+app 2, other app 1
+app size2675000, other app size 5325000
+2 steal 0 from 1
+2 stole from 1
+Progress: 70254593 Rate: 3.436644574 MB/s Hit Rate: 97.98926239% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 70516737 Rate: 5.078243214 MB/s Hit Rate: 97.99889292% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 70778881 Rate: 5.076942352 MB/s Hit Rate: 98.00845158% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 71041025 Rate: 4.986926204 MB/s Hit Rate: 98.01792186% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 71303169 Rate: 5.079785331 MB/s Hit Rate: 98.02736552% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 71565313 Rate: 5.07189066 MB/s Hit Rate: 98.03666856% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 71827457 Rate: 5.090608643 MB/s Hit Rate: 98.04593152% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5330000
+other min1 2670000
+min1 0.2489336828
+app min2 5324000
+other min2 2676000
+min2 0.2489427636
+app 1, other app 2
+app size5325000, other app size 2675000
+1 steal 5000 from 2
+1 stole from 2
+app min1 2670000
+other min1 5330000
+min1 0.2488150725
+app min2 2670000
+other min2 5330000
+min2 0.2488150725
+app 2, other app 1
+app size2670000, other app size 5330000
+2 steal 0 from 1
+2 stole from 1
+Progress: 72089601 Rate: 3.412034753 MB/s Hit Rate: 98.05515308% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 72351745 Rate: 5.085571629 MB/s Hit Rate: 98.0642651% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 72613889 Rate: 5.083738954 MB/s Hit Rate: 98.073254% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 72876033 Rate: 5.094448546 MB/s Hit Rate: 98.08214432% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 73138177 Rate: 5.086226954 MB/s Hit Rate: 98.09102032% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 73400321 Rate: 5.085979031 MB/s Hit Rate: 98.09978858% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 73662465 Rate: 5.094439838 MB/s Hit Rate: 98.10853452% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 73924609 Rate: 5.091131012 MB/s Hit Rate: 98.11716762% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5332000
+other min1 2668000
+min1 0.2469784776
+app min2 5327000
+other min2 2673000
+min2 0.2469674937
+app 1, other app 2
+app size5330000, other app size 2670000
+min2 < min1
+2 steal 3000 from 1
+2 stole from 1
+app min1 2673000
+other min1 5327000
+min1 0.2469441412
+app min2 2673000
+other min2 5327000
+min2 0.2469441412
+app 2, other app 1
+app size2673000, other app size 5327000
+2 steal 0 from 1
+2 stole from 1
+Progress: 74186753 Rate: 3.390719262 MB/s Hit Rate: 98.12580208% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 74448897 Rate: 5.084347559 MB/s Hit Rate: 98.13429095% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 74711041 Rate: 5.07851112 MB/s Hit Rate: 98.14268385% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 74973185 Rate: 5.086045868 MB/s Hit Rate: 98.15108039% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 75235329 Rate: 5.085371539 MB/s Hit Rate: 98.15930127% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 75497473 Rate: 5.059185318 MB/s Hit Rate: 98.16752197% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 75759617 Rate: 5.080242012 MB/s Hit Rate: 98.17565641% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5333000
+other min1 2667000
+min1 0.245086681
+app min2 5323000
+other min2 2677000
+min2 0.2451078836
+app 1, other app 2
+app size5327000, other app size 2673000
+1 steal 6000 from 2
+1 stole from 2
+Progress: 76021761 Rate: 4.06077847 MB/s Hit Rate: 98.18368973% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 2667000
+other min1 5333000
+min1 0.2449915668
+app min2 2667000
+other min2 5333000
+min2 0.2449915668
+app 2, other app 1
+app size2667000, other app size 5333000
+2 steal 0 from 1
+2 stole from 1
+Progress: 76283905 Rate: 4.008069952 MB/s Hit Rate: 98.19168197% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 76546049 Rate: 5.076009331 MB/s Hit Rate: 98.19963018% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 76808193 Rate: 5.082676756 MB/s Hit Rate: 98.20754024% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 77070337 Rate: 5.069642576 MB/s Hit Rate: 98.21539165% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 77332481 Rate: 5.078439615 MB/s Hit Rate: 98.2231294% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 77594625 Rate: 5.07413054 MB/s Hit Rate: 98.23084533% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 77856769 Rate: 5.07969036 MB/s Hit Rate: 98.23846368% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5343000
+other min1 2657000
+min1 0.2429595811
+app min2 5333000
+other min2 2667000
+min2 0.2429881179
+app 1, other app 2
+app size5333000, other app size 2667000
+1 steal 10000 from 2
+1 stole from 2
+app min1 2657000
+other min1 5343000
+min1 0.2428511043
+app min2 2657000
+other min2 5343000
+min2 0.2428511043
+app 2, other app 1
+app size2657000, other app size 5343000
+2 steal 0 from 1
+2 stole from 1
+Progress: 78118913 Rate: 3.320835544 MB/s Hit Rate: 98.24604084% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 78381057 Rate: 5.065009387 MB/s Hit Rate: 98.25357564% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 78643201 Rate: 5.085270989 MB/s Hit Rate: 98.26100216% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 78905345 Rate: 5.077799892 MB/s Hit Rate: 98.26839483% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 79167489 Rate: 5.068713795 MB/s Hit Rate: 98.27573551% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 79429633 Rate: 5.074385034 MB/s Hit Rate: 98.28300471% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 79691777 Rate: 5.096286814 MB/s Hit Rate: 98.29019833% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 79953921 Rate: 5.072773956 MB/s Hit Rate: 98.29736574% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5343000
+other min1 2657000
+min1 0.240891666
+app min2 5341000
+other min2 2659000
+min2 0.2408831362
+app 1, other app 2
+app size5343000, other app size 2657000
+min2 < min1
+2 steal 2000 from 1
+2 stole from 1
+app min1 2659000
+other min1 5341000
+min1 0.2407970633
+app min2 2659000
+other min2 5341000
+min2 0.2407970633
+app 2, other app 1
+app size2659000, other app size 5341000
+2 steal 0 from 1
+2 stole from 1
+Progress: 80216065 Rate: 3.33027367 MB/s Hit Rate: 98.3044641% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 80478209 Rate: 5.098682198 MB/s Hit Rate: 98.31152738% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 80740353 Rate: 5.090619082 MB/s Hit Rate: 98.31853628% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 81002497 Rate: 5.089498051 MB/s Hit Rate: 98.32548494% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 81264641 Rate: 5.009264505 MB/s Hit Rate: 98.33238066% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 81526785 Rate: 5.086080941 MB/s Hit Rate: 98.33920625% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 81788929 Rate: 5.0976717 MB/s Hit Rate: 98.34598687% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5344000
+other min1 2656000
+min1 0.2393913122
+app min2 5341000
+other min2 2659000
+min2 0.2393984376
+app 1, other app 2
+app size5341000, other app size 2659000
+1 steal 3000 from 2
+1 stole from 2
+Progress: 82051073 Rate: 4.001263546 MB/s Hit Rate: 98.35270214% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 2656000
+other min1 5344000
+min1 0.239178522
+app min2 2656000
+other min2 5344000
+min2 0.239178522
+app 2, other app 1
+app size2656000, other app size 5344000
+2 steal 0 from 1
+2 stole from 1
+Progress: 82313217 Rate: 3.977162106 MB/s Hit Rate: 98.35943312% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 82575361 Rate: 5.067112918 MB/s Hit Rate: 98.36604698% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 82837505 Rate: 5.074936933 MB/s Hit Rate: 98.37262476% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 83099649 Rate: 5.057677817 MB/s Hit Rate: 98.37915263% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 83361793 Rate: 5.049050304 MB/s Hit Rate: 98.3856407% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 83623937 Rate: 5.176829428 MB/s Hit Rate: 98.39205644% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 83886081 Rate: 5.328873043 MB/s Hit Rate: 98.39843361% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5346000
+other min1 2654000
+min1 0.2375740239
+app min2 5344000
+other min2 2656000
+min2 0.2375800352
+app 1, other app 2
+app size5344000, other app size 2656000
+1 steal 2000 from 2
+1 stole from 2
+app min1 2654000
+other min1 5346000
+min1 0.2373729829
+app min2 2653000
+other min2 5347000
+min2 0.2373712459
+app 2, other app 1
+app size2654000, other app size 5346000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 84148225 Rate: 3.392229462 MB/s Hit Rate: 98.4047727% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 84410369 Rate: 5.050249137 MB/s Hit Rate: 98.41107415% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 84672513 Rate: 5.089361572 MB/s Hit Rate: 98.41732144% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 84934657 Rate: 5.070370433 MB/s Hit Rate: 98.42351674% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 85196801 Rate: 5.06219143 MB/s Hit Rate: 98.42965455% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 85458945 Rate: 5.069135801 MB/s Hit Rate: 98.4357432% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 85721089 Rate: 5.072066538 MB/s Hit Rate: 98.44181219% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 85983233 Rate: 5.065488373 MB/s Hit Rate: 98.44780719% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5351000
+other min1 2649000
+min1 0.236135328
+app min2 5347000
+other min2 2653000
+min2 0.2361450359
+app 1, other app 2
+app size5347000, other app size 2653000
+1 steal 4000 from 2
+1 stole from 2
+app min1 2649000
+other min1 5351000
+min1 0.2360335746
+app min2 2649000
+other min2 5351000
+min2 0.2360335746
+app 2, other app 1
+app size2649000, other app size 5351000
+2 steal 0 from 1
+2 stole from 1
+Progress: 86245377 Rate: 3.230034739 MB/s Hit Rate: 98.45375927% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 86507521 Rate: 5.015837356 MB/s Hit Rate: 98.45971856% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 86769665 Rate: 5.042486258 MB/s Hit Rate: 98.46558913% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 87031809 Rate: 5.068168419 MB/s Hit Rate: 98.47143018% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 87293953 Rate: 5.069717702 MB/s Hit Rate: 98.47720047% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 87556097 Rate: 5.059137336 MB/s Hit Rate: 98.48295114% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 87818241 Rate: 5.078691111 MB/s Hit Rate: 98.48867505% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5364000
+other min1 2636000
+min1 0.2343338144
+app min2 5344000
+other min2 2656000
+min2 0.2343497868
+app 1, other app 2
+app size5351000, other app size 2649000
+1 steal 13000 from 2
+1 stole from 2
+Progress: 88080385 Rate: 3.960421182 MB/s Hit Rate: 98.49434312% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 2636000
+other min1 5364000
+min1 0.2341948163
+app min2 2636000
+other min2 5364000
+min2 0.2341948163
+app 2, other app 1
+app size2636000, other app size 5364000
+2 steal 0 from 1
+2 stole from 1
+Progress: 88342529 Rate: 3.952256416 MB/s Hit Rate: 98.49995893% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 88604673 Rate: 5.0761335 MB/s Hit Rate: 98.5055639% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 88866817 Rate: 5.076771166 MB/s Hit Rate: 98.51113636% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 89128961 Rate: 5.082681104 MB/s Hit Rate: 98.51664051% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 89391105 Rate: 5.079406072 MB/s Hit Rate: 98.52210309% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 89653249 Rate: 5.056649066 MB/s Hit Rate: 98.52754464% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 89915393 Rate: 5.06391892 MB/s Hit Rate: 98.53295683% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5364000
+other min1 2636000
+min1 0.2327646422
+app min2 5360000
+other min2 2640000
+min2 0.2327518547
+app 1, other app 2
+app size5364000, other app size 2636000
+min2 < min1
+2 steal 4000 from 1
+2 stole from 1
+app min1 2640000
+other min1 5360000
+min1 0.2325928161
+app min2 2639000
+other min2 5361000
+min2 0.2325910063
+app 2, other app 1
+app size2640000, other app size 5360000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 90177537 Rate: 3.225444527 MB/s Hit Rate: 98.53831006% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 90439681 Rate: 5.05498814 MB/s Hit Rate: 98.54364474% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 90701825 Rate: 5.08333708 MB/s Hit Rate: 98.54892855% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 90963969 Rate: 5.074036089 MB/s Hit Rate: 98.55416909% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 91226113 Rate: 5.001594838 MB/s Hit Rate: 98.55937527% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 91488257 Rate: 5.063503768 MB/s Hit Rate: 98.56456005% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 91750401 Rate: 5.075802573 MB/s Hit Rate: 98.56969998% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 92012545 Rate: 5.069479057 MB/s Hit Rate: 98.57483165% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5361000
+other min1 2639000
+min1 0.2315031883
+app min2 5359000
+other min2 2641000
+min2 0.2315013457
+app 1, other app 2
+app size5361000, other app size 2639000
+min2 < min1
+2 steal 2000 from 1
+2 stole from 1
+app min1 2641000
+other min1 5359000
+min1 0.231425137
+app min2 2640000
+other min2 5360000
+min2 0.2314243517
+app 2, other app 1
+app size2641000, other app size 5359000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 92274689 Rate: 3.202944247 MB/s Hit Rate: 98.57992056% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 92536833 Rate: 5.052509808 MB/s Hit Rate: 98.58495614% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 92798977 Rate: 5.020857874 MB/s Hit Rate: 98.5899376% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 93061121 Rate: 5.0632523 MB/s Hit Rate: 98.59489427% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 93323265 Rate: 5.071128789 MB/s Hit Rate: 98.59982776% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 93585409 Rate: 4.970800244 MB/s Hit Rate: 98.60474785% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 93847553 Rate: 5.04385106 MB/s Hit Rate: 98.60961676% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5365000
+other min1 2635000
+min1 0.2298637079
+app min2 5352000
+other min2 2648000
+min2 0.2298641123
+app 1, other app 2
+app size5360000, other app size 2640000
+1 steal 5000 from 2
+1 stole from 2
+Progress: 94109697 Rate: 3.905961915 MB/s Hit Rate: 98.61443503% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 2635000
+other min1 5365000
+min1 0.2297928144
+app min2 2635000
+other min2 5365000
+min2 0.2297928144
+app 2, other app 1
+app size2635000, other app size 5365000
+2 steal 0 from 1
+2 stole from 1
+Progress: 94371841 Rate: 3.918478884 MB/s Hit Rate: 98.61921665% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 94633985 Rate: 5.057939063 MB/s Hit Rate: 98.62399281% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 94896129 Rate: 5.082029616 MB/s Hit Rate: 98.62873153% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 95158273 Rate: 5.077890838 MB/s Hit Rate: 98.63343853% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 95420417 Rate: 5.063563277 MB/s Hit Rate: 98.63810883% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 95682561 Rate: 5.062539128 MB/s Hit Rate: 98.6427481% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 95944705 Rate: 5.064884548 MB/s Hit Rate: 98.64736719% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5368000
+other min1 2632000
+min1 0.2286650402
+app min2 5365000
+other min2 2635000
+min2 0.2286719895
+app 1, other app 2
+app size5365000, other app size 2635000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2632000
+other min1 5368000
+min1 0.2286267578
+app min2 2632000
+other min2 5368000
+min2 0.2286267578
+app 2, other app 1
+app size2632000, other app size 5368000
+2 steal 0 from 1
+2 stole from 1
+Progress: 96206849 Rate: 3.165088216 MB/s Hit Rate: 98.65194138% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 96468993 Rate: 5.070355835 MB/s Hit Rate: 98.6564999% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 96731137 Rate: 5.042943395 MB/s Hit Rate: 98.66101815% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 96993281 Rate: 5.058340949 MB/s Hit Rate: 98.66551342% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 97255425 Rate: 5.065289471 MB/s Hit Rate: 98.66999373% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 97517569 Rate: 5.055575307 MB/s Hit Rate: 98.67441147% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 97779713 Rate: 4.997724936 MB/s Hit Rate: 98.67881487% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 98041857 Rate: 5.051607283 MB/s Hit Rate: 98.68318741% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+app min1 5369000
+other min1 2631000
+min1 0.2275891401
+app min2 5368000
+other min2 2632000
+min2 0.2275891642
+app 1, other app 2
+app size5368000, other app size 2632000
+1 steal 1000 from 2
+1 stole from 2
+app min1 2632000
+other min1 5368000
+min1 0.2274817272
+app min2 2631000
+other min2 5369000
+min2 0.227481912
+app 2, other app 1
+app size2631000, other app size 5369000
+2 steal 1000 from 1
+2 stole from 1
+Progress: 98304001 Rate: 3.154425734 MB/s Hit Rate: 98.68754599% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 98566145 Rate: 5.062894439 MB/s Hit Rate: 98.69187167% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 98828289 Rate: 5.071709479 MB/s Hit Rate: 98.69616604% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 99090433 Rate: 5.067493387 MB/s Hit Rate: 98.70043195% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 99352577 Rate: 5.058573539 MB/s Hit Rate: 98.70467345% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 99614721 Rate: 5.027102993 MB/s Hit Rate: 98.70887948% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+Progress: 99876865 Rate: 5.060349675 MB/s Hit Rate: 98.71306291% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0
+total execution time: 467.59

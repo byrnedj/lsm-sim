@@ -1,0 +1,1255 @@
+global_mem 1599078400 segment_size 1048576 segment_count 1525
+1525 > 2*16
+performing trace analysis on apps 1,2,
+with steal weights of 
+policy multi
+using trace file /tmp/a
+rounding off
+utilization rate 1
+start counting hits at t = 1
+request limit 0
+global mem 1599078400
+use tax 0
+tax rate 0.05
+cleaning width 16
+Progress: 262145 Rate: 3.372886358 MB/s Hit Rate: 1.927947998% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 3.797149658e-08 Avg SET: 3.048377991e-06 
+Progress: 524289 Rate: 3.910368832 MB/s Hit Rate: 3.75289917% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 7.933807373e-08 Avg SET: 2.959985733e-06 
+Progress: 786433 Rate: 3.547686332 MB/s Hit Rate: 5.56195577% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.4463679e-07 Avg SET: 3.12273407e-06 
+Progress: 1048577 Rate: 3.543861251 MB/s Hit Rate: 7.24697113% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 2.084140778e-07 Avg SET: 3.168124199e-06 
+Progress: 1310721 Rate: 3.133206862 MB/s Hit Rate: 8.91242981% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 2.725395203e-07 Avg SET: 3.37485733e-06 
+Progress: 1572865 Rate: 3.794008329 MB/s Hit Rate: 10.49976349% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 3.051446279e-07 Avg SET: 3.269946416e-06 
+Progress: 1835009 Rate: 3.810571855 MB/s Hit Rate: 12.03231812% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 3.384268624e-07 Avg SET: 3.185553415e-06 
+Progress: 2097153 Rate: 3.772499294 MB/s Hit Rate: 13.51466179% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 3.734617233e-07 Avg SET: 3.120488167e-06 
+Progress: 2359297 Rate: 3.781994563 MB/s Hit Rate: 14.95458815% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 4.085816277e-07 Avg SET: 3.06149843e-06 
+Progress: 2621441 Rate: 3.027460781 MB/s Hit Rate: 16.36089325% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 4.436683655e-07 Avg SET: 3.179311371e-06 
+Progress: 2883585 Rate: 3.829761292 MB/s Hit Rate: 17.71299189% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 4.768218994e-07 Avg SET: 3.105819355e-06 
+Progress: 3145729 Rate: 3.818955372 MB/s Hit Rate: 19.02443568% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 5.097036362e-07 Avg SET: 3.040391604e-06 
+Progress: 3407873 Rate: 3.853804885 MB/s Hit Rate: 20.2856504% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 5.414616511e-07 Avg SET: 2.979402689e-06 
+Progress: 3670017 Rate: 3.844775226 MB/s Hit Rate: 21.50639125% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 5.730495453e-07 Avg SET: 2.92401668e-06 
+Progress: 3932161 Rate: 3.845544171 MB/s Hit Rate: 22.70874023% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 6.047645569e-07 Avg SET: 2.871750132e-06 
+Progress: 4194305 Rate: 3.826618571 MB/s Hit Rate: 23.85845184% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 6.35491848e-07 Avg SET: 2.824037552e-06 
+Progress: 4456449 Rate: 3.833127441 MB/s Hit Rate: 24.97509227% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 6.655217339e-07 Avg SET: 2.778811062e-06 
+Progress: 4718593 Rate: 3.824916788 MB/s Hit Rate: 26.05552673% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 6.950257619e-07 Avg SET: 2.736559762e-06 
+Progress: 4980737 Rate: 3.825974536 MB/s Hit Rate: 27.11203726% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 7.240498191e-07 Avg SET: 2.695894342e-06 
+Progress: 5242881 Rate: 3.841390699 MB/s Hit Rate: 28.13592911% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 7.522809982e-07 Avg SET: 2.656932068e-06 
+Progress: 5505025 Rate: 3.856023523 MB/s Hit Rate: 29.12950062% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 7.798847017e-07 Avg SET: 2.619411469e-06 
+Progress: 5767169 Rate: 3.860338865 MB/s Hit Rate: 30.10089181% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 8.070631894e-07 Avg SET: 2.583138899e-06 
+Progress: 6029313 Rate: 3.834298139 MB/s Hit Rate: 31.03778673% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 8.336178324e-07 Avg SET: 2.548955669e-06 
+Progress: 6291457 Rate: 3.83687062 MB/s Hit Rate: 31.95087115% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 8.596189817e-07 Avg SET: 2.515778701e-06 
+Progress: 6553601 Rate: 2.538408516 MB/s Hit Rate: 32.84353638% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 8.84070282e-07 Avg SET: 2.627254334e-06 
+Progress: 6815745 Rate: 3.929700891 MB/s Hit Rate: 33.71557089% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 9.064229819e-07 Avg SET: 2.587261934e-06 
+Progress: 7077889 Rate: 3.929096067 MB/s Hit Rate: 34.55622638% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 9.281535679e-07 Avg SET: 2.54913867e-06 
+Progress: 7340033 Rate: 3.965015935 MB/s Hit Rate: 35.38191659% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 9.494634356e-07 Avg SET: 2.511757442e-06 
+Progress: 7602177 Rate: 3.964056601 MB/s Hit Rate: 36.184745% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 9.703945292e-07 Avg SET: 2.47597701e-06 
+Progress: 7864321 Rate: 3.985653551 MB/s Hit Rate: 36.96286519% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 9.905507406e-07 Avg SET: 2.441355769e-06 
+Progress: 8126465 Rate: 3.963923214 MB/s Hit Rate: 37.72323362% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.010628116e-06 Avg SET: 2.408467201e-06 
+Progress: 8388609 Rate: 3.97400768 MB/s Hit Rate: 38.4713769% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.030359626e-06 Avg SET: 2.376316905e-06 
+Progress: 8650753 Rate: 3.969908718 MB/s Hit Rate: 39.19787551% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.049624472e-06 Avg SET: 2.345314951e-06 
+Progress: 8912897 Rate: 3.983670747 MB/s Hit Rate: 39.90270951% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.068431406e-06 Avg SET: 2.315420712e-06 
+Progress: 9175041 Rate: 3.975887167 MB/s Hit Rate: 40.59378488% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.086934444e-06 Avg SET: 2.286486054e-06 
+Progress: 9437185 Rate: 3.960350702 MB/s Hit Rate: 41.27186669% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.105243259e-06 Avg SET: 2.25845178e-06 
+Progress: 9699329 Rate: 3.989940844 MB/s Hit Rate: 41.93311124% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.123126262e-06 Avg SET: 2.230983322e-06 
+Progress: 9961473 Rate: 3.982442753 MB/s Hit Rate: 42.58228101% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.140757611e-06 Avg SET: 2.204274328e-06 
+Progress: 10223617 Rate: 3.981710291 MB/s Hit Rate: 43.2107094% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.157836914e-06 Avg SET: 2.17857488e-06 
+Progress: 10485761 Rate: 3.98486789 MB/s Hit Rate: 43.83103371% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.174933243e-06 Avg SET: 2.153456879e-06 
+Progress: 10747905 Rate: 4.006304373 MB/s Hit Rate: 44.43684089% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.191554465e-06 Avg SET: 2.128786041e-06 
+Progress: 11010049 Rate: 3.999510177 MB/s Hit Rate: 45.0262433% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.207753136e-06 Avg SET: 2.10498165e-06 
+Progress: 11272193 Rate: 3.993846448 MB/s Hit Rate: 45.60767773% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.22389443e-06 Avg SET: 2.081755882e-06 
+Progress: 11534337 Rate: 4.000552019 MB/s Hit Rate: 46.17679769% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.239702572e-06 Avg SET: 2.05905845e-06 
+Progress: 11796481 Rate: 4.005523131 MB/s Hit Rate: 46.7366706% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.255241394e-06 Avg SET: 2.03681327e-06 
+Progress: 12058625 Rate: 4.007241351 MB/s Hit Rate: 47.28099989% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.270407304e-06 Avg SET: 2.015239964e-06 
+Progress: 12320769 Rate: 4.010946457 MB/s Hit Rate: 47.8131558% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.285235466e-06 Avg SET: 1.994154748e-06 
+Progress: 12582913 Rate: 4.000775147 MB/s Hit Rate: 48.34075769% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.299986442e-06 Avg SET: 1.973316908e-06 
+Progress: 12845057 Rate: 4.017256322 MB/s Hit Rate: 48.8525702% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.314407271e-06 Avg SET: 1.953109041e-06 
+Progress: 13107201 Rate: 4.017434562 MB/s Hit Rate: 49.35520935% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.328538895e-06 Avg SET: 1.933369827e-06 
+Progress: 13369345 Rate: 4.019073042 MB/s Hit Rate: 49.85080046% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.342473124e-06 Avg SET: 1.913925395e-06 
+Progress: 13631489 Rate: 4.011108051 MB/s Hit Rate: 50.33500378% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.356179824e-06 Avg SET: 1.895043667e-06 
+Progress: 13893633 Rate: 4.022619521 MB/s Hit Rate: 50.81106942% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.369675978e-06 Avg SET: 1.876507309e-06 
+Progress: 14155777 Rate: 4.028762595 MB/s Hit Rate: 51.27754918% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.382893668e-06 Avg SET: 1.858322285e-06 
+Progress: 14417921 Rate: 4.027077021 MB/s Hit Rate: 51.73798995% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.396027582e-06 Avg SET: 1.84042615e-06 
+Progress: 14680065 Rate: 4.020350391 MB/s Hit Rate: 52.18709537% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.408846174e-06 Avg SET: 1.823077338e-06 
+Progress: 14942209 Rate: 4.024868881 MB/s Hit Rate: 52.62742294% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.421484629e-06 Avg SET: 1.806082274e-06 
+Progress: 15204353 Rate: 4.03016703 MB/s Hit Rate: 53.0627152% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.434039017e-06 Avg SET: 1.789333146e-06 
+Progress: 15466497 Rate: 4.028400792 MB/s Hit Rate: 53.48918074% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.446285377e-06 Avg SET: 1.772922516e-06 
+Progress: 15728641 Rate: 4.034664186 MB/s Hit Rate: 53.90953064% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.458312098e-06 Avg SET: 1.756701533e-06 
+Progress: 15990785 Rate: 4.035952433 MB/s Hit Rate: 54.32148292% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.47019058e-06 Avg SET: 1.740815898e-06 
+Progress: 16252929 Rate: 4.045006908 MB/s Hit Rate: 54.72671755% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.481896185e-06 Avg SET: 1.72514171e-06 
+Progress: 16515073 Rate: 4.03891718 MB/s Hit Rate: 55.12297494% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.493390522e-06 Avg SET: 1.709926303e-06 
+Progress: 16777217 Rate: 4.040269626 MB/s Hit Rate: 55.51547408% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.504777789e-06 Avg SET: 1.694885075e-06 
+Progress: 17039361 Rate: 4.020862209 MB/s Hit Rate: 55.9002216% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.516436943e-06 Avg SET: 1.680147729e-06 
+Progress: 17301505 Rate: 4.044103086 MB/s Hit Rate: 56.27822298% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 Avg GET: 1.527395595e-06 Avg SET: 1.665639877e-06 
+app min1 5016000
+other min1 2984000
+min1 0.4541103891
+app min2 4000000
+other min2 4000000
+min2 0.4699753675
+app 1, other app 2
+app size 4000000, other app size 4000000
+1 steal 1016000 from 2
+1 stole from 2
+Progress: 17563649 Rate: 1.686128909 MB/s Hit Rate: 56.64782738% Evicted Items: 45153 Evicted Bytes: 9436977 Utilization: 0 Avg GET: 1.538714338e-06 Avg SET: 1.788514265e-06 
+Progress: 17825793 Rate: 1.585821689 MB/s Hit Rate: 57.00712204% Evicted Items: 95323 Evicted Bytes: 19922507 Utilization: 0 Avg GET: 1.549880252e-06 Avg SET: 1.922889429e-06 
+Progress: 18087937 Rate: 1.569935906 MB/s Hit Rate: 57.35532235% Evicted Items: 145493 Evicted Bytes: 30408037 Utilization: 0 Avg GET: 1.56069023e-06 Avg SET: 2.056184796e-06 
+Progress: 18350081 Rate: 1.540656395 MB/s Hit Rate: 57.69349234% Evicted Items: 195663 Evicted Bytes: 40893567 Utilization: 0 Avg GET: 1.57126552e-06 Avg SET: 2.1902165e-06 
+Progress: 18612225 Rate: 1.555845146 MB/s Hit Rate: 58.02049771% Evicted Items: 245833 Evicted Bytes: 51379097 Utilization: 0 Avg GET: 1.581557207e-06 Avg SET: 2.317965655e-06 
+Progress: 18874369 Rate: 1.551138455 MB/s Hit Rate: 58.33847258% Evicted Items: 296003 Evicted Bytes: 61864627 Utilization: 0 Avg GET: 1.591561317e-06 Avg SET: 2.442906062e-06 
+Progress: 19136513 Rate: 1.539712237 MB/s Hit Rate: 58.65035384% Evicted Items: 346173 Evicted Bytes: 72350157 Utilization: 0 Avg GET: 1.601374325e-06 Avg SET: 2.565760312e-06 
+app min1 5276000
+other min1 2724000
+min1 0.4282766674
+app min2 5016000
+other min2 2984000
+min2 0.4317113795
+app 1, other app 2
+app size 5016000, other app size 2984000
+1 steal 260000 from 2
+1 stole from 2
+app min1 2724000
+other min1 5276000
+min1 0.4282047164
+app min2 2722000
+other min2 5278000
+min2 0.4281935635
+app 2, other app 1
+app size 2724000, other app size 5276000
+min2 < min1
+1 steal 2000 from 2
+1 stole from 2
+Progress: 19398657 Rate: 1.495262328 MB/s Hit Rate: 58.95225937% Evicted Items: 396343 Evicted Bytes: 82835687 Utilization: 0 Avg GET: 1.611028052e-06 Avg SET: 2.691859323e-06 
+Progress: 19660801 Rate: 1.573517591 MB/s Hit Rate: 59.24153646% Evicted Items: 446513 Evicted Bytes: 93321217 Utilization: 0 Avg GET: 1.620208638e-06 Avg SET: 2.803346761e-06 
+Progress: 19922945 Rate: 1.580175542 MB/s Hit Rate: 59.52202646% Evicted Items: 496683 Evicted Bytes: 103806747 Utilization: 0 Avg GET: 1.629165499e-06 Avg SET: 2.91096095e-06 
+Progress: 20185089 Rate: 1.545928251 MB/s Hit Rate: 59.79313541% Evicted Items: 546853 Evicted Bytes: 114292277 Utilization: 0 Avg GET: 1.63793217e-06 Avg SET: 3.020691463e-06 
+Progress: 20447233 Rate: 1.575715073 MB/s Hit Rate: 60.05777212% Evicted Items: 597023 Evicted Bytes: 124777807 Utilization: 0 Avg GET: 1.64654003e-06 Avg SET: 3.123425802e-06 
+Progress: 20709377 Rate: 1.475108867 MB/s Hit Rate: 60.31600856% Evicted Items: 652210 Evicted Bytes: 136311890 Utilization: 0 Avg GET: 1.655012927e-06 Avg SET: 3.237971439e-06 
+Progress: 20971521 Rate: 1.566126852 MB/s Hit Rate: 60.5680418% Evicted Items: 702380 Evicted Bytes: 146797420 Utilization: 0 Avg GET: 1.663267851e-06 Avg SET: 3.336595011e-06 
+Progress: 21233665 Rate: 1.55021389 MB/s Hit Rate: 60.81425702% Evicted Items: 752550 Evicted Bytes: 157282950 Utilization: 0 Avg GET: 1.671362841e-06 Avg SET: 3.434756338e-06 
+app min1 5288000
+other min1 2712000
+min1 0.4077023277
+app min2 5233000
+other min2 2767000
+min2 0.4075628837
+app 1, other app 2
+app size 5278000, other app size 2722000
+min2 < min1
+2 steal 45000 from 1
+2 stole from 1
+app min1 2767000
+other min1 5233000
+min1 0.4076149498
+app min2 2766000
+other min2 5234000
+min2 0.4075992774
+app 2, other app 1
+app size 2767000, other app size 5233000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 21495809 Rate: 1.46537738 MB/s Hit Rate: 61.05452747% Evicted Items: 802720 Evicted Bytes: 167768480 Utilization: 0 Avg GET: 1.679302122e-06 Avg SET: 3.542638453e-06 
+Progress: 21757953 Rate: 1.546321045 MB/s Hit Rate: 61.28844755% Evicted Items: 852890 Evicted Bytes: 178254010 Utilization: 0 Avg GET: 1.687382296e-06 Avg SET: 3.636006918e-06 
+Progress: 22020097 Rate: 1.435452063 MB/s Hit Rate: 61.51751564% Evicted Items: 908077 Evicted Bytes: 189788093 Utilization: 0 Avg GET: 1.694967315e-06 Avg SET: 3.743252118e-06 
+Progress: 22282241 Rate: 1.529631668 MB/s Hit Rate: 61.74199273% Evicted Items: 958247 Evicted Bytes: 200273623 Utilization: 0 Avg GET: 1.702405189e-06 Avg SET: 3.834498417e-06 
+Progress: 22544385 Rate: 1.547258328 MB/s Hit Rate: 61.96189703% Evicted Items: 1008417 Evicted Bytes: 210759153 Utilization: 0 Avg GET: 1.709635224e-06 Avg SET: 3.921858499e-06 
+Progress: 22806529 Rate: 1.512985111 MB/s Hit Rate: 62.17450547% Evicted Items: 1058587 Evicted Bytes: 221244683 Utilization: 0 Avg GET: 1.716677172e-06 Avg SET: 4.01162347e-06 
+Progress: 23068673 Rate: 1.553080177 MB/s Hit Rate: 62.38212152% Evicted Items: 1108757 Evicted Bytes: 231730213 Utilization: 0 Avg GET: 1.723567876e-06 Avg SET: 4.093995658e-06 
+Progress: 23330817 Rate: 1.515742061 MB/s Hit Rate: 62.58595927% Evicted Items: 1158927 Evicted Bytes: 242215743 Utilization: 0 Avg GET: 1.73032122e-06 Avg SET: 4.179153528e-06 
+app min1 5255000
+other min1 2745000
+min1 0.3879344599
+app min2 5234000
+other min2 2766000
+min2 0.3883577494
+app 1, other app 2
+app size 5234000, other app size 2766000
+1 steal 21000 from 2
+1 stole from 2
+app min1 2745000
+other min1 5255000
+min1 0.3878131868
+app min2 2744000
+other min2 5256000
+min2 0.3878032943
+app 2, other app 1
+app size 2745000, other app size 5255000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 23592961 Rate: 1.35995961 MB/s Hit Rate: 62.78518677% Evicted Items: 1214114 Evicted Bytes: 253749826 Utilization: 0 Avg GET: 1.736943224e-06 Avg SET: 4.285159556e-06 
+Progress: 23855105 Rate: 1.526578997 MB/s Hit Rate: 62.98086565% Evicted Items: 1264284 Evicted Bytes: 264235356 Utilization: 0 Avg GET: 1.743433858e-06 Avg SET: 4.365092938e-06 
+Progress: 24117249 Rate: 1.51038328 MB/s Hit Rate: 63.171876% Evicted Items: 1314454 Evicted Bytes: 274720886 Utilization: 0 Avg GET: 1.74982556e-06 Avg SET: 4.444963953e-06 
+Progress: 24379393 Rate: 1.504545946 MB/s Hit Rate: 63.35952513% Evicted Items: 1364624 Evicted Bytes: 285206416 Utilization: 0 Avg GET: 1.756341339e-06 Avg SET: 4.523878898e-06 
+Progress: 24641537 Rate: 1.516545007 MB/s Hit Rate: 63.54455339% Evicted Items: 1414794 Evicted Bytes: 295691946 Utilization: 0 Avg GET: 1.762424347e-06 Avg SET: 4.600140673e-06 
+Progress: 24903681 Rate: 1.522878018 MB/s Hit Rate: 63.72460616% Evicted Items: 1464964 Evicted Bytes: 306177476 Utilization: 0 Avg GET: 1.768443218e-06 Avg SET: 4.673770262e-06 
+Progress: 25165825 Rate: 1.504475303 MB/s Hit Rate: 63.9008681% Evicted Items: 1515134 Evicted Bytes: 316663006 Utilization: 0 Avg GET: 1.774299502e-06 Avg SET: 4.748297095e-06 
+app min1 5256000
+other min1 2744000
+min1 0.3715074887
+app min2 5252000
+other min2 2748000
+min2 0.3713181169
+app 1, other app 2
+app size 5256000, other app size 2744000
+min2 < min1
+2 steal 4000 from 1
+2 stole from 1
+app min1 2773000
+other min1 5227000
+min1 0.3715750013
+app min2 2748000
+other min2 5252000
+min2 0.3715999694
+app 2, other app 1
+app size 2748000, other app size 5252000
+2 steal 25000 from 1
+2 stole from 1
+Progress: 25427969 Rate: 1.434594531 MB/s Hit Rate: 64.07387724% Evicted Items: 1565304 Evicted Bytes: 327148536 Utilization: 0 Avg GET: 1.780115855e-06 Avg SET: 4.830007848e-06 
+Progress: 25690113 Rate: 1.501678567 MB/s Hit Rate: 64.24386939% Evicted Items: 1615474 Evicted Bytes: 337634066 Utilization: 0 Avg GET: 1.785841066e-06 Avg SET: 4.901257496e-06 
+Progress: 25952257 Rate: 1.405004653 MB/s Hit Rate: 64.40882442% Evicted Items: 1670661 Evicted Bytes: 349168149 Utilization: 0 Avg GET: 1.791413663e-06 Avg SET: 4.983136225e-06 
+Progress: 26214401 Rate: 1.512438826 MB/s Hit Rate: 64.57032776% Evicted Items: 1720831 Evicted Bytes: 359653679 Utilization: 0 Avg GET: 1.796842079e-06 Avg SET: 5.050389099e-06 
+Progress: 26476545 Rate: 1.502857181 MB/s Hit Rate: 64.73044216% Evicted Items: 1771001 Evicted Bytes: 370139209 Utilization: 0 Avg GET: 1.802185361e-06 Avg SET: 5.117548574e-06 
+Progress: 26738689 Rate: 1.513476363 MB/s Hit Rate: 64.88536386% Evicted Items: 1821171 Evicted Bytes: 380624739 Utilization: 0 Avg GET: 1.807389278e-06 Avg SET: 5.182296716e-06 
+Progress: 27000833 Rate: 1.517918226 MB/s Hit Rate: 65.03728848% Evicted Items: 1871341 Evicted Bytes: 391110269 Utilization: 0 Avg GET: 1.812496111e-06 Avg SET: 5.245162371e-06 
+Progress: 27262977 Rate: 1.491300417 MB/s Hit Rate: 65.18534147% Evicted Items: 1921511 Evicted Bytes: 401595799 Utilization: 0 Avg GET: 1.817553153e-06 Avg SET: 5.309252886e-06 
+app min1 5227000
+other min1 2773000
+min1 0.3591847132
+app min2 5225000
+other min2 2775000
+min2 0.359176282
+app 1, other app 2
+app size 5227000, other app size 2773000
+min2 < min1
+2 steal 2000 from 1
+2 stole from 1
+app min1 2775000
+other min1 5225000
+min1 0.3591794596
+app min2 2775000
+other min2 5225000
+min2 0.3591794596
+app 2, other app 1
+app size 2775000, other app size 5225000
+2 steal 0 from 1
+2 stole from 1
+Progress: 27525121 Rate: 1.407267218 MB/s Hit Rate: 65.33349537% Evicted Items: 1971681 Evicted Bytes: 412081329 Utilization: 0 Avg GET: 1.822574034e-06 Avg SET: 5.382564981e-06 
+Progress: 27787265 Rate: 1.399499715 MB/s Hit Rate: 65.47681341% Evicted Items: 2026868 Evicted Bytes: 423615412 Utilization: 0 Avg GET: 1.827372857e-06 Avg SET: 5.455470895e-06 
+Progress: 28049409 Rate: 1.494578037 MB/s Hit Rate: 65.61723157% Evicted Items: 2077038 Evicted Bytes: 434100942 Utilization: 0 Avg GET: 1.832113212e-06 Avg SET: 5.515854773e-06 
+Progress: 28311553 Rate: 1.484369128 MB/s Hit Rate: 65.75558274% Evicted Items: 2127208 Evicted Bytes: 444586472 Utilization: 0 Avg GET: 1.836844691e-06 Avg SET: 5.575681368e-06 
+Progress: 28573697 Rate: 1.495804638 MB/s Hit Rate: 65.8909159% Evicted Items: 2177378 Evicted Bytes: 455072002 Utilization: 0 Avg GET: 1.841450192e-06 Avg SET: 5.633666537e-06 
+Progress: 28835841 Rate: 1.496014789 MB/s Hit Rate: 66.02436066% Evicted Items: 2227548 Evicted Bytes: 465557532 Utilization: 0 Avg GET: 1.846030356e-06 Avg SET: 5.68995715e-06 
+Progress: 29097985 Rate: 1.511439524 MB/s Hit Rate: 66.15541819% Evicted Items: 2277718 Evicted Bytes: 476043062 Utilization: 0 Avg GET: 1.850501464e-06 Avg SET: 5.744310499e-06 
+app min1 5233000
+other min1 2767000
+min1 0.3477620473
+app min2 5196000
+other min2 2804000
+min2 0.3476173223
+app 1, other app 2
+app size 5225000, other app size 2775000
+min2 < min1
+2 steal 29000 from 1
+2 stole from 1
+app min1 2804000
+other min1 5196000
+min1 0.3475655487
+app min2 2803000
+other min2 5197000
+min2 0.3475631346
+app 2, other app 1
+app size 2804000, other app size 5196000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 29360129 Rate: 1.316336335 MB/s Hit Rate: 66.28403323% Evicted Items: 2332905 Evicted Bytes: 487577145 Utilization: 0 Avg GET: 1.854886429e-06 Avg SET: 5.820727723e-06 
+Progress: 29622273 Rate: 1.501805388 MB/s Hit Rate: 66.41136777% Evicted Items: 2383075 Evicted Bytes: 498062675 Utilization: 0 Avg GET: 1.859229771e-06 Avg SET: 5.873417711e-06 
+Progress: 29884417 Rate: 1.471520131 MB/s Hit Rate: 66.53419963% Evicted Items: 2433245 Evicted Bytes: 508548205 Utilization: 0 Avg GET: 1.863421022e-06 Avg SET: 5.928330371e-06 
+Progress: 30146561 Rate: 1.493546011 MB/s Hit Rate: 66.65552886% Evicted Items: 2483415 Evicted Bytes: 519033735 Utilization: 0 Avg GET: 1.867600781e-06 Avg SET: 5.980186296e-06 
+Progress: 30408705 Rate: 1.498558006 MB/s Hit Rate: 66.7747958% Evicted Items: 2533585 Evicted Bytes: 529519265 Utilization: 0 Avg GET: 1.871664376e-06 Avg SET: 6.030826371e-06 
+Progress: 30670849 Rate: 1.489059356 MB/s Hit Rate: 66.89291408% Evicted Items: 2583755 Evicted Bytes: 540004795 Utilization: 0 Avg GET: 1.87568107e-06 Avg SET: 6.08163651e-06 
+Progress: 30932993 Rate: 1.404240846 MB/s Hit Rate: 67.00810901% Evicted Items: 2638942 Evicted Bytes: 551538878 Utilization: 0 Avg GET: 1.879655612e-06 Avg SET: 6.140529438e-06 
+Progress: 31195137 Rate: 1.495902386 MB/s Hit Rate: 67.12286172% Evicted Items: 2689112 Evicted Bytes: 562024408 Utilization: 0 Avg GET: 1.883543543e-06 Avg SET: 6.188649666e-06 
+app min1 5197000
+other min1 2803000
+min1 0.3377924525
+app min2 5148000
+other min2 2852000
+min2 0.3370817868
+app 1, other app 2
+app size 5197000, other app size 2803000
+min2 < min1
+2 steal 49000 from 1
+2 stole from 1
+app min1 2854000
+other min1 5146000
+min1 0.3372927113
+app min2 2852000
+other min2 5148000
+min2 0.3373116038
+app 2, other app 1
+app size 2852000, other app size 5148000
+2 steal 2000 from 1
+2 stole from 1
+Progress: 31457281 Rate: 1.387451923 MB/s Hit Rate: 67.23508199% Evicted Items: 2739282 Evicted Bytes: 572509938 Utilization: 0 Avg GET: 1.887414455e-06 Avg SET: 6.247393449e-06 
+Progress: 31719425 Rate: 1.439447518 MB/s Hit Rate: 67.34519832% Evicted Items: 2789452 Evicted Bytes: 582995468 Utilization: 0 Avg GET: 1.891206505e-06 Avg SET: 6.299206095e-06 
+Progress: 31981569 Rate: 1.465539956 MB/s Hit Rate: 67.45396286% Evicted Items: 2839622 Evicted Bytes: 593480998 Utilization: 0 Avg GET: 1.895012996e-06 Avg SET: 6.347469548e-06 
+Progress: 32243713 Rate: 1.445290397 MB/s Hit Rate: 67.56011529% Evicted Items: 2889792 Evicted Bytes: 603966528 Utilization: 0 Avg GET: 1.898692092e-06 Avg SET: 6.39723708e-06 
+Progress: 32505857 Rate: 1.41411441 MB/s Hit Rate: 67.66402952% Evicted Items: 2944979 Evicted Bytes: 615500611 Utilization: 0 Avg GET: 1.902300096e-06 Avg SET: 6.449465967e-06 
+Progress: 32768001 Rate: 1.474748107 MB/s Hit Rate: 67.7669281% Evicted Items: 2995149 Evicted Bytes: 625986141 Utilization: 0 Avg GET: 1.90585852e-06 Avg SET: 6.495015014e-06 
+Progress: 33030145 Rate: 1.496537477 MB/s Hit Rate: 67.86732447% Evicted Items: 3045319 Evicted Bytes: 636471671 Utilization: 0 Avg GET: 1.909327492e-06 Avg SET: 6.537587181e-06 
+Progress: 33292289 Rate: 1.477129321 MB/s Hit Rate: 67.96739834% Evicted Items: 3095489 Evicted Bytes: 646957201 Utilization: 0 Avg GET: 1.912750064e-06 Avg SET: 6.581673719e-06 
+app min1 5330000
+other min1 2670000
+min1 0.3286213908
+app min2 5122000
+other min2 2878000
+min2 0.3287153285
+app 1, other app 2
+app size 5146000, other app size 2854000
+1 steal 184000 from 2
+1 stole from 2
+app min1 2671000
+other min1 5329000
+min1 0.3286996033
+app min2 2670000
+other min2 5330000
+min2 0.3287017582
+app 2, other app 1
+app size 2670000, other app size 5330000
+2 steal 1000 from 1
+2 stole from 1
+Progress: 33554433 Rate: 1.355811042 MB/s Hit Rate: 68.06681752% Evicted Items: 3145659 Evicted Bytes: 657442731 Utilization: 0 Avg GET: 1.916104764e-06 Avg SET: 6.637515723e-06 
+Progress: 33816577 Rate: 1.367989413 MB/s Hit Rate: 68.16158147% Evicted Items: 3200846 Evicted Bytes: 668976814 Utilization: 0 Avg GET: 1.9194021e-06 Avg SET: 6.690815711e-06 
+Progress: 34078721 Rate: 1.437192494 MB/s Hit Rate: 68.25285105% Evicted Items: 3251016 Evicted Bytes: 679462344 Utilization: 0 Avg GET: 1.922584504e-06 Avg SET: 6.736049505e-06 
+Progress: 34340865 Rate: 1.424827055 MB/s Hit Rate: 68.342535% Evicted Items: 3301186 Evicted Bytes: 689947874 Utilization: 0 Avg GET: 1.925727e-06 Avg SET: 6.78175386e-06 
+Progress: 34603009 Rate: 1.376916821 MB/s Hit Rate: 68.42822162% Evicted Items: 3356373 Evicted Bytes: 701481957 Utilization: 0 Avg GET: 1.928763794e-06 Avg SET: 6.831802165e-06 
+Progress: 34865153 Rate: 1.385282683 MB/s Hit Rate: 68.51292087% Evicted Items: 3411560 Evicted Bytes: 713016040 Utilization: 0 Avg GET: 1.931746117e-06 Avg SET: 6.880586409e-06 
+Progress: 35127297 Rate: 1.47237647 MB/s Hit Rate: 68.59669472% Evicted Items: 3461730 Evicted Bytes: 723501570 Utilization: 0 Avg GET: 1.934697279e-06 Avg SET: 6.920262009e-06 
+app min1 5339000
+other min1 2661000
+min1 0.3195430301
+app min2 5292000
+other min2 2708000
+min2 0.3194702014
+app 1, other app 2
+app size 5329000, other app size 2671000
+min2 < min1
+2 steal 37000 from 1
+2 stole from 1
+app min1 2708000
+other min1 5292000
+min1 0.3193523492
+app min2 2708000
+other min2 5292000
+min2 0.3193523492
+app 2, other app 1
+app size 2708000, other app size 5292000
+2 steal 0 from 1
+2 stole from 1
+Progress: 35389441 Rate: 1.297898405 MB/s Hit Rate: 68.68001585% Evicted Items: 3516917 Evicted Bytes: 735035653 Utilization: 0 Avg GET: 1.937676917e-06 Avg SET: 6.976964258e-06 
+Progress: 35651585 Rate: 1.494348792 MB/s Hit Rate: 68.76176385% Evicted Items: 3567087 Evicted Bytes: 745521183 Utilization: 0 Avg GET: 1.940560229e-06 Avg SET: 7.012964332e-06 
+Progress: 35913729 Rate: 1.350446475 MB/s Hit Rate: 68.84322619% Evicted Items: 3622274 Evicted Bytes: 757055266 Utilization: 0 Avg GET: 1.943455856e-06 Avg SET: 7.062189478e-06 
+Progress: 36175873 Rate: 1.485237824 MB/s Hit Rate: 68.92379263% Evicted Items: 3672444 Evicted Bytes: 767540796 Utilization: 0 Avg GET: 1.946255836e-06 Avg SET: 7.098201088e-06 
+Progress: 36438017 Rate: 1.395268246 MB/s Hit Rate: 69.00335079% Evicted Items: 3727631 Evicted Bytes: 779074879 Utilization: 0 Avg GET: 1.949038169e-06 Avg SET: 7.141922134e-06 
+Progress: 36700161 Rate: 1.483634271 MB/s Hit Rate: 69.08205305% Evicted Items: 3777801 Evicted Bytes: 789560409 Utilization: 0 Avg GET: 1.95181299e-06 Avg SET: 7.17665754e-06 
+Progress: 36962305 Rate: 1.397132959 MB/s Hit Rate: 69.1602991% Evicted Items: 3832988 Evicted Bytes: 801094492 Utilization: 0 Avg GET: 1.954525806e-06 Avg SET: 7.219066132e-06 
+Progress: 37224449 Rate: 1.495349947 MB/s Hit Rate: 69.23694342% Evicted Items: 3883158 Evicted Bytes: 811580022 Utilization: 0 Avg GET: 1.957186659e-06 Avg SET: 7.25226233e-06 
+app min1 5300000
+other min1 2700000
+min1 0.3123848508
+app min2 5260000
+other min2 2740000
+min2 0.3125416597
+app 1, other app 2
+app size 5292000, other app size 2708000
+1 steal 8000 from 2
+1 stole from 2
+app min1 2700000
+other min1 5300000
+min1 0.3122661561
+app min2 2699000
+other min2 5301000
+min2 0.3122423254
+app 2, other app 1
+app size 2700000, other app size 5300000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 37486593 Rate: 1.366513881 MB/s Hit Rate: 69.31297996% Evicted Items: 3933328 Evicted Bytes: 822065552 Utilization: 0 Avg GET: 1.959877148e-06 Avg SET: 7.296125772e-06 
+Progress: 37748737 Rate: 1.396307061 MB/s Hit Rate: 69.38948101% Evicted Items: 3988515 Evicted Bytes: 833599635 Utilization: 0 Avg GET: 1.962573423e-06 Avg SET: 7.336435556e-06 
+Progress: 38010881 Rate: 1.48566845 MB/s Hit Rate: 69.46286958% Evicted Items: 4038685 Evicted Bytes: 844085165 Utilization: 0 Avg GET: 1.965166947e-06 Avg SET: 7.368295524e-06 
+Progress: 38273025 Rate: 1.481895228 MB/s Hit Rate: 69.53758606% Evicted Items: 4088855 Evicted Bytes: 854570695 Utilization: 0 Avg GET: 1.967828646e-06 Avg SET: 7.39992706e-06 
+Progress: 38535169 Rate: 1.393700146 MB/s Hit Rate: 69.61049709% Evicted Items: 4144042 Evicted Bytes: 866104778 Utilization: 0 Avg GET: 1.970393564e-06 Avg SET: 7.439187912e-06 
+Progress: 38797313 Rate: 1.473177964 MB/s Hit Rate: 69.68317547% Evicted Items: 4194212 Evicted Bytes: 876590308 Utilization: 0 Avg GET: 1.972956426e-06 Avg SET: 7.470946878e-06 
+Progress: 39059457 Rate: 1.476655746 MB/s Hit Rate: 69.75403344% Evicted Items: 4244382 Evicted Bytes: 887075838 Utilization: 0 Avg GET: 1.975462357e-06 Avg SET: 7.501939658e-06 
+Progress: 39321601 Rate: 1.387382462 MB/s Hit Rate: 69.82341512% Evicted Items: 4299569 Evicted Bytes: 898609921 Utilization: 0 Avg GET: 1.97793569e-06 Avg SET: 7.540075352e-06 
+app min1 5311000
+other min1 2689000
+min1 0.3070545085
+app min2 5276000
+other min2 2724000
+min2 0.307025466
+app 1, other app 2
+app size 5301000, other app size 2699000
+min2 < min1
+2 steal 25000 from 1
+2 stole from 1
+app min1 2724000
+other min1 5276000
+min1 0.3070809677
+app min2 2724000
+other min2 5276000
+min2 0.3070809677
+app 2, other app 1
+app size 2724000, other app size 5276000
+2 steal 0 from 1
+2 stole from 1
+Progress: 39583745 Rate: 1.367373754 MB/s Hit Rate: 69.89238562% Evicted Items: 4349739 Evicted Bytes: 909095451 Utilization: 0 Avg GET: 1.980358806e-06 Avg SET: 7.579692764e-06 
+Progress: 39845889 Rate: 1.429500532 MB/s Hit Rate: 69.96114129% Evicted Items: 4399909 Evicted Bytes: 919580981 Utilization: 0 Avg GET: 1.98275009e-06 Avg SET: 7.613105171e-06 
+Progress: 40108033 Rate: 1.375485352 MB/s Hit Rate: 70.02862419% Evicted Items: 4455096 Evicted Bytes: 931115064 Utilization: 0 Avg GET: 1.985130086e-06 Avg SET: 7.651061014e-06 
+Progress: 40370177 Rate: 1.460309732 MB/s Hit Rate: 70.095954% Evicted Items: 4505266 Evicted Bytes: 941600594 Utilization: 0 Avg GET: 1.987525891e-06 Avg SET: 7.68103171e-06 
+Progress: 40632321 Rate: 1.440911266 MB/s Hit Rate: 70.16234367% Evicted Items: 4555436 Evicted Bytes: 952086124 Utilization: 0 Avg GET: 1.989861224e-06 Avg SET: 7.712181337e-06 
+Progress: 40894465 Rate: 1.4800038 MB/s Hit Rate: 70.22825877% Evicted Items: 4605606 Evicted Bytes: 962571654 Utilization: 0 Avg GET: 1.992182561e-06 Avg SET: 7.739899219e-06 
+Progress: 41156609 Rate: 1.470335473 MB/s Hit Rate: 70.29417487% Evicted Items: 4655776 Evicted Bytes: 973057184 Utilization: 0 Avg GET: 1.994479793e-06 Avg SET: 7.768312004e-06 
+app min1 5276000
+other min1 2724000
+min1 0.3015594599
+app min2 5272000
+other min2 2728000
+min2 0.3015033605
+app 1, other app 2
+app size 5276000, other app size 2724000
+min2 < min1
+2 steal 4000 from 1
+2 stole from 1
+app min1 2728000
+other min1 5272000
+min1 0.3014227068
+app min2 2728000
+other min2 5272000
+min2 0.3014227068
+app 2, other app 1
+app size 2728000, other app size 5272000
+2 steal 0 from 1
+2 stole from 1
+Progress: 41418753 Rate: 1.283803044 MB/s Hit Rate: 70.35858058% Evicted Items: 4710963 Evicted Bytes: 984591267 Utilization: 0 Avg GET: 1.996733437e-06 Avg SET: 7.81294516e-06 
+Progress: 41680897 Rate: 1.461135079 MB/s Hit Rate: 70.42355567% Evicted Items: 4761133 Evicted Bytes: 995076797 Utilization: 0 Avg GET: 1.999022982e-06 Avg SET: 7.841069107e-06 
+Progress: 41943041 Rate: 1.455966186 MB/s Hit Rate: 70.48704147% Evicted Items: 4811303 Evicted Bytes: 1005562327 Utilization: 0 Avg GET: 2.001238132e-06 Avg SET: 7.869128513e-06 
+Progress: 42205185 Rate: 1.475081408 MB/s Hit Rate: 70.54984762% Evicted Items: 4861473 Evicted Bytes: 1016047857 Utilization: 0 Avg GET: 2.003423703e-06 Avg SET: 7.895691486e-06 
+Progress: 42467329 Rate: 1.457534383 MB/s Hit Rate: 70.61068217% Evicted Items: 4911643 Evicted Bytes: 1026533387 Utilization: 0 Avg GET: 2.005530205e-06 Avg SET: 7.923214335e-06 
+Progress: 42729473 Rate: 1.479968666 MB/s Hit Rate: 70.6712009% Evicted Items: 4961813 Evicted Bytes: 1037018917 Utilization: 0 Avg GET: 2.007674142e-06 Avg SET: 7.948415416e-06 
+Progress: 42991617 Rate: 1.388792982 MB/s Hit Rate: 70.73086529% Evicted Items: 5017000 Evicted Bytes: 1048553000 Utilization: 0 Avg GET: 2.00975895e-06 Avg SET: 7.980638969e-06 
+Progress: 43253761 Rate: 1.47276428 MB/s Hit Rate: 70.79050469% Evicted Items: 5067170 Evicted Bytes: 1059038530 Utilization: 0 Avg GET: 2.011835804e-06 Avg SET: 8.005772908e-06 
+app min1 5281000
+other min1 2719000
+min1 0.2965284709
+app min2 5259000
+other min2 2741000
+min2 0.2965241537
+app 1, other app 2
+app size 5272000, other app size 2728000
+min2 < min1
+2 steal 13000 from 1
+2 stole from 1
+app min1 2741000
+other min1 5259000
+min1 0.2965245919
+app min2 2741000
+other min2 5259000
+min2 0.2965245919
+app 2, other app 1
+app size 2741000, other app size 5259000
+2 steal 0 from 1
+2 stole from 1
+Progress: 43515905 Rate: 1.353590075 MB/s Hit Rate: 70.84945311% Evicted Items: 5117340 Evicted Bytes: 1069524060 Utilization: 0 Avg GET: 2.013920934e-06 Avg SET: 8.040170876e-06 
+Progress: 43778049 Rate: 1.466441635 MB/s Hit Rate: 70.90814785% Evicted Items: 5167510 Evicted Bytes: 1080009590 Utilization: 0 Avg GET: 2.015971293e-06 Avg SET: 8.065051689e-06 
+Progress: 44040193 Rate: 1.475479803 MB/s Hit Rate: 70.96490633% Evicted Items: 5217680 Evicted Bytes: 1090495120 Utilization: 0 Avg GET: 2.017987524e-06 Avg SET: 8.088925815e-06 
+Progress: 44302337 Rate: 1.407380989 MB/s Hit Rate: 71.02274471% Evicted Items: 5267850 Evicted Bytes: 1100980650 Utilization: 0 Avg GET: 2.019992062e-06 Avg SET: 8.117867305e-06 
+Progress: 44564481 Rate: 1.343189484 MB/s Hit Rate: 71.07837004% Evicted Items: 5323037 Evicted Bytes: 1112514733 Utilization: 0 Avg GET: 2.021947615e-06 Avg SET: 8.151580316e-06 
+Progress: 44826625 Rate: 1.471979202 MB/s Hit Rate: 71.13376417% Evicted Items: 5373207 Evicted Bytes: 1123000263 Utilization: 0 Avg GET: 2.02390914e-06 Avg SET: 8.174717551e-06 
+Progress: 45088769 Rate: 1.463849248 MB/s Hit Rate: 71.18865168% Evicted Items: 5423377 Evicted Bytes: 1133485793 Utilization: 0 Avg GET: 2.0258542e-06 Avg SET: 8.19815904e-06 
+app min1 5277000
+other min1 2723000
+min1 0.2920581081
+app min2 5248000
+other min2 2752000
+min2 0.292081751
+app 1, other app 2
+app size 5259000, other app size 2741000
+1 steal 18000 from 2
+1 stole from 2
+app min1 2723000
+other min1 5277000
+min1 0.2921635892
+app min2 2723000
+other min2 5277000
+min2 0.2921635892
+app 2, other app 1
+app size 2723000, other app size 5277000
+2 steal 0 from 1
+2 stole from 1
+Progress: 45350913 Rate: 1.318781103 MB/s Hit Rate: 71.24343166% Evicted Items: 5473547 Evicted Bytes: 1143971323 Utilization: 0 Avg GET: 2.0277777e-06 Avg SET: 8.23306378e-06 
+Progress: 45613057 Rate: 1.465571049 MB/s Hit Rate: 71.29722464% Evicted Items: 5523717 Evicted Bytes: 1154456853 Utilization: 0 Avg GET: 2.029679201e-06 Avg SET: 8.2556609e-06 
+Progress: 45875201 Rate: 1.48540207 MB/s Hit Rate: 71.35060338% Evicted Items: 5573887 Evicted Bytes: 1164942383 Utilization: 0 Avg GET: 2.031531329e-06 Avg SET: 8.277000557e-06 
+Progress: 46137345 Rate: 1.395197897 MB/s Hit Rate: 71.40325633% Evicted Items: 5624057 Evicted Bytes: 1175427913 Utilization: 0 Avg GET: 2.033408989e-06 Avg SET: 8.304486079e-06 
+Progress: 46399489 Rate: 1.459366542 MB/s Hit Rate: 71.45600184% Evicted Items: 5674227 Evicted Bytes: 1185913443 Utilization: 0 Avg GET: 2.035260498e-06 Avg SET: 8.326995353e-06 
+Progress: 46661633 Rate: 1.389601541 MB/s Hit Rate: 71.5075075% Evicted Items: 5729414 Evicted Bytes: 1197447526 Utilization: 0 Avg GET: 2.03709146e-06 Avg SET: 8.35436163e-06 
+Progress: 46923777 Rate: 1.473972572 MB/s Hit Rate: 71.5578644% Evicted Items: 5779584 Evicted Bytes: 1207933056 Utilization: 0 Avg GET: 2.038912747e-06 Avg SET: 8.37515638e-06 
+Progress: 47185921 Rate: 1.477968613 MB/s Hit Rate: 71.60824034% Evicted Items: 5829754 Evicted Bytes: 1218418586 Utilization: 0 Avg GET: 2.040665013e-06 Avg SET: 8.395770114e-06 
+app min1 5296000
+other min1 2704000
+min1 0.2891374927
+app min2 5219000
+other min2 2781000
+min2 0.2891273076
+app 1, other app 2
+app size 5277000, other app size 2723000
+min2 < min1
+2 steal 58000 from 1
+2 stole from 1
+app min1 2781000
+other min1 5219000
+min1 0.2890818702
+app min2 2781000
+other min2 5219000
+min2 0.2890818702
+app 2, other app 1
+app size 2781000, other app size 5219000
+2 steal 0 from 1
+2 stole from 1
+Progress: 47448065 Rate: 1.311514484 MB/s Hit Rate: 71.65764024% Evicted Items: 5879924 Evicted Bytes: 1228904116 Utilization: 0 Avg GET: 2.042467192e-06 Avg SET: 8.428292311e-06 
+Progress: 47710209 Rate: 1.459953398 MB/s Hit Rate: 71.70676766% Evicted Items: 5930094 Evicted Bytes: 1239389646 Utilization: 0 Avg GET: 2.044198173e-06 Avg SET: 8.449370687e-06 
+Progress: 47972353 Rate: 1.428419335 MB/s Hit Rate: 71.75529563% Evicted Items: 5980264 Evicted Bytes: 1249875176 Utilization: 0 Avg GET: 2.045944006e-06 Avg SET: 8.472309174e-06 
+Progress: 48234497 Rate: 1.399158971 MB/s Hit Rate: 71.80311576% Evicted Items: 6030434 Evicted Bytes: 1260360706 Utilization: 0 Avg GET: 2.047672812e-06 Avg SET: 8.497146315e-06 
+Progress: 48496641 Rate: 1.37582796 MB/s Hit Rate: 71.85046428% Evicted Items: 6085621 Evicted Bytes: 1271894789 Utilization: 0 Avg GET: 2.049355791e-06 Avg SET: 8.523518762e-06 
+Progress: 48758785 Rate: 1.476622655 MB/s Hit Rate: 71.89728932% Evicted Items: 6135791 Evicted Bytes: 1282380319 Utilization: 0 Avg GET: 2.051041348e-06 Avg SET: 8.542462748e-06 
+Progress: 49020929 Rate: 1.460855141 MB/s Hit Rate: 71.9431668% Evicted Items: 6185961 Evicted Bytes: 1292865849 Utilization: 0 Avg GET: 2.05262938e-06 Avg SET: 8.562681391e-06 
+Progress: 49283073 Rate: 1.479858078 MB/s Hit Rate: 71.98928265% Evicted Items: 6236131 Evicted Bytes: 1303351379 Utilization: 0 Avg GET: 2.054256948e-06 Avg SET: 8.581297914e-06 
+app min1 5223000
+other min1 2777000
+min1 0.2838895907
+app min2 5212000
+other min2 2788000
+min2 0.2838706783
+app 1, other app 2
+app size 5219000, other app size 2781000
+min2 < min1
+2 steal 7000 from 1
+2 stole from 1
+app min1 2788000
+other min1 5212000
+min1 0.2838898841
+app min2 2788000
+other min2 5212000
+min2 0.2838898841
+app 2, other app 1
+app size 2788000, other app size 5212000
+2 steal 0 from 1
+2 stole from 1
+Progress: 49545217 Rate: 1.348558687 MB/s Hit Rate: 72.0347127% Evicted Items: 6286301 Evicted Bytes: 1313836909 Utilization: 0 Avg GET: 2.055878211e-06 Avg SET: 8.608873901e-06 
+Progress: 49807361 Rate: 1.488062752 MB/s Hit Rate: 72.07950994% Evicted Items: 6336471 Evicted Bytes: 1324322439 Utilization: 0 Avg GET: 2.057494576e-06 Avg SET: 8.626340564e-06 
+Progress: 50069505 Rate: 1.382992775 MB/s Hit Rate: 72.12350056% Evicted Items: 6391658 Evicted Bytes: 1335856522 Utilization: 0 Avg GET: 2.059064676e-06 Avg SET: 8.650672992e-06 
+Progress: 50331649 Rate: 1.461367204 MB/s Hit Rate: 72.16752768% Evicted Items: 6441828 Evicted Bytes: 1346342052 Utilization: 0 Avg GET: 2.060626289e-06 Avg SET: 8.669491866e-06 
+Progress: 50593793 Rate: 1.467513456 MB/s Hit Rate: 72.21032968% Evicted Items: 6491998 Evicted Bytes: 1356827582 Utilization: 0 Avg GET: 2.062298158e-06 Avg SET: 8.687710479e-06 
+Progress: 50855937 Rate: 1.479259879 MB/s Hit Rate: 72.25283987% Evicted Items: 6542168 Evicted Bytes: 1367313112 Utilization: 0 Avg GET: 2.063804529e-06 Avg SET: 8.70516539e-06 
+Progress: 51118081 Rate: 1.456612973 MB/s Hit Rate: 72.29553027% Evicted Items: 6592338 Evicted Bytes: 1377798642 Utilization: 0 Avg GET: 2.065323894e-06 Avg SET: 8.723656013e-06 
+app min1 5329000
+other min1 2671000
+min1 0.2792111938
+app min2 5212000
+other min2 2788000
+min2 0.279559408
+app 1, other app 2
+app size 5212000, other app size 2788000
+1 steal 117000 from 2
+1 stole from 2
+app min1 2671000
+other min1 5329000
+min1 0.2792657062
+app min2 2671000
+other min2 5329000
+min2 0.2792657062
+app 2, other app 1
+app size 2671000, other app size 5329000
+2 steal 0 from 1
+2 stole from 1
+Progress: 51380225 Rate: 1.339429003 MB/s Hit Rate: 72.33880685% Evicted Items: 6642508 Evicted Bytes: 1388284172 Utilization: 0 Avg GET: 2.066840056e-06 Avg SET: 8.750214342e-06 
+Progress: 51642369 Rate: 1.368228408 MB/s Hit Rate: 72.3800543% Evicted Items: 6697695 Evicted Bytes: 1399818255 Utilization: 0 Avg GET: 2.068312825e-06 Avg SET: 8.774378451e-06 
+Progress: 51904513 Rate: 1.436518421 MB/s Hit Rate: 72.41967326% Evicted Items: 6747865 Evicted Bytes: 1410303785 Utilization: 0 Avg GET: 2.069724055e-06 Avg SET: 8.793514559e-06 
+Progress: 52166657 Rate: 1.458129119 MB/s Hit Rate: 72.45827871% Evicted Items: 6798035 Evicted Bytes: 1420789315 Utilization: 0 Avg GET: 2.071105805e-06 Avg SET: 8.811079839e-06 
+Progress: 52428801 Rate: 1.403888009 MB/s Hit Rate: 72.49659538% Evicted Items: 6853222 Evicted Bytes: 1432323398 Utilization: 0 Avg GET: 2.072499696e-06 Avg SET: 8.832181567e-06 
+Progress: 52690945 Rate: 1.44618648 MB/s Hit Rate: 72.53485533% Evicted Items: 6903392 Evicted Bytes: 1442808928 Utilization: 0 Avg GET: 2.073880894e-06 Avg SET: 8.850250357e-06 
+Progress: 52953089 Rate: 1.484843195 MB/s Hit Rate: 72.57303672% Evicted Items: 6953562 Evicted Bytes: 1453294458 Utilization: 0 Avg GET: 2.075278633e-06 Avg SET: 8.865668702e-06 
+Progress: 53215233 Rate: 1.391108765 MB/s Hit Rate: 72.61038907% Evicted Items: 7008749 Evicted Bytes: 1464828541 Utilization: 0 Avg GET: 2.076604083e-06 Avg SET: 8.887153249e-06 
+app min1 5338000
+other min1 2662000
+min1 0.2741967784
+app min2 5316000
+other min2 2684000
+min2 0.2741446002
+app 1, other app 2
+app size 5329000, other app size 2671000
+min2 < min1
+2 steal 13000 from 1
+2 stole from 1
+app min1 2684000
+other min1 5316000
+min1 0.2741184002
+app min2 2684000
+other min2 5316000
+min2 0.2741184002
+app 2, other app 1
+app size 2684000, other app size 5316000
+2 steal 0 from 1
+2 stole from 1
+Progress: 53477377 Rate: 1.357351631 MB/s Hit Rate: 72.64638041% Evicted Items: 7058919 Evicted Bytes: 1475314071 Utilization: 0 Avg GET: 2.077888546e-06 Avg SET: 8.910661379e-06 
+Progress: 53739521 Rate: 1.385109879 MB/s Hit Rate: 72.68331946% Evicted Items: 7114106 Evicted Bytes: 1486848154 Utilization: 0 Avg GET: 2.079207873e-06 Avg SET: 8.931981156e-06 
+Progress: 54001665 Rate: 1.477016457 MB/s Hit Rate: 72.71977582% Evicted Items: 7164276 Evicted Bytes: 1497333684 Utilization: 0 Avg GET: 2.080532797e-06 Avg SET: 8.947129295e-06 
+Progress: 54263809 Rate: 1.477831722 MB/s Hit Rate: 72.75676082% Evicted Items: 7214446 Evicted Bytes: 1507819214 Utilization: 0 Avg GET: 2.081820337e-06 Avg SET: 8.962338451e-06 
+Progress: 54525953 Rate: 1.472620576 MB/s Hit Rate: 72.79368731% Evicted Items: 7264616 Evicted Bytes: 1518304744 Utilization: 0 Avg GET: 2.083125372e-06 Avg SET: 8.977580161e-06 
+Progress: 54788097 Rate: 1.378933402 MB/s Hit Rate: 72.82937155% Evicted Items: 7319803 Evicted Bytes: 1529838827 Utilization: 0 Avg GET: 2.084412882e-06 Avg SET: 8.99836291e-06 
+Progress: 55050241 Rate: 1.473126613 MB/s Hit Rate: 72.86590758% Evicted Items: 7369973 Evicted Bytes: 1540324357 Utilization: 0 Avg GET: 2.085700881e-06 Avg SET: 9.013415054e-06 
+Progress: 55312385 Rate: 1.471981621 MB/s Hit Rate: 72.90179357% Evicted Items: 7420143 Evicted Bytes: 1550809887 Utilization: 0 Avg GET: 2.086960907e-06 Avg SET: 9.028226155e-06 
+app min1 5318000
+other min1 2682000
+min1 0.2724742483
+app min2 5256000
+other min2 2744000
+min2 0.2723686725
+app 1, other app 2
+app size 5316000, other app size 2684000
+min2 < min1
+2 steal 60000 from 1
+2 stole from 1
+app min1 2744000
+other min1 5256000
+min1 0.2723415195
+app min2 2744000
+other min2 5256000
+min2 0.2723415195
+app 2, other app 1
+app size 2744000, other app size 5256000
+2 steal 0 from 1
+2 stole from 1
+Progress: 55574529 Rate: 1.324251798 MB/s Hit Rate: 72.93724744% Evicted Items: 7470313 Evicted Bytes: 1561295417 Utilization: 0 Avg GET: 2.088183386e-06 Avg SET: 9.052262179e-06 
+Progress: 55836673 Rate: 1.415229938 MB/s Hit Rate: 72.9730615% Evicted Items: 7520483 Evicted Bytes: 1571780947 Utilization: 0 Avg GET: 2.089408159e-06 Avg SET: 9.070037375e-06 
+Progress: 56098817 Rate: 1.354004945 MB/s Hit Rate: 73.00838756% Evicted Items: 7575670 Evicted Bytes: 1583315030 Utilization: 0 Avg GET: 2.090629526e-06 Avg SET: 9.09166172e-06 
+Progress: 56360961 Rate: 1.411037936 MB/s Hit Rate: 73.04283142% Evicted Items: 7625840 Evicted Bytes: 1593800560 Utilization: 0 Avg GET: 2.091816056e-06 Avg SET: 9.109245086e-06 
+Progress: 56623105 Rate: 1.480847172 MB/s Hit Rate: 73.07695283% Evicted Items: 7676010 Evicted Bytes: 1604286090 Utilization: 0 Avg GET: 2.092990153e-06 Avg SET: 9.122690994e-06 
+Progress: 56885249 Rate: 1.482314797 MB/s Hit Rate: 73.11084941% Evicted Items: 7726180 Evicted Bytes: 1614771620 Utilization: 0 Avg GET: 2.094131524e-06 Avg SET: 9.136181826e-06 
+Progress: 57147393 Rate: 1.395788561 MB/s Hit Rate: 73.14445426% Evicted Items: 7781367 Evicted Bytes: 1626305703 Utilization: 0 Avg GET: 2.095260009e-06 Avg SET: 9.154743229e-06 
+app min1 5307000
+other min1 2693000
+min1 0.2701179283
+app min2 5246000
+other min2 2754000
+min2 0.27012674
+app 1, other app 2
+app size 5256000, other app size 2744000
+1 steal 51000 from 2
+1 stole from 2
+app min1 2727000
+other min1 5273000
+min1 0.2699729005
+app min2 2693000
+other min2 5307000
+min2 0.2699859779
+app 2, other app 1
+app size 2693000, other app size 5307000
+2 steal 34000 from 1
+2 stole from 1
+Progress: 57409537 Rate: 1.344951665 MB/s Hit Rate: 73.17803439% Evicted Items: 7831537 Evicted Bytes: 1636791233 Utilization: 0 Avg GET: 2.096404421e-06 Avg SET: 9.176243385e-06 
+Progress: 57671681 Rate: 1.476635974 MB/s Hit Rate: 73.21105784% Evicted Items: 7881707 Evicted Bytes: 1647276763 Utilization: 0 Avg GET: 2.097517414e-06 Avg SET: 9.18942141e-06 
+Progress: 57933825 Rate: 1.464158909 MB/s Hit Rate: 73.24383938% Evicted Items: 7931877 Evicted Bytes: 1657762293 Utilization: 0 Avg GET: 2.098641859e-06 Avg SET: 9.203151236e-06 
+Progress: 58195969 Rate: 1.457350587 MB/s Hit Rate: 73.27600943% Evicted Items: 7982047 Evicted Bytes: 1668247823 Utilization: 0 Avg GET: 2.099755658e-06 Avg SET: 9.217115934e-06 
+Progress: 58458113 Rate: 1.381822358 MB/s Hit Rate: 73.30823821% Evicted Items: 8037234 Evicted Bytes: 1679781906 Utilization: 0 Avg GET: 2.100871579e-06 Avg SET: 9.235541954e-06 
+Progress: 58720257 Rate: 1.46444528 MB/s Hit Rate: 73.34052665% Evicted Items: 8087404 Evicted Bytes: 1690267436 Utilization: 0 Avg GET: 2.101966893e-06 Avg SET: 9.248987009e-06 
+Progress: 58982401 Rate: 1.4911978 MB/s Hit Rate: 73.3721873% Evicted Items: 8137574 Evicted Bytes: 1700752966 Utilization: 0 Avg GET: 2.103050233e-06 Avg SET: 9.260907253e-06 
+Progress: 59244545 Rate: 1.472790631 MB/s Hit Rate: 73.40371123% Evicted Items: 8187744 Evicted Bytes: 1711238496 Utilization: 0 Avg GET: 2.104121083e-06 Avg SET: 9.273624774e-06 
+app min1 5345000
+other min1 2655000
+min1 0.2672457359
+app min2 5270000
+other min2 2730000
+min2 0.2672880236
+app 1, other app 2
+app size 5273000, other app size 2727000
+1 steal 72000 from 2
+1 stole from 2
+app min1 2655000
+other min1 5345000
+min1 0.2672355337
+app min2 2655000
+other min2 5345000
+min2 0.2672355337
+app 2, other app 1
+app size 2655000, other app size 5345000
+2 steal 0 from 1
+2 stole from 1
+Progress: 59506689 Rate: 1.324299949 MB/s Hit Rate: 73.43502969% Evicted Items: 8237914 Evicted Bytes: 1721724026 Utilization: 0 Avg GET: 2.105323659e-06 Avg SET: 9.294973381e-06 
+Progress: 59768833 Rate: 1.341073208 MB/s Hit Rate: 73.46492232% Evicted Items: 8293101 Evicted Bytes: 1733258109 Utilization: 0 Avg GET: 2.106366126e-06 Avg SET: 9.315092554e-06 
+Progress: 60030977 Rate: 1.460480922 MB/s Hit Rate: 73.49386257% Evicted Items: 8343271 Evicted Bytes: 1743743639 Utilization: 0 Avg GET: 2.107352229e-06 Avg SET: 9.328172974e-06 
+Progress: 60293121 Rate: 1.451785396 MB/s Hit Rate: 73.52331576% Evicted Items: 8393441 Evicted Bytes: 1754229169 Utilization: 0 Avg GET: 2.108515301e-06 Avg SET: 9.341232647e-06 
+Progress: 60555265 Rate: 1.379622639 MB/s Hit Rate: 73.5524611% Evicted Items: 8448628 Evicted Bytes: 1765763252 Utilization: 0 Avg GET: 2.109525624e-06 Avg SET: 9.358504323e-06 
+Progress: 60817409 Rate: 1.475762137 MB/s Hit Rate: 73.58057746% Evicted Items: 8498798 Evicted Bytes: 1776248782 Utilization: 0 Avg GET: 2.110492297e-06 Avg SET: 9.370400757e-06 
+Progress: 61079553 Rate: 1.457227278 MB/s Hit Rate: 73.60952484% Evicted Items: 8548968 Evicted Bytes: 1786734312 Utilization: 0 Avg GET: 2.111490505e-06 Avg SET: 9.382997111e-06 
+app min1 5356000
+other min1 2644000
+min1 0.2642928323
+app min2 5287000
+other min2 2713000
+min2 0.2640247615
+app 1, other app 2
+app size 5345000, other app size 2655000
+min2 < min1
+2 steal 58000 from 1
+2 stole from 1
+Progress: 61341697 Rate: 1.320151246 MB/s Hit Rate: 73.63807809% Evicted Items: 8604155 Evicted Bytes: 1798268395 Utilization: 0 Avg GET: 2.112490289e-06 Avg SET: 9.403597203e-06 
+app min1 2713000
+other min1 5287000
+min1 0.2639509208
+app min2 2713000
+other min2 5287000
+min2 0.2639509208
+app 2, other app 1
+app size 2713000, other app size 5287000
+2 steal 0 from 1
+2 stole from 1
+Progress: 61603841 Rate: 1.356755378 MB/s Hit Rate: 73.66639158% Evicted Items: 8654325 Evicted Bytes: 1808753925 Utilization: 0 Avg GET: 2.11346499e-06 Avg SET: 9.421737102e-06 
+Progress: 61865985 Rate: 1.422324891 MB/s Hit Rate: 73.69453786% Evicted Items: 8704495 Evicted Bytes: 1819239455 Utilization: 0 Avg GET: 2.114583615e-06 Avg SET: 9.435772119e-06 
+Progress: 62128129 Rate: 1.352806089 MB/s Hit Rate: 73.72280555% Evicted Items: 8759682 Evicted Bytes: 1830773538 Utilization: 0 Avg GET: 2.115559785e-06 Avg SET: 9.45382362e-06 
+Progress: 62390273 Rate: 1.473695504 MB/s Hit Rate: 73.75122359% Evicted Items: 8809852 Evicted Bytes: 1841259068 Utilization: 0 Avg GET: 2.116533778e-06 Avg SET: 9.465027992e-06 
+Progress: 62652417 Rate: 1.488485627 MB/s Hit Rate: 73.77927613% Evicted Items: 8860022 Evicted Bytes: 1851744598 Utilization: 0 Avg GET: 2.117487825e-06 Avg SET: 9.475428177e-06 
+Progress: 62914561 Rate: 1.472187731 MB/s Hit Rate: 73.80702496% Evicted Items: 8910192 Evicted Bytes: 1862230128 Utilization: 0 Avg GET: 2.118438627e-06 Avg SET: 9.486477898e-06 
+Progress: 63176705 Rate: 1.497471198 MB/s Hit Rate: 73.83401325% Evicted Items: 8960362 Evicted Bytes: 1872715658 Utilization: 0 Avg GET: 2.119331472e-06 Avg SET: 9.496589264e-06 
+app min1 5292000
+other min1 2708000
+min1 0.2607762298
+app min2 5269000
+other min2 2731000
+min2 0.2607125304
+app 1, other app 2
+app size 5287000, other app size 2713000
+min2 < min1
+2 steal 18000 from 1
+2 stole from 1
+app min1 2731000
+other min1 5269000
+min1 0.2607749627
+app min2 2731000
+other min2 5269000
+min2 0.2607749627
+app 2, other app 1
+app size 2731000, other app size 5269000
+2 steal 0 from 1
+2 stole from 1
+Progress: 63438849 Rate: 1.269686179 MB/s Hit Rate: 73.86109691% Evicted Items: 9015549 Evicted Bytes: 1884249741 Utilization: 0 Avg GET: 2.120260855e-06 Avg SET: 9.519464555e-06 
+Progress: 63700993 Rate: 1.451373092 MB/s Hit Rate: 73.88820099% Evicted Items: 9065719 Evicted Bytes: 1894735271 Utilization: 0 Avg GET: 2.121319603e-06 Avg SET: 9.531079169e-06 
+Progress: 63963137 Rate: 1.455838979 MB/s Hit Rate: 73.91494063% Evicted Items: 9115889 Evicted Bytes: 1905220801 Utilization: 0 Avg GET: 2.122190883e-06 Avg SET: 9.542908011e-06 
+Progress: 64225281 Rate: 1.472471881 MB/s Hit Rate: 73.94162548% Evicted Items: 9166059 Evicted Bytes: 1915706331 Utilization: 0 Avg GET: 2.123108783e-06 Avg SET: 9.553490135e-06 
+Progress: 64487425 Rate: 1.365411868 MB/s Hit Rate: 73.96854773% Evicted Items: 9221246 Evicted Bytes: 1927240414 Utilization: 0 Avg GET: 2.124149044e-06 Avg SET: 9.569542101e-06 
+Progress: 64749569 Rate: 1.464409932 MB/s Hit Rate: 73.99469136% Evicted Items: 9271416 Evicted Bytes: 1937725944 Utilization: 0 Avg GET: 2.125037329e-06 Avg SET: 9.580435732e-06 
+Progress: 65011713 Rate: 1.449703174 MB/s Hit Rate: 74.02074875% Evicted Items: 9321586 Evicted Bytes: 1948211474 Utilization: 0 Avg GET: 2.125903915e-06 Avg SET: 9.591874552e-06 
+Progress: 65273857 Rate: 1.484037486 MB/s Hit Rate: 74.04657387% Evicted Items: 9371756 Evicted Bytes: 1958697004 Utilization: 0 Avg GET: 2.126750993e-06 Avg SET: 9.601616119e-06 
+app min1 5285000
+other min1 2715000
+min1 0.2578451588
+app min2 5266000
+other min2 2734000
+min2 0.2579299609
+app 1, other app 2
+app size 5269000, other app size 2731000
+1 steal 16000 from 2
+1 stole from 2
+app min1 2715000
+other min1 5285000
+min1 0.2578296077
+app min2 2714000
+other min2 5286000
+min2 0.257824672
+app 2, other app 1
+app size 2715000, other app size 5285000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 65536001 Rate: 1.310930753 MB/s Hit Rate: 74.07267151% Evicted Items: 9421926 Evicted Bytes: 1969182534 Utilization: 0 Avg GET: 2.127600022e-06 Avg SET: 9.620892302e-06 
+Progress: 65798145 Rate: 1.393135468 MB/s Hit Rate: 74.0982238% Evicted Items: 9477113 Evicted Bytes: 1980716617 Utilization: 0 Avg GET: 2.12843604e-06 Avg SET: 9.635284924e-06 
+Progress: 66060289 Rate: 1.468240333 MB/s Hit Rate: 74.12301321% Evicted Items: 9527283 Evicted Bytes: 1991202147 Utilization: 0 Avg GET: 2.129279395e-06 Avg SET: 9.645502301e-06 
+Progress: 66322433 Rate: 1.465554971 MB/s Hit Rate: 74.1478298% Evicted Items: 9577453 Evicted Bytes: 2001687677 Utilization: 0 Avg GET: 2.130120275e-06 Avg SET: 9.655757451e-06 
+Progress: 66584577 Rate: 1.48054351 MB/s Hit Rate: 74.172864% Evicted Items: 9627623 Evicted Bytes: 2012173207 Utilization: 0 Avg GET: 2.130954353e-06 Avg SET: 9.665285725e-06 
+Progress: 66846721 Rate: 1.460032579 MB/s Hit Rate: 74.19797112% Evicted Items: 9677793 Evicted Bytes: 2022658737 Utilization: 0 Avg GET: 2.131799691e-06 Avg SET: 9.675541865e-06 
+Progress: 67108865 Rate: 1.396948655 MB/s Hit Rate: 74.222368% Evicted Items: 9732980 Evicted Bytes: 2034192820 Utilization: 0 Avg GET: 2.132624597e-06 Avg SET: 9.689094051e-06 
+app min1 5298000
+other min1 2702000
+min1 0.2553151472
+app min2 5280000
+other min2 2720000
+min2 0.2553821398
+app 1, other app 2
+app size 5286000, other app size 2714000
+1 steal 12000 from 2
+1 stole from 2
+app min1 2702000
+other min1 5298000
+min1 0.2552556905
+app min2 2702000
+other min2 5298000
+min2 0.2552556905
+app 2, other app 1
+app size 2702000, other app size 5298000
+2 steal 0 from 1
+2 stole from 1
+Progress: 67371009 Rate: 1.322088788 MB/s Hit Rate: 74.24692978% Evicted Items: 9783150 Evicted Bytes: 2044678350 Utilization: 0 Avg GET: 2.133437532e-06 Avg SET: 9.706764547e-06 
+Progress: 67633153 Rate: 1.453166935 MB/s Hit Rate: 74.27092412% Evicted Items: 9833320 Evicted Bytes: 2055163880 Utilization: 0 Avg GET: 2.134267808e-06 Avg SET: 9.717027145e-06 
+Progress: 67895297 Rate: 1.496475812 MB/s Hit Rate: 74.29462713% Evicted Items: 9883490 Evicted Bytes: 2065649410 Utilization: 0 Avg GET: 2.135073173e-06 Avg SET: 9.725175569e-06 
+Progress: 68157441 Rate: 1.476683139 MB/s Hit Rate: 74.31789692% Evicted Items: 9933660 Evicted Bytes: 2076134940 Utilization: 0 Avg GET: 2.135845904e-06 Avg SET: 9.734328049e-06 
+Progress: 68419585 Rate: 1.379236647 MB/s Hit Rate: 74.34159348% Evicted Items: 9988847 Evicted Bytes: 2087669023 Utilization: 0 Avg GET: 2.136654105e-06 Avg SET: 9.748276866e-06 
+Progress: 68681729 Rate: 1.468891553 MB/s Hit Rate: 74.3651805% Evicted Items: 10039017 Evicted Bytes: 2098154553 Utilization: 0 Avg GET: 2.137449105e-06 Avg SET: 9.757687982e-06 
+Progress: 68943873 Rate: 1.493242545 MB/s Hit Rate: 74.38829806% Evicted Items: 10089187 Evicted Bytes: 2108640083 Utilization: 0 Avg GET: 2.13823935e-06 Avg SET: 9.765714608e-06 
+Progress: 69206017 Rate: 1.468713784 MB/s Hit Rate: 74.4122563% Evicted Items: 10139357 Evicted Bytes: 2119125613 Utilization: 0 Avg GET: 2.139051843e-06 Avg SET: 9.774822797e-06 
+app min1 5300000
+other min1 2700000
+min1 0.2530600122
+app min2 5290000
+other min2 2710000
+min2 0.2529615939
+app 1, other app 2
+app size 5298000, other app size 2702000
+min2 < min1
+2 steal 8000 from 1
+2 stole from 1
+app min1 2715000
+other min1 5285000
+min1 0.2527768919
+app min2 2709000
+other min2 5291000
+min2 0.2527860931
+app 2, other app 1
+app size 2710000, other app size 5290000
+2 steal 5000 from 1
+2 stole from 1
+Progress: 69468161 Rate: 1.323622568 MB/s Hit Rate: 74.43507932% Evicted Items: 10189527 Evicted Bytes: 2129611143 Utilization: 0 Avg GET: 2.139831616e-06 Avg SET: 9.791382396e-06 
+Progress: 69730305 Rate: 1.463851414 MB/s Hit Rate: 74.4583302% Evicted Items: 10239697 Evicted Bytes: 2140096673 Utilization: 0 Avg GET: 2.140595845e-06 Avg SET: 9.800629392e-06 
+Progress: 69992449 Rate: 1.377942593 MB/s Hit Rate: 74.48139262% Evicted Items: 10294884 Evicted Bytes: 2151630756 Utilization: 0 Avg GET: 2.141344007e-06 Avg SET: 9.814273933e-06 
+Progress: 70254593 Rate: 1.370687972 MB/s Hit Rate: 74.5034104% Evicted Items: 10345054 Evicted Bytes: 2162116286 Utilization: 0 Avg GET: 2.14207988e-06 Avg SET: 9.827935075e-06 
+Progress: 70516737 Rate: 1.440826231 MB/s Hit Rate: 74.52636917% Evicted Items: 10395224 Evicted Bytes: 2172601816 Utilization: 0 Avg GET: 2.142849664e-06 Avg SET: 9.838008085e-06 
+Progress: 70778881 Rate: 1.375444907 MB/s Hit Rate: 74.54859557% Evicted Items: 10445394 Evicted Bytes: 2183087346 Utilization: 0 Avg GET: 2.143585064e-06 Avg SET: 9.851225181e-06 
+Progress: 71041025 Rate: 1.466702526 MB/s Hit Rate: 74.57080714% Evicted Items: 10495564 Evicted Bytes: 2193572876 Utilization: 0 Avg GET: 2.144323934e-06 Avg SET: 9.859997259e-06 
+Progress: 71303169 Rate: 1.474568535 MB/s Hit Rate: 74.59309802% Evicted Items: 10545734 Evicted Bytes: 2204058406 Utilization: 0 Avg GET: 2.145048268e-06 Avg SET: 9.86843914e-06 
+app min1 5290000
+other min1 2710000
+min1 0.2501605351
+app min2 5285000
+other min2 2715000
+min2 0.2501791409
+app 1, other app 2
+app size 5285000, other app size 2715000
+1 steal 5000 from 2
+1 stole from 2
+app min1 2710000
+other min1 5290000
+min1 0.2502478636
+app min2 2710000
+other min2 5290000
+min2 0.2502478636
+app 2, other app 1
+app size 2710000, other app size 5290000
+2 steal 0 from 1
+2 stole from 1
+Progress: 71565313 Rate: 1.241701304 MB/s Hit Rate: 74.61461357% Evicted Items: 10600921 Evicted Bytes: 2215592489 Utilization: 0 Avg GET: 2.145745889e-06 Avg SET: 9.889340047e-06 
+Progress: 71827457 Rate: 1.375846636 MB/s Hit Rate: 74.63626305% Evicted Items: 10651091 Evicted Bytes: 2226078019 Utilization: 0 Avg GET: 2.14648109e-06 Avg SET: 9.902097603e-06 
+Progress: 72089601 Rate: 1.4664087 MB/s Hit Rate: 74.65802141% Evicted Items: 10701261 Evicted Bytes: 2236563549 Utilization: 0 Avg GET: 2.147205742e-06 Avg SET: 9.910406548e-06 
+Progress: 72351745 Rate: 1.451911485 MB/s Hit Rate: 74.67892688% Evicted Items: 10751431 Evicted Bytes: 2247049079 Utilization: 0 Avg GET: 2.147885489e-06 Avg SET: 9.919590672e-06 
+Progress: 72613889 Rate: 1.478933167 MB/s Hit Rate: 74.70052698% Evicted Items: 10801601 Evicted Bytes: 2257534609 Utilization: 0 Avg GET: 2.148598778e-06 Avg SET: 9.927276073e-06 
+Progress: 72876033 Rate: 1.464591381 MB/s Hit Rate: 74.72119366% Evicted Items: 10851771 Evicted Bytes: 2268020139 Utilization: 0 Avg GET: 2.149281481e-06 Avg SET: 9.93558605e-06 
+Progress: 73138177 Rate: 1.329276689 MB/s Hit Rate: 74.74196376% Evicted Items: 10906958 Evicted Bytes: 2279554222 Utilization: 0 Avg GET: 2.149977599e-06 Avg SET: 9.950558418e-06 
+app min1 5294000
+other min1 2706000
+min1 0.2488355423
+app min2 5289000
+other min2 2711000
+min2 0.2488346433
+app 1, other app 2
+app size 5290000, other app size 2710000
+min2 < min1
+2 steal 1000 from 1
+2 stole from 1
+app min1 2711000
+other min1 5289000
+min1 0.248696525
+app min2 2710000
+other min2 5290000
+min2 0.2486850155
+app 2, other app 1
+app size 2711000, other app size 5289000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 73400321 Rate: 1.312885656 MB/s Hit Rate: 74.76277896% Evicted Items: 10957128 Evicted Bytes: 2290039752 Utilization: 0 Avg GET: 2.150660679e-06 Avg SET: 9.966289247e-06 
+Progress: 73662465 Rate: 1.33969985 MB/s Hit Rate: 74.78380848% Evicted Items: 11007298 Evicted Bytes: 2300525282 Utilization: 0 Avg GET: 2.151365803e-06 Avg SET: 9.98032155e-06 
+Progress: 73924609 Rate: 1.48373335 MB/s Hit Rate: 74.80458605% Evicted Items: 11057468 Evicted Bytes: 2311010812 Utilization: 0 Avg GET: 2.152040725e-06 Avg SET: 9.987474454e-06 
+Progress: 74186753 Rate: 1.436523481 MB/s Hit Rate: 74.82476386% Evicted Items: 11107638 Evicted Bytes: 2321496342 Utilization: 0 Avg GET: 2.152710365e-06 Avg SET: 9.996720114e-06 
+Progress: 74448897 Rate: 1.273518108 MB/s Hit Rate: 74.84483988% Evicted Items: 11157808 Evicted Bytes: 2331981872 Utilization: 0 Avg GET: 2.153382825e-06 Avg SET: 1.001416287e-05 
+Progress: 74711041 Rate: 1.467887494 MB/s Hit Rate: 74.8654148% Evicted Items: 11207978 Evicted Bytes: 2342467402 Utilization: 0 Avg GET: 2.154044222e-06 Avg SET: 1.002180409e-05 
+Progress: 74973185 Rate: 1.400596588 MB/s Hit Rate: 74.8855044% Evicted Items: 11263165 Evicted Bytes: 2354001485 Utilization: 0 Avg GET: 2.154679679e-06 Avg SET: 1.003277839e-05 
+Progress: 75235329 Rate: 1.483481412 MB/s Hit Rate: 74.90543007% Evicted Items: 11313335 Evicted Bytes: 2364487015 Utilization: 0 Avg GET: 2.155306029e-06 Avg SET: 1.00399648e-05 
+app min1 5290000
+other min1 2710000
+min1 0.2483289799
+app min2 5285000
+other min2 2715000
+min2 0.2483272042
+app 1, other app 2
+app size 5290000, other app size 2710000
+min2 < min1
+2 steal 5000 from 1
+2 stole from 1
+app min1 2715000
+other min1 5285000
+min1 0.2482561527
+app min2 2715000
+other min2 5285000
+min2 0.2482561527
+app 2, other app 1
+app size 2715000, other app size 5285000
+2 steal 0 from 1
+2 stole from 1
+Progress: 75497473 Rate: 1.304171951 MB/s Hit Rate: 74.92513127% Evicted Items: 11363505 Evicted Bytes: 2374972545 Utilization: 0 Avg GET: 2.155968971e-06 Avg SET: 1.005532651e-05 
+Progress: 75759617 Rate: 1.472010733 MB/s Hit Rate: 74.94474101% Evicted Items: 11413675 Evicted Bytes: 2385458075 Utilization: 0 Avg GET: 2.156622903e-06 Avg SET: 1.006256093e-05 
+Progress: 76021761 Rate: 1.43033076 MB/s Hit Rate: 74.96452068% Evicted Items: 11463845 Evicted Bytes: 2395943605 Utilization: 0 Avg GET: 2.157264078e-06 Avg SET: 1.00715037e-05 
+Progress: 76283905 Rate: 1.467601241 MB/s Hit Rate: 74.98392321% Evicted Items: 11514015 Evicted Bytes: 2406429135 Utilization: 0 Avg GET: 2.15789791e-06 Avg SET: 1.007885001e-05 
+Progress: 76546049 Rate: 1.473668112 MB/s Hit Rate: 75.0031014% Evicted Items: 11564185 Evicted Bytes: 2416914665 Utilization: 0 Avg GET: 2.158519066e-06 Avg SET: 1.008588668e-05 
+Progress: 76808193 Rate: 1.483959114 MB/s Hit Rate: 75.02289469% Evicted Items: 11614355 Evicted Bytes: 2427400195 Utilization: 0 Avg GET: 2.159160822e-06 Avg SET: 1.009247564e-05 
+Progress: 77070337 Rate: 1.472583021 MB/s Hit Rate: 75.04264416% Evicted Items: 11664525 Evicted Bytes: 2437885725 Utilization: 0 Avg GET: 2.159803014e-06 Avg SET: 1.009934792e-05 
+Progress: 77332481 Rate: 1.369509925 MB/s Hit Rate: 75.06174508% Evicted Items: 11719712 Evicted Bytes: 2449419808 Utilization: 0 Avg GET: 2.160426667e-06 Avg SET: 1.011091563e-05 
+app min1 5311000
+other min1 2689000
+min1 0.2466929989
+app min2 5282000
+other min2 2718000
+min2 0.2468095612
+app 1, other app 2
+app size 5285000, other app size 2715000
+1 steal 26000 from 2
+1 stole from 2
+app min1 2689000
+other min1 5311000
+min1 0.2467693071
+app min2 2689000
+other min2 5311000
+min2 0.2467693071
+app 2, other app 1
+app size 2689000, other app size 5311000
+2 steal 0 from 1
+2 stole from 1
+Progress: 77594625 Rate: 1.316165379 MB/s Hit Rate: 75.08095148% Evicted Items: 11769882 Evicted Bytes: 2459905338 Utilization: 0 Avg GET: 2.161066854e-06 Avg SET: 1.012496705e-05 
+Progress: 77856769 Rate: 1.47417602 MB/s Hit Rate: 75.09995021% Evicted Items: 11820052 Evicted Bytes: 2470390868 Utilization: 0 Avg GET: 2.161679123e-06 Avg SET: 1.013167014e-05 
+Progress: 78118913 Rate: 1.477677124 MB/s Hit Rate: 75.11890847% Evicted Items: 11870222 Evicted Bytes: 2480876398 Utilization: 0 Avg GET: 2.162297921e-06 Avg SET: 1.013815273e-05 
+Progress: 78381057 Rate: 1.47008613 MB/s Hit Rate: 75.13774757% Evicted Items: 11920392 Evicted Bytes: 2491361928 Utilization: 0 Avg GET: 2.162905371e-06 Avg SET: 1.014487808e-05 
+Progress: 78643201 Rate: 1.480969142 MB/s Hit Rate: 75.15581512% Evicted Items: 11970562 Evicted Bytes: 2501847458 Utilization: 0 Avg GET: 2.163473269e-06 Avg SET: 1.015140021e-05 
+Progress: 78905345 Rate: 1.465532371 MB/s Hit Rate: 75.17395273% Evicted Items: 12020732 Evicted Bytes: 2512332988 Utilization: 0 Avg GET: 2.164057874e-06 Avg SET: 1.015833164e-05 
+Progress: 79167489 Rate: 1.459727689 MB/s Hit Rate: 75.19193106% Evicted Items: 12070902 Evicted Bytes: 2522818518 Utilization: 0 Avg GET: 2.164644228e-06 Avg SET: 1.01654401e-05 
+app min1 5314000
+other min1 2686000
+min1 0.2452720563
+app min2 5309000
+other min2 2691000
+min2 0.2452305464
+app 1, other app 2
+app size 5311000, other app size 2689000
+min2 < min1
+2 steal 2000 from 1
+2 stole from 1
+app min1 2691000
+other min1 5309000
+min1 0.2451676039
+app min2 2691000
+other min2 5309000
+min2 0.2451676039
+app 2, other app 1
+app size 2691000, other app size 5309000
+2 steal 0 from 1
+2 stole from 1
+Progress: 79429633 Rate: 1.275495629 MB/s Hit Rate: 75.21045672% Evicted Items: 12121072 Evicted Bytes: 2533304048 Utilization: 0 Avg GET: 2.165266207e-06 Avg SET: 1.018112544e-05 
+Progress: 79691777 Rate: 1.197269254 MB/s Hit Rate: 75.22829583% Evicted Items: 12171242 Evicted Bytes: 2543789578 Utilization: 0 Avg GET: 2.165835242e-06 Avg SET: 1.020122801e-05 
+Progress: 79953921 Rate: 1.445589203 MB/s Hit Rate: 75.24603046% Evicted Items: 12221412 Evicted Bytes: 2554275108 Utilization: 0 Avg GET: 2.166378159e-06 Avg SET: 1.02088968e-05 
+Progress: 80216065 Rate: 1.381568496 MB/s Hit Rate: 75.26310191% Evicted Items: 12276599 Evicted Bytes: 2565809191 Utilization: 0 Avg GET: 2.166917277e-06 Avg SET: 1.021922258e-05 
+Progress: 80478209 Rate: 1.466817814 MB/s Hit Rate: 75.2807903% Evicted Items: 12326769 Evicted Bytes: 2576294721 Utilization: 0 Avg GET: 2.167477921e-06 Avg SET: 1.022567155e-05 
+Progress: 80740353 Rate: 1.251644308 MB/s Hit Rate: 75.29808391% Evicted Items: 12376939 Evicted Bytes: 2586780251 Utilization: 0 Avg GET: 2.168029525e-06 Avg SET: 1.02421389e-05 
+Progress: 81002497 Rate: 1.190629349 MB/s Hit Rate: 75.31527547% Evicted Items: 12427109 Evicted Bytes: 2597265781 Utilization: 0 Avg GET: 2.168568608e-06 Avg SET: 1.026222617e-05 
+Progress: 81264641 Rate: 1.178776761 MB/s Hit Rate: 75.3322466% Evicted Items: 12477279 Evicted Bytes: 2607751311 Utilization: 0 Avg GET: 2.169088462e-06 Avg SET: 1.028285165e-05 
+app min1 5312000
+other min1 2688000
+min1 0.2425289895
+app min2 5309000
+other min2 2691000
+min2 0.2425866313
+app 1, other app 2
+app size 5309000, other app size 2691000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2688000
+other min1 5312000
+min1 0.2424385548
+app min2 2688000
+other min2 5312000
+min2 0.2424385548
+app 2, other app 1
+app size 2688000, other app size 5312000
+2 steal 0 from 1
+2 stole from 1
+Progress: 81526785 Rate: 1.210521429 MB/s Hit Rate: 75.34890497% Evicted Items: 12527449 Evicted Bytes: 2618236841 Utilization: 0 Avg GET: 2.169612676e-06 Avg SET: 1.03014056e-05 
+Progress: 81788929 Rate: 1.482423446 MB/s Hit Rate: 75.36570842% Evicted Items: 12577619 Evicted Bytes: 2628722371 Utilization: 0 Avg GET: 2.1701136e-06 Avg SET: 1.030701411e-05 
+Progress: 82051073 Rate: 1.296556689 MB/s Hit Rate: 75.38194992% Evicted Items: 12632806 Evicted Bytes: 2640256454 Utilization: 0 Avg GET: 2.17062997e-06 Avg SET: 1.032074809e-05 
+Progress: 82313217 Rate: 1.180540554 MB/s Hit Rate: 75.39857026% Evicted Items: 12682976 Evicted Bytes: 2650741984 Utilization: 0 Avg GET: 2.171149624e-06 Avg SET: 1.034079595e-05 
+Progress: 82575361 Rate: 1.179928226 MB/s Hit Rate: 75.41465396% Evicted Items: 12733146 Evicted Bytes: 2661227514 Utilization: 0 Avg GET: 2.171637035e-06 Avg SET: 1.036076797e-05 
+Progress: 82837505 Rate: 1.303253693 MB/s Hit Rate: 75.43073364% Evicted Items: 12783316 Evicted Bytes: 2671713044 Utilization: 0 Avg GET: 2.172128544e-06 Avg SET: 1.037389801e-05 
+Progress: 83099649 Rate: 1.481559697 MB/s Hit Rate: 75.44712103% Evicted Items: 12833486 Evicted Bytes: 2682198574 Utilization: 0 Avg GET: 2.172645183e-06 Avg SET: 1.037904329e-05 
+app min1 5319000
+other min1 2681000
+min1 0.2400676613
+app min2 5312000
+other min2 2688000
+min2 0.2400989097
+app 1, other app 2
+app size 5312000, other app size 2688000
+1 steal 7000 from 2
+1 stole from 2
+app min1 2681000
+other min1 5319000
+min1 0.2400164726
+app min2 2681000
+other min2 5319000
+min2 0.2400164726
+app 2, other app 1
+app size 2681000, other app size 5319000
+2 steal 0 from 1
+2 stole from 1
+Progress: 83361793 Rate: 1.231986802 MB/s Hit Rate: 75.4632398% Evicted Items: 12883656 Evicted Bytes: 2692684104 Utilization: 0 Avg GET: 2.173117091e-06 Avg SET: 1.039587471e-05 
+Progress: 83623937 Rate: 1.389116954 MB/s Hit Rate: 75.47932568% Evicted Items: 12938843 Evicted Bytes: 2704218187 Utilization: 0 Avg GET: 2.173609156e-06 Avg SET: 1.040477983e-05 
+Progress: 83886081 Rate: 1.462537492 MB/s Hit Rate: 75.49497843% Evicted Items: 12989013 Evicted Bytes: 2714703717 Utilization: 0 Avg GET: 2.174113023e-06 Avg SET: 1.0410578e-05 
+Progress: 84148225 Rate: 1.471785665 MB/s Hit Rate: 75.5107844% Evicted Items: 13039183 Evicted Bytes: 2725189247 Utilization: 0 Avg GET: 2.174586001e-06 Avg SET: 1.041603842e-05 
+Progress: 84410369 Rate: 1.475764664 MB/s Hit Rate: 75.52635833% Evicted Items: 13089353 Evicted Bytes: 2735674777 Utilization: 0 Avg GET: 2.175080648e-06 Avg SET: 1.042108334e-05 
+Progress: 84672513 Rate: 1.471965043 MB/s Hit Rate: 75.54203069% Evicted Items: 13139523 Evicted Bytes: 2746160307 Utilization: 0 Avg GET: 2.175563339e-06 Avg SET: 1.042640969e-05 
+Progress: 84934657 Rate: 1.417044127 MB/s Hit Rate: 75.55766635% Evicted Items: 13189693 Evicted Bytes: 2756645837 Utilization: 0 Avg GET: 2.176026497e-06 Avg SET: 1.043406432e-05 
+Progress: 85196801 Rate: 1.128323994 MB/s Hit Rate: 75.57300039% Evicted Items: 13244880 Evicted Bytes: 2768179920 Utilization: 0 Avg GET: 2.176514434e-06 Avg SET: 1.045626844e-05 
+app min1 5322000
+other min1 2678000
+min1 0.2391976312
+app min2 5316000
+other min2 2684000
+min2 0.2392118972
+app 1, other app 2
+app size 5319000, other app size 2681000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2678000
+other min1 5322000
+min1 0.239162969
+app min2 2677000
+other min2 5323000
+min2 0.2391511622
+app 2, other app 1
+app size 2678000, other app size 5322000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 85458945 Rate: 1.152272952 MB/s Hit Rate: 75.58874119% Evicted Items: 13295050 Evicted Bytes: 2778665450 Utilization: 0 Avg GET: 2.177002257e-06 Avg SET: 1.047688911e-05 
+Progress: 85721089 Rate: 1.484664726 MB/s Hit Rate: 75.60432037% Evicted Items: 13345220 Evicted Bytes: 2789150980 Utilization: 0 Avg GET: 2.177474053e-06 Avg SET: 1.048157237e-05 
+Progress: 85983233 Rate: 1.478777044 MB/s Hit Rate: 75.61937541% Evicted Items: 13395390 Evicted Bytes: 2799636510 Utilization: 0 Avg GET: 2.177949288e-06 Avg SET: 1.048625652e-05 
+Progress: 86245377 Rate: 1.482379671 MB/s Hit Rate: 75.63470069% Evicted Items: 13445560 Evicted Bytes: 2810122040 Utilization: 0 Avg GET: 2.178422214e-06 Avg SET: 1.049087259e-05 
+Progress: 86507521 Rate: 1.433973957 MB/s Hit Rate: 75.64958399% Evicted Items: 13495730 Evicted Bytes: 2820607570 Utilization: 0 Avg GET: 2.178852185e-06 Avg SET: 1.049754811e-05 
+Progress: 86769665 Rate: 1.185637137 MB/s Hit Rate: 75.66502044% Evicted Items: 13545900 Evicted Bytes: 2831093100 Utilization: 0 Avg GET: 2.179310478e-06 Avg SET: 1.051594405e-05 
+Progress: 87031809 Rate: 1.184264551 MB/s Hit Rate: 75.68006975% Evicted Items: 13596070 Evicted Bytes: 2841578630 Utilization: 0 Avg GET: 2.179774433e-06 Avg SET: 1.053409121e-05 
+Progress: 87293953 Rate: 1.260324032 MB/s Hit Rate: 75.69513178% Evicted Items: 13646240 Evicted Bytes: 2852064160 Utilization: 0 Avg GET: 2.180199665e-06 Avg SET: 1.054818272e-05 
+app min1 5326000
+other min1 2674000
+min1 0.2373740163
+app min2 5320000
+other min2 2680000
+min2 0.2373791036
+app 1, other app 2
+app size 5323000, other app size 2677000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2680000
+other min1 5320000
+min1 0.237389557
+app min2 2673000
+other min2 5327000
+min2 0.2373798776
+app 2, other app 1
+app size 2674000, other app size 5326000
+min2 < min1
+1 steal 1000 from 2
+1 stole from 2
+Progress: 87556097 Rate: 1.213593174 MB/s Hit Rate: 75.70987861% Evicted Items: 13701427 Evicted Bytes: 2863598243 Utilization: 0 Avg GET: 2.180632985e-06 Avg SET: 1.056449802e-05 
+Progress: 87818241 Rate: 1.463627027 MB/s Hit Rate: 75.72444859% Evicted Items: 13751597 Evicted Bytes: 2874083773 Utilization: 0 Avg GET: 2.181067497e-06 Avg SET: 1.056953613e-05 
+Progress: 88080385 Rate: 1.459785524 MB/s Hit Rate: 75.73904651% Evicted Items: 13801767 Evicted Bytes: 2884569303 Utilization: 0 Avg GET: 2.181510096e-06 Avg SET: 1.057463339e-05 
+Progress: 88342529 Rate: 1.399089756 MB/s Hit Rate: 75.75392567% Evicted Items: 13851937 Evicted Bytes: 2895054833 Utilization: 0 Avg GET: 2.181950984e-06 Avg SET: 1.058213694e-05 
+Progress: 88604673 Rate: 1.203253812 MB/s Hit Rate: 75.76840418% Evicted Items: 13902107 Evicted Bytes: 2905540363 Utilization: 0 Avg GET: 2.1823672e-06 Avg SET: 1.059876901e-05 
+Progress: 88866817 Rate: 1.264721437 MB/s Hit Rate: 75.7830662% Evicted Items: 13952277 Evicted Bytes: 2916025893 Utilization: 0 Avg GET: 2.182797029e-06 Avg SET: 1.061205074e-05 
+Progress: 89128961 Rate: 1.412379328 MB/s Hit Rate: 75.79717636% Evicted Items: 14002447 Evicted Bytes: 2926511423 Utilization: 0 Avg GET: 2.18320309e-06 Avg SET: 1.061880353e-05 
+app min1 5330000
+other min1 2670000
+min1 0.2367871175
+app min2 5312000
+other min2 2688000
+min2 0.2367890321
+app 1, other app 2
+app size 5327000, other app size 2673000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2670000
+other min1 5330000
+min1 0.2368177904
+app min2 2670000
+other min2 5330000
+min2 0.2368177904
+app 2, other app 1
+app size 2670000, other app size 5330000
+2 steal 0 from 1
+2 stole from 1
+Progress: 89391105 Rate: 1.249699002 MB/s Hit Rate: 75.81170941% Evicted Items: 14052617 Evicted Bytes: 2936996953 Utilization: 0 Avg GET: 2.183638228e-06 Avg SET: 1.063266689e-05 
+Progress: 89653249 Rate: 1.324828157 MB/s Hit Rate: 75.82616639% Evicted Items: 14102787 Evicted Bytes: 2947482483 Utilization: 0 Avg GET: 2.184049148e-06 Avg SET: 1.064310821e-05 
+Progress: 89915393 Rate: 1.190828862 MB/s Hit Rate: 75.84094167% Evicted Items: 14152957 Evicted Bytes: 2957968013 Utilization: 0 Avg GET: 2.184475256e-06 Avg SET: 1.065996685e-05 
+Progress: 90177537 Rate: 1.185855885 MB/s Hit Rate: 75.85492023% Evicted Items: 14203127 Evicted Bytes: 2968453543 Utilization: 0 Avg GET: 2.184895171e-06 Avg SET: 1.067695727e-05 
+Progress: 90439681 Rate: 1.341325218 MB/s Hit Rate: 75.86881444% Evicted Items: 14258314 Evicted Bytes: 2979987626 Utilization: 0 Avg GET: 2.185315272e-06 Avg SET: 1.06863018e-05 
+Progress: 90701825 Rate: 1.432665654 MB/s Hit Rate: 75.88271654% Evicted Items: 14308484 Evicted Bytes: 2990473156 Utilization: 0 Avg GET: 2.185705669e-06 Avg SET: 1.06920282e-05 
+Progress: 90963969 Rate: 1.484699917 MB/s Hit Rate: 75.89666053% Evicted Items: 14358654 Evicted Bytes: 3000958686 Utilization: 0 Avg GET: 2.186102501e-06 Avg SET: 1.069578019e-05 
+Progress: 91226113 Rate: 1.427887952 MB/s Hit Rate: 75.91029858% Evicted Items: 14408824 Evicted Bytes: 3011444216 Utilization: 0 Avg GET: 2.186490672e-06 Avg SET: 1.070160668e-05 
+app min1 5343000
+other min1 2657000
+min1 0.2336526267
+app min2 5325000
+other min2 2675000
+min2 0.2336669369
+app 1, other app 2
+app size 5330000, other app size 2670000
+1 steal 13000 from 2
+1 stole from 2
+app min1 2657000
+other min1 5343000
+min1 0.2336989148
+app min2 2657000
+other min2 5343000
+min2 0.2336989148
+app 2, other app 1
+app size 2657000, other app size 5343000
+2 steal 0 from 1
+2 stole from 1
+Progress: 91488257 Rate: 1.279437875 MB/s Hit Rate: 75.92433285% Evicted Items: 14458994 Evicted Bytes: 3021929746 Utilization: 0 Avg GET: 2.186902644e-06 Avg SET: 1.07135223e-05 
+Progress: 91750401 Rate: 1.476548253 MB/s Hit Rate: 75.9380515% Evicted Items: 14509164 Evicted Bytes: 3032415276 Utilization: 0 Avg GET: 2.187309013e-06 Avg SET: 1.071744321e-05 
+Progress: 92012545 Rate: 1.480594239 MB/s Hit Rate: 75.95180392% Evicted Items: 14559334 Evicted Bytes: 3042900806 Utilization: 0 Avg GET: 2.187692777e-06 Avg SET: 1.072130369e-05 
+Progress: 92274689 Rate: 1.489271076 MB/s Hit Rate: 75.96591386% Evicted Items: 14609504 Evicted Bytes: 3053386336 Utilization: 0 Avg GET: 2.188094214e-06 Avg SET: 1.072477603e-05 
+Progress: 92536833 Rate: 1.472716649 MB/s Hit Rate: 75.97946189% Evicted Items: 14659674 Evicted Bytes: 3063871866 Utilization: 0 Avg GET: 2.188484483e-06 Avg SET: 1.07288005e-05 
+Progress: 92798977 Rate: 1.430219 MB/s Hit Rate: 75.99295816% Evicted Items: 14709844 Evicted Bytes: 3074357396 Utilization: 0 Avg GET: 2.188877245e-06 Avg SET: 1.073437268e-05 
+Progress: 93061121 Rate: 1.492479162 MB/s Hit Rate: 76.0064117% Evicted Items: 14760014 Evicted Bytes: 3084842926 Utilization: 0 Avg GET: 2.189267536e-06 Avg SET: 1.073764658e-05 
+Progress: 93323265 Rate: 1.490387852 MB/s Hit Rate: 76.01983253% Evicted Items: 14810184 Evicted Bytes: 3095328456 Utilization: 0 Avg GET: 2.189646527e-06 Avg SET: 1.074103195e-05 
+app min1 5346000
+other min1 2654000
+min1 0.2325237054
+app min2 5343000
+other min2 2657000
+min2 0.2325650477
+app 1, other app 2
+app size 5343000, other app size 2657000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2654000
+other min1 5346000
+min1 0.2325497051
+app min2 2654000
+other min2 5346000
+min2 0.2325497051
+app 2, other app 1
+app size 2654000, other app size 5346000
+2 steal 0 from 1
+2 stole from 1
+Progress: 93585409 Rate: 1.262706362 MB/s Hit Rate: 76.0327999% Evicted Items: 14860354 Evicted Bytes: 3105813986 Utilization: 0 Avg GET: 2.190028128e-06 Avg SET: 1.075334819e-05 
+Progress: 93847553 Rate: 1.469085903 MB/s Hit Rate: 76.04587384% Evicted Items: 14910524 Evicted Bytes: 3116299516 Utilization: 0 Avg GET: 2.190373766e-06 Avg SET: 1.075754573e-05 
+Progress: 94109697 Rate: 1.48693562 MB/s Hit Rate: 76.05868263% Evicted Items: 14960694 Evicted Bytes: 3126785046 Utilization: 0 Avg GET: 2.190730665e-06 Avg SET: 1.076099133e-05 
+Progress: 94371841 Rate: 1.386785661 MB/s Hit Rate: 76.07162158% Evicted Items: 15015881 Evicted Bytes: 3138319129 Utilization: 0 Avg GET: 2.191096506e-06 Avg SET: 1.076797023e-05 
+Progress: 94633985 Rate: 1.480683456 MB/s Hit Rate: 76.08396366% Evicted Items: 15066051 Evicted Bytes: 3148804659 Utilization: 0 Avg GET: 2.191442356e-06 Avg SET: 1.077152192e-05 
+Progress: 94896129 Rate: 1.443510734 MB/s Hit Rate: 76.09653473% Evicted Items: 15116221 Evicted Bytes: 3159290189 Utilization: 0 Avg GET: 2.191781048e-06 Avg SET: 1.077639527e-05 
+Progress: 95158273 Rate: 1.32137894 MB/s Hit Rate: 76.10927298% Evicted Items: 15166391 Evicted Bytes: 3169775719 Utilization: 0 Avg GET: 2.192226293e-06 Avg SET: 1.07858134e-05 
+app min1 5350000
+other min1 2650000
+min1 0.2313302159
+app min2 5341000
+other min2 2659000
+min2 0.2313402334
+app 1, other app 2
+app size 5346000, other app size 2654000
+1 steal 4000 from 2
+1 stole from 2
+app min1 2650000
+other min1 5350000
+min1 0.2312709792
+app min2 2650000
+other min2 5350000
+min2 0.2312709792
+app 2, other app 1
+app size 2650000, other app size 5350000
+2 steal 0 from 1
+2 stole from 1
+Progress: 95420417 Rate: 1.139998977 MB/s Hit Rate: 76.12170859% Evicted Items: 15216561 Evicted Bytes: 3180261249 Utilization: 0 Avg GET: 2.192571356e-06 Avg SET: 1.080416917e-05 
+Progress: 95682561 Rate: 1.460938772 MB/s Hit Rate: 76.13407501% Evicted Items: 15266731 Evicted Bytes: 3190746779 Utilization: 0 Avg GET: 2.192905937e-06 Avg SET: 1.080833275e-05 
+Progress: 95944705 Rate: 1.493380494 MB/s Hit Rate: 76.14624565% Evicted Items: 15316901 Evicted Bytes: 3201232309 Utilization: 0 Avg GET: 2.193226026e-06 Avg SET: 1.081145142e-05 
+Progress: 96206849 Rate: 1.444298785 MB/s Hit Rate: 76.15817015% Evicted Items: 15367071 Evicted Bytes: 3211717839 Utilization: 0 Avg GET: 2.193550067e-06 Avg SET: 1.08161097e-05 
+Progress: 96468993 Rate: 1.385443679 MB/s Hit Rate: 76.17034705% Evicted Items: 15422258 Evicted Bytes: 3223251922 Utilization: 0 Avg GET: 2.193890125e-06 Avg SET: 1.082285382e-05 
+Progress: 96731137 Rate: 1.464965156 MB/s Hit Rate: 76.18270502% Evicted Items: 15472428 Evicted Bytes: 3233737452 Utilization: 0 Avg GET: 2.194249408e-06 Avg SET: 1.082659726e-05 
+Progress: 96993281 Rate: 1.303477983 MB/s Hit Rate: 76.19449203% Evicted Items: 15522598 Evicted Bytes: 3244222982 Utilization: 0 Avg GET: 2.194573881e-06 Avg SET: 1.08365895e-05 
+Progress: 97255425 Rate: 1.205766949 MB/s Hit Rate: 76.20618568% Evicted Items: 15572768 Evicted Bytes: 3254708512 Utilization: 0 Avg GET: 2.194877212e-06 Avg SET: 1.085111498e-05 
+app min1 5353000
+other min1 2647000
+min1 0.2295630169
+app min2 5344000
+other min2 2656000
+min2 0.2295730096
+app 1, other app 2
+app size 5350000, other app size 2650000
+1 steal 3000 from 2
+1 stole from 2
+app min1 2647000
+other min1 5353000
+min1 0.2296214027
+app min2 2647000
+other min2 5353000
+min2 0.2296214027
+app 2, other app 1
+app size 2647000, other app size 5353000
+2 steal 0 from 1
+2 stole from 1
+Progress: 97517569 Rate: 1.209448866 MB/s Hit Rate: 76.2180718% Evicted Items: 15622938 Evicted Bytes: 3265194042 Utilization: 0 Avg GET: 2.195198837e-06 Avg SET: 1.086539845e-05 
+Progress: 97779713 Rate: 1.473132486 MB/s Hit Rate: 76.23017135% Evicted Items: 15673108 Evicted Bytes: 3275679572 Utilization: 0 Avg GET: 2.195516662e-06 Avg SET: 1.086894336e-05 
+Progress: 98041857 Rate: 1.418599635 MB/s Hit Rate: 76.24169926% Evicted Items: 15723278 Evicted Bytes: 3286165102 Utilization: 0 Avg GET: 2.195848851e-06 Avg SET: 1.087419284e-05 
+Progress: 98304001 Rate: 1.195657614 MB/s Hit Rate: 76.25368958% Evicted Items: 15773448 Evicted Bytes: 3296650632 Utilization: 0 Avg GET: 2.196176807e-06 Avg SET: 1.088880477e-05 
+Progress: 98566145 Rate: 1.154863284 MB/s Hit Rate: 76.26534016% Evicted Items: 15828635 Evicted Bytes: 3308184715 Utilization: 0 Avg GET: 2.196501071e-06 Avg SET: 1.090541717e-05 
+Progress: 98828289 Rate: 1.487915917 MB/s Hit Rate: 76.27714648% Evicted Items: 15878805 Evicted Bytes: 3318670245 Utilization: 0 Avg GET: 2.196832428e-06 Avg SET: 1.090817887e-05 
+Progress: 99090433 Rate: 1.436238742 MB/s Hit Rate: 76.28899731% Evicted Items: 15928975 Evicted Bytes: 3329155775 Utilization: 0 Avg GET: 2.197156118e-06 Avg SET: 1.091266101e-05 
+app min1 5354000
+other min1 2646000
+min1 0.228394893
+app min2 5346000
+other min2 2654000
+min2 0.2283884542
+app 1, other app 2
+app size 5353000, other app size 2647000
+min2 < min1
+2 steal 7000 from 1
+2 stole from 1
+app min1 2654000
+other min1 5346000
+min1 0.2283865931
+app min2 2654000
+other min2 5346000
+min2 0.2283865931
+app 2, other app 1
+app size 2654000, other app size 5346000
+2 steal 0 from 1
+2 stole from 1
+Progress: 99352577 Rate: 1.244436757 MB/s Hit Rate: 76.30047861% Evicted Items: 15979145 Evicted Bytes: 3339641305 Utilization: 0 Avg GET: 2.197485165e-06 Avg SET: 1.092466485e-05 
+Progress: 99614721 Rate: 1.505045705 MB/s Hit Rate: 76.31195671% Evicted Items: 16029315 Evicted Bytes: 3350126835 Utilization: 0 Avg GET: 2.197795575e-06 Avg SET: 1.092686984e-05 
+Progress: 99876865 Rate: 1.490789623 MB/s Hit Rate: 76.32329445% Evicted Items: 16079485 Evicted Bytes: 3360612365 Utilization: 0 Avg GET: 2.198077013e-06 Avg SET: 1.092969705e-05 
+total execution time: 1678.925

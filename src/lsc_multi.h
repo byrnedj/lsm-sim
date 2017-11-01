@@ -134,6 +134,8 @@ class lsc_multi : public policy {
                     << "live_items " //number of objects currently in cache
                     << "misses "
                     << "miss_rate "
+                    << "shq_size "
+                    << "AET_ht_size "
                     << std::endl;
         }
 
@@ -178,6 +180,8 @@ class lsc_multi : public policy {
                     << live_items << " "
                     << misses << " "
                     << double(misses)/accesses << " "
+                    << shadow_q.get_size() << " "
+                    << AET.get_hash_table_size() << " "
                     << std::endl;
         }
 

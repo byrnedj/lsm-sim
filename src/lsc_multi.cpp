@@ -37,7 +37,7 @@ lsc_multi::application::application(
   , cleaning_q{}
   , cleaning_it{cleaning_q.end()}
 {
-  shadow_q.expand(10 * 1024 * 1024);
+  shadow_q.expand(100 * 1024 * 1024);
 }
 
 lsc_multi::application::~application() {}

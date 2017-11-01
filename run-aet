@@ -29,7 +29,6 @@ syn_app_size[2]=$((4000000*OSIZE))
 
 total_size=0
 for app in $apps; do
-  echo $app
   bytes=${syn_app_size[$app]}
   total_size=$(($total_size + $bytes))
 done

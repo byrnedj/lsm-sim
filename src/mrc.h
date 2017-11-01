@@ -18,7 +18,7 @@
 #define MAXL 100000+3 //number of bins in  reuse time histogram
 #define MAXH 1000000 //size of hash table
 #define domain 256 //reuse time histogram compression factor
-#define STEP 100 // sampling rate
+#define STEP 1000 // sampling rate
 #define MAX_TENANTS 10 //max number of MRCs to create
                         //MAX_TENANTS+1 is the combined MRC
 
@@ -32,6 +32,7 @@ class mrc {
 
         void sample(uint32_t key);
         long long getN();
+        size_t get_hash_table_size();
         long long solve(long long *c_size_idx, 
                         double* miss_rate,
                         long long *max);

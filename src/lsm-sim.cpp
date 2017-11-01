@@ -145,6 +145,11 @@ bool debug = false;
 bool syn = false;
 bool mrc = false;
 
+//read ascii commands, see
+//memcached documentation for format
+//this is used to evaluate timing
+bool net = false;
+
 const std::string usage =
   "-f    specify file path\n"
   "-a    specify app to eval\n"
@@ -172,6 +177,7 @@ const std::string usage =
   "-n    number of flash sections for ripq and ripq_shield\n" 
   "-Y    Use synthetic trace set\n" 
   "-R    Use full MRC guided partition\n" 
+  "-Z    Recieve input from mutilate ascii port 2017\n" 
   "-d    number of dram sections for ripq_shield\n";
 
 // memcachier slab allocations at t=86400 (24 hours)
@@ -233,6 +239,10 @@ int main(int argc, char *argv[]) {
         //Y is for synthetic trace set 
       case 'Y':
         syn = true;
+        break;
+      
+      case 'Z':
+        net = true;
         break;
         //R is for using full miss RATIO curve
         //to guide allocation
@@ -667,85 +677,115 @@ int main(int argc, char *argv[]) {
       std::cerr << "slab growth factor: " << gfactor << std::endl;
   }
 
-  // proc file line by line
-  std::ifstream t_stream(trace);
-  assert(t_stream.is_open());
-  std::string line;
-
-  int i = 0;
-  auto start = hrc::now();
-  auto last_progress = start;
-  size_t bytes = 0;
-  
-  size_t time_hour = 1; 
-  while (std::getline(t_stream, line) &&
-         (request_limit == 0 || i < request_limit))
+  if (net)
   {
-    request r{line};
-
-
-    bytes += line.size();
-
-    if (verbose && ((i & ((1 << 18) - 1)) == 0)) {
-      auto now  = hrc::now();
-      double seconds =
-        ch::duration_cast<ch::nanoseconds>(now - last_progress).count() / 1e9;
-      if (seconds > 1.0) {
-        stats* stats = policy->get_stats();
-        std::cerr << "Progress: " << std::setprecision(10) << r.time << " "
-                  << "Rate: " << bytes / (1 << 20) / seconds << " MB/s "
-                  << "Hit Rate: " << stats->get_hit_rate() * 100 << "% "
-                  << "Evicted Items: " << stats->evicted_items << " "
-                  << "Evicted Bytes: " << stats->evicted_bytes << " "
-                  << "Utilization: " << stats->get_utilization()
-                  << std::endl;
-        bytes = 0;
-        last_progress = now;
-      }
-    }
-
-    // Only process requests for specified app, of type GET,
-    // and values of size > 0, after time 'hit_start_time'.
-    if (r.type != request::GET)
-      continue;
-
-
-    if (r.val_sz <= 0)
-      continue;
-    
-    const bool in_apps =
-      std::find(std::begin(apps), std::end(apps), r.appid) != std::end(apps);
-
-    if (all_apps && !in_apps) {
-      apps.insert(r.appid);
-    } else if (!in_apps) {
-      continue;
-    }
-    
-
-    policy->proc(&r, r.time < hit_start_time);
-    if (verbose 
-	&& ( policy_type == FLASHSHIELD || policy_type == VICTIMCACHE || policy_type == RIPQ ) 
-	&& time_hour * 3600 < r.time) {
-    	printf ("Dumping stats for FLASHSHIELD\n");
-	policy->dump_stats();
-	time_hour++;
-    }
-    ++i;
+      //reserved for future work....?
   }
-  auto stop = hrc::now();
+  else
+  {
+    double avg_get_latency = 0;
+    double avg_set_latency = 0;
+    // proc file line by line
+    std::ifstream t_stream(trace);
+    assert(t_stream.is_open());
+    std::string line;
 
-  // Log curves for shadowlru, shadowslab, and partslab.
-  if (policy_type == 0 || policy_type == 4 || policy_type == 5)
-    policy->log_curves();
+    int i = 0;
+    auto start = hrc::now();
+    auto last_progress = start;
+    size_t bytes = 0;
+    
+    size_t time_hour = 1; 
+    while (std::getline(t_stream, line) &&
+           (request_limit == 0 || i < request_limit))
+    {
+      request r{line};
+
+
+      bytes += line.size();
+
+      if (verbose && ((i & ((1 << 18) - 1)) == 0)) {
+        auto now  = hrc::now();
+        double seconds =
+          ch::duration_cast<ch::nanoseconds>(now - last_progress).count() / 1e9;
+        if (seconds > 1.0) {
+          stats* stats = policy->get_stats();
+          std::cerr << "Progress: " << std::setprecision(10) << r.time << " "
+                    << "Rate: " << bytes / (1 << 20) / seconds << " MB/s "
+                    << "Hit Rate: " << stats->get_hit_rate() * 100 << "% "
+                    << "Evicted Items: " << stats->evicted_items << " "
+                    << "Evicted Bytes: " << stats->evicted_bytes << " "
+                    << "Utilization: " << stats->get_utilization() << " "
+                    << "Avg GET: " << avg_get_latency/stats->accesses << " "
+                    << "Avg SET: " << avg_set_latency/stats->accesses << " "
+                    << std::endl;
+          bytes = 0;
+          last_progress = now;
+        }
+      }
+
+      // Only process requests for specified app, of type GET,
+      // and values of size > 0, after time 'hit_start_time'.
+      if (r.type != request::GET)
+        continue;
+
+
+      if (r.val_sz <= 0)
+        continue;
+      
+      const bool in_apps =
+        std::find(std::begin(apps), std::end(apps), r.appid) != std::end(apps);
+
+      if (all_apps && !in_apps) {
+        apps.insert(r.appid);
+      } else if (!in_apps) {
+        continue;
+      }
+      
+
+      clock_t start, end;
+      double cpu_time_used;
+      //measure how long it takes
+      start = clock();
+      int status = policy->proc(&r, r.time < hit_start_time);
+      end = clock();
+
+      cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+
+      //get was hit
+      if (status == 1)
+      {
+          avg_get_latency += cpu_time_used;
+      }
+      //we did a set
+      else
+      {
+          avg_set_latency += cpu_time_used;
+      }
+
+      if (verbose 
+          && ( policy_type == FLASHSHIELD || policy_type == VICTIMCACHE || policy_type == RIPQ ) 
+          && time_hour * 3600 < r.time) {
+      	printf ("Dumping stats for FLASHSHIELD\n");
+          policy->dump_stats();
+          time_hour++;
+      }
+      ++i;
+    }
+    auto stop = hrc::now();
+
+    // Log curves for shadowlru, shadowslab, and partslab.
+    if (policy_type == 0 || policy_type == 4 || policy_type == 5)
+      policy->log_curves();
  
-  // Dump stats for all policies. 
-  policy->dump_stats();
+    // Dump stats for all policies. 
+    policy->dump_stats();
 
-  double seconds =
-    ch::duration_cast<ch::milliseconds>(stop - start).count() / 1000.;
-  std::cerr << "total execution time: " << seconds << std::endl;
+    double seconds =
+      ch::duration_cast<ch::milliseconds>(stop - start).count() / 1000.;
+    std::cerr << "total execution time: " << seconds << std::endl;
 
-  return 0;
+    return 0;
+  }
 }
 

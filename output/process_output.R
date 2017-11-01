@@ -10,6 +10,9 @@ options(scipen=-1)
 plots <- c("aet.out","cliffhanger.out")
 #plots <- c("etc.out")
 
+atlist = list()
+ctlist = list()
+
 for (i in plots ) 
 {
 
@@ -61,6 +64,30 @@ for (i in plots )
     shqlist[["etc"]] = etcshq
     shqlist[["psa"]] = psashq
     
+    shslist <- list()
+    
+    htslist <- list()
+    
+    #if we are on cliffhanger, take the shadowq size
+    if (i == "cliffhanger.out")
+    {
+        etcshs <- subset(df,app == 1  & subpolicy == "normal", select=c(accesses,shq_size) )
+        psashs <- subset(df,app == 2  & subpolicy == "normal", select=c(accesses,shq_size) )
+    
+        shslist[["etc"]] = etcshs
+        shslist[["psa"]] = psashs
+    }
+    # else get the AET_hash table size
+    else
+    {
+        etchts <- subset(df,app == 1  & subpolicy == "normal", select=c(accesses,AET_ht_size) )
+        psahts <- subset(df,app == 2  & subpolicy == "normal", select=c(accesses,AET_ht_size) )
+    
+        htslist[["etc"]] = etchts
+        htslist[["psa"]] = psahts
+
+    }
+    
 
     #important to note that is is allocated memory
     etctmem <- subset(df,app == 1  & subpolicy == "normal", select=c(accesses,share) )
@@ -88,6 +115,9 @@ for (i in plots )
     tmem_df = melt(tmemlist, id="accesses")
     item_df = melt(itemslist, id="accesses")
     shq_df = melt(shqlist, id="accesses")
+
+    shqs_df = melt(shslist, id="accesses")
+    hts_df = melt(htslist, id="accesses")
    
     lblpsa = "psa"
     lbletc = "etc"
@@ -214,5 +244,109 @@ for (i in plots )
              x = "Accesses (logical accesses)",
              colour = "" ) )
     
+    if (i == "cliffhanger.out")
+    {
+        #shadow queue sizes
+        title <- paste(prefix,"Shadow Queue Size vs. Accesses",sep="")
+        plot(ggplot(data=shqs_df, aes(x=accesses, y=value, colour=L1) ) +
+            geom_line() +
+            theme_bw() +
+            theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
+            expand_limits(y=0) +
+            labs(title = title, 
+                 y = "Size (keys)", 
+                 x = "Accesses (logical accesses)",
+                 colour = "" ) )
+    }
+    else
+    {
+        #shadow queue sizes
+        title <- paste(prefix,"Hash Table Size vs. Accesses",sep="")
+        plot(ggplot(data=hts_df, aes(x=accesses, y=value, colour=L1) ) +
+            geom_line() +
+            theme_bw() +
+            theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
+            expand_limits(y=0) +
+            labs(title = title, 
+                 y = "Size (objects)", 
+                 x = "Accesses (logical accesses)",
+                 colour = "" ) )
+    }
+    
+    if (i == "aet.out")
+    {
+
+        tdf <- read.table("aet_times.out",header=TRUE)
+        tdf$accesses = tdf$accesses/2
+        
+
+        set <- subset(tdf,select=c(accesses,set))
+        colnames(set) <- c("accesses","time")
+        get <- subset(tdf,select=c(accesses,get))
+        colnames(get) <- c("accesses","time")
+        atlist[["SET"]] <- set
+        atlist[["GET"]] <- get
+       
+       
+
+    }
+    if (i == "cliffhanger.out")
+    {
+
+        tdf <- read.table("cliffhanger_times.out",header=TRUE)
+        tdf$accesses = tdf$accesses/2
+        tlist = list()
+        set <- subset(tdf,select=c(accesses,set))
+        colnames(set) <- c("accesses","time")
+        get <- subset(tdf,select=c(accesses,get))
+        colnames(get) <- c("accesses","time")
+        ctlist[["SET"]] <- set
+        ctlist[["GET"]] <- get
+        
+
+    }
     
 }
+
+title <- paste("GET Access Latencies",sep="")
+
+gtlist = list()
+
+gtlist[["AET"]] = atlist[["GET"]]
+gtlist[["CH"]] = ctlist[["GET"]]
+
+gtlist_df = melt(gtlist, id="accesses")
+
+plot(ggplot(data=gtlist_df, aes(x=accesses, y=value*1000000, colour=L1) ) +
+    geom_line() +
+    theme_bw() +
+    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
+    expand_limits(y=0) +
+    labs(title = title, 
+         y = "Time (us)", 
+         x = "Accesses",
+         colour = "" ) )
+
+
+
+stlist = list()
+
+stlist[["AET"]] = atlist[["SET"]]
+stlist[["CH"]] = ctlist[["SET"]]
+
+stlist_df = melt(stlist, id="accesses")
+
+title <- paste("SET Access Latencies",sep="")
+
+
+plot(ggplot(data=stlist_df, aes(x=accesses, y=value*1000000, colour=L1) ) +
+    geom_line() +
+    theme_bw() +
+    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
+    expand_limits(y=0) +
+    labs(title = title, 
+         y = "Time (us)", 
+         x = "Accesses",
+         colour = "" ) )
+
+

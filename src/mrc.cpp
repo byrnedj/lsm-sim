@@ -101,6 +101,11 @@ long long mrc::getN()
     return N;
 }
 
+size_t mrc::get_hash_table_size()
+{
+    return AET_hash.size();
+}
+
 
 void mrc::balance(long long *app_idx, double *app_mrc, 
                   long long app_actual, long long app_upper,

@@ -26,6 +26,7 @@ class lru : public policy {
   
     // Accessors.
     size_t get_bytes_cached() const;
+    size_t get_size();
     size_t get_hits(); 
     size_t get_accs();
 

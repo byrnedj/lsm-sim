@@ -24,6 +24,7 @@ lru::~lru () {
 
 // Simply returns the current number of bytes cached.
 size_t lru::get_bytes_cached() const { return stat.bytes_cached; }
+size_t lru::get_size() { return map.size(); }
 
 // Public accessors for hits and accesses.
 size_t lru::get_hits() { return stat.hits; }
