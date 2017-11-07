@@ -1,0 +1,29 @@
+lru_queue is linked list
+
+===========
+MEM POOL
+===========
+-> Structure
+append to log
+hash map contains location of object in log
+
+
+-> Eviction
+
+-> cleaning
+
+1. choose oldest n segments (GLOBAL)
+2. Put all items in n segments into app-specific cleaning queus
+3. sort by app-specific access time (NEWEST at the head)
+4. choose suvivor app, based off need or random
+5. take item at head of selected app, and move it to a new destination
+   (any unused segment, there will be at least 1% free)
+6. repeat 4 until out of destination segments or total space
+7. items that remain in app-spec queues get pushed into shadow queue
+
+
+============
+SHADOW QUEUE
+============
+-> Structure
+-> Eviction

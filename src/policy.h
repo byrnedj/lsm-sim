@@ -38,6 +38,11 @@ class policy {
 
     enum { PROC_MISS = ~0lu };
     virtual size_t proc(const request *r, bool warmup) = 0;
+    virtual size_t proc_net(const request *r, bool warmup) 
+    { 
+        std::cout << "Not enabled for this policy" << std::endl; 
+        return -1;
+    }
 
     virtual size_t get_bytes_cached() const = 0; 
 

@@ -241,6 +241,7 @@ class lsc_multi : public policy {
     }
 
     size_t proc(const request *r, bool warmup);
+    size_t proc_net(const request *r, bool warmup);
     size_t get_bytes_cached() const;
    
     double get_running_hit_rate();

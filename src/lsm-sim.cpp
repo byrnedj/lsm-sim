@@ -14,6 +14,14 @@
 #include <memory>
 #include <cassert>
 
+
+//netio
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#include <string.h>
+
 #include "common.h"
 #include "request.h"
 #include "fifo.h"
@@ -232,7 +240,7 @@ int main(int argc, char *argv[]) {
   std::vector<int32_t> ordered_apps{};
   while ((c = getopt(argc, argv,
                      "p:s:l:f:a:ru:w:vhg:MP:S:B:E:N:W:T:t:"
-                     "m:d:F:n:D:L:K:k:C:c:YP:RP:x:y:A:")) != -1)
+                     "m:d:F:n:D:L:K:k:C:c:YP:RP:x:y:ZP:A:")) != -1)
   {
     switch (c)
     {
@@ -240,7 +248,7 @@ int main(int argc, char *argv[]) {
       case 'Y':
         syn = true;
         break;
-      
+     //Z is to use network 
       case 'Z':
         net = true;
         break;
@@ -679,7 +687,161 @@ int main(int argc, char *argv[]) {
 
   if (net)
   {
-      //reserved for future work....?
+      //net we need to open up a tcp/ip stream in order to accept 
+      //GET/SET from mutilate
+
+      int listener;
+      unsigned int length;
+      int conn;
+      struct sockaddr_in s1;
+
+      listener = socket(AF_INET,SOCK_STREAM,0);
+      memset( (char*)&s1, 0, sizeof(s1));
+      s1.sin_family = (short) AF_INET;
+      s1.sin_addr.s_addr = htonl(INADDR_ANY);
+      s1.sin_port = htons(0);
+
+      bind(listener, (struct sockaddr*)&s1,sizeof(s1));
+      length = sizeof(s1);
+      getsockname(listener,(struct sockaddr*)&s1,&length);
+
+      std::cerr << "port: " << ntohs(s1.sin_port) << "\n";
+
+      listen(listener,1);
+
+      struct sockaddr_in s2;
+      conn = accept(listener, (struct sockaddr*)&s2,&length);
+    
+
+      int i = 0;
+      auto start = hrc::now();
+      auto last_progress = start;
+      size_t bytes = 0;
+        
+      //all reqs in net are 200 bytes
+      const char *data = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu";
+
+      char buf[1024];
+      memset(buf,0,1024);
+      while ( read(conn,&buf,1024) )
+      {
+
+        
+        //parse buf
+        //time == i
+        //appid == first char of key
+        //type == SET o GET
+        //key_size length of key 9?
+        //val_size == 200
+        //kid = key
+
+        char line[1024];
+        int type = 2;
+        if (!strncmp(buf,"get",3) || !strncmp(buf,"GET",3))
+        {
+                type = 1;
+        }
+
+        unsigned int appid = buf[4] - '0';
+        char key[25];
+        memcpy(key,&buf[4],9);
+
+        long long kid = atol(key);
+
+        sprintf(line,"%d,%u,%d,9,200,%lld",
+                     i+1,appid,type,kid);
+    
+        //std::cerr << "request: " << line << "\n";
+
+        //return a request
+        request r{line};
+
+
+        bytes += strlen(line);
+
+        if (verbose && ((i & ((1 << 18) - 1)) == 0)) {
+          auto now  = hrc::now();
+          double seconds =
+            ch::duration_cast<ch::nanoseconds>(now - last_progress).count() / 1e9;
+          if (seconds > 1.0) {
+            stats* stats = policy->get_stats();
+            std::cerr << "Progress: " << std::setprecision(10) << r.time << " "
+                      << "Rate: " << bytes / (1 << 20) / seconds << " MB/s "
+                      << "Hit Rate: " << stats->get_hit_rate() * 100 << "% "
+                      << "Evicted Items: " << stats->evicted_items << " "
+                      << "Evicted Bytes: " << stats->evicted_bytes << " "
+                      << "Utilization: " << stats->get_utilization() << " "
+                      << std::endl;
+            bytes = 0;
+            last_progress = now;
+          }
+        }
+
+        
+        const bool in_apps =
+          std::find(std::begin(apps), std::end(apps), r.appid) != std::end(apps);
+
+        if (all_apps && !in_apps) {
+          apps.insert(r.appid);
+        } else if (!in_apps) {
+          continue;
+        }
+        
+        
+        int status = policy->proc_net(&r, r.time < hit_start_time);
+        //status == 2 means get was hit
+        //status == 1 means okay (ack after set)
+        //status == 0 means get was miss
+        const char *end = "END\r\n";
+        const char *stored = "STORED\r\n";
+        if (status == 2)
+        {
+            /*
+             *  Each item sent by the server looks like this:
+
+                VALUE <key> <flags> <bytes> [<cas unique>]\r\n
+                <data block>\r\n
+             */
+            char get_resp[1024];
+            memset(get_resp,0,1024);
+
+            sprintf(get_resp,"VALUE %d %d %d %d\r\n%s\r\n",
+                    r.kid,0,200,i,data);
+            
+            write(conn,get_resp,strlen(get_resp));
+            write(conn,end,strlen(end));
+            
+        }
+        else if (status == 1)
+        {
+            write(conn,stored,strlen(stored));
+        }
+        else if (status == 0)
+        {
+            write(conn,end,strlen(end));
+        }
+
+        memset(buf,0,1024);
+        ++i;
+    }
+    auto stop = hrc::now();
+
+    // Log curves for shadowlru, shadowslab, and partslab.
+    if (policy_type == 0 || policy_type == 4 || policy_type == 5)
+      policy->log_curves();
+ 
+    // Dump stats for all policies. 
+    policy->dump_stats();
+
+    double seconds =
+      ch::duration_cast<ch::milliseconds>(stop - start).count() / 1000.;
+    std::cerr << "total execution time: " << seconds << std::endl;
+          
+      
+
+    close(listener);
+    close(conn);
+
   }
   else
   {
