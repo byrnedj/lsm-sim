@@ -17,7 +17,7 @@ struct request {
   int32_t   key_sz;
   int32_t   val_sz;
   int32_t   frag_sz;
-  uint32_t  kid;
+  uint64_t  kid;
   uint32_t  appid;
   req_type  type;
   uint8_t   hit;
@@ -26,7 +26,7 @@ struct request {
 
   void dump() const;
   void parse(const std::string& s);
-  int32_t size() const { return key_sz + val_sz; }
+  int32_t size() const { return val_sz; }
   int32_t get_frag() const { return frag_sz; }
 
   request(const std::string& s)

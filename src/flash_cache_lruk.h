@@ -24,11 +24,11 @@ extern double P_FC_KLRU;
 
 class FlashCacheLruk : public policy {
 private:
-	typedef std::list<std::pair<uint32_t, double> >::iterator dramIt;
-	typedef std::list<uint32_t>::iterator keyIt;
+	typedef std::list<std::pair<uint64_t, double> >::iterator dramIt;
+	typedef std::list<uint64_t>::iterator keyIt;
 
 	struct Item {
-		uint32_t kId;
+		uint64_t kId;
 		int32_t size;
 		double last_accessed;
 		size_t lastAccessInTrace;
@@ -43,12 +43,12 @@ private:
 			isInDram(true), dramLocation(0), queueNumber(0), dramLruIt(), flashIt(), globalLruIt(){}
 	};
 
-	std::vector< std::list<std::pair<uint32_t, double> > > dram;
+	std::vector< std::list<std::pair<uint64_t, double> > > dram;
 	std::vector<size_t> kLruSizes;
-	std::list<uint32_t> flash;
-	std::list<uint32_t> globalLru;
+	std::list<uint64_t> flash;
+	std::list<uint64_t> globalLru;
 
-	std::unordered_map<uint32_t, Item> allObjects;	
+	std::unordered_map<uint64_t, Item> allObjects;	
 	/* 
 	* One can move objects from the DRAM to the flash only if he has enough
 	* credits. Number of current credits should be higher then the object 
@@ -69,12 +69,12 @@ private:
 	void updateCredits(const double& currTime);
 	void updateDramFlashiness(const double& currTime = -1);
 	double hitCredit(const Item& item, const double& currTime = -1) const;
-	void dramAdd(std::vector<uint32_t>& objects,
+	void dramAdd(std::vector<uint64_t>& objects,
 			size_t sum,
 			size_t k,
 			bool updateWrites,
 			bool warmup);
-	void dramAddandReorder(std::vector<uint32_t>& objects,
+	void dramAddandReorder(std::vector<uint64_t>& objects,
 			size_t sum,
 			size_t k,
 			bool updateWrites,

@@ -26,4 +26,6 @@ hash map contains location of object in log
 SHADOW QUEUE
 ============
 -> Structure
+Linked List of Requests
 -> Eviction
+LRU

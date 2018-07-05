@@ -13,6 +13,9 @@ plots <- c("aet.out","cliffhanger.out")
 atlist = list()
 ctlist = list()
 
+# 3 is etc_15
+# 4 is ycsb
+
 for (i in plots ) 
 {
 
@@ -273,80 +276,8 @@ for (i in plots )
                  colour = "" ) )
     }
     
-    if (i == "aet.out")
-    {
-
-        tdf <- read.table("aet_times.out",header=TRUE)
-        tdf$accesses = tdf$accesses/2
-        
-
-        set <- subset(tdf,select=c(accesses,set))
-        colnames(set) <- c("accesses","time")
-        get <- subset(tdf,select=c(accesses,get))
-        colnames(get) <- c("accesses","time")
-        atlist[["SET"]] <- set
-        atlist[["GET"]] <- get
-       
-       
-
-    }
-    if (i == "cliffhanger.out")
-    {
-
-        tdf <- read.table("cliffhanger_times.out",header=TRUE)
-        tdf$accesses = tdf$accesses/2
-        tlist = list()
-        set <- subset(tdf,select=c(accesses,set))
-        colnames(set) <- c("accesses","time")
-        get <- subset(tdf,select=c(accesses,get))
-        colnames(get) <- c("accesses","time")
-        ctlist[["SET"]] <- set
-        ctlist[["GET"]] <- get
-        
-
-    }
     
 }
 
-title <- paste("GET Access Latencies",sep="")
-
-gtlist = list()
-
-gtlist[["AET"]] = atlist[["GET"]]
-gtlist[["CH"]] = ctlist[["GET"]]
-
-gtlist_df = melt(gtlist, id="accesses")
-
-plot(ggplot(data=gtlist_df, aes(x=accesses, y=value*1000000, colour=L1) ) +
-    geom_line() +
-    theme_bw() +
-    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
-    expand_limits(y=0) +
-    labs(title = title, 
-         y = "Time (us)", 
-         x = "Accesses",
-         colour = "" ) )
-
-
-
-stlist = list()
-
-stlist[["AET"]] = atlist[["SET"]]
-stlist[["CH"]] = ctlist[["SET"]]
-
-stlist_df = melt(stlist, id="accesses")
-
-title <- paste("SET Access Latencies",sep="")
-
-
-plot(ggplot(data=stlist_df, aes(x=accesses, y=value*1000000, colour=L1) ) +
-    geom_line() +
-    theme_bw() +
-    theme(legend.position="bottom", legend.box = "horizontal", aspect.ratio=1) +
-    expand_limits(y=0) +
-    labs(title = title, 
-         y = "Time (us)", 
-         x = "Accesses",
-         colour = "" ) )
 
 

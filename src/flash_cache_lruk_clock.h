@@ -22,11 +22,11 @@ const size_t CLOCK_START_VAL = 3;
 
 class FlashCacheLrukClk : public policy {
 private:
-	typedef std::list<std::pair<uint32_t, size_t> >::iterator dramIt;
-	typedef std::list<uint32_t>::iterator keyIt;
+	typedef std::list<std::pair<uint64_t, size_t> >::iterator dramIt;
+	typedef std::list<uint64_t>::iterator keyIt;
 
 	struct Item {
-		uint32_t kId;
+		uint64_t kId;
 		int32_t size;
 		bool isInDram;
 		keyIt dramLocation;
@@ -40,7 +40,7 @@ private:
 	};
 
 	struct RecItem {
-		uint32_t kId;
+		uint64_t kId;
 		int32_t size;
 		size_t queueWhenInserted;
 		size_t hitTimesAfterInserted;
@@ -48,33 +48,33 @@ private:
 		RecItem() : kId(0), size(0), queueWhenInserted(0), hitTimesAfterInserted(0), rewrites(0){}
 	};
 
-	std::vector< std::list<uint32_t>> dram;
-	std::list<uint32_t> dramLru;
-	std::list<std::pair<uint32_t, size_t> > clockLru;
+	std::vector< std::list<uint64_t>> dram;
+	std::list<uint64_t> dramLru;
+	std::list<std::pair<uint64_t, size_t> > clockLru;
 	std::vector<size_t> kLruSizes;
-	std::list<uint32_t> flash;
+	std::list<uint64_t> flash;
 
-	std::unordered_map<uint32_t, Item> allObjects;	
-	std::unordered_map<uint32_t, RecItem> allFlashObjects;
+	std::unordered_map<uint64_t, Item> allObjects;	
+	std::unordered_map<uint64_t, RecItem> allFlashObjects;
 	
 	size_t dramSize;
 	size_t flashSize;
 	dramIt clockIt;
 	bool firstEviction;
 
-	void dramAdd(std::vector<uint32_t>& objects,
+	void dramAdd(std::vector<uint64_t>& objects,
 			size_t sum,
 			size_t k,
 			bool updateWrites,
 			bool warmup,
 			bool NewItem);
-	void dramAddandReorder(std::vector<uint32_t>& objects,
+	void dramAddandReorder(std::vector<uint64_t>& objects,
 			size_t sum,
 			size_t k,
 			bool updateWrites,
 			bool warmup);
 
-	void deleteItem(uint32_t keyId);
+	void deleteItem(uint64_t keyId);
 	friend class VictimCache;
 
 public:

@@ -37,7 +37,7 @@ size_t FlashCacheLrukClk::proc(const request* r, bool warmup) {
 	if (!warmup) {stat.accesses++;}
 
 	bool updateWrites = true;
-	uint32_t mfuKid=0;
+	uint64_t mfuKid=0;
 	
 	auto searchRKId = allObjects.find(r->kid);
 	if (searchRKId != allObjects.end()) {
@@ -74,7 +74,7 @@ size_t FlashCacheLrukClk::proc(const request* r, bool warmup) {
 
                 //--------dramLRU ---------------
                 item.dramLruIt = dramLru.begin();
-				std::vector<uint32_t> objects{r->kid};
+				std::vector<uint64_t> objects{r->kid};
 				dramAddandReorder(objects, r->size(),qN, updateWrites, warmup);
 
 			} else {
@@ -121,7 +121,7 @@ size_t FlashCacheLrukClk::proc(const request* r, bool warmup) {
 	newItem.size = r->size();
 	newItem.isInDram = true;
 
-	assert(((unsigned int) newItem.size) <= FC_KLRU_QUEUE_SIZE_CLK);
+	assert(((uint64_t) newItem.size) <= FC_KLRU_QUEUE_SIZE_CLK);
 
 
 	while (true) {
@@ -136,7 +136,7 @@ size_t FlashCacheLrukClk::proc(const request* r, bool warmup) {
 
 			allObjects[newItem.kId] = newItem;
 			
- 		        std::vector<uint32_t> objects{r->kid};
+ 		        std::vector<uint64_t> objects{r->kid};
             		dramAdd(objects, r->size(),0, true, warmup, true);
 
 			return PROC_MISS;
@@ -256,16 +256,16 @@ size_t FlashCacheLrukClk::proc(const request* r, bool warmup) {
 	return PROC_MISS;
 }
 
-void FlashCacheLrukClk::dramAdd(std::vector<uint32_t>& objects,
+void FlashCacheLrukClk::dramAdd(std::vector<uint64_t>& objects,
 		size_t sum,
 		size_t k,
 		bool updateWrites,
 		bool warmup,
 		bool NewItem) {
 
-	    for (const uint32_t& elem : objects) {
+	    for (const uint64_t& elem : objects) {
 				FlashCacheLrukClk::Item& item = allObjects[elem];
-                                std::pair<uint32_t,size_t> it;
+                                std::pair<uint64_t,size_t> it;
                                 it.first=item.kId;
 				it.second= CLOCK_START_VAL;
 
@@ -295,7 +295,7 @@ void FlashCacheLrukClk::dramAdd(std::vector<uint32_t>& objects,
 		}
 }
 
-void FlashCacheLrukClk::dramAddandReorder(std::vector<uint32_t>& objects,
+void FlashCacheLrukClk::dramAddandReorder(std::vector<uint64_t>& objects,
 		size_t sum,
 		size_t k,
 		bool updateWrites,
@@ -303,7 +303,7 @@ void FlashCacheLrukClk::dramAddandReorder(std::vector<uint32_t>& objects,
 
 	    assert(k < FC_K_LRU_CLK);
 
-		std::vector<uint32_t> newObjects;
+		std::vector<uint64_t> newObjects;
 
 		size_t newSum = 0;
 
@@ -312,7 +312,7 @@ void FlashCacheLrukClk::dramAddandReorder(std::vector<uint32_t>& objects,
 			while (sum + kLruSizes[k] > FC_KLRU_QUEUE_SIZE_CLK) {
 				assert(kLruSizes[k] > 0);
 				assert(dram[k].size() > 0);
-				uint32_t elem = dram[k].back();
+				uint64_t elem = dram[k].back();
 				FlashCacheLrukClk::Item& item = allObjects[elem];
 				dram[k].pop_back();
 				kLruSizes[k] -= item.size;
@@ -327,7 +327,7 @@ void FlashCacheLrukClk::dramAddandReorder(std::vector<uint32_t>& objects,
 				assert(0);
 				assert(kLruSizes[k] > 0);
 				assert(dram[k].size() > 0);
-				uint32_t elem = dram[k].back();
+				uint64_t elem = dram[k].back();
 				FlashCacheLrukClk::Item& item = allObjects[elem];
 				dram[k].pop_back();
 				kLruSizes[k] -= item.size;
@@ -347,7 +347,7 @@ void FlashCacheLrukClk::dramAddandReorder(std::vector<uint32_t>& objects,
 		}
 }
 
-void FlashCacheLrukClk::deleteItem(uint32_t keyId) {
+void FlashCacheLrukClk::deleteItem(uint64_t keyId) {
 
 	auto searchRKId = allObjects.find(keyId);
 	assert(searchRKId != allObjects.end());
@@ -383,7 +383,7 @@ void FlashCacheLrukClk::deleteItem(uint32_t keyId) {
 
 void FlashCacheLrukClk::dump_stats(void) {
 	assert(stat.apps->size() == 1);
-	uint32_t appId = 0;
+	uint64_t appId = 0;
 	for(const auto& app : *stat.apps) {appId = app;}
 	std::string filename{stat.policy
 			+ "-app" + std::to_string(appId)

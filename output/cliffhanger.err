@@ -1,54 +1,106 @@
-global_mem 1599078400 segment_size 1048576 segment_count 1525
-1525 > 2*16
-performing trace analysis on apps 1,2,
+global_mem 159383552 segment_size 1048576 segment_count 152
+152 > 2*4
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+steal size (credit): 500
+steal size (credit MRC gap): 100
+performing trace analysis on apps 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
 with steal weights of 
 policy multi
-using trace file /tmp/a
+using trace file /home/djbyrne/mrc_data/16.sim
 rounding off
 utilization rate 1
 start counting hits at t = 1
 request limit 0
-global mem 1599078400
+global mem 159383552
 use tax 0
 tax rate 0.05
-cleaning width 16
-port: 46983
-Progress: 262145 Rate: 0.1023625778 MB/s Hit Rate: 0.9566980251% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 524289 Rate: 0.03626177942 MB/s Hit Rate: 1.946948119% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 786433 Rate: 0.02247089689 MB/s Hit Rate: 2.894300874% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1048577 Rate: 0.01625794566 MB/s Hit Rate: 3.825905402% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1310721 Rate: 0.01242854355 MB/s Hit Rate: 4.784465233% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1572865 Rate: 0.0102680491 MB/s Hit Rate: 5.716717331% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1835009 Rate: 0.008830424491 MB/s Hit Rate: 6.614387819% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2097153 Rate: 0.007634599777 MB/s Hit Rate: 7.513051811% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2359297 Rate: 0.006656076552 MB/s Hit Rate: 8.426002389% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2621441 Rate: 0.006058916691 MB/s Hit Rate: 9.296830613% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2883585 Rate: 0.00541925561 MB/s Hit Rate: 10.18199867% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3145729 Rate: 0.004979628193 MB/s Hit Rate: 11.04797487% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3407873 Rate: 0.004595868341 MB/s Hit Rate: 11.90065247% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3670017 Rate: 0.004264304665 MB/s Hit Rate: 12.74396102% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3932161 Rate: 0.003959408237 MB/s Hit Rate: 13.58449724% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4194305 Rate: 0.003679956565 MB/s Hit Rate: 14.42864652% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4456449 Rate: 0.003529660642 MB/s Hit Rate: 15.23387181% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4718593 Rate: 0.003267201048 MB/s Hit Rate: 16.06005559% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4980737 Rate: 0.003100954624 MB/s Hit Rate: 16.87776527% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 5242881 Rate: 0.002963067343 MB/s Hit Rate: 17.67338632% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 5505025 Rate: 0.00279607934 MB/s Hit Rate: 18.46967831% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 5767169 Rate: 0.002689056208 MB/s Hit Rate: 19.24392454% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6029313 Rate: 0.002598407148 MB/s Hit Rate: 20.0087946% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6291457 Rate: 0.002487018868 MB/s Hit Rate: 20.76575977% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6553601 Rate: 0.002373810154 MB/s Hit Rate: 21.51547305% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6815745 Rate: 0.002274281431 MB/s Hit Rate: 22.26795204% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7077889 Rate: 0.002215366633 MB/s Hit Rate: 23.00381055% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7340033 Rate: 0.002131782771 MB/s Hit Rate: 23.72630823% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7602177 Rate: 0.002058960145 MB/s Hit Rate: 24.44643143% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7864321 Rate: 0.002016977809 MB/s Hit Rate: 25.14825329% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8126465 Rate: 0.001943895923 MB/s Hit Rate: 25.84139873% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8388609 Rate: 0.001881696451 MB/s Hit Rate: 26.53361236% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8650753 Rate: 0.001832845546 MB/s Hit Rate: 27.21486246% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8912897 Rate: 0.001777082913 MB/s Hit Rate: 27.88800715% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9175041 Rate: 0.001751833499 MB/s Hit Rate: 28.54582468% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9437185 Rate: 0.00168653345 MB/s Hit Rate: 29.20684549% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9699329 Rate: 0.001650873841 MB/s Hit Rate: 29.85621329% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9961473 Rate: 0.001616760884 MB/s Hit Rate: 30.49565029% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 10223617 Rate: 0.001582549347 MB/s Hit Rate: 31.12485237% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+cleaning width 4
+Progress: 524289 Rate: 11.5498206 MB/s Hit Rate: 40.91815948% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 1310721 Rate: 13.45642924 MB/s Hit Rate: 56.37969971% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 2097153 Rate: 14.99807918 MB/s Hit Rate: 65.18740654% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 2883585 Rate: 12.40408533 MB/s Hit Rate: 70.21321383% Evicted Items: 115943 Evicted Bytes: 24116144 Utilization: 0 
+Progress: 3407873 Rate: 12.03633245 MB/s Hit Rate: 72.06746615% Evicted Items: 206681 Evicted Bytes: 42989648 Utilization: 0 
+Progress: 3932161 Rate: 11.62315448 MB/s Hit Rate: 73.39235942% Evicted Items: 302460 Evicted Bytes: 62911680 Utilization: 0 
+Progress: 4456449 Rate: 11.64938831 MB/s Hit Rate: 74.37820435% Evicted Items: 398239 Evicted Bytes: 82833712 Utilization: 0 
+Progress: 4980737 Rate: 11.59025249 MB/s Hit Rate: 75.12484099% Evicted Items: 494018 Evicted Bytes: 102755744 Utilization: 0 
+Progress: 5505025 Rate: 11.46372231 MB/s Hit Rate: 75.73927016% Evicted Items: 589797 Evicted Bytes: 122677776 Utilization: 0 
+Progress: 6029313 Rate: 11.32446316 MB/s Hit Rate: 76.19907545% Evicted Items: 690617 Evicted Bytes: 143648336 Utilization: 0 
+Progress: 6553601 Rate: 8.219919157 MB/s Hit Rate: 76.60067749% Evicted Items: 791437 Evicted Bytes: 164618896 Utilization: 0 
+Progress: 7077889 Rate: 10.91714052 MB/s Hit Rate: 76.94217541% Evicted Items: 887216 Evicted Bytes: 184540928 Utilization: 0 
+Progress: 7602177 Rate: 11.11799711 MB/s Hit Rate: 77.23262392% Evicted Items: 988036 Evicted Bytes: 205511488 Utilization: 0 
+Progress: 8126465 Rate: 11.14632599 MB/s Hit Rate: 77.48121446% Evicted Items: 1088856 Evicted Bytes: 226482048 Utilization: 0 
+Progress: 8650753 Rate: 11.26238685 MB/s Hit Rate: 77.70450476% Evicted Items: 1184635 Evicted Bytes: 246404080 Utilization: 0 
+Progress: 9175041 Rate: 11.10925007 MB/s Hit Rate: 77.90968759% Evicted Items: 1285455 Evicted Bytes: 267374640 Utilization: 0 
+Progress: 9699329 Rate: 11.2226476 MB/s Hit Rate: 78.09813216% Evicted Items: 1381234 Evicted Bytes: 287296672 Utilization: 0 
+Progress: 10223617 Rate: 11.14122939 MB/s Hit Rate: 78.25357486% Evicted Items: 1482054 Evicted Bytes: 308267232 Utilization: 0 
+Progress: 10747905 Rate: 11.14311774 MB/s Hit Rate: 78.38409238% Evicted Items: 1577833 Evicted Bytes: 328189264 Utilization: 0 
+Progress: 11272193 Rate: 10.99092733 MB/s Hit Rate: 78.50820852% Evicted Items: 1678653 Evicted Bytes: 349159824 Utilization: 0 
+Progress: 11796481 Rate: 10.94901628 MB/s Hit Rate: 78.6269633% Evicted Items: 1779473 Evicted Bytes: 370130384 Utilization: 0 
+Progress: 12320769 Rate: 11.03376131 MB/s Hit Rate: 78.73543273% Evicted Items: 1875252 Evicted Bytes: 390052416 Utilization: 0 
+Progress: 12845057 Rate: 10.94608588 MB/s Hit Rate: 78.83342821% Evicted Items: 1976072 Evicted Bytes: 411022976 Utilization: 0 
+Progress: 13369345 Rate: 11.01868216 MB/s Hit Rate: 78.93073138% Evicted Items: 2071851 Evicted Bytes: 430945008 Utilization: 0 
+Progress: 13893633 Rate: 11.06980595 MB/s Hit Rate: 79.02999734% Evicted Items: 2167630 Evicted Bytes: 450867040 Utilization: 0 
+Progress: 14417921 Rate: 10.88828869 MB/s Hit Rate: 79.11920721% Evicted Items: 2268450 Evicted Bytes: 471837600 Utilization: 0 
+Progress: 14942209 Rate: 11.01572334 MB/s Hit Rate: 79.2053825% Evicted Items: 2364229 Evicted Bytes: 491759632 Utilization: 0 
+Progress: 15466497 Rate: 11.001258 MB/s Hit Rate: 79.2811119% Evicted Items: 2460008 Evicted Bytes: 511681664 Utilization: 0 
+Progress: 15990785 Rate: 10.96879978 MB/s Hit Rate: 79.3540767% Evicted Items: 2555787 Evicted Bytes: 531603696 Utilization: 0 
+Progress: 16515073 Rate: 10.81297037 MB/s Hit Rate: 79.42094954% Evicted Items: 2656607 Evicted Bytes: 552574256 Utilization: 0 
+Progress: 17039361 Rate: 10.96143899 MB/s Hit Rate: 79.48429988% Evicted Items: 2752386 Evicted Bytes: 572496288 Utilization: 0 
+Progress: 17563649 Rate: 11.00948369 MB/s Hit Rate: 79.54858239% Evicted Items: 2848165 Evicted Bytes: 592418320 Utilization: 0 
+Progress: 18087937 Rate: 10.73723024 MB/s Hit Rate: 79.59925334% Evicted Items: 2948985 Evicted Bytes: 613388880 Utilization: 0 
+Progress: 18612225 Rate: 10.9590577 MB/s Hit Rate: 79.64373844% Evicted Items: 3044764 Evicted Bytes: 633310912 Utilization: 0 
+Progress: 19136513 Rate: 10.75129751 MB/s Hit Rate: 79.68024162% Evicted Items: 3145584 Evicted Bytes: 654281472 Utilization: 0 
+Progress: 19660801 Rate: 10.9184345 MB/s Hit Rate: 79.7226003% Evicted Items: 3241363 Evicted Bytes: 674203504 Utilization: 0 
+Progress: 20185089 Rate: 10.61594589 MB/s Hit Rate: 79.77038792% Evicted Items: 3342183 Evicted Bytes: 695174064 Utilization: 0 
+Progress: 20709377 Rate: 10.7846375 MB/s Hit Rate: 79.81042983% Evicted Items: 3437962 Evicted Bytes: 715096096 Utilization: 0 
+Progress: 21233665 Rate: 10.6776042 MB/s Hit Rate: 79.8514896% Evicted Items: 3533741 Evicted Bytes: 735018128 Utilization: 0 
+Progress: 21757953 Rate: 10.69139283 MB/s Hit Rate: 79.88829555% Evicted Items: 3634561 Evicted Bytes: 755988688 Utilization: 0 
+Progress: 22282241 Rate: 10.77389341 MB/s Hit Rate: 79.92730533% Evicted Items: 3730340 Evicted Bytes: 775910720 Utilization: 0 
+Progress: 22806529 Rate: 10.75372278 MB/s Hit Rate: 79.96207928% Evicted Items: 3826119 Evicted Bytes: 795832752 Utilization: 0 
+Progress: 23330817 Rate: 10.77388814 MB/s Hit Rate: 79.99625045% Evicted Items: 3921898 Evicted Bytes: 815754784 Utilization: 0 
+Progress: 23855105 Rate: 10.6001842 MB/s Hit Rate: 80.02686553% Evicted Items: 4022718 Evicted Bytes: 836725344 Utilization: 0 
+Progress: 24379393 Rate: 10.75822822 MB/s Hit Rate: 80.05536397% Evicted Items: 4118497 Evicted Bytes: 856647376 Utilization: 0 
+Progress: 24903681 Rate: 10.41897733 MB/s Hit Rate: 80.0789803% Evicted Items: 4219317 Evicted Bytes: 877617936 Utilization: 0 
+Progress: 25427969 Rate: 10.59196084 MB/s Hit Rate: 80.10539025% Evicted Items: 4315096 Evicted Bytes: 897539968 Utilization: 0 
+Progress: 25952257 Rate: 10.61489035 MB/s Hit Rate: 80.13373481% Evicted Items: 4410875 Evicted Bytes: 917462000 Utilization: 0 
+Progress: 26476545 Rate: 10.33858493 MB/s Hit Rate: 80.15333497% Evicted Items: 4511695 Evicted Bytes: 938432560 Utilization: 0 
+Progress: 27000833 Rate: 10.71518882 MB/s Hit Rate: 80.17357761% Evicted Items: 4607474 Evicted Bytes: 958354592 Utilization: 0 
+Progress: 27525121 Rate: 10.48048869 MB/s Hit Rate: 80.19442604% Evicted Items: 4708294 Evicted Bytes: 979325152 Utilization: 0 
+Progress: 28049409 Rate: 10.72735982 MB/s Hit Rate: 80.21693007% Evicted Items: 4804073 Evicted Bytes: 999247184 Utilization: 0 
+Progress: 28573697 Rate: 10.48778709 MB/s Hit Rate: 80.23631595% Evicted Items: 4904893 Evicted Bytes: 1020217744 Utilization: 0 
+Progress: 29097985 Rate: 10.53860731 MB/s Hit Rate: 80.25810654% Evicted Items: 5000672 Evicted Bytes: 1040139776 Utilization: 0 
+Progress: 29622273 Rate: 10.63726333 MB/s Hit Rate: 80.28151588% Evicted Items: 5096451 Evicted Bytes: 1060061808 Utilization: 0 
+Progress: 30146561 Rate: 10.54385487 MB/s Hit Rate: 80.30371956% Evicted Items: 5192230 Evicted Bytes: 1079983840 Utilization: 0 
+Progress: 30670849 Rate: 10.36575057 MB/s Hit Rate: 80.32287206% Evicted Items: 5293050 Evicted Bytes: 1100954400 Utilization: 0 
+Progress: 31195137 Rate: 10.65932912 MB/s Hit Rate: 80.34079095% Evicted Items: 5388829 Evicted Bytes: 1120876432 Utilization: 0 
+Progress: 31719425 Rate: 10.64664419 MB/s Hit Rate: 80.36122283% Evicted Items: 5484608 Evicted Bytes: 1140798464 Utilization: 0 
+total execution time: 71.928

@@ -12,10 +12,10 @@ extern size_t KLRU_QUEUE_SIZE;
 
 class Lruk : public policy {
 private:
-	typedef std::list<uint32_t>::iterator keyIt;
+	typedef std::list<uint64_t>::iterator keyIt;
 
 	struct LKItem {
-		uint32_t kId;
+		uint64_t kId;
 		int32_t size;
 		keyIt iter;
 		size_t queueNumber;
@@ -24,12 +24,12 @@ private:
 	};
 
 	std::vector<size_t> kLruSizes;
-	std::vector< std::list<uint32_t> > kLru;
-	std::unordered_map<uint32_t, LKItem> allObjects;
+	std::vector< std::list<uint64_t> > kLru;
+	std::unordered_map<uint64_t, LKItem> allObjects;
 	std::vector<size_t> kLruHits;
 	std::vector<size_t> kLruNumWrites;
 
-	void insert(std::vector<uint32_t>& objects, 
+	void insert(std::vector<uint64_t>& objects, 
 		size_t sum, 
 		size_t k, 
 		bool updateWrites,

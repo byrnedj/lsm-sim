@@ -4,7 +4,10 @@
 #include <unordered_set>
 #include <algorithm>
 
+#include <vector>
+
 #include "lsc_multi.h"
+
 
 lsc_multi::application::application(
     size_t appid,
@@ -37,7 +40,7 @@ lsc_multi::application::application(
   , cleaning_q{}
   , cleaning_it{cleaning_q.end()}
 {
-  shadow_q.expand(100 * 1024 * 1024);
+  shadow_q.expand(CH_shq_size * 1024 * 1024);
 }
 
 lsc_multi::application::~application() {}
@@ -64,6 +67,7 @@ lsc_multi::lsc_multi(stats stat, subpolicy eviction_policy)
     std::cerr <<
       "WARNING: global_mem not a multiple of segment_size" << std::endl;
   }
+  stat.global_mem = ((stat.global_mem*1.0)/stat.segment_size)*stat.segment_size;
   segments.resize(stat.global_mem / stat.segment_size);
   free_segments = segments.size();
   std::cerr << "global_mem " << stat.global_mem
@@ -143,6 +147,926 @@ void lsc_multi::compute_idle_mem(double time) {
   //std::cout << std::endl;
 }
 
+void lsc_multi::arbitrate_greedyFast()
+{
+    //get limits for each app
+    //get mrc too
+    std::map<size_t,long long> L;
+
+    std::map<size_t,long long> H;
+
+    std::map<size_t,long long> E;
+    
+    std::map<size_t,long long> A;
+    
+    std::map<size_t,long long> maxes;
+    
+    long long E_sum = 0;
+
+    //long long P = ((stat.global_mem/OSIZE)/AET_PGAP)*AET_PGAP + AET_PGAP + AET_PGAP;
+    long long P = 0;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        P += app_c_size;
+    }
+
+    std::map <long long, application*> sorted_apps;
+    //std::cerr << "P: " << P << "\n";  
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        maxes[p.first] = app.AET.solve_MRC();
+        double pct = (double)app.min_mem_pct;
+        pct = pct/100;
+        long long reserved = (((app.target_mem/OSIZE) * pct)/AET_PGAP)*AET_PGAP;
+        long long predictedWSS = maxes[p.first];       
+        
+        //get current cache size with allocated memory
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        
+        //long long actual = app_c_size;
+        L[p.first] = reserved;  
+        H[p.first] = predictedWSS;  
+        
+        L[p.first] = (L[p.first]/AET_PGAP)*AET_PGAP;  
+        H[p.first] = (H[p.first]/AET_PGAP)*AET_PGAP + 2*AET_PGAP;  
+        
+        long long e = std::max(reserved,predictedWSS);  
+        E[p.first] = e;
+        E_sum += e;
+                    
+        std::cerr << "app: " <<  app.appid << " " 
+                  << "actual: " << app_c_size << " "
+                  << "wss (N): " << predictedWSS << " "
+                  << "L: " << L[p.first] << " "
+                  << "H: " << H[p.first] << " "
+                  << "E: " << E[p.first] << "\n";
+        
+        sorted_apps[predictedWSS+app.appid] = &app;
+
+    }
+    
+    for (auto& p : sorted_apps) 
+    {
+        
+        application& app = *(p.second);
+        long long start = maxes[app.appid];
+        double mr = app.AET.MRC[start];
+        long long end = P;
+        start += AET_PGAP;
+        while (start <= end)
+        {
+            app.AET.MRC[start] = mr;
+            start += AET_PGAP;
+        }
+    }
+
+    std::map<size_t,long long> BestA;
+    std::map<size_t,
+        std::map<long long, double>> Miss;
+    std::map<size_t,
+        std::map<long long, long long>> Target;
+   
+    long long bonus = 0;
+
+    if (P >= E_sum)
+    { 
+        bonus = P - E_sum;
+        long long total = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            A[appid] = E[appid] + bonus * ( ((double)(E[appid]))/(E_sum) );
+            A[appid] = ((A[appid])/AET_PGAP)*AET_PGAP;
+            total += A[appid];
+        }
+        if (total < P)
+        {
+            std::cerr << "P: " << P << " total: " << total << "\n";
+            std::cerr << "adding " << P-total << " to 1 " << "\n";
+            A[1] += (P - total);
+        }
+        BestA = A;
+        std::cerr << "P: " << P << " E_sum: " << E_sum << "\n";
+        for(auto elem : BestA)
+        {
+               std::cerr << elem.first << " , " << elem.second << "\n";
+        }
+    }
+    else
+    {
+
+        //calculate who looses the least
+        //start from WSS sizes and work down
+        
+        long long W = 0; //total memory used so far
+        double current_misses = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            BestA[appid] = E[appid];
+            current_misses = app.AET.MRC[BestA[appid]] + current_misses;
+            W = W + E[appid];
+        }
+       
+        
+        while (W > P)
+        {
+            double lowest_misses = 2*current_misses;
+            size_t lowest_id = 0;
+
+            for (auto& p : sorted_apps) 
+            {
+                application& app = *(p.second);
+                size_t appid = app.appid;
+                long long next_a = BestA[appid] - AET_PGAP;
+                double next_misses = current_misses - 
+                    (app.AET.MRC[BestA[appid]]) + app.AET.MRC[next_a];
+
+                if (next_misses-current_misses < 
+                        lowest_misses-current_misses)
+                {
+                    lowest_misses = next_misses;
+                    lowest_id = appid;
+                }
+            }
+
+            //if they are all equal, choose one at random
+            if (lowest_id == 0)
+            {
+
+                lowest_id = (rand() % sorted_apps.size()) + 1;
+                std::cerr << "all equal choosing app " 
+                    << lowest_id << "\n";
+                for (auto& p : sorted_apps) 
+                {
+                    application& app = *(p.second);
+                    size_t appid = app.appid;
+                    if (appid == lowest_id)
+                    {
+                        lowest_misses = 
+                            app.AET.MRC[BestA[appid]-AET_PGAP]; 
+                        break;
+                    }
+                }
+
+                
+            }
+
+            //std::cerr << "app " << lowest_id << " decreases from: " <<
+            //          current_misses << " to: " << lowest_misses << "\n";
+            //std::cerr << "W: " << W + AET_PGAP << "\n";
+
+            current_misses = lowest_misses;
+            BestA[lowest_id] = BestA[lowest_id] - AET_PGAP;
+            W = W - AET_PGAP;
+        }
+       
+        
+
+    }
+
+
+    //Now we have all apps and their respective amount;
+    //BestA is in number of objects;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t appid = p.first;
+        size_t app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+        size_t target = BestA[appid];
+        if (target > app_alloc)
+        {
+            size_t n_add = ((target-app_alloc)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes += n_add*OSIZE;
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " add " <<  n_add << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem += n_add*OSIZE; 
+        }
+        else
+        {
+            size_t n_remove = ((app_alloc-target)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes -= n_remove*OSIZE; 
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " remove " << n_remove << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem -= n_remove*OSIZE;
+        }
+        app.lastmrc = app.accesses;
+    }
+ 
+}
+
+ 
+void lsc_multi::arbitrate_greedy()
+{
+    //get limits for each app
+    //get mrc too
+    std::map<size_t,long long> L;
+
+    std::map<size_t,long long> H;
+
+    std::map<size_t,long long> E;
+    
+    std::map<size_t,long long> A;
+    
+    std::map<size_t,long long> maxes;
+    
+    long long E_sum = 0;
+
+    //long long P = ((stat.global_mem/OSIZE)/AET_PGAP)*AET_PGAP + AET_PGAP + AET_PGAP;
+    long long P = 0;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        P += app_c_size;
+    }
+
+    std::map <long long, application*> sorted_apps;
+    //std::cerr << "P: " << P << "\n";  
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        maxes[p.first] = app.AET.solve_MRC();
+        double pct = (double)app.min_mem_pct;
+        pct = pct/100;
+        long long reserved = (((app.target_mem/OSIZE) * pct)/AET_PGAP)*AET_PGAP;
+        long long predictedWSS = maxes[p.first];       
+        
+        //get current cache size with allocated memory
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        
+        //long long actual = app_c_size;
+        L[p.first] = reserved;  
+        H[p.first] = predictedWSS;  
+        
+        L[p.first] = (L[p.first]/AET_PGAP)*AET_PGAP;  
+        H[p.first] = (H[p.first]/AET_PGAP)*AET_PGAP + 2*AET_PGAP;  
+        
+        long long e = std::max(reserved,predictedWSS);  
+        E[p.first] = e;
+        E_sum += e;
+                    
+        std::cerr << "app: " <<  app.appid << " " 
+                  << "actual: " << app_c_size << " "
+                  << "wss (N): " << predictedWSS << " "
+                  << "L: " << L[p.first] << " "
+                  << "H: " << H[p.first] << " "
+                  << "E: " << E[p.first] << "\n";
+        
+        sorted_apps[predictedWSS+app.appid] = &app;
+
+    }
+    
+    for (auto& p : sorted_apps) 
+    {
+        
+        application& app = *(p.second);
+        long long start = maxes[app.appid];
+        double mr = app.AET.MRC[start];
+        long long end = P;
+        start += AET_PGAP;
+        while (start <= end)
+        {
+            app.AET.MRC[start] = mr;
+            start += AET_PGAP;
+        }
+    }
+
+    std::map<size_t,long long> BestA;
+    std::map<size_t,
+        std::map<long long, double>> Miss;
+    std::map<size_t,
+        std::map<long long, long long>> Target;
+   
+    long long bonus = 0;
+
+    if (P >= E_sum)
+    { 
+        bonus = P - E_sum;
+        long long total = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            A[appid] = E[appid] + bonus * ( ((double)(E[appid]))/(E_sum) );
+            A[appid] = ((A[appid])/AET_PGAP)*AET_PGAP;
+            total += A[appid];
+        }
+        if (total < P)
+        {
+            std::cerr << "P: " << P << " total: " << total << "\n";
+            std::cerr << "adding " << P-total << " to 1 " << "\n";
+            A[1] += (P - total);
+        }
+        BestA = A;
+        std::cerr << "P: " << P << " E_sum: " << E_sum << "\n";
+        for(auto elem : BestA)
+        {
+               std::cerr << elem.first << " , " << elem.second << "\n";
+        }
+    }
+    else
+    {
+
+
+        long long W = 0; //total memory used so far
+        double current_misses = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            BestA[appid] = L[appid];
+            current_misses = app.AET.MRC[BestA[appid]] + current_misses;
+            W = W + L[appid];
+        }
+       
+        
+        while (W < P)
+        {
+            double lowest_misses = current_misses;
+            size_t lowest_id = 0;
+
+            for (auto& p : sorted_apps) 
+            {
+                application& app = *(p.second);
+                size_t appid = app.appid;
+                long long next_a = BestA[appid] + AET_PGAP;
+                double next_misses = current_misses - 
+                    (app.AET.MRC[BestA[appid]]) + app.AET.MRC[next_a];
+
+                if (next_misses < lowest_misses)
+                {
+                    lowest_misses = next_misses;
+                    lowest_id = appid;
+                }
+            }
+
+            //if they are all equal, choose one at random
+            if (lowest_id == 0)
+            {
+
+                lowest_id = (rand() % sorted_apps.size()) + 1;
+                std::cerr << "all equal choosing app " 
+                    << lowest_id << "\n";
+                for (auto& p : sorted_apps) 
+                {
+                    application& app = *(p.second);
+                    size_t appid = app.appid;
+                    if (appid == lowest_id)
+                    {
+                        lowest_misses = 
+                            app.AET.MRC[BestA[appid]+AET_PGAP]; 
+                        break;
+                    }
+                }
+
+                
+            }
+
+            //std::cerr << "app " << lowest_id << " decreases from: " <<
+            //          current_misses << " to: " << lowest_misses << "\n";
+            //std::cerr << "W: " << W + AET_PGAP << "\n";
+
+            current_misses = lowest_misses;
+            BestA[lowest_id] = BestA[lowest_id] + AET_PGAP;
+            W = W + AET_PGAP;
+        }
+
+
+    }
+
+
+    //Now we have all apps and their respective amount;
+    //BestA is in number of objects;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t appid = p.first;
+        size_t app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+        size_t target = BestA[appid];
+        if (target > app_alloc)
+        {
+            size_t n_add = ((target-app_alloc)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes += n_add*OSIZE;
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " add " <<  n_add << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem += n_add*OSIZE; 
+        }
+        else
+        {
+            size_t n_remove = ((app_alloc-target)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes -= n_remove*OSIZE; 
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " remove " << n_remove << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem -= n_remove*OSIZE;
+        }
+        app.lastmrc = app.accesses;
+    }
+ 
+}
+
+void lsc_multi::arbitrate_sa()
+{
+    //
+}
+
+
+void lsc_multi::arbitrate_ilp()
+{
+    //get limits for each app
+    //get mrc too
+    std::map<size_t,long long> L;
+
+    std::map<size_t,long long> H;
+
+    std::map<size_t,long long> E;
+    
+    std::map<size_t,long long> A;
+    
+    std::map<size_t,long long> maxes;
+    
+    long long E_sum = 0;
+
+    //long long P = ((stat.global_mem/OSIZE)/AET_PGAP)*AET_PGAP + AET_PGAP + AET_PGAP;
+    long long P = 0;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        P += app_c_size;
+    }
+
+    std::map <long long, application*> sorted_apps;
+    //std::cerr << "P: " << P << "\n";  
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        maxes[p.first] = app.AET.solve_MRC();
+        double pct = (double)app.min_mem_pct;
+        pct = pct/100;
+        long long reserved = (((app.target_mem/OSIZE) * pct)/AET_PGAP)*AET_PGAP;
+        long long predictedWSS = maxes[p.first];       
+        
+        //get current cache size with allocated memory
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        
+        //long long actual = app_c_size;
+        L[p.first] = reserved;  
+        H[p.first] = predictedWSS;  
+        
+        L[p.first] = (L[p.first]/AET_PGAP)*AET_PGAP;  
+        H[p.first] = (H[p.first]/AET_PGAP)*AET_PGAP + 2*AET_PGAP;  
+        
+        long long e = std::max(reserved,predictedWSS);  
+        E[p.first] = e;
+        E_sum += e;
+                    
+        std::cerr << "app: " <<  app.appid << " " 
+                  << "actual: " << app_c_size << " "
+                  << "wss (N): " << predictedWSS << " "
+                  << "L: " << L[p.first] << " "
+                  << "H: " << H[p.first] << " "
+                  << "E: " << E[p.first] << "\n";
+        
+        sorted_apps[predictedWSS+app.appid] = &app;
+
+    }
+    
+    for (auto& p : sorted_apps) 
+    {
+        
+        application& app = *(p.second);
+        long long start = maxes[app.appid];
+        double mr = app.AET.MRC[start];
+        long long end = P;
+        start += AET_PGAP;
+        while (start <= end)
+        {
+            app.AET.MRC[start] = mr;
+            start += AET_PGAP;
+        }
+    }
+
+    std::map<size_t,long long> BestA;
+    std::map<size_t,
+        std::map<long long, double>> Miss;
+    std::map<size_t,
+        std::map<long long, long long>> Target;
+   
+    long long bonus = 0;
+
+    if (P >= E_sum)
+    { 
+        bonus = P - E_sum;
+        long long total = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            A[appid] = E[appid] + bonus * ( ((double)(E[appid]))/(E_sum) );
+            A[appid] = ((A[appid])/AET_PGAP)*AET_PGAP;
+            total += A[appid];
+        }
+        if (total < P)
+        {
+            std::cerr << "P: " << P << " total: " << total << "\n";
+            std::cerr << "adding " << P-total << " to 1 " << "\n";
+            A[1] += (P - total);
+        }
+        BestA = A;
+        std::cerr << "P: " << P << " E_sum: " << E_sum << "\n";
+        for(auto elem : BestA)
+        {
+               std::cerr << elem.first << " , " << elem.second << "\n";
+        }
+    }
+    else
+    {
+
+
+        //std::cout << "Modeling..." << std::endl;
+        //OsiCbcSolverInterface solver;
+        //CelModel model(solver);
+
+	////maximize memory for each app 
+
+	//CelExpression objective;
+        //std::vector<std::vector<CelBoolVar> > x(P, std::vector<CelBoolVar>(sorted_apps.size()));
+        //for (auto& p : sorted_apps) 
+    	//{
+        //    application& app = *(p.second);
+        //    size_t A = app.appid;
+	//    for (long long m = 0 ; m < P ; m += AET_PGAP) {
+	//    	objective += (1-app.AET.MRC[m]) * x[m][A];
+	//    }
+	//}
+        // 
+        //model.setObjective(objective);
+        //
+        //CelExpression cst;
+        //for (auto& p : sorted_apps) 
+    	//{
+        //    application& app = *(p.second);
+        //    size_t A = app.appid;
+	//    for (long long m = 0 ; m < P ; m += AET_PGAP) {
+        //        cst += x[m][A]; 
+	//    }
+	//}
+        //model.addConstraint(cst == P);
+
+	//solver.setObjSense(-1.0);
+    	//model.builderToSolver();
+    	//// solver.writeLp("assignment");
+    	//std::cout << "Optimizing..." << std::endl;
+    	//solver.initialSolve();
+    	//solver.branchAndBound();
+    	//std::cout << "Assignments:" << std::endl;
+
+        //for (auto& p : sorted_apps) 
+    	//{
+        //    application& app = *(p.second);
+        //    size_t A = app.appid;
+    	//    for (long long m = 0 ; m < P ; m += AET_PGAP) {
+    	//        if (model.getSolutionValue(x[m][A]) == 1) {
+    	//            std::cout << "   " << m << " -> " << A << std::endl;
+    	//        }
+    	//    }
+	//}
+
+    }
+
+
+    //Now we have all apps and their respective amount;
+    //BestA is in number of objects;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t appid = p.first;
+        size_t app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+        size_t target = BestA[appid];
+        if (target > app_alloc)
+        {
+            size_t n_add = ((target-app_alloc)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes += n_add*OSIZE;
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " add " <<  n_add << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem += n_add*OSIZE; 
+        }
+        else
+        {
+            size_t n_remove = ((app_alloc-target)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes -= n_remove*OSIZE; 
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " remove " << n_remove << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem -= n_remove*OSIZE;
+        }
+        app.lastmrc = app.accesses;
+    }
+ 
+}
+
+//from TACO'16
+//P - total memory 
+//{LowLimit_i} - lower limit of memory for each app
+//{HighLimit_i} - upper limit of memory for each app
+//{m_i} - actual memory use
+//{PredictedWSS_i} - predicted working set size for each app
+//{MRC_i} - miss rate curve for each app
+//{NR_i} - number of acceses for each app
+
+void lsc_multi::arbitrate()
+{
+    //get limits for each app
+    //get mrc too
+    std::map<size_t,long long> L;
+
+    std::map<size_t,long long> H;
+
+    std::map<size_t,long long> E;
+    
+    std::map<size_t,long long> A;
+    
+    std::map<size_t,long long> maxes;
+    
+    long long E_sum = 0;
+
+    //long long P = ((stat.global_mem/OSIZE)/AET_PGAP)*AET_PGAP + AET_PGAP + AET_PGAP;
+    long long P = 0;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        P += app_c_size;
+    }
+
+    std::map <long long, application*> sorted_apps;
+    //std::cerr << "P: " << P << "\n";  
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        maxes[p.first] = app.AET.solve_MRC();
+        double pct = (double)app.min_mem_pct;
+        pct = pct/100;
+        long long reserved = (((app.target_mem/OSIZE) * pct)/AET_PGAP)*AET_PGAP;
+        long long predictedWSS = maxes[p.first];       
+        long long max_objects = P;
+        
+        //get current cache size with allocated memory
+        size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
+        size_t app_c_size = (app_alloc/AET_PGAP)*AET_PGAP;
+        
+        long long actual = app_c_size;
+        L[p.first] = std::max((long long)(0.5*actual),reserved);  
+        H[p.first] = std::min((long long)(1.5*actual),max_objects);  
+        
+        L[p.first] = (L[p.first]/AET_PGAP)*AET_PGAP;  
+        H[p.first] = (H[p.first]/AET_PGAP)*AET_PGAP + 2*AET_PGAP;  
+        
+        long long e = std::max(reserved,predictedWSS);  
+        E[p.first] = e;
+        E_sum += e;
+                    
+        std::cerr << "app: " <<  app.appid << " " 
+                  << "actual: " << app_c_size << " "
+                  << "wss (N): " << predictedWSS << " "
+                  << "L: " << L[p.first] << " "
+                  << "H: " << H[p.first] << " "
+                  << "E: " << E[p.first] << "\n";
+        
+        sorted_apps[predictedWSS+app.appid] = &app;
+
+    }
+    
+    for (auto& p : sorted_apps) 
+    {
+        
+        application& app = *(p.second);
+        long long start = maxes[app.appid];
+        double mr = app.AET.MRC[start];
+        long long end = P;
+        start += AET_PGAP;
+        while (start <= end)
+        {
+            app.AET.MRC[start] = mr;
+            start += AET_PGAP;
+        }
+    }
+
+    std::map<size_t,long long> BestA;
+    std::map<size_t,
+        std::map<long long, double>> Miss;
+    std::map<size_t,
+        std::map<long long, long long>> Target;
+   
+    long long bonus = 0;
+
+    if (P >= E_sum)
+    { 
+        bonus = P - E_sum;
+        long long total = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            A[appid] = E[appid] + bonus * ( ((double)(E[appid]))/(E_sum) );
+            A[appid] = ((A[appid])/AET_PGAP)*AET_PGAP;
+            total += A[appid];
+        }
+        if (total < P)
+        {
+            std::cerr << "P: " << P << " total: " << total << "\n";
+            std::cerr << "adding " << P-total << " to 1 " << "\n";
+            A[1] += (P - total);
+        }
+        BestA = A;
+        std::cerr << "P: " << P << " E_sum: " << E_sum << "\n";
+        for(auto elem : BestA)
+        {
+               std::cerr << elem.first << " , " << elem.second << "\n";
+        }
+    }
+    else
+    {
+        long long low = 0;
+        long long high = 0;
+        size_t p_appid = 0;
+        std::list<size_t> order;
+        int first = 1;
+        int n = 0;
+        for (auto& p : sorted_apps) 
+        {
+            application& app = *(p.second);
+            size_t appid = app.appid;
+            low += L[appid];
+            high += H[appid];
+
+            long long step = AET_PGAP;
+            long long j;
+           
+            
+            //std::cerr << "appid: " << appid << "\n";
+            //std::cerr << "low: " << low 
+            //              << " upper " << high
+            //              << "\n";
+            //low = AET_PGAP;
+            //high = P;
+
+            //initialize first application
+            //Miss[i][j] is the number of expected misses from MRC
+            //since j is equal to the cache size of app1
+            //there is no partitioning done yet
+            if (first)
+            {
+                for ( j = 0; j <= P; j += step )
+                {
+                    double misses = app.AET.MRC[j];
+
+                    //if no MRC data is available, then 
+                    //misses is constant, set to 0.99
+                    
+                    //std::cerr << "size " << j << ", " <<  "mr  " << misses << "\n";
+                    if (maxes[appid] == 0) misses = 0.99;
+                    Miss[appid][j] = misses;
+                }
+            }
+            //initialize first application
+            //Miss[i][j] is the number of expected misses from MRC + prior misses from i-1 apps
+            //since j is equal to the cache size of i-1 apps, k = cache size of app i
+            else
+            {
+                for (j = low; j <=  high; j += step)
+                {
+                    Miss[appid][j] = std::numeric_limits<double>::max()-100;
+                    
+                    int k;
+                    for ( k = L[appid]; k <= H[appid]; k += step )
+                    {
+                        if (j >= k)
+                        {
+                            double misses = app.AET.MRC[k];
+                            //if no MRC data is available, then 
+                            //misses is constant, set to 0.99
+                            if (maxes[appid] == 0) misses = 0.99;
+
+                            //std::cerr << "previous misses in " << p_appid << " j-k= " << j-k << " m: " << Miss[(p_appid)][j-k] << "\n"; 
+                            //if we are not initialized, set to limits - 100
+                            if (Miss[(p_appid)][j-k] == 0)
+                            {
+                                Miss[(p_appid)][j-k] = std::numeric_limits<double>::max()-100;
+                            }
+                            double prev_miss = Miss[(p_appid)][j-k] + misses;
+                            if ( Miss[appid][j] > prev_miss )
+                            {
+                                Miss[appid][j] = prev_miss;
+                                Target[appid][j] = k;
+                            }
+                            
+                            //std::cerr << "app " 
+                            //    << appid << " k: " << k << " miss " << app.AET.MRC[k] << "\n";
+                            //std::cerr << "miss " << Miss[appid][j] << "\n";
+
+                        }
+                    }
+                }
+            }
+            
+
+            //std::cerr << "dp Miss app " << appid << "\n";
+            //for(auto elem : Miss[appid])
+            //{
+            //       std::cerr << elem.first << " , " << elem.second << " target: " << Target[appid][elem.first] << "\n";
+            //}
+            p_appid = appid;
+            order.push_back(appid);
+            first = 0;
+            n = n + 1;
+        }
+
+
+
+        long long T = P;
+        order.reverse();
+        
+        //stop at N-1 apps, give rest to first app, should be correct target regardless
+        size_t last = *(--order.end());
+
+        //don't allow assigning absolute maxes because of rounding
+        //give bonus at the end to some app
+        for (auto i : order)
+        {
+            if (i == last)
+                break;
+            //std::cerr << "T : " << T << " i: " << i << "\n";
+            A[i] = Target[i][T];
+            T = T - Target[i][T];
+            //std::cerr << "A[i] : " << A[i] << " i: " << i << "\n";
+        }
+        if (T > 0)
+        {
+            A[last] = T;
+            //std::cerr << "last assignment " << T << " to  " << last << " is " << A[last] <<  "\n";
+        }
+        BestA = A;
+        //std::cerr << "dp\n";
+        //for(auto elem : BestA)
+        //{
+        //       std::cerr << elem.first << " , " << elem.second << "\n";
+        //}
+    }
+    //Now we have all apps and their respective amount;
+    //BestA is in number of objects;
+    for (auto& p : apps) 
+    {
+        application& app = p.second;
+        size_t appid = p.first;
+        size_t app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+        size_t target = BestA[appid];
+        if (target > app_alloc)
+        {
+            size_t n_add = ((target-app_alloc)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes += n_add*OSIZE;
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " add " <<  n_add << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem += n_add*OSIZE; 
+        }
+        else
+        {
+            size_t n_remove = ((app_alloc-target)/AET_PGAP)*AET_PGAP;
+            app.credit_bytes -= n_remove*OSIZE; 
+            size_t n_app_alloc = 
+                (((app.target_mem + app.credit_bytes)/OSIZE)/AET_PGAP)*AET_PGAP;
+            std::cerr << appid << " remove " << n_remove << " and set objects to: " << n_app_alloc << "\n";
+            //app.target_mem -= n_remove*OSIZE;
+        }
+        app.lastmrc = app.accesses;
+    }
+    
+}
+
+
 size_t lsc_multi::proc(const request *r, bool warmup) {
   assert(r->size() > 0);
   if (r->size() > int32_t(stat.segment_size)) {
@@ -182,51 +1106,110 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
     ++app.w_accesses;
   }
 
-  //if we are doing mrc, the take a sample
-  if (app.u_mrc)
-      app.AET.sample(r->kid);
+  if (noisyN != r->appid || 1)
+  {
+    //std::cerr << "kid: " << r->kid << ", size: " << r->size() << "\n";
+    //if we are doing mrc, the take a sample
+    if (app.u_mrc)
+        app.AET.sample(r->kid);
 
-  auto it = map.find(r->kid);
-  if (it != map.end()) {
-    auto list_it = it->second;
-    segment* old_segment = list_it->seg;
-    int32_t old_request_size = list_it->req.size();
-    if (old_request_size  == r->size()) {
-      // Promote this item to the front.
-      old_segment->queue.erase(list_it);
-      old_segment->queue.emplace_front(old_segment, *r);
-      map[r->kid] = old_segment->queue.begin();
+    auto it = map.find(r->kid);
+    if (it != map.end()) {
+      auto list_it = it->second;
+      segment* old_segment = list_it->seg;
+      int32_t old_request_size = list_it->req.size();
+      if (old_request_size  == r->size()) {
+        // Promote this item to the front.
+        old_segment->queue.erase(list_it);
+        old_segment->queue.emplace_front(old_segment, *r);
+        map[r->kid] = old_segment->queue.begin();
 
-      ++old_segment->access_count;
+        ++old_segment->access_count;
 
-      if (!warmup) {
-        ++stat.hits;
-        ++app.w_hits;
-        ++app.hits;
+        if (!warmup) {
+          ++stat.hits;
+          ++app.w_hits;
+          ++app.hits;
+        }
+
+        return 1;
+      } else {
+        // If the size changed, then we have to put it in head. Just
+        // falling through to the code below handles that. We still
+        // count this record as a single hit, even though some miss
+        // would have had to have happened to shootdown the old stale
+        // sized value. This is to be fair to other policies like gLRU
+        // that don't detect these size changes.
+        //if (!warmup) {
+        //  ++stat.hits;
+        //  ++app.w_hits;
+        //  ++app.hits;
+        //}
       }
-
-      return 1;
     } else {
-      // If the size changed, then we have to put it in head. Just
-      // falling through to the code below handles that. We still
-      // count this record as a single hit, even though some miss
-      // would have had to have happened to shootdown the old stale
-      // sized value. This is to be fair to other policies like gLRU
-      // that don't detect these size changes.
-      //if (!warmup) {
-      //  ++stat.hits;
-      //  ++app.w_hits;
-      //  ++app.hits;
-      //}
+      // If miss in hash table, then count a miss. This get will count
+      // as a second access that hits below.
+      if (!warmup) {
+        ++app.misses;
+      }
     }
-  } else {
-    // If miss in hash table, then count a miss. This get will count
-    // as a second access that hits below.
-    if (!warmup) {
-      ++app.misses;
-    }
-  }
 
+  }
+  //else
+  //{
+  //    size_t noisy_size = 10;
+  //    if (rand()%(noisy_size*2) == 1)
+  //    {
+  //          
+  //          //std::cerr << "noisy get " << std::endl;
+  //          //if we are doing mrc, the take a sample
+  //          if (app.u_mrc)
+  //              app.AET.sample(r->kid);
+
+  //          auto it = map.find(r->kid);
+  //          if (it != map.end()) {
+  //            auto list_it = it->second;
+  //            segment* old_segment = list_it->seg;
+  //            int32_t old_request_size = list_it->req.size();
+  //            if (old_request_size  == r->size()) {
+  //              // Promote this item to the front.
+  //              old_segment->queue.erase(list_it);
+  //              old_segment->queue.emplace_front(old_segment, *r);
+  //              map[r->kid] = old_segment->queue.begin();
+
+  //              ++old_segment->access_count;
+
+  //              if (!warmup) {
+  //                ++stat.hits;
+  //                ++app.w_hits;
+  //                ++app.hits;
+  //              }
+
+  //              return 1;
+  //            } else {
+  //              // If the size changed, then we have to put it in head. Just
+  //              // falling through to the code below handles that. We still
+  //              // count this record as a single hit, even though some miss
+  //              // would have had to have happened to shootdown the old stale
+  //              // sized value. This is to be fair to other policies like gLRU
+  //              // that don't detect these size changes.
+  //              //if (!warmup) {
+  //              //  ++stat.hits;
+  //              //  ++app.w_hits;
+  //              //  ++app.hits;
+  //              //}
+  //            }
+  //          } else {
+  //            // If miss in hash table, then count a miss. This get will count
+  //            // as a second access that hits below.
+  //            if (!warmup) {
+  //              ++app.misses;
+  //            }
+  //          }
+
+  //    }
+  //  
+  //}
   if (head->filled_bytes + r->size() > stat.segment_size)
     rollover(r->time);
     //assert(head->filled_bytes + r->size() <= stat.segment_size);
@@ -253,363 +1236,43 @@ size_t lsc_multi::proc(const request *r, bool warmup) {
     appids.push_back(appid);
 
 
-  if (!app.u_mrc)
+  if (!lru_test)
   {
+    if (!app.u_mrc)
+    {
 
-    // Check to see if the access would have hit in the app's shadow Q.
-    if (app.would_hit(r)) {
-      ++app.shadow_q_hits;
-      // Hit in shadow Q! We get to steal!
-      size_t steal_size = 0;
-      if (!use_tax && eviction_policy == subpolicy::NORMAL)
-          steal_size = app.steal_size ;
-      for (int i = 0; i < 10; ++i) {
-        size_t victim = appids.at(rand() % appids.size());
-        auto it = apps.find(victim);
-        assert(it != apps.end());
-        application& other_app = it->second;
-        if (app.try_steal_from(other_app, steal_size))
-        {
-          
-          //std::cerr << app.appid << " stole from " 
-          //          << other_app.appid << "\n";
-          break;
-        }
-      }
-      // May not have been able to steal, but oh well.
-    }
-  }
-  else
-  {
-      if (  1 )
-      {
-        if ( app.would_hit(r) )
-            ++app.shadow_q_hits;
-
-        if (app.accesses-app.lastmrc >= 1000000  && 
-            !warmup  && app.evicted_items > 0)
-        {
-            for (int i = 0; i < 10; ++i) {
-              size_t victim = appids.at(rand() % appids.size());
-              auto it = apps.find(victim);
-              assert(it != apps.end());
-              application& other_app = it->second;
-
-              if (other_app.appid == app.appid)
-                  continue;
-              //1. solve mrc for both apps
-              //2. steal size is in bytes, so n objects
-              //   is steal size/OSIZE
-              //3.1 do current app mrc(current_items) = cmr1
-              //    do steal app mrc(current_items) = cmr2
-              //
-              //3.2 do current app mrc(steal_size+current) mr1
-              //      steal app mrc(steal_size-current) = mr2
-              //   if ((mr1 + mr2)/2) > ((cmr1 + cmr2)/2))
-              //        => WE GET TO STEAL!
-              //4. don't forget to free cache_size_index and miss
-              //   rate arrays
-              
-              long long *app_cache_size_index;
-              long long app_max;
-              double *app_miss_rate;
-              double appN = app.AET.getN();
-
-              //std::cerr << app.appid << " N " << appN << "\n";
-
-              app_cache_size_index = (long long*)malloc(
-                                         sizeof(long long)*(int)appN);
-              app_miss_rate = (double*)malloc(sizeof(double)*(int)appN);
-
-              app.AET.solve(app_cache_size_index,
-                            app_miss_rate,
-                            &app_max);
-    
-              //make sure we got a result
-              if (!app_cache_size_index || !app_miss_rate )
-              {
-
-                  std::cerr << app.appid << " no go mrc\n ";
-                  break;
-              }
-                
-              //std::cerr << app.appid << "  got mrc\n ";
-              
-
-              long long *other_cache_size_index;
-              double *other_miss_rate;
-              long long other_max;
-              double otherN = other_app.AET.getN();
-
-              //std::cerr << other_app.appid << " N " << otherN << "\n";
-
-              
-              other_cache_size_index = (long long*)malloc(
-                                         sizeof(long long)*(int)otherN);
-              other_miss_rate = (double*)malloc(sizeof(double)*(int)otherN);
-              
-              other_app.AET.solve(other_cache_size_index,
-                                   other_miss_rate,
-                                   &other_max);
-              
-              //make sure we got a result
-              if (!other_cache_size_index || !other_miss_rate )
-                  break;
-
-              
-              //get current cache size with allocated memory
-              size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
-              size_t app_c_size = (app_alloc/PGAP)*PGAP;
-              
-              size_t other_alloc = (other_app.target_mem + 
-                                    other_app.credit_bytes) /OSIZE;
-              size_t other_c_size = (other_alloc/PGAP)*PGAP;
-
-
-              //need to find minimum between the two
-              //MRCs
-              //1. make sure MRCs are equal sized. need 
-              //   to extend their "tails"
-              //   the max it could be is total memory.
-              //2. calculate reserved
-              //3. calculate "max adjust" for shadow queue
-              //4. lower bound = max(actual-max_adjust,reserved)
-              //5. upper bound = min(actual+max_adjust,total_memory)
-
-              int n = 0;
-              while (app_cache_size_index[n] != app_max) n++;
-              double app_max_mr = app_miss_rate[n];
-              n++;
-              
-              int m = 0;
-              while (other_cache_size_index[m] != other_max) m++;
-              double other_max_mr = other_miss_rate[m];
-              m++;
-
-              long long max_objects = ((stat.global_mem/OSIZE)/PGAP)*PGAP;
-              long long app_add = (max_objects - app_c_size)/PGAP;
-              long long other_add = (max_objects - other_c_size)/PGAP;
-
-              //grow our mrcs by add amount
-              long long *t_app_idx = (long long*) realloc(app_cache_size_index,
-                                                          sizeof(long long) * 
-                                                          (int)(app_add + appN));
-              double *t_app_mrc = (double*)realloc(app_miss_rate,
-                                                   sizeof(double) * 
-                                                   (int)(app_add + appN));
-
-              if (t_app_idx && t_app_mrc)
-              {
-                  app_cache_size_index = t_app_idx;
-                  app_miss_rate = t_app_mrc;
-              }
-              else
-              {
-                  break;
-              }
-              
-              long long *t_other_idx = (long long*) realloc(other_cache_size_index,
-                                                            sizeof(long long) * 
-                                                            (int)(other_add + otherN));
-              double *t_other_mrc = (double*)realloc(other_miss_rate,
-                                                     sizeof(double) * 
-                                                     (int)(other_add + otherN));
-
-              if (t_other_idx && t_other_mrc)
-              {
-                  other_cache_size_index = t_other_idx;
-                  other_miss_rate = t_other_mrc;
-              }
-              else
-              {
-                  break;
-              }
-
-              //from n (or m) to max_objects, set the miss rate to
-              //max_mr
-              long long i_size = app_max + PGAP;
-              while (i_size < max_objects) 
-              {
-                  app_cache_size_index[n] = i_size;
-                  app_miss_rate[n] = app_max_mr;
-                  i_size += PGAP;
-                  n++;
-              }
-              
-              i_size = other_max + PGAP;
-              while (i_size < max_objects) 
-              {
-                  other_cache_size_index[m] = i_size;
-                  other_miss_rate[m] = other_max_mr;
-                  i_size += PGAP;
-                  m++;
-              }
-
-
-              //2. reserverd
-              double app_pct = (double)app.min_mem_pct;
-              app_pct = app_pct/100;
-              size_t app_reserved = (app.target_mem/OSIZE) * app_pct;
-              
-              double other_pct = (double)other_app.min_mem_pct;
-              other_pct = other_pct/100;
-              size_t other_reserved = (other_app.target_mem/OSIZE) * other_pct;
-
-              //3. "max adjust"
-              // shadow queue size is 10MB = 10000000 bytes 
-              //                           = OSIZE0000000 obj
-              // hmmm lets just skip this for now 
-
-              //4. lower bound = reserved
-              size_t app_lower = app_reserved;
-              size_t other_lower = other_reserved;
-
-              //5. upper bound = total_memory
-              size_t app_upper = max_objects;
-              size_t other_upper = max_objects;
-
-              if (1)
-              {
-                long long app_m;
-                long long other_m;
-                double min1;
-                double min2;
-                app.AET.balance(app_cache_size_index, app_miss_rate, 
-                                app_c_size, app_upper,
-                                app_lower, 
-                                other_cache_size_index, other_miss_rate,
-                                other_c_size, other_upper,
-                                other_lower,
-                                &app_m, &other_m, &min1, &min2);
-              
-                std::cerr << "app " << app.appid << ", other app " << other_app.appid << "\n";
-                std::cerr << "app size " << app_c_size << ", other app size " << other_c_size << "\n";
-                if (min2 < min1)
-                {
-                    std::cerr << "min2 < min1" << "\n";
-                    size_t b_steal = app_c_size - app_m;
-                    std::cerr << other_app.appid << " steal " <<  b_steal
-                              << " from " << app.appid << "\n";
-
-                    if (other_app.try_steal_from(app, b_steal*OSIZE))
-                    {
-                       
-                       std::cerr << other_app.appid << " stole from " 
-                                 << app.appid << "\n";
-                       break;
-                    }
-
-                }
-                else
-                {
-
-                    size_t b_steal = other_c_size - other_m;
-                    std::cerr << app.appid << " steal " <<  b_steal
-                              << " from " << other_app.appid << "\n";
-
-                    if (app.try_steal_from(other_app, b_steal*OSIZE))
-                    {
-                       
-                       std::cerr << app.appid << " stole from " 
-                                 << other_app.appid << "\n";
-                       break;
-                    }
-                }
-
-
-              }
-              else
-              {
-
-                if (app_c_size > (size_t)app_max)
-                    app_c_size = (size_t)app_max;
-                if (other_c_size > (size_t)other_max)
-                    other_c_size = (size_t)other_max;
-
-
-                int j = 0;
-                while (app_cache_size_index[j] != (long long)app_c_size) 
-                {
-                    //reached the end of mrc ,,not much we can
-                    //do
-                    if (app_cache_size_index[j] == app_max)
-                        break;
-                    j++;
-                }
-                int app_c_index = j;
-                
-                j = 0;
-                while (other_cache_size_index[j] != (long long)other_c_size) 
-                {
-                    if (other_cache_size_index[j] == other_max)
-                        break;
-                    j++;
-                }
-                int other_c_index = j;
-
-                double app_curr_miss_rate = app_miss_rate[
-                                                        app_c_index];
-                double other_curr_miss_rate = other_miss_rate[
-                                                        other_c_index];
+      // Check to see if the access would have hit in the app's shadow Q.
+      if (app.would_hit(r)) {
+        ++app.shadow_q_hits;
+        // Hit in shadow Q! We get to steal!
+        size_t steal_size = 0;
+        if (!use_tax && eviction_policy == subpolicy::NORMAL)
+            steal_size = app.steal_size ;
+        for (int i = 0; i < 10; ++i) {
+          size_t victim = appids.at(rand() % appids.size());
+          auto it = apps.find(victim);
+          assert(it != apps.end());
+          application& other_app = it->second;
+          if (app.try_steal_from(other_app, steal_size))
+          {
             
-                double avg_curr = (app_curr_miss_rate + 
-                                   other_curr_miss_rate)/2;
-
-
-                
-                //make sure we actually have more space to allocate...
-                if (app_c_size + 100*PGAP > (size_t)app_max)
-                    break;
-                if (other_c_size > (size_t) other_max)
-                    break;
-                
-
-                double app_s_miss_rate = app_miss_rate[
-                                                    app_c_index+100];
-                double other_s_miss_rate = other_miss_rate[
-                                                    other_c_index-100];
-                
-                double avg_s = (app_s_miss_rate + other_s_miss_rate)/2;
-
-                std::cerr << app.appid 
-                          << " miss rate " << app_curr_miss_rate
-                          << " size " << app_c_size 
-                          << " s miss rate " << app_s_miss_rate
-                          << " s size " << (app_c_size + 100*PGAP)
-                          << " max size " << app_max << "\n";
-                std::cerr << other_app.appid 
-                          << " miss rate " << other_curr_miss_rate
-                          << " size " << other_c_size 
-                          << " s miss rate " << other_s_miss_rate
-                          << " s size " << (other_c_size - 100*PGAP)
-                          << " max size " << other_max << "\n";
-
-                free(other_cache_size_index);
-                free(other_miss_rate);
-                free(app_cache_size_index);
-                free(app_miss_rate);
-
-                if (avg_s < avg_curr)
-                {
-                    std::cerr << app.appid << " try steal from " 
-                                 << other_app.appid << "\n";
-                    if (app.try_steal_from(other_app, 100*PGAP*OSIZE))
-                    {
-                       
-                       std::cerr << app.appid << " stole from " 
-                                 << other_app.appid << "\n";
-                       break;
-                    }
-                }
-
-              }
-
-
-            }
-            app.lastmrc = app.accesses;
+            //std::cerr << app.appid << " stole from " 
+            //          << other_app.appid << "\n";
+            break;
+          }
         }
+        // May not have been able to steal, but oh well.
       }
+    }
+    else
+    {
+        if (  (app.accesses - app.lastmrc >= AET_repart) && (app.evicted_items > 0) )
+        {
+            //arbitrate();
+            arbitrate_greedyFast();
 
+        }
+    }
   }
  
   return PROC_MISS;
@@ -960,7 +1623,7 @@ auto lsc_multi::choose_survivor() -> application* {
       application& app = p.second;
       if (app.cleaning_it == app.cleaning_q.end())
         continue;
-      if (app.target_mem + app.credit_bytes > app.min_mem)
+      if (app.target_mem + app.credit_bytes > app.min_mem && !app.u_mrc)
         continue;
       if (r == nullptr || app.need() > r->need())
         r = &app;
@@ -1309,468 +1972,6 @@ void lsc_multi::clean()
 }
 
 size_t lsc_multi::proc_net(const request *r, bool warmup) {
-  assert(r->size() > 0);
-  if (r->size() > int32_t(stat.segment_size)) {
-    std::cerr << "Can't process large request of size " << r->size()
-              << std::endl;
-    return 1;
-  }
-
-  assert(apps.find(r->appid) != apps.end());
-
-  if (!warmup && use_tax &&
-      ((last_idle_check == 0.) ||
-      (r->time - last_idle_check > idle_mem_secs)))
-  {
-    compute_idle_mem(r->time);
-    if (last_idle_check == 0.)
-      last_idle_check = r->time;
-    last_idle_check += idle_mem_secs;
-  }
-
-  if (!warmup && ((last_dump == 0.) || (r->time - last_dump > 100000.))) {
-    if (last_dump == 0.)
-      application::dump_stats_header();
-    dump_app_stats(r->time);
-    if (last_dump == 0.)
-      last_dump = r->time;
-    last_dump += 100000.0;
-  }
-
-  auto appit = apps.find(r->appid);
-  assert(appit != apps.end());
-  application& app = appit->second;
-
-
-  if (r->type == 1)
-  {
-    if (!warmup) {
-      ++stat.accesses;
-      ++app.accesses;
-      ++app.w_accesses;
-    }
-    //if we are doing mrc, the take a sample
-    if (app.u_mrc)
-        app.AET.sample(r->kid);
-
-    auto it = map.find(r->kid);
-    if (it != map.end()) 
-    {
-      auto list_it = it->second;
-      segment* old_segment = list_it->seg;
-      int32_t old_request_size = list_it->req.size();
-      if (old_request_size  == r->size()) {
-        // Promote this item to the front.
-        old_segment->queue.erase(list_it);
-        old_segment->queue.emplace_front(old_segment, *r);
-        map[r->kid] = old_segment->queue.begin();
-
-        ++old_segment->access_count;
-
-        if (!warmup) {
-          ++stat.hits;
-          ++app.w_hits;
-          ++app.hits;
-        }
-
-        return 2;
-      }
-    }
-    else
-    {
-        //miss!
-        return 0;
-    }
-  } 
-  else if (r->type == 2)
-  {
-    if (head->filled_bytes + r->size() > stat.segment_size)
-      rollover(r->time);
-      //assert(head->filled_bytes + r->size() <= stat.segment_size);
-
-    // Add the new request.
-    head->queue.emplace_front(head, *r);
-    map[r->kid] = head->queue.begin();
-    head->filled_bytes += r->size();
-    auto ait = head->app_bytes.find(app.appid);
-    if (ait == head->app_bytes.end()) {
-      head->app_bytes.emplace(app.appid, r->size());
-    } else {
-      ait->second = ait->second + r->size();
-    }
-
-    ++head->access_count;
-
-    // Bill the correct app for its use of log space.
-    app.bytes_in_use += r->size();
-    app.live_items += 1;
-
-    std::vector<size_t> appids{};
-    for (size_t appid : *stat.apps)
-      appids.push_back(appid);
-
-
-    if (!app.u_mrc)
-    {
-
-      // Check to see if the access would have hit in the app's shadow Q.
-      if (app.would_hit(r)) {
-        ++app.shadow_q_hits;
-        // Hit in shadow Q! We get to steal!
-        size_t steal_size = 0;
-        if (!use_tax && eviction_policy == subpolicy::NORMAL)
-            steal_size = app.steal_size ;
-        for (int i = 0; i < 10; ++i) {
-          size_t victim = appids.at(rand() % appids.size());
-          auto it = apps.find(victim);
-          assert(it != apps.end());
-          application& other_app = it->second;
-          if (app.try_steal_from(other_app, steal_size))
-          {
-            
-            //std::cerr << app.appid << " stole from " 
-            //          << other_app.appid << "\n";
-            break;
-          }
-        }
-        // May not have been able to steal, but oh well.
-      }
-    }
-    else
-    {
-        if (  1 )
-        {
-          if ( app.would_hit(r) )
-              ++app.shadow_q_hits;
-
-          if (app.accesses-app.lastmrc >= 1000000  && 
-              !warmup  && app.evicted_items > 0)
-          {
-              for (int i = 0; i < 10; ++i) {
-                size_t victim = appids.at(rand() % appids.size());
-                auto it = apps.find(victim);
-                assert(it != apps.end());
-                application& other_app = it->second;
-
-                if (other_app.appid == app.appid)
-                    continue;
-                //1. solve mrc for both apps
-                //2. steal size is in bytes, so n objects
-                //   is steal size/OSIZE
-                //3.1 do current app mrc(current_items) = cmr1
-                //    do steal app mrc(current_items) = cmr2
-                //
-                //3.2 do current app mrc(steal_size+current) mr1
-                //      steal app mrc(steal_size-current) = mr2
-                //   if ((mr1 + mr2)/2) > ((cmr1 + cmr2)/2))
-                //        => WE GET TO STEAL!
-                //4. don't forget to free cache_size_index and miss
-                //   rate arrays
-                
-                long long *app_cache_size_index;
-                long long app_max;
-                double *app_miss_rate;
-                double appN = app.AET.getN();
-
-                //std::cerr << app.appid << " N " << appN << "\n";
-
-                app_cache_size_index = (long long*)malloc(
-                                           sizeof(long long)*(int)appN);
-                app_miss_rate = (double*)malloc(sizeof(double)*(int)appN);
-
-                app.AET.solve(app_cache_size_index,
-                              app_miss_rate,
-                              &app_max);
-      
-                //make sure we got a result
-                if (!app_cache_size_index || !app_miss_rate )
-                {
-
-                    std::cerr << app.appid << " no go mrc\n ";
-                    break;
-                }
-                  
-                //std::cerr << app.appid << "  got mrc\n ";
-                
-
-                long long *other_cache_size_index;
-                double *other_miss_rate;
-                long long other_max;
-                double otherN = other_app.AET.getN();
-
-                //std::cerr << other_app.appid << " N " << otherN << "\n";
-
-                
-                other_cache_size_index = (long long*)malloc(
-                                           sizeof(long long)*(int)otherN);
-                other_miss_rate = (double*)malloc(sizeof(double)*(int)otherN);
-                
-                other_app.AET.solve(other_cache_size_index,
-                                     other_miss_rate,
-                                     &other_max);
-                
-                //make sure we got a result
-                if (!other_cache_size_index || !other_miss_rate )
-                    break;
-
-                
-                //get current cache size with allocated memory
-                size_t app_alloc = (app.target_mem + app.credit_bytes)/OSIZE;
-                size_t app_c_size = (app_alloc/PGAP)*PGAP;
-                
-                size_t other_alloc = (other_app.target_mem + 
-                                      other_app.credit_bytes) /OSIZE;
-                size_t other_c_size = (other_alloc/PGAP)*PGAP;
-
-
-                //need to find minimum between the two
-                //MRCs
-                //1. make sure MRCs are equal sized. need 
-                //   to extend their "tails"
-                //   the max it could be is total memory.
-                //2. calculate reserved
-                //3. calculate "max adjust" for shadow queue
-                //4. lower bound = max(actual-max_adjust,reserved)
-                //5. upper bound = min(actual+max_adjust,total_memory)
-
-                int n = 0;
-                while (app_cache_size_index[n] != app_max) n++;
-                double app_max_mr = app_miss_rate[n];
-                n++;
-                
-                int m = 0;
-                while (other_cache_size_index[m] != other_max) m++;
-                double other_max_mr = other_miss_rate[m];
-                m++;
-
-                long long max_objects = ((stat.global_mem/OSIZE)/PGAP)*PGAP;
-                long long app_add = (max_objects - app_c_size)/PGAP;
-                long long other_add = (max_objects - other_c_size)/PGAP;
-
-                //grow our mrcs by add amount
-                long long *t_app_idx = (long long*) realloc(app_cache_size_index,
-                                                            sizeof(long long) * 
-                                                            (int)(app_add + appN));
-                double *t_app_mrc = (double*)realloc(app_miss_rate,
-                                                     sizeof(double) * 
-                                                     (int)(app_add + appN));
-
-                if (t_app_idx && t_app_mrc)
-                {
-                    app_cache_size_index = t_app_idx;
-                    app_miss_rate = t_app_mrc;
-                }
-                else
-                {
-                    break;
-                }
-                
-                long long *t_other_idx = (long long*) realloc(other_cache_size_index,
-                                                              sizeof(long long) * 
-                                                              (int)(other_add + otherN));
-                double *t_other_mrc = (double*)realloc(other_miss_rate,
-                                                       sizeof(double) * 
-                                                       (int)(other_add + otherN));
-
-                if (t_other_idx && t_other_mrc)
-                {
-                    other_cache_size_index = t_other_idx;
-                    other_miss_rate = t_other_mrc;
-                }
-                else
-                {
-                    break;
-                }
-
-                //from n (or m) to max_objects, set the miss rate to
-                //max_mr
-                long long i_size = app_max + PGAP;
-                while (i_size < max_objects) 
-                {
-                    app_cache_size_index[n] = i_size;
-                    app_miss_rate[n] = app_max_mr;
-                    i_size += PGAP;
-                    n++;
-                }
-                
-                i_size = other_max + PGAP;
-                while (i_size < max_objects) 
-                {
-                    other_cache_size_index[m] = i_size;
-                    other_miss_rate[m] = other_max_mr;
-                    i_size += PGAP;
-                    m++;
-                }
-
-
-                //2. reserverd
-                double app_pct = (double)app.min_mem_pct;
-                app_pct = app_pct/100;
-                size_t app_reserved = (app.target_mem/OSIZE) * app_pct;
-                
-                double other_pct = (double)other_app.min_mem_pct;
-                other_pct = other_pct/100;
-                size_t other_reserved = (other_app.target_mem/OSIZE) * other_pct;
-
-                //3. "max adjust"
-                // shadow queue size is 10MB = 10000000 bytes 
-                //                           = OSIZE0000000 obj
-                // hmmm lets just skip this for now 
-
-                //4. lower bound = reserved
-                size_t app_lower = app_reserved;
-                size_t other_lower = other_reserved;
-
-                //5. upper bound = total_memory
-                size_t app_upper = max_objects;
-                size_t other_upper = max_objects;
-
-                if (1)
-                {
-                  long long app_m;
-                  long long other_m;
-                  double min1;
-                  double min2;
-                  app.AET.balance(app_cache_size_index, app_miss_rate, 
-                                  app_c_size, app_upper,
-                                  app_lower, 
-                                  other_cache_size_index, other_miss_rate,
-                                  other_c_size, other_upper,
-                                  other_lower,
-                                  &app_m, &other_m, &min1, &min2);
-                
-                  std::cerr << "app " << app.appid << ", other app " << other_app.appid << "\n";
-                  std::cerr << "app size " << app_c_size << ", other app size " << other_c_size << "\n";
-                  if (min2 < min1)
-                  {
-                      std::cerr << "min2 < min1" << "\n";
-                      size_t b_steal = app_c_size - app_m;
-                      std::cerr << other_app.appid << " steal " <<  b_steal
-                                << " from " << app.appid << "\n";
-
-                      if (other_app.try_steal_from(app, b_steal*OSIZE))
-                      {
-                         
-                         std::cerr << other_app.appid << " stole from " 
-                                   << app.appid << "\n";
-                         break;
-                      }
-
-                  }
-                  else
-                  {
-
-                      size_t b_steal = other_c_size - other_m;
-                      std::cerr << app.appid << " steal " <<  b_steal
-                                << " from " << other_app.appid << "\n";
-
-                      if (app.try_steal_from(other_app, b_steal*OSIZE))
-                      {
-                         
-                         std::cerr << app.appid << " stole from " 
-                                   << other_app.appid << "\n";
-                         break;
-                      }
-                  }
-
-
-                }
-                else
-                {
-
-                  if (app_c_size > (size_t)app_max)
-                      app_c_size = (size_t)app_max;
-                  if (other_c_size > (size_t)other_max)
-                      other_c_size = (size_t)other_max;
-
-
-                  int j = 0;
-                  while (app_cache_size_index[j] != (long long)app_c_size) 
-                  {
-                      //reached the end of mrc ,,not much we can
-                      //do
-                      if (app_cache_size_index[j] == app_max)
-                          break;
-                      j++;
-                  }
-                  int app_c_index = j;
-                  
-                  j = 0;
-                  while (other_cache_size_index[j] != (long long)other_c_size) 
-                  {
-                      if (other_cache_size_index[j] == other_max)
-                          break;
-                      j++;
-                  }
-                  int other_c_index = j;
-
-                  double app_curr_miss_rate = app_miss_rate[
-                                                          app_c_index];
-                  double other_curr_miss_rate = other_miss_rate[
-                                                          other_c_index];
-              
-                  double avg_curr = (app_curr_miss_rate + 
-                                     other_curr_miss_rate)/2;
-
-
-                  
-                  //make sure we actually have more space to allocate...
-                  if (app_c_size + 100*PGAP > (size_t)app_max)
-                      break;
-                  if (other_c_size > (size_t) other_max)
-                      break;
-                  
-
-                  double app_s_miss_rate = app_miss_rate[
-                                                      app_c_index+100];
-                  double other_s_miss_rate = other_miss_rate[
-                                                      other_c_index-100];
-                  
-                  double avg_s = (app_s_miss_rate + other_s_miss_rate)/2;
-
-                  std::cerr << app.appid 
-                            << " miss rate " << app_curr_miss_rate
-                            << " size " << app_c_size 
-                            << " s miss rate " << app_s_miss_rate
-                            << " s size " << (app_c_size + 100*PGAP)
-                            << " max size " << app_max << "\n";
-                  std::cerr << other_app.appid 
-                            << " miss rate " << other_curr_miss_rate
-                            << " size " << other_c_size 
-                            << " s miss rate " << other_s_miss_rate
-                            << " s size " << (other_c_size - 100*PGAP)
-                            << " max size " << other_max << "\n";
-
-                  free(other_cache_size_index);
-                  free(other_miss_rate);
-                  free(app_cache_size_index);
-                  free(app_miss_rate);
-
-                  if (avg_s < avg_curr)
-                  {
-                      std::cerr << app.appid << " try steal from " 
-                                   << other_app.appid << "\n";
-                      if (app.try_steal_from(other_app, 100*PGAP*OSIZE))
-                      {
-                         
-                         std::cerr << app.appid << " stole from " 
-                                   << other_app.appid << "\n";
-                         break;
-                      }
-                  }
-
-                }
-
-
-              }
-              app.lastmrc = app.accesses;
-          }
-        }
-    }
-
-    return 1;
- 
-  }
 
   return -1;
 

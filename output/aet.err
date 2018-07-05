@@ -1,54 +1,2445 @@
-global_mem 1599078400 segment_size 1048576 segment_count 1525
-1525 > 2*16
-performing trace analysis on apps 1,2,
+global_mem 4049600512 segment_size 1048576 segment_count 3862
+3862 > 2*10
+steal size (credit): 500
+steal size (credit MRC gap): 500
+steal size (credit): 500
+steal size (credit MRC gap): 500
+steal size (credit): 500
+steal size (credit MRC gap): 500
+steal size (credit): 500
+steal size (credit MRC gap): 500
+steal size (credit): 500
+steal size (credit MRC gap): 500
+steal size (credit): 500
+steal size (credit MRC gap): 500
+performing trace analysis on apps 1,2,3,4,5,6,
 with steal weights of 
 policy multi
-using trace file /tmp/a
+using trace file /home/djbyrne/mrc/workloads/var/var.sim
 rounding off
 utilization rate 1
 start counting hits at t = 1
 request limit 0
-global mem 1599078400
+global mem 4049600512
 use tax 0
 tax rate 0.05
-cleaning width 16
-port: 59419
-Progress: 262145 Rate: 0.09999619106 MB/s Hit Rate: 0.9566980251% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 524289 Rate: 0.03593765411 MB/s Hit Rate: 1.946948119% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 786433 Rate: 0.02235479308 MB/s Hit Rate: 2.894300874% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1048577 Rate: 0.01619795334 MB/s Hit Rate: 3.825905402% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1310721 Rate: 0.01241622506 MB/s Hit Rate: 4.784465233% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1572865 Rate: 0.01026999677 MB/s Hit Rate: 5.716717331% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 1835009 Rate: 0.008835941189 MB/s Hit Rate: 6.614387819% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2097153 Rate: 0.007638758344 MB/s Hit Rate: 7.513051811% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2359297 Rate: 0.006660363874 MB/s Hit Rate: 8.426002389% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2621441 Rate: 0.006079156086 MB/s Hit Rate: 9.296830613% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 2883585 Rate: 0.005436771861 MB/s Hit Rate: 10.18199867% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3145729 Rate: 0.004997770584 MB/s Hit Rate: 11.04797487% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3407873 Rate: 0.004616200139 MB/s Hit Rate: 11.90065247% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3670017 Rate: 0.004281579607 MB/s Hit Rate: 12.74396102% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 3932161 Rate: 0.003977482229 MB/s Hit Rate: 13.58449724% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4194305 Rate: 0.003696827993 MB/s Hit Rate: 14.42864652% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4456449 Rate: 0.003541297876 MB/s Hit Rate: 15.23387181% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4718593 Rate: 0.003283099528 MB/s Hit Rate: 16.06005559% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 4980737 Rate: 0.003108586183 MB/s Hit Rate: 16.87776527% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 5242881 Rate: 0.002977259871 MB/s Hit Rate: 17.67338632% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 5505025 Rate: 0.002819476251 MB/s Hit Rate: 18.46967831% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 5767169 Rate: 0.002715518056 MB/s Hit Rate: 19.24392454% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6029313 Rate: 0.002601154643 MB/s Hit Rate: 20.0087946% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6291457 Rate: 0.002494406367 MB/s Hit Rate: 20.76575977% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6553601 Rate: 0.002395484926 MB/s Hit Rate: 21.51547305% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 6815745 Rate: 0.002288866438 MB/s Hit Rate: 22.26795204% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7077889 Rate: 0.002218712255 MB/s Hit Rate: 23.00381055% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7340033 Rate: 0.002150003112 MB/s Hit Rate: 23.72630823% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7602177 Rate: 0.002070865401 MB/s Hit Rate: 24.44643143% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 7864321 Rate: 0.002019436021 MB/s Hit Rate: 25.14825329% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8126465 Rate: 0.001959099873 MB/s Hit Rate: 25.84139873% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8388609 Rate: 0.001892221534 MB/s Hit Rate: 26.53361236% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8650753 Rate: 0.001842554202 MB/s Hit Rate: 27.21486246% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 8912897 Rate: 0.001792541056 MB/s Hit Rate: 27.88800715% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9175041 Rate: 0.001755066429 MB/s Hit Rate: 28.54582468% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9437185 Rate: 0.001696685125 MB/s Hit Rate: 29.20684549% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9699329 Rate: 0.001659629928 MB/s Hit Rate: 29.85621329% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 9961473 Rate: 0.001622890583 MB/s Hit Rate: 30.49565029% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
-Progress: 10223617 Rate: 0.001588816022 MB/s Hit Rate: 31.12485237% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+cleaning width 10
+Progress: 524289 Rate: 11.27241141 MB/s Hit Rate: 27.53810883% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 1048577 Rate: 12.66812382 MB/s Hit Rate: 30.91306686% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 1835009 Rate: 12.57949635 MB/s Hit Rate: 34.03009687% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 2621441 Rate: 13.37675681 MB/s Hit Rate: 36.22905731% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 3145729 Rate: 12.7109609 MB/s Hit Rate: 37.44821548% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 3670017 Rate: 8.089087762 MB/s Hit Rate: 38.54179382% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 4194305 Rate: 12.31861477 MB/s Hit Rate: 39.53633308% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 4718593 Rate: 12.2065054 MB/s Hit Rate: 40.43782552% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 5242881 Rate: 12.10785046 MB/s Hit Rate: 41.28454208% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 5767169 Rate: 8.96368528 MB/s Hit Rate: 42.08323739% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 6291457 Rate: 12.46519578 MB/s Hit Rate: 42.83819199% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 6815745 Rate: 12.33881973 MB/s Hit Rate: 43.54204031% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 7340033 Rate: 12.32095617 MB/s Hit Rate: 44.22231402% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 7864321 Rate: 12.2756212 MB/s Hit Rate: 44.87197876% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 8126465 Rate: 5.520253839 MB/s Hit Rate: 45.18960522% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 8650753 Rate: 12.59747462 MB/s Hit Rate: 45.80372897% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 9175041 Rate: 12.56494136 MB/s Hit Rate: 46.39055525% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 9699329 Rate: 12.55122862 MB/s Hit Rate: 46.95042791% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 10223617 Rate: 12.44056414 MB/s Hit Rate: 47.49714778% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 10747905 Rate: 13.31459079 MB/s Hit Rate: 48.01871137% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 11272193 Rate: 13.32531988 MB/s Hit Rate: 48.52828092% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 11796481 Rate: 13.20751582 MB/s Hit Rate: 49.02954949% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 12320769 Rate: 13.26425308 MB/s Hit Rate: 49.51843911% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 12845057 Rate: 13.17132697 MB/s Hit Rate: 49.98956797% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 13369345 Rate: 13.10481191 MB/s Hit Rate: 50.44592315% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 13893633 Rate: 13.10351423 MB/s Hit Rate: 50.89254559% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 14417921 Rate: 13.08174195 MB/s Hit Rate: 51.32802096% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 14942209 Rate: 13.0235173 MB/s Hit Rate: 51.75314786% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 15466497 Rate: 12.97707748 MB/s Hit Rate: 52.16977394% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 15990785 Rate: 12.93863423 MB/s Hit Rate: 52.57184388% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 16515073 Rate: 12.91157965 MB/s Hit Rate: 52.96848237% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 17039361 Rate: 12.86402141 MB/s Hit Rate: 53.35259071% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 17563649 Rate: 12.87699469 MB/s Hit Rate: 53.73208914% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 18087937 Rate: 12.84322245 MB/s Hit Rate: 54.10452027% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 18612225 Rate: 12.76545454 MB/s Hit Rate: 54.46835907% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 19136513 Rate: 12.79469874 MB/s Hit Rate: 54.82551888% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 19660801 Rate: 12.75770732 MB/s Hit Rate: 55.17571513% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 19922945 Rate: 4.074649936 MB/s Hit Rate: 55.34847159% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 20447233 Rate: 13.12365106 MB/s Hit Rate: 55.68888249% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 20971521 Rate: 13.03879144 MB/s Hit Rate: 56.02300167% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 21495809 Rate: 13.10302958 MB/s Hit Rate: 56.35218737% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 22020097 Rate: 13.1470524 MB/s Hit Rate: 56.67413984% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 22544385 Rate: 13.09463855 MB/s Hit Rate: 56.99227799% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 23068673 Rate: 13.05503848 MB/s Hit Rate: 57.3040442% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 23592961 Rate: 13.03552069 MB/s Hit Rate: 57.61189355% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 24117249 Rate: 13.0087889 MB/s Hit Rate: 57.91154944% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 24641537 Rate: 12.9774342 MB/s Hit Rate: 58.2058034% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 25165825 Rate: 12.9871586 MB/s Hit Rate: 58.49910975% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 25690113 Rate: 12.95033859 MB/s Hit Rate: 58.78628711% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 26214401 Rate: 12.93791604 MB/s Hit Rate: 59.06988907% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 26738689 Rate: 12.92286598 MB/s Hit Rate: 59.34855891% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 27262977 Rate: 12.91811145 MB/s Hit Rate: 59.62058948% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 27787265 Rate: 12.86312927 MB/s Hit Rate: 59.89216499% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 28311553 Rate: 12.86496123 MB/s Hit Rate: 60.15820327% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 28835841 Rate: 12.8404351 MB/s Hit Rate: 60.42280371% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 29360129 Rate: 12.83305371 MB/s Hit Rate: 60.68006243% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 29884417 Rate: 12.8411465 MB/s Hit Rate: 60.93566627% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 30408705 Rate: 12.81421424 MB/s Hit Rate: 61.18631363% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 30932993 Rate: 12.77754786 MB/s Hit Rate: 61.43314232% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 31457281 Rate: 12.74713795 MB/s Hit Rate: 61.67572339% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 31981569 Rate: 12.70673691 MB/s Hit Rate: 61.91602926% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 32505857 Rate: 12.55411537 MB/s Hit Rate: 62.15351782% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 33030145 Rate: 12.69307765 MB/s Hit Rate: 62.38813552% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 33554433 Rate: 12.69867059 MB/s Hit Rate: 62.61944175% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 34078721 Rate: 12.68021385 MB/s Hit Rate: 62.84749838% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 34603009 Rate: 12.67787034 MB/s Hit Rate: 63.07186358% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 35127297 Rate: 12.66855876 MB/s Hit Rate: 63.2930414% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 35651585 Rate: 12.64580978 MB/s Hit Rate: 63.51277407% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 36175873 Rate: 12.68173227 MB/s Hit Rate: 63.72807821% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 36700161 Rate: 12.6300218 MB/s Hit Rate: 63.94205366% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 37224449 Rate: 12.63065171 MB/s Hit Rate: 64.15148184% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 37748737 Rate: 12.44810764 MB/s Hit Rate: 64.3597232% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 38273025 Rate: 12.61751192 MB/s Hit Rate: 64.56427117% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 38797313 Rate: 12.611663 MB/s Hit Rate: 64.76626525% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 39321601 Rate: 12.59382165 MB/s Hit Rate: 64.96631368% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 39845889 Rate: 12.58881301 MB/s Hit Rate: 65.16278167% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 40370177 Rate: 12.56618878 MB/s Hit Rate: 65.35777798% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 40894465 Rate: 12.5609582 MB/s Hit Rate: 65.55118072% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 41418753 Rate: 12.54084011 MB/s Hit Rate: 65.74177561% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 41943041 Rate: 12.4004834 MB/s Hit Rate: 65.93085051% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 42467329 Rate: 12.53707863 MB/s Hit Rate: 66.117395% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 42991617 Rate: 12.54263826 MB/s Hit Rate: 66.30245069% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 43515905 Rate: 12.51302146 MB/s Hit Rate: 66.48492239% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 44040193 Rate: 12.52351375 MB/s Hit Rate: 66.66546095% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 44564481 Rate: 12.50985402 MB/s Hit Rate: 66.8433627% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 45088769 Rate: 12.51859187 MB/s Hit Rate: 67.01849782% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 45613057 Rate: 12.49673148 MB/s Hit Rate: 67.19280111% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 46137345 Rate: 12.49766471 MB/s Hit Rate: 67.36452579% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 46661633 Rate: 12.48672183 MB/s Hit Rate: 67.53414883% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 47185921 Rate: 12.4756577 MB/s Hit Rate: 67.70237817% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 47710209 Rate: 12.4795329 MB/s Hit Rate: 67.86895794% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 48234497 Rate: 12.4654587 MB/s Hit Rate: 68.03536208% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 48758785 Rate: 12.47560801 MB/s Hit Rate: 68.19883982% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 49283073 Rate: 12.45439655 MB/s Hit Rate: 68.35926746% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 49807361 Rate: 12.26975839 MB/s Hit Rate: 68.51852819% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 50331649 Rate: 12.42835572 MB/s Hit Rate: 68.67635647% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 50855937 Rate: 12.42869964 MB/s Hit Rate: 68.8325528% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 51380225 Rate: 12.42768563 MB/s Hit Rate: 68.9866572% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 51904513 Rate: 12.40540468 MB/s Hit Rate: 69.13917041% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 52428801 Rate: 12.4299236 MB/s Hit Rate: 69.29110909% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 52953089 Rate: 12.3861636 MB/s Hit Rate: 69.44118915% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 53477377 Rate: 12.40495217 MB/s Hit Rate: 69.58937925% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 54001665 Rate: 12.38544984 MB/s Hit Rate: 69.73677515% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 54525953 Rate: 12.39592674 MB/s Hit Rate: 69.88280736% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 55050241 Rate: 12.37399372 MB/s Hit Rate: 70.02708253% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 55574529 Rate: 12.38231608 MB/s Hit Rate: 70.1704853% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 56098817 Rate: 12.37681454 MB/s Hit Rate: 70.31171032% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 56623105 Rate: 12.38126057 MB/s Hit Rate: 70.45147331% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 57147393 Rate: 12.16840715 MB/s Hit Rate: 70.59065443% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 57671681 Rate: 12.36102531 MB/s Hit Rate: 70.72789799% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 58195969 Rate: 12.35885393 MB/s Hit Rate: 70.86375812% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 58720257 Rate: 12.34404606 MB/s Hit Rate: 70.99841152% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 59244545 Rate: 12.35533435 MB/s Hit Rate: 71.13121168% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 59768833 Rate: 12.32664135 MB/s Hit Rate: 71.26274276% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 60293121 Rate: 12.31901322 MB/s Hit Rate: 71.39387711% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 60817409 Rate: 12.31653495 MB/s Hit Rate: 71.5245921% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 61341697 Rate: 12.31194222 MB/s Hit Rate: 71.65239448% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 61865985 Rate: 12.31184707 MB/s Hit Rate: 71.77937879% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 62390273 Rate: 12.29530514 MB/s Hit Rate: 71.90461199% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 62914561 Rate: 12.31457594 MB/s Hit Rate: 72.02907721% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 63438849 Rate: 12.29647552 MB/s Hit Rate: 72.152907% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 63963137 Rate: 12.31455371 MB/s Hit Rate: 72.27519926% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 64487425 Rate: 12.07045337 MB/s Hit Rate: 72.3964412% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 65011713 Rate: 12.29326818 MB/s Hit Rate: 72.51694126% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 65536001 Rate: 12.298787 MB/s Hit Rate: 72.63647461% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 65798145 Rate: 2.311381089 MB/s Hit Rate: 72.69521614% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 66322433 Rate: 11.06648037 MB/s Hit Rate: 72.8125003% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 66846721 Rate: 12.22523628 MB/s Hit Rate: 72.92895298% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 67371009 Rate: 12.24333179 MB/s Hit Rate: 73.04472868% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 67895297 Rate: 12.46020027 MB/s Hit Rate: 73.15900059% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 68419585 Rate: 12.28661378 MB/s Hit Rate: 73.27276062% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 68943873 Rate: 12.45532338 MB/s Hit Rate: 73.38539095% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 69468161 Rate: 12.48571402 MB/s Hit Rate: 73.49655295% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 69992449 Rate: 12.47038239 MB/s Hit Rate: 73.60667825% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 70516737 Rate: 12.27020686 MB/s Hit Rate: 73.71616576% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 71041025 Rate: 12.46699642 MB/s Hit Rate: 73.82463687% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 71565313 Rate: 12.44780863 MB/s Hit Rate: 73.9317604% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 72089601 Rate: 12.48403796 MB/s Hit Rate: 74.03857699% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 72613889 Rate: 12.46407076 MB/s Hit Rate: 74.14363489% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 73138177 Rate: 12.48379264 MB/s Hit Rate: 74.24840619% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 73662465 Rate: 12.45507222 MB/s Hit Rate: 74.35216802% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 74186753 Rate: 12.46807345 MB/s Hit Rate: 74.4554459% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 74711041 Rate: 12.46201582 MB/s Hit Rate: 74.55796359% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 75235329 Rate: 12.23802188 MB/s Hit Rate: 74.65957881% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 75759617 Rate: 12.47711895 MB/s Hit Rate: 74.75990903% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 76283905 Rate: 12.4551264 MB/s Hit Rate: 74.85978169% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 76808193 Rate: 12.44591987 MB/s Hit Rate: 74.95893537% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+Progress: 77332481 Rate: 12.44174912 MB/s Hit Rate: 75.05732779% Evicted Items: 0 Evicted Bytes: 0 Utilization: 0 
+P: 20250000
+6
+ size 2000000 wss 1880500 L size 1700000 H size 2300500 E size 1880500
+5
+ size 2000000 wss 2317500 L size 1700000 H size 2300500 E size 2317500
+1
+ size 6500000 wss 5758000 L size 5525000 H size 7475000 E size 5758000
+2
+ size 3250000 wss 3354000 L size 2762500 H size 3737500 E size 3354000
+3
+ size 4000000 wss 3460500 L size 3400000 H size 4600500 E size 3460500
+4
+ size 2500000 wss 2447500 L size 2125000 H size 2875500 E size 2447500
+P: 20250000 total: 20248000
+adding 2000 to 1 
+P: 20250000 E_sum: 19218000
+1 , 6069000
+2 , 3534000
+3 , 3646000
+4 , 2578500
+5 , 2441500
+6 , 1981000
+6 remove 19000 and set objects to: 1981000
+5 add 441500 and set objects to: 2441500
+1 remove 431000 and set objects to: 6069000
+2 add 284000 and set objects to: 3534000
+3 remove 354000 and set objects to: 3646000
+4 add 78500 and set objects to: 2578500
+Progress: 77856769 Rate: 9.053427536 MB/s Hit Rate: 75.15454918% Evicted Items: 20068 Evicted Bytes: 4194212 Utilization: 0 
+Progress: 78381057 Rate: 9.274947717 MB/s Hit Rate: 75.25108491% Evicted Items: 75255 Evicted Bytes: 15728295 Utilization: 0 
+Progress: 78905345 Rate: 9.128332891 MB/s Hit Rate: 75.34559383% Evicted Items: 130442 Evicted Bytes: 27262378 Utilization: 0 
+Progress: 79429633 Rate: 9.307741784 MB/s Hit Rate: 75.4391132% Evicted Items: 185629 Evicted Bytes: 38796461 Utilization: 0 
+Progress: 79953921 Rate: 9.262274436 MB/s Hit Rate: 75.53096083% Evicted Items: 240816 Evicted Bytes: 50330544 Utilization: 0 
+Progress: 80478209 Rate: 9.274392258 MB/s Hit Rate: 75.62186275% Evicted Items: 296003 Evicted Bytes: 61864627 Utilization: 0 
+Progress: 81002497 Rate: 9.270126932 MB/s Hit Rate: 75.71116574% Evicted Items: 351190 Evicted Bytes: 73398710 Utilization: 0 
+Progress: 81526785 Rate: 9.179310855 MB/s Hit Rate: 75.79992116% Evicted Items: 406377 Evicted Bytes: 84932793 Utilization: 0 
+Progress: 82051073 Rate: 9.235275493 MB/s Hit Rate: 75.88739121% Evicted Items: 461564 Evicted Bytes: 96466876 Utilization: 0 
+Progress: 82575361 Rate: 9.179567151 MB/s Hit Rate: 75.97355676% Evicted Items: 516751 Evicted Bytes: 108000959 Utilization: 0 
+Progress: 83099649 Rate: 9.231935545 MB/s Hit Rate: 76.05911038% Evicted Items: 571938 Evicted Bytes: 119535042 Utilization: 0 
+Progress: 83623937 Rate: 9.207721922 MB/s Hit Rate: 76.14305789% Evicted Items: 627125 Evicted Bytes: 131069125 Utilization: 0 
+P: 20250000
+6
+ size 1981000 wss 1966000 L size 1683500 H size 2278500 E size 1966000
+5
+ size 2441500 wss 2429500 L size 2075000 H size 2808000 E size 2429500
+1
+ size 6069000 wss 5923000 L size 5158500 H size 6979500 E size 5923000
+2
+ size 3534000 wss 3360000 L size 3003500 H size 4064500 E size 3360000
+3
+ size 3646000 wss 3602000 L size 3099000 H size 4193000 E size 3602000
+4
+ size 2578500 wss 2517000 L size 2191500 H size 2965500 E size 2517000
+P: 20250000 total: 20248500
+adding 1500 to 1 
+P: 20250000 E_sum: 19797500
+1 , 6059500
+2 , 3436500
+3 , 3684000
+4 , 2574500
+5 , 2485000
+6 , 2010500
+6 add 29500 and set objects to: 2010500
+5 add 43500 and set objects to: 2485000
+1 remove 9500 and set objects to: 6059500
+2 remove 97500 and set objects to: 3436500
+3 add 38000 and set objects to: 3684000
+4 remove 4000 and set objects to: 2574500
+Progress: 83886081 Rate: 6.560653615 MB/s Hit Rate: 76.18456125% Evicted Items: 657227 Evicted Bytes: 137360443 Utilization: 0 
+Progress: 84410369 Rate: 9.309941769 MB/s Hit Rate: 76.26579948% Evicted Items: 712414 Evicted Bytes: 148894526 Utilization: 0 
+Progress: 84934657 Rate: 9.21924101 MB/s Hit Rate: 76.345565% Evicted Items: 767601 Evicted Bytes: 160428609 Utilization: 0 
+Progress: 85458945 Rate: 8.920636733 MB/s Hit Rate: 76.42428626% Evicted Items: 822788 Evicted Bytes: 171962692 Utilization: 0 
+Progress: 85983233 Rate: 8.993689804 MB/s Hit Rate: 76.5011613% Evicted Items: 882992 Evicted Bytes: 184545328 Utilization: 0 
+Progress: 86507521 Rate: 9.021850225 MB/s Hit Rate: 76.57705827% Evicted Items: 938179 Evicted Bytes: 196079411 Utilization: 0 
+Progress: 87031809 Rate: 8.794431982 MB/s Hit Rate: 76.65208104% Evicted Items: 998383 Evicted Bytes: 208662047 Utilization: 0 
+Progress: 87556097 Rate: 8.965013809 MB/s Hit Rate: 76.72654683% Evicted Items: 1053570 Evicted Bytes: 220196130 Utilization: 0 
+Progress: 88080385 Rate: 8.779753438 MB/s Hit Rate: 76.80018289% Evicted Items: 1113774 Evicted Bytes: 232778766 Utilization: 0 
+Progress: 88604673 Rate: 8.79811589 MB/s Hit Rate: 76.87277709% Evicted Items: 1168961 Evicted Bytes: 244312849 Utilization: 0 
+Progress: 89128961 Rate: 8.76842077 MB/s Hit Rate: 76.94415934% Evicted Items: 1224148 Evicted Bytes: 255846932 Utilization: 0 
+Progress: 89653249 Rate: 8.498888334 MB/s Hit Rate: 77.01506475% Evicted Items: 1284352 Evicted Bytes: 268429568 Utilization: 0 
+P: 20250000
+6
+ size 2010500 wss 2036500 L size 1708500 H size 2312500 E size 2036500
+5
+ size 2485000 wss 2549500 L size 2112000 H size 2858000 E size 2549500
+1
+ size 6059500 wss 6042500 L size 5150500 H size 6968500 E size 6042500
+2
+ size 3436500 wss 3377000 L size 2921000 H size 3952000 E size 3377000
+3
+ size 3684000 wss 3751000 L size 3131000 H size 4237000 E size 3751000
+4
+ size 2574500 wss 2590500 L size 2188000 H size 2961000 E size 2590500
+6
+low: 1708500 upper 2312500
+5
+low: 3820500 upper 5170500
+4
+low: 6008500 upper 8131500
+2
+low: 8929500 upper 12083500
+3
+low: 12060500 upper 16320500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6042500 i: 1
+T : 14207500 i: 3
+A[i] : 3751000 i: 3
+T : 10456500 i: 2
+A[i] : 3377000 i: 2
+T : 7079500 i: 4
+A[i] : 2590500 i: 4
+T : 4489000 i: 5
+A[i] : 2452500 i: 5
+last assignment 2036500 to  6 is 2036500
+dp
+1 , 6042500
+2 , 3377000
+3 , 3751000
+4 , 2590500
+5 , 2452500
+6 , 2036500
+6 add 26000 and set objects to: 2036500
+5 remove 32500 and set objects to: 2452500
+1 remove 17000 and set objects to: 6042500
+2 remove 59500 and set objects to: 3377000
+3 add 67000 and set objects to: 3751000
+4 add 16000 and set objects to: 2590500
+Progress: 89915393 Rate: 0.2280128166 MB/s Hit Rate: 77.05005724% Evicted Items: 1314454 Evicted Bytes: 274720886 Utilization: 0 
+Progress: 90439681 Rate: 8.500586032 MB/s Hit Rate: 77.11914726% Evicted Items: 1369641 Evicted Bytes: 286254969 Utilization: 0 
+Progress: 90963969 Rate: 8.358295308 MB/s Hit Rate: 77.18763104% Evicted Items: 1429845 Evicted Bytes: 298837605 Utilization: 0 
+Progress: 91488257 Rate: 7.127132663 MB/s Hit Rate: 77.25477355% Evicted Items: 1485032 Evicted Bytes: 310371688 Utilization: 0 
+Progress: 92012545 Rate: 8.234657307 MB/s Hit Rate: 77.32059664% Evicted Items: 1545236 Evicted Bytes: 322954324 Utilization: 0 
+Progress: 92536833 Rate: 8.1801168 MB/s Hit Rate: 77.38573761% Evicted Items: 1605440 Evicted Bytes: 335536960 Utilization: 0 
+Progress: 93061121 Rate: 8.411219514 MB/s Hit Rate: 77.45042613% Evicted Items: 1660627 Evicted Bytes: 347071043 Utilization: 0 
+Progress: 93585409 Rate: 8.225339966 MB/s Hit Rate: 77.51427765% Evicted Items: 1720831 Evicted Bytes: 359653679 Utilization: 0 
+Progress: 94109697 Rate: 7.278246853 MB/s Hit Rate: 77.57763557% Evicted Items: 1781035 Evicted Bytes: 372236315 Utilization: 0 
+Progress: 94371841 Rate: 6.381250913 MB/s Hit Rate: 77.60863834% Evicted Items: 1806120 Evicted Bytes: 377479080 Utilization: 0 
+Progress: 94633985 Rate: 5.199599357 MB/s Hit Rate: 77.64000932% Evicted Items: 1836222 Evicted Bytes: 383770398 Utilization: 0 
+Progress: 95158273 Rate: 6.638110341 MB/s Hit Rate: 77.7015003% Evicted Items: 1896426 Evicted Bytes: 396353034 Utilization: 0 
+Progress: 95420417 Rate: 1.892104927 MB/s Hit Rate: 77.73205893% Evicted Items: 1926528 Evicted Bytes: 402644352 Utilization: 0 
+P: 20250000
+6
+ size 2036500 wss 2110000 L size 1731000 H size 2342000 E size 2110000
+5
+ size 2452500 wss 2665500 L size 2084500 H size 2820500 E size 2665500
+1
+ size 6042500 wss 6155000 L size 5136000 H size 6949000 E size 6155000
+2
+ size 3377000 wss 3394500 L size 2870000 H size 3884000 E size 3394500
+3
+ size 3751000 wss 3885000 L size 3188000 H size 4314000 E size 3885000
+4
+ size 2590500 wss 2638500 L size 2201500 H size 2979500 E size 2638500
+6
+low: 1731000 upper 2342000
+4
+low: 3932500 upper 5321500
+5
+low: 6017000 upper 8142000
+2
+low: 8887000 upper 12026000
+3
+low: 12075000 upper 16340000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6155000 i: 1
+T : 14095000 i: 3
+A[i] : 3865000 i: 3
+T : 10230000 i: 2
+A[i] : 3394500 i: 2
+T : 6835500 i: 5
+A[i] : 2285000 i: 5
+T : 4550500 i: 4
+A[i] : 2638500 i: 4
+last assignment 1912000 to  6 is 1912000
+dp
+1 , 6155000
+2 , 3394500
+3 , 3865000
+4 , 2638500
+5 , 2285000
+6 , 1912000
+6 remove 124500 and set objects to: 1912000
+5 remove 167500 and set objects to: 2285000
+1 add 112500 and set objects to: 6155000
+2 add 17500 and set objects to: 3394500
+3 add 114000 and set objects to: 3865000
+4 add 48000 and set objects to: 2638500
+Progress: 95682561 Rate: 0.2421890508 MB/s Hit Rate: 77.76272395% Evicted Items: 1956630 Evicted Bytes: 408935670 Utilization: 0 
+Progress: 96206849 Rate: 7.447036739 MB/s Hit Rate: 77.82316182% Evicted Items: 2011817 Evicted Bytes: 420469753 Utilization: 0 
+Progress: 96731137 Rate: 8.234311905 MB/s Hit Rate: 77.88274812% Evicted Items: 2072021 Evicted Bytes: 433052389 Utilization: 0 
+Progress: 97255425 Rate: 8.612814022 MB/s Hit Rate: 77.94210326% Evicted Items: 2127208 Evicted Bytes: 444586472 Utilization: 0 
+Progress: 97779713 Rate: 8.489243284 MB/s Hit Rate: 78.00082802% Evicted Items: 2187412 Evicted Bytes: 457169108 Utilization: 0 
+Progress: 98304001 Rate: 8.527211215 MB/s Hit Rate: 78.05907288% Evicted Items: 2247616 Evicted Bytes: 469751744 Utilization: 0 
+Progress: 98828289 Rate: 8.750350944 MB/s Hit Rate: 78.11679385% Evicted Items: 2302803 Evicted Bytes: 481285827 Utilization: 0 
+Progress: 99352577 Rate: 8.502606359 MB/s Hit Rate: 78.17379189% Evicted Items: 2363007 Evicted Bytes: 493868463 Utilization: 0 
+Progress: 99876865 Rate: 8.637356605 MB/s Hit Rate: 78.23017251% Evicted Items: 2418194 Evicted Bytes: 505402546 Utilization: 0 
+Progress: 100401153 Rate: 8.475990602 MB/s Hit Rate: 78.28587465% Evicted Items: 2478398 Evicted Bytes: 517985182 Utilization: 0 
+Progress: 100925441 Rate: 8.665145936 MB/s Hit Rate: 78.34164013% Evicted Items: 2533585 Evicted Bytes: 529519265 Utilization: 0 
+Progress: 101449729 Rate: 8.438736335 MB/s Hit Rate: 78.3960712% Evicted Items: 2593789 Evicted Bytes: 542101901 Utilization: 0 
+P: 20250000
+6
+ size 1912000 wss 2180500 L size 1625000 H size 2199000 E size 2180500
+5
+ size 2285000 wss 2769000 L size 1942000 H size 2628000 E size 2769000
+1
+ size 6155000 wss 6246000 L size 5231500 H size 7078500 E size 6246000
+2
+ size 3394500 wss 3416500 L size 2885000 H size 3904000 E size 3416500
+3
+ size 3865000 wss 4013000 L size 3285000 H size 4445000 E size 4013000
+4
+ size 2638500 wss 2693500 L size 2242500 H size 3034500 E size 2693500
+6
+low: 1625000 upper 2199000
+4
+low: 3867500 upper 5233500
+5
+low: 5809500 upper 7861500
+2
+low: 8694500 upper 11765500
+3
+low: 11979500 upper 16210500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6246000 i: 1
+T : 14004000 i: 3
+A[i] : 3759000 i: 3
+T : 10245000 i: 2
+A[i] : 3416500 i: 2
+T : 6828500 i: 5
+A[i] : 2233500 i: 5
+T : 4595000 i: 4
+A[i] : 2693500 i: 4
+last assignment 1901500 to  6 is 1901500
+dp
+1 , 6246000
+2 , 3416500
+3 , 3759000
+4 , 2693500
+5 , 2233500
+6 , 1901500
+6 remove 10500 and set objects to: 1901500
+5 remove 51500 and set objects to: 2233500
+1 add 91000 and set objects to: 6246000
+2 add 22000 and set objects to: 3416500
+3 remove 106000 and set objects to: 3759000
+4 add 55000 and set objects to: 2693500
+Progress: 101711873 Rate: 0.2357373825 MB/s Hit Rate: 78.42319626% Evicted Items: 2623891 Evicted Bytes: 548393219 Utilization: 0 
+Progress: 102236161 Rate: 8.534065886 MB/s Hit Rate: 78.47753085% Evicted Items: 2679078 Evicted Bytes: 559927302 Utilization: 0 
+Progress: 102760449 Rate: 8.341140228 MB/s Hit Rate: 78.53140928% Evicted Items: 2739282 Evicted Bytes: 572509938 Utilization: 0 
+Progress: 103284737 Rate: 8.172103372 MB/s Hit Rate: 78.58502441% Evicted Items: 2794469 Evicted Bytes: 584044021 Utilization: 0 
+Progress: 103809025 Rate: 8.100058167 MB/s Hit Rate: 78.63796119% Evicted Items: 2854673 Evicted Bytes: 596626657 Utilization: 0 
+Progress: 104333313 Rate: 8.400189073 MB/s Hit Rate: 78.69060746% Evicted Items: 2909860 Evicted Bytes: 608160740 Utilization: 0 
+Progress: 104857601 Rate: 8.389599707 MB/s Hit Rate: 78.74260044% Evicted Items: 2965047 Evicted Bytes: 619694823 Utilization: 0 
+Progress: 105381889 Rate: 8.276872833 MB/s Hit Rate: 78.79442718% Evicted Items: 3025251 Evicted Bytes: 632277459 Utilization: 0 
+Progress: 105906177 Rate: 8.519832984 MB/s Hit Rate: 78.84569451% Evicted Items: 3080438 Evicted Bytes: 643811542 Utilization: 0 
+Progress: 106430465 Rate: 8.322456809 MB/s Hit Rate: 78.89643984% Evicted Items: 3135625 Evicted Bytes: 655345625 Utilization: 0 
+Progress: 106954753 Rate: 8.163934682 MB/s Hit Rate: 78.94676152% Evicted Items: 3195829 Evicted Bytes: 667928261 Utilization: 0 
+Progress: 107479041 Rate: 8.268119466 MB/s Hit Rate: 78.99662483% Evicted Items: 3251016 Evicted Bytes: 679462344 Utilization: 0 
+P: 20250000
+6
+ size 1901500 wss 2249500 L size 1616000 H size 2187000 E size 2249500
+5
+ size 2233500 wss 2870500 L size 1898000 H size 2569000 E size 2870500
+1
+ size 6246000 wss 6334000 L size 5309000 H size 7183000 E size 6334000
+2
+ size 3416500 wss 3429500 L size 2904000 H size 3929000 E size 3429500
+3
+ size 3759000 wss 4135500 L size 3195000 H size 4323000 E size 4135500
+4
+ size 2693500 wss 2745500 L size 2289000 H size 3098000 E size 2745500
+6
+low: 1616000 upper 2187000
+4
+low: 3905000 upper 5285000
+5
+low: 5803000 upper 7854000
+2
+low: 8707000 upper 11783000
+3
+low: 11902000 upper 16106000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6334000 i: 1
+T : 13916000 i: 3
+A[i] : 3727500 i: 3
+T : 10188500 i: 2
+A[i] : 3429500 i: 2
+T : 6759000 i: 5
+A[i] : 2125000 i: 5
+T : 4634000 i: 4
+A[i] : 2745500 i: 4
+last assignment 1888500 to  6 is 1888500
+dp
+1 , 6334000
+2 , 3429500
+3 , 3727500
+4 , 2745500
+5 , 2125000
+6 , 1888500
+6 remove 13000 and set objects to: 1888500
+5 remove 108500 and set objects to: 2125000
+1 add 88000 and set objects to: 6334000
+2 add 13000 and set objects to: 3429500
+3 remove 31500 and set objects to: 3727500
+4 add 52000 and set objects to: 2745500
+Progress: 107741185 Rate: 0.2404438295 MB/s Hit Rate: 79.02136383% Evicted Items: 3281118 Evicted Bytes: 685753662 Utilization: 0 
+Progress: 108265473 Rate: 8.709766377 MB/s Hit Rate: 79.07036881% Evicted Items: 3336305 Evicted Bytes: 697287745 Utilization: 0 
+Progress: 108789761 Rate: 8.677351408 MB/s Hit Rate: 79.11884905% Evicted Items: 3391492 Evicted Bytes: 708821828 Utilization: 0 
+Progress: 109314049 Rate: 8.480725351 MB/s Hit Rate: 79.16699325% Evicted Items: 3451696 Evicted Bytes: 721404464 Utilization: 0 
+Progress: 109838337 Rate: 8.577983809 MB/s Hit Rate: 79.21498101% Evicted Items: 3506883 Evicted Bytes: 732938547 Utilization: 0 
+Progress: 110362625 Rate: 8.555269464 MB/s Hit Rate: 79.26276291% Evicted Items: 3562070 Evicted Bytes: 744472630 Utilization: 0 
+Progress: 110886913 Rate: 8.583523295 MB/s Hit Rate: 79.31023185% Evicted Items: 3617257 Evicted Bytes: 756006713 Utilization: 0 
+Progress: 111411201 Rate: 8.458989349 MB/s Hit Rate: 79.35702335% Evicted Items: 3677461 Evicted Bytes: 768589349 Utilization: 0 
+Progress: 111935489 Rate: 8.360858539 MB/s Hit Rate: 79.40353822% Evicted Items: 3732648 Evicted Bytes: 780123432 Utilization: 0 
+Progress: 112459777 Rate: 8.059753005 MB/s Hit Rate: 79.44964073% Evicted Items: 3787835 Evicted Bytes: 791657515 Utilization: 0 
+Progress: 112984065 Rate: 8.151504259 MB/s Hit Rate: 79.49554638% Evicted Items: 3843022 Evicted Bytes: 803191598 Utilization: 0 
+Progress: 113508353 Rate: 8.244163397 MB/s Hit Rate: 79.54095748% Evicted Items: 3898209 Evicted Bytes: 814725681 Utilization: 0 
+P: 20250000
+6
+ size 1888500 wss 2325000 L size 1605000 H size 2172000 E size 2325000
+5
+ size 2125000 wss 2977500 L size 1806000 H size 2444000 E size 2977500
+1
+ size 6334000 wss 6424000 L size 5383500 H size 7284500 E size 6424000
+2
+ size 3429500 wss 3450000 L size 2915000 H size 3944000 E size 3450000
+3
+ size 3727500 wss 4250000 L size 3168000 H size 4287000 E size 4250000
+4
+ size 2745500 wss 2789500 L size 2333500 H size 3157500 E size 2789500
+6
+low: 1605000 upper 2172000
+4
+low: 3938500 upper 5329500
+5
+low: 5744500 upper 7773500
+2
+low: 8659500 upper 11717500
+3
+low: 11827500 upper 16004500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6424000 i: 1
+T : 13826000 i: 3
+A[i] : 3701500 i: 3
+T : 10124500 i: 2
+A[i] : 3450000 i: 2
+T : 6674500 i: 5
+A[i] : 2063000 i: 5
+T : 4611500 i: 4
+A[i] : 2789500 i: 4
+last assignment 1822000 to  6 is 1822000
+dp
+1 , 6424000
+2 , 3450000
+3 , 3701500
+4 , 2789500
+5 , 2063000
+6 , 1822000
+6 remove 66500 and set objects to: 1822000
+5 remove 62000 and set objects to: 2063000
+1 add 90000 and set objects to: 6424000
+2 add 20500 and set objects to: 3450000
+3 remove 26000 and set objects to: 3701500
+4 add 44000 and set objects to: 2789500
+Progress: 113770497 Rate: 0.2460114444 MB/s Hit Rate: 79.56350212% Evicted Items: 3928311 Evicted Bytes: 821016999 Utilization: 0 
+Progress: 114294785 Rate: 8.569067062 MB/s Hit Rate: 79.60852177% Evicted Items: 3983498 Evicted Bytes: 832551082 Utilization: 0 
+Progress: 114819073 Rate: 8.505403018 MB/s Hit Rate: 79.65306757% Evicted Items: 4038685 Evicted Bytes: 844085165 Utilization: 0 
+Progress: 115343361 Rate: 8.439437188 MB/s Hit Rate: 79.69733325% Evicted Items: 4093872 Evicted Bytes: 855619248 Utilization: 0 
+Progress: 115867649 Rate: 8.338273607 MB/s Hit Rate: 79.74129673% Evicted Items: 4149059 Evicted Bytes: 867153331 Utilization: 0 
+Progress: 116391937 Rate: 8.500245092 MB/s Hit Rate: 79.78506002% Evicted Items: 4204246 Evicted Bytes: 878687414 Utilization: 0 
+Progress: 116916225 Rate: 8.451366889 MB/s Hit Rate: 79.82904066% Evicted Items: 4259433 Evicted Bytes: 890221497 Utilization: 0 
+Progress: 117440513 Rate: 8.44609707 MB/s Hit Rate: 79.87186142% Evicted Items: 4314620 Evicted Bytes: 901755580 Utilization: 0 
+Progress: 117964801 Rate: 8.552524769 MB/s Hit Rate: 79.91434309% Evicted Items: 4369807 Evicted Bytes: 913289663 Utilization: 0 
+Progress: 118489089 Rate: 8.446559575 MB/s Hit Rate: 79.95665727% Evicted Items: 4424994 Evicted Bytes: 924823746 Utilization: 0 
+Progress: 119013377 Rate: 8.43016844 MB/s Hit Rate: 79.99902297% Evicted Items: 4480181 Evicted Bytes: 936357829 Utilization: 0 
+Progress: 119537665 Rate: 8.422399988 MB/s Hit Rate: 80.041053% Evicted Items: 4535368 Evicted Bytes: 947891912 Utilization: 0 
+P: 20250000
+6
+ size 1822000 wss 2381500 L size 1548500 H size 2095500 E size 2381500
+5
+ size 2063000 wss 3074500 L size 1753500 H size 2372500 E size 3074500
+1
+ size 6424000 wss 6503000 L size 5460000 H size 7388000 E size 6503000
+2
+ size 3450000 wss 3460000 L size 2932500 H size 3967500 E size 3460000
+3
+ size 3701500 wss 4344500 L size 3146000 H size 4257000 E size 4344500
+4
+ size 2789500 wss 2851000 L size 2371000 H size 3208000 E size 2851000
+6
+low: 1548500 upper 2095500
+4
+low: 3919500 upper 5303500
+5
+low: 5673000 upper 7676000
+2
+low: 8605500 upper 11643500
+3
+low: 11751500 upper 15900500
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6503000 i: 1
+T : 13747000 i: 3
+A[i] : 3673500 i: 3
+T : 10073500 i: 2
+A[i] : 3460000 i: 2
+T : 6613500 i: 5
+A[i] : 1950500 i: 5
+T : 4663000 i: 4
+A[i] : 2851000 i: 4
+last assignment 1812000 to  6 is 1812000
+dp
+1 , 6503000
+2 , 3460000
+3 , 3673500
+4 , 2851000
+5 , 1950500
+6 , 1812000
+6 remove 10000 and set objects to: 1812000
+5 remove 112500 and set objects to: 1950500
+1 add 79000 and set objects to: 6503000
+2 add 10000 and set objects to: 3460000
+3 remove 28000 and set objects to: 3673500
+4 add 61500 and set objects to: 2851000
+Progress: 119799809 Rate: 0.240906367 MB/s Hit Rate: 80.06201145% Evicted Items: 4560453 Evicted Bytes: 953134677 Utilization: 0 
+Progress: 120061953 Rate: 6.934640658 MB/s Hit Rate: 80.08256104% Evicted Items: 4590555 Evicted Bytes: 959425995 Utilization: 0 
+Progress: 120586241 Rate: 8.330800829 MB/s Hit Rate: 80.12344858% Evicted Items: 4645742 Evicted Bytes: 970960078 Utilization: 0 
+Progress: 121110529 Rate: 8.442166732 MB/s Hit Rate: 80.16365266% Evicted Items: 4700929 Evicted Bytes: 982494161 Utilization: 0 
+Progress: 121634817 Rate: 8.385710009 MB/s Hit Rate: 80.20401083% Evicted Items: 4756116 Evicted Bytes: 994028244 Utilization: 0 
+Progress: 122159105 Rate: 8.487982515 MB/s Hit Rate: 80.24431401% Evicted Items: 4811303 Evicted Bytes: 1005562327 Utilization: 0 
+Progress: 122683393 Rate: 8.4874708 MB/s Hit Rate: 80.2841105% Evicted Items: 4866490 Evicted Bytes: 1017096410 Utilization: 0 
+Progress: 123207681 Rate: 8.479277944 MB/s Hit Rate: 80.32391244% Evicted Items: 4921677 Evicted Bytes: 1028630493 Utilization: 0 
+Progress: 123731969 Rate: 8.585472312 MB/s Hit Rate: 80.3637351% Evicted Items: 4971847 Evicted Bytes: 1039116023 Utilization: 0 
+Progress: 124256257 Rate: 8.465221663 MB/s Hit Rate: 80.40270906% Evicted Items: 5027034 Evicted Bytes: 1050650106 Utilization: 0 
+Progress: 124780545 Rate: 8.314028303 MB/s Hit Rate: 80.44164722% Evicted Items: 5082221 Evicted Bytes: 1062184189 Utilization: 0 
+Progress: 125304833 Rate: 8.422814938 MB/s Hit Rate: 80.48016377% Evicted Items: 5137408 Evicted Bytes: 1073718272 Utilization: 0 
+P: 20250000
+6
+ size 1812000 wss 2450000 L size 1540000 H size 2084000 E size 2450000
+5
+ size 1950500 wss 3170000 L size 1657500 H size 2243500 E size 3170000
+1
+ size 6503000 wss 6561000 L size 5527500 H size 7478500 E size 6561000
+2
+ size 3460000 wss 3472000 L size 2941000 H size 3979000 E size 3472000
+3
+ size 3673500 wss 4445500 L size 3122000 H size 4225000 E size 4445500
+4
+ size 2851000 wss 2878500 L size 2423000 H size 3279000 E size 2878500
+6
+low: 1540000 upper 2084000
+4
+low: 3963000 upper 5363000
+5
+low: 5620500 upper 7606500
+2
+low: 8561500 upper 11585500
+3
+low: 11683500 upper 15810500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6561000 i: 1
+T : 13689000 i: 3
+A[i] : 3650500 i: 3
+T : 10038500 i: 2
+A[i] : 3472000 i: 2
+T : 6566500 i: 5
+A[i] : 1945500 i: 5
+T : 4621000 i: 4
+A[i] : 2818000 i: 4
+last assignment 1803000 to  6 is 1803000
+dp
+1 , 6561000
+2 , 3472000
+3 , 3650500
+4 , 2818000
+5 , 1945500
+6 , 1803000
+6 remove 9000 and set objects to: 1803000
+5 remove 5000 and set objects to: 1945500
+1 add 58000 and set objects to: 6561000
+2 add 12000 and set objects to: 3472000
+3 remove 23000 and set objects to: 3650500
+4 remove 33000 and set objects to: 2818000
+Progress: 125829121 Rate: 0.4709043517 MB/s Hit Rate: 80.51831325% Evicted Items: 5192595 Evicted Bytes: 1085252355 Utilization: 0 
+Progress: 126353409 Rate: 8.648793061 MB/s Hit Rate: 80.55640335% Evicted Items: 5242765 Evicted Bytes: 1095737885 Utilization: 0 
+Progress: 126877697 Rate: 8.427392327 MB/s Hit Rate: 80.59413216% Evicted Items: 5297952 Evicted Bytes: 1107271968 Utilization: 0 
+Progress: 127401985 Rate: 8.465442873 MB/s Hit Rate: 80.63195546% Evicted Items: 5353139 Evicted Bytes: 1118806051 Utilization: 0 
+Progress: 127926273 Rate: 8.490933948 MB/s Hit Rate: 80.66945389% Evicted Items: 5408326 Evicted Bytes: 1130340134 Utilization: 0 
+Progress: 128450561 Rate: 8.457563866 MB/s Hit Rate: 80.70687041% Evicted Items: 5458496 Evicted Bytes: 1140825664 Utilization: 0 
+Progress: 128974849 Rate: 8.461610579 MB/s Hit Rate: 80.74381371% Evicted Items: 5513683 Evicted Bytes: 1152359747 Utilization: 0 
+Progress: 129499137 Rate: 8.566039961 MB/s Hit Rate: 80.78070807% Evicted Items: 5563853 Evicted Bytes: 1162845277 Utilization: 0 
+Progress: 130023425 Rate: 8.392237952 MB/s Hit Rate: 80.81733258% Evicted Items: 5619040 Evicted Bytes: 1174379360 Utilization: 0 
+Progress: 130547713 Rate: 8.423366902 MB/s Hit Rate: 80.85370045% Evicted Items: 5674227 Evicted Bytes: 1185913443 Utilization: 0 
+Progress: 131072001 Rate: 8.491120943 MB/s Hit Rate: 80.88920059% Evicted Items: 5724397 Evicted Bytes: 1196398973 Utilization: 0 
+Progress: 131596289 Rate: 8.326080906 MB/s Hit Rate: 80.92467243% Evicted Items: 5779584 Evicted Bytes: 1207933056 Utilization: 0 
+P: 20250000
+6
+ size 1803000 wss 2512000 L size 1532500 H size 2073500 E size 2512000
+5
+ size 1945500 wss 3256000 L size 1653500 H size 2237500 E size 3256000
+1
+ size 6561000 wss 6590500 L size 5576500 H size 7545500 E size 6590500
+2
+ size 3472000 wss 3454000 L size 2951000 H size 3993000 E size 3454000
+3
+ size 3650500 wss 4538500 L size 3102500 H size 4198500 E size 4538500
+4
+ size 2818000 wss 2926000 L size 2395000 H size 3241000 E size 2926000
+6
+low: 1532500 upper 2073500
+4
+low: 3927500 upper 5314500
+5
+low: 5581000 upper 7552000
+2
+low: 8532000 upper 11545000
+3
+low: 11634500 upper 15743500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6590500 i: 1
+T : 13659500 i: 3
+A[i] : 3630000 i: 3
+T : 10029500 i: 2
+A[i] : 3454000 i: 2
+T : 6575500 i: 5
+A[i] : 1964500 i: 5
+T : 4611000 i: 4
+A[i] : 2813500 i: 4
+last assignment 1797500 to  6 is 1797500
+dp
+1 , 6590500
+2 , 3454000
+3 , 3630000
+4 , 2813500
+5 , 1964500
+6 , 1797500
+6 remove 5500 and set objects to: 1797500
+5 add 19000 and set objects to: 1964500
+1 add 29500 and set objects to: 6590500
+2 remove 18000 and set objects to: 3454000
+3 remove 20500 and set objects to: 3630000
+4 remove 4500 and set objects to: 2813500
+Progress: 131858433 Rate: 0.241582636 MB/s Hit Rate: 80.94225328% Evicted Items: 5804669 Evicted Bytes: 1213175821 Utilization: 0 
+Progress: 132382721 Rate: 8.328734429 MB/s Hit Rate: 80.97710713% Evicted Items: 5859856 Evicted Bytes: 1224709904 Utilization: 0 
+Progress: 132907009 Rate: 8.351995833 MB/s Hit Rate: 81.01177027% Evicted Items: 5915043 Evicted Bytes: 1236243987 Utilization: 0 
+Progress: 133431297 Rate: 8.5827304 MB/s Hit Rate: 81.04630341% Evicted Items: 5965213 Evicted Bytes: 1246729517 Utilization: 0 
+Progress: 133955585 Rate: 8.351450458 MB/s Hit Rate: 81.08038408% Evicted Items: 6020400 Evicted Bytes: 1258263600 Utilization: 0 
+Progress: 134479873 Rate: 8.339307961 MB/s Hit Rate: 81.11426593% Evicted Items: 6075587 Evicted Bytes: 1269797683 Utilization: 0 
+Progress: 135004161 Rate: 8.473463021 MB/s Hit Rate: 81.14799351% Evicted Items: 6125757 Evicted Bytes: 1280283213 Utilization: 0 
+Progress: 135528449 Rate: 8.403596509 MB/s Hit Rate: 81.18159001% Evicted Items: 6180944 Evicted Bytes: 1291817296 Utilization: 0 
+Progress: 136052737 Rate: 8.397389671 MB/s Hit Rate: 81.21499225% Evicted Items: 6236131 Evicted Bytes: 1303351379 Utilization: 0 
+Progress: 136577025 Rate: 8.640862894 MB/s Hit Rate: 81.24804872% Evicted Items: 6286301 Evicted Bytes: 1313836909 Utilization: 0 
+Progress: 137101313 Rate: 8.454822597 MB/s Hit Rate: 81.28066783% Evicted Items: 6341488 Evicted Bytes: 1325370992 Utilization: 0 
+P: 20250000
+6
+ size 1797500 wss 2573000 L size 1527500 H size 2067500 E size 2573000
+5
+ size 1964500 wss 3344000 L size 1669500 H size 2259500 E size 3344000
+1
+ size 6590500 wss 6628500 L size 5601500 H size 7579500 E size 6628500
+2
+ size 3454000 wss 3461000 L size 2935500 H size 3972500 E size 3461000
+3
+ size 3630000 wss 4638500 L size 3085500 H size 4174500 E size 4638500
+4
+ size 2813500 wss 2978500 L size 2391000 H size 3236000 E size 2978500
+6
+low: 1527500 upper 2067500
+4
+low: 3918500 upper 5303500
+5
+low: 5588000 upper 7563000
+2
+low: 8523500 upper 11535500
+3
+low: 11609000 upper 15710000
+1
+low: 17210500 upper 23289500
+T : 20250000 i: 1
+A[i] : 6628500 i: 1
+T : 13621500 i: 3
+A[i] : 3630500 i: 3
+T : 9991000 i: 2
+A[i] : 3461000 i: 2
+T : 6530000 i: 5
+A[i] : 1867000 i: 5
+T : 4663000 i: 4
+A[i] : 2869500 i: 4
+last assignment 1793500 to  6 is 1793500
+dp
+1 , 6628500
+2 , 3461000
+3 , 3630500
+4 , 2869500
+5 , 1867000
+6 , 1793500
+6 remove 4000 and set objects to: 1793500
+5 remove 97500 and set objects to: 1867000
+1 add 38000 and set objects to: 6628500
+2 add 7000 and set objects to: 3461000
+3 add 500 and set objects to: 3630500
+4 add 56000 and set objects to: 2869500
+Progress: 137625601 Rate: 0.4727725092 MB/s Hit Rate: 81.31303914% Evicted Items: 6396675 Evicted Bytes: 1336905075 Utilization: 0 
+Progress: 138149889 Rate: 8.615626887 MB/s Hit Rate: 81.34525813% Evicted Items: 6446845 Evicted Bytes: 1347390605 Utilization: 0 
+Progress: 138674177 Rate: 8.47053458 MB/s Hit Rate: 81.37723782% Evicted Items: 6502032 Evicted Bytes: 1358924688 Utilization: 0 
+Progress: 139198465 Rate: 8.469378923 MB/s Hit Rate: 81.40859586% Evicted Items: 6557219 Evicted Bytes: 1370458771 Utilization: 0 
+Progress: 139722753 Rate: 8.635528828 MB/s Hit Rate: 81.44027538% Evicted Items: 6607389 Evicted Bytes: 1380944301 Utilization: 0 
+Progress: 140247041 Rate: 8.392205383 MB/s Hit Rate: 81.47171947% Evicted Items: 6662576 Evicted Bytes: 1392478384 Utilization: 0 
+Progress: 140771329 Rate: 8.248484099 MB/s Hit Rate: 81.50314459% Evicted Items: 6717763 Evicted Bytes: 1404012467 Utilization: 0 
+Progress: 141295617 Rate: 8.559397428 MB/s Hit Rate: 81.53427634% Evicted Items: 6767933 Evicted Bytes: 1414497997 Utilization: 0 
+Progress: 141819905 Rate: 8.438645774 MB/s Hit Rate: 81.56505169% Evicted Items: 6823120 Evicted Bytes: 1426032080 Utilization: 0 
+Progress: 142344193 Rate: 8.607388812 MB/s Hit Rate: 81.59542611% Evicted Items: 6873290 Evicted Bytes: 1436517610 Utilization: 0 
+Progress: 142868481 Rate: 8.436562576 MB/s Hit Rate: 81.62585897% Evicted Items: 6928477 Evicted Bytes: 1448051693 Utilization: 0 
+Progress: 143392769 Rate: 8.649488019 MB/s Hit Rate: 81.65614949% Evicted Items: 6978647 Evicted Bytes: 1458537223 Utilization: 0 
+P: 20250000
+6
+ size 1793500 wss 2635500 L size 1524000 H size 2063000 E size 2635500
+5
+ size 1867000 wss 3446500 L size 1586500 H size 2147500 E size 3446500
+1
+ size 6628500 wss 6688000 L size 5634000 H size 7623000 E size 6688000
+2
+ size 3461000 wss 3472500 L size 2941500 H size 3980500 E size 3472500
+3
+ size 3630500 wss 4725500 L size 3085500 H size 4175500 E size 4725500
+4
+ size 2869500 wss 3020000 L size 2439000 H size 3300000 E size 3020000
+6
+low: 1524000 upper 2063000
+4
+low: 3963000 upper 5363000
+5
+low: 5549500 upper 7510500
+2
+low: 8491000 upper 11491000
+3
+low: 11576500 upper 15666500
+1
+low: 17210500 upper 23289500
+T : 20250000 i: 1
+A[i] : 6688000 i: 1
+T : 13562000 i: 3
+A[i] : 3597000 i: 3
+T : 9965000 i: 2
+A[i] : 3472500 i: 2
+T : 6492500 i: 5
+A[i] : 1865500 i: 5
+T : 4627000 i: 4
+A[i] : 2841500 i: 4
+last assignment 1785500 to  6 is 1785500
+dp
+1 , 6688000
+2 , 3472500
+3 , 3597000
+4 , 2841500
+5 , 1865500
+6 , 1785500
+6 remove 8000 and set objects to: 1785500
+5 remove 1500 and set objects to: 1865500
+1 add 59500 and set objects to: 6688000
+2 add 11500 and set objects to: 3472500
+3 remove 33500 and set objects to: 3597000
+4 remove 28000 and set objects to: 2841500
+Progress: 143654913 Rate: 0.2415702323 MB/s Hit Rate: 81.67113353% Evicted Items: 7008749 Evicted Bytes: 1464828541 Utilization: 0 
+Progress: 144179201 Rate: 8.62218177 MB/s Hit Rate: 81.70109281% Evicted Items: 7058919 Evicted Bytes: 1475314071 Utilization: 0 
+Progress: 144703489 Rate: 8.277070684 MB/s Hit Rate: 81.73078316% Evicted Items: 7114106 Evicted Bytes: 1486848154 Utilization: 0 
+Progress: 145227777 Rate: 8.60580129 MB/s Hit Rate: 81.76033282% Evicted Items: 7164276 Evicted Bytes: 1497333684 Utilization: 0 
+Progress: 145752065 Rate: 8.421303381 MB/s Hit Rate: 81.78979133% Evicted Items: 7219463 Evicted Bytes: 1508867767 Utilization: 0 
+Progress: 146276353 Rate: 8.324486594 MB/s Hit Rate: 81.81916172% Evicted Items: 7269633 Evicted Bytes: 1519353297 Utilization: 0 
+Progress: 146800641 Rate: 8.260925422 MB/s Hit Rate: 81.84820107% Evicted Items: 7324820 Evicted Bytes: 1530887380 Utilization: 0 
+Progress: 147324929 Rate: 8.270520341 MB/s Hit Rate: 81.87673236% Evicted Items: 7374990 Evicted Bytes: 1541372910 Utilization: 0 
+Progress: 147849217 Rate: 8.096983592 MB/s Hit Rate: 81.90554761% Evicted Items: 7430177 Evicted Bytes: 1552906993 Utilization: 0 
+Progress: 148373505 Rate: 8.57460338 MB/s Hit Rate: 81.93423807% Evicted Items: 7480347 Evicted Bytes: 1563392523 Utilization: 0 
+Progress: 148897793 Rate: 8.347776562 MB/s Hit Rate: 81.9625559% Evicted Items: 7535534 Evicted Bytes: 1574926606 Utilization: 0 
+Progress: 149422081 Rate: 8.568783982 MB/s Hit Rate: 81.99089452% Evicted Items: 7585704 Evicted Bytes: 1585412136 Utilization: 0 
+P: 20250000
+6
+ size 1785500 wss 2693500 L size 1517500 H size 2053500 E size 2693500
+5
+ size 1865500 wss 3541000 L size 1585500 H size 2145500 E size 3541000
+1
+ size 6688000 wss 6717000 L size 5684500 H size 7691500 E size 6717000
+2
+ size 3472500 wss 3472000 L size 2951500 H size 3993500 E size 3472000
+3
+ size 3597000 wss 4804000 L size 3057000 H size 4137000 E size 4804000
+4
+ size 2841500 wss 3036000 L size 2415000 H size 3268000 E size 3036000
+6
+low: 1517500 upper 2053500
+4
+low: 3932500 upper 5321500
+2
+low: 6884000 upper 9315000
+5
+low: 8469500 upper 11460500
+3
+low: 11526500 upper 15597500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6717000 i: 1
+T : 13533000 i: 3
+A[i] : 3590500 i: 3
+T : 9942500 i: 5
+A[i] : 1844000 i: 5
+T : 8098500 i: 2
+A[i] : 3472000 i: 2
+T : 4626500 i: 4
+A[i] : 2835000 i: 4
+last assignment 1791500 to  6 is 1791500
+dp
+1 , 6717000
+2 , 3472000
+3 , 3590500
+4 , 2835000
+5 , 1844000
+6 , 1791500
+6 add 6000 and set objects to: 1791500
+5 remove 21500 and set objects to: 1844000
+1 add 29000 and set objects to: 6717000
+2 remove 500 and set objects to: 3472000
+3 remove 6500 and set objects to: 3590500
+4 remove 6500 and set objects to: 2835000
+Progress: 149684225 Rate: 0.2346034821 MB/s Hit Rate: 82.00488049% Evicted Items: 7610789 Evicted Bytes: 1590654901 Utilization: 0 
+Progress: 150208513 Rate: 8.427967179 MB/s Hit Rate: 82.03242636% Evicted Items: 7665976 Evicted Bytes: 1602188984 Utilization: 0 
+Progress: 150732801 Rate: 8.667224877 MB/s Hit Rate: 82.05991264% Evicted Items: 7716146 Evicted Bytes: 1612674514 Utilization: 0 
+Progress: 151257089 Rate: 8.433242951 MB/s Hit Rate: 82.08727845% Evicted Items: 7771333 Evicted Bytes: 1624208597 Utilization: 0 
+Progress: 151781377 Rate: 8.585698135 MB/s Hit Rate: 82.11493945% Evicted Items: 7821503 Evicted Bytes: 1634694127 Utilization: 0 
+Progress: 152305665 Rate: 8.395267153 MB/s Hit Rate: 82.14158667% Evicted Items: 7876690 Evicted Bytes: 1646228210 Utilization: 0 
+Progress: 152829953 Rate: 8.49674996 MB/s Hit Rate: 82.16823493% Evicted Items: 7926860 Evicted Bytes: 1656713740 Utilization: 0 
+Progress: 153354241 Rate: 8.357263537 MB/s Hit Rate: 82.19489725% Evicted Items: 7982047 Evicted Bytes: 1668247823 Utilization: 0 
+Progress: 153878529 Rate: 8.576888347 MB/s Hit Rate: 82.22163004% Evicted Items: 8032217 Evicted Bytes: 1678733353 Utilization: 0 
+Progress: 154402817 Rate: 8.323772049 MB/s Hit Rate: 82.248259% Evicted Items: 8087404 Evicted Bytes: 1690267436 Utilization: 0 
+Progress: 154927105 Rate: 8.497670718 MB/s Hit Rate: 82.27452635% Evicted Items: 8137574 Evicted Bytes: 1700752966 Utilization: 0 
+Progress: 155451393 Rate: 8.278913786 MB/s Hit Rate: 82.30074003% Evicted Items: 8192761 Evicted Bytes: 1712287049 Utilization: 0 
+P: 20250000
+6
+ size 1791500 wss 2743000 L size 1522500 H size 2060500 E size 2743000
+5
+ size 1844000 wss 3623000 L size 1567000 H size 2121000 E size 3623000
+1
+ size 6717000 wss 6753500 L size 5709000 H size 7725000 E size 6753500
+2
+ size 3472000 wss 3467000 L size 2951000 H size 3993000 E size 3467000
+3
+ size 3590500 wss 4892500 L size 3051500 H size 4129500 E size 4892500
+4
+ size 2835000 wss 3052500 L size 2409500 H size 3260500 E size 3052500
+6
+low: 1522500 upper 2060500
+4
+low: 3932000 upper 5321000
+2
+low: 6883000 upper 9314000
+5
+low: 8450000 upper 11435000
+3
+low: 11501500 upper 15564500
+1
+low: 17210500 upper 23289500
+T : 20250000 i: 1
+A[i] : 6753500 i: 1
+T : 13496500 i: 3
+A[i] : 3574500 i: 3
+T : 9922000 i: 5
+A[i] : 1856500 i: 5
+T : 8065500 i: 2
+A[i] : 3467000 i: 2
+T : 4598500 i: 4
+A[i] : 2815500 i: 4
+last assignment 1783000 to  6 is 1783000
+dp
+1 , 6753500
+2 , 3467000
+3 , 3574500
+4 , 2815500
+5 , 1856500
+6 , 1783000
+6 remove 8500 and set objects to: 1783000
+5 add 12500 and set objects to: 1856500
+1 add 36500 and set objects to: 6753500
+2 remove 5000 and set objects to: 3467000
+3 remove 16000 and set objects to: 3574500
+4 remove 19500 and set objects to: 2815500
+Progress: 155713537 Rate: 0.2378042248 MB/s Hit Rate: 82.31374246% Evicted Items: 8217846 Evicted Bytes: 1717529814 Utilization: 0 
+Progress: 156237825 Rate: 8.473996844 MB/s Hit Rate: 82.33959659% Evicted Items: 8268016 Evicted Bytes: 1728015344 Utilization: 0 
+Progress: 156762113 Rate: 8.276607383 MB/s Hit Rate: 82.36555272% Evicted Items: 8323203 Evicted Bytes: 1739549427 Utilization: 0 
+Progress: 157286401 Rate: 8.545606895 MB/s Hit Rate: 82.39108785% Evicted Items: 8373373 Evicted Bytes: 1750034957 Utilization: 0 
+Progress: 157810689 Rate: 8.596433226 MB/s Hit Rate: 82.41650147% Evicted Items: 8423543 Evicted Bytes: 1760520487 Utilization: 0 
+Progress: 158334977 Rate: 8.178855999 MB/s Hit Rate: 82.44184658% Evicted Items: 8478730 Evicted Bytes: 1772054570 Utilization: 0 
+Progress: 158859265 Rate: 8.506307822 MB/s Hit Rate: 82.46679463% Evicted Items: 8528900 Evicted Bytes: 1782540100 Utilization: 0 
+Progress: 159383553 Rate: 8.356539708 MB/s Hit Rate: 82.49192677% Evicted Items: 8584087 Evicted Bytes: 1794074183 Utilization: 0 
+Progress: 159907841 Rate: 8.549156557 MB/s Hit Rate: 82.51692037% Evicted Items: 8634257 Evicted Bytes: 1804559713 Utilization: 0 
+Progress: 160432129 Rate: 8.539935051 MB/s Hit Rate: 82.54169888% Evicted Items: 8684427 Evicted Bytes: 1815045243 Utilization: 0 
+Progress: 160956417 Rate: 8.335252262 MB/s Hit Rate: 82.56610908% Evicted Items: 8739614 Evicted Bytes: 1826579326 Utilization: 0 
+Progress: 161480705 Rate: 8.562233866 MB/s Hit Rate: 82.59044994% Evicted Items: 8789784 Evicted Bytes: 1837064856 Utilization: 0 
+P: 20250000
+6
+ size 1783000 wss 2794000 L size 1515500 H size 2050500 E size 2794000
+5
+ size 1856500 wss 3703500 L size 1578000 H size 2135000 E size 3703500
+1
+ size 6753500 wss 6775000 L size 5740000 H size 7767000 E size 6775000
+2
+ size 3467000 wss 3469500 L size 2946500 H size 3987500 E size 3469500
+3
+ size 3574500 wss 4961000 L size 3038000 H size 4111000 E size 4961000
+4
+ size 2815500 wss 3080000 L size 2393000 H size 3238000 E size 3080000
+6
+low: 1515500 upper 2050500
+4
+low: 3908500 upper 5288500
+2
+low: 6855000 upper 9276000
+5
+low: 8433000 upper 11411000
+3
+low: 11471000 upper 15522000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6775000 i: 1
+T : 13475000 i: 3
+A[i] : 3562000 i: 3
+T : 9913000 i: 5
+A[i] : 1828500 i: 5
+T : 8084500 i: 2
+A[i] : 3469500 i: 2
+T : 4615000 i: 4
+A[i] : 2838500 i: 4
+last assignment 1776500 to  6 is 1776500
+dp
+1 , 6775000
+2 , 3469500
+3 , 3562000
+4 , 2838500
+5 , 1828500
+6 , 1776500
+6 remove 6500 and set objects to: 1776500
+5 remove 28000 and set objects to: 1828500
+1 add 21500 and set objects to: 6775000
+2 add 2500 and set objects to: 3469500
+3 remove 12500 and set objects to: 3562000
+4 add 23000 and set objects to: 2838500
+Progress: 161742849 Rate: 0.2376460523 MB/s Hit Rate: 82.60261437% Evicted Items: 8814869 Evicted Bytes: 1842307621 Utilization: 0 
+Progress: 162267137 Rate: 8.432921259 MB/s Hit Rate: 82.62666447% Evicted Items: 8870056 Evicted Bytes: 1853841704 Utilization: 0 
+Progress: 162791425 Rate: 8.544513825 MB/s Hit Rate: 82.65065916% Evicted Items: 8920226 Evicted Bytes: 1864327234 Utilization: 0 
+Progress: 163315713 Rate: 8.574520157 MB/s Hit Rate: 82.67457145% Evicted Items: 8970396 Evicted Bytes: 1874812764 Utilization: 0 
+Progress: 163840001 Rate: 8.383064873 MB/s Hit Rate: 82.69842651% Evicted Items: 9025583 Evicted Bytes: 1886346847 Utilization: 0 
+Progress: 164364289 Rate: 8.522905536 MB/s Hit Rate: 82.72211479% Evicted Items: 9075753 Evicted Bytes: 1896832377 Utilization: 0 
+Progress: 164888577 Rate: 8.454568576 MB/s Hit Rate: 82.74551416% Evicted Items: 9125923 Evicted Bytes: 1907317907 Utilization: 0 
+Progress: 165412865 Rate: 8.310035432 MB/s Hit Rate: 82.76869023% Evicted Items: 9181110 Evicted Bytes: 1918851990 Utilization: 0 
+Progress: 165937153 Rate: 8.629061471 MB/s Hit Rate: 82.79208022% Evicted Items: 9231280 Evicted Bytes: 1929337520 Utilization: 0 
+Progress: 166461441 Rate: 8.413746954 MB/s Hit Rate: 82.81529164% Evicted Items: 9281450 Evicted Bytes: 1939823050 Utilization: 0 
+Progress: 166985729 Rate: 8.24719036 MB/s Hit Rate: 82.83821298% Evicted Items: 9336637 Evicted Bytes: 1951357133 Utilization: 0 
+Progress: 167510017 Rate: 8.534233888 MB/s Hit Rate: 82.86079681% Evicted Items: 9386807 Evicted Bytes: 1961842663 Utilization: 0 
+P: 20250000
+6
+ size 1776500 wss 2852500 L size 1510000 H size 2043000 E size 2852500
+5
+ size 1828500 wss 3788500 L size 1554000 H size 2103000 E size 3788500
+1
+ size 6775000 wss 6805000 L size 5758500 H size 7791500 E size 6805000
+2
+ size 3469500 wss 3482000 L size 2949000 H size 3990000 E size 3482000
+3
+ size 3562000 wss 5048500 L size 3027500 H size 4096500 E size 5048500
+4
+ size 2838500 wss 3101000 L size 2412500 H size 3264500 E size 3101000
+6
+low: 1510000 upper 2043000
+4
+low: 3922500 upper 5307500
+2
+low: 6871500 upper 9297500
+5
+low: 8425500 upper 11400500
+3
+low: 11453000 upper 15497000
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6805000 i: 1
+T : 13445000 i: 3
+A[i] : 3562500 i: 3
+T : 9882500 i: 5
+A[i] : 1848000 i: 5
+T : 8034500 i: 2
+A[i] : 3482000 i: 2
+T : 4552500 i: 4
+A[i] : 2825000 i: 4
+last assignment 1727500 to  6 is 1727500
+dp
+1 , 6805000
+2 , 3482000
+3 , 3562500
+4 , 2825000
+5 , 1848000
+6 , 1727500
+6 remove 49000 and set objects to: 1727500
+5 add 19500 and set objects to: 1848000
+1 add 30000 and set objects to: 6805000
+2 add 12500 and set objects to: 3482000
+3 add 500 and set objects to: 3562500
+4 remove 13500 and set objects to: 2825000
+Progress: 167772161 Rate: 0.2332948383 MB/s Hit Rate: 82.87198722% Evicted Items: 9411892 Evicted Bytes: 1967085428 Utilization: 0 
+Progress: 168296449 Rate: 8.580066879 MB/s Hit Rate: 82.89476912% Evicted Items: 9462062 Evicted Bytes: 1977570958 Utilization: 0 
+Progress: 168820737 Rate: 8.297335428 MB/s Hit Rate: 82.91709616% Evicted Items: 9517249 Evicted Bytes: 1989105041 Utilization: 0 
+Progress: 169345025 Rate: 8.528616024 MB/s Hit Rate: 82.93960796% Evicted Items: 9567419 Evicted Bytes: 1999590571 Utilization: 0 
+Progress: 169869313 Rate: 8.544156609 MB/s Hit Rate: 82.96183009% Evicted Items: 9617589 Evicted Bytes: 2010076101 Utilization: 0 
+Progress: 170393601 Rate: 8.226166852 MB/s Hit Rate: 82.98409623% Evicted Items: 9672776 Evicted Bytes: 2021610184 Utilization: 0 
+Progress: 170917889 Rate: 8.415257164 MB/s Hit Rate: 83.00618599% Evicted Items: 9722946 Evicted Bytes: 2032095714 Utilization: 0 
+Progress: 171442177 Rate: 8.410470767 MB/s Hit Rate: 83.02817213% Evicted Items: 9773116 Evicted Bytes: 2042581244 Utilization: 0 
+Progress: 171966465 Rate: 8.365463315 MB/s Hit Rate: 83.0498928% Evicted Items: 9823286 Evicted Bytes: 2053066774 Utilization: 0 
+Progress: 172490753 Rate: 7.806759091 MB/s Hit Rate: 83.07138171% Evicted Items: 9878473 Evicted Bytes: 2064600857 Utilization: 0 
+Progress: 173015041 Rate: 8.070223488 MB/s Hit Rate: 83.09299353% Evicted Items: 9928643 Evicted Bytes: 2075086387 Utilization: 0 
+Progress: 173539329 Rate: 7.968447221 MB/s Hit Rate: 83.11417859% Evicted Items: 9978813 Evicted Bytes: 2085571917 Utilization: 0 
+P: 20250000
+6
+ size 1727500 wss 2900500 L size 1468000 H size 1987000 E size 2900500
+5
+ size 1848000 wss 3874000 L size 1570500 H size 2125500 E size 3874000
+1
+ size 6805000 wss 6819500 L size 5784000 H size 7826000 E size 6819500
+2
+ size 3482000 wss 3473500 L size 2959500 H size 4004500 E size 3473500
+3
+ size 3562500 wss 5123000 L size 3028000 H size 4097000 E size 5123000
+4
+ size 2825000 wss 3126000 L size 2401000 H size 3249000 E size 3126000
+6
+low: 1468000 upper 1987000
+4
+low: 3869000 upper 5236000
+2
+low: 6828500 upper 9240500
+5
+low: 8399000 upper 11366000
+3
+low: 11427000 upper 15463000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6819500 i: 1
+T : 13430500 i: 3
+A[i] : 3548000 i: 3
+T : 9882500 i: 5
+A[i] : 1825500 i: 5
+T : 8057000 i: 2
+A[i] : 3473500 i: 2
+T : 4583500 i: 4
+A[i] : 2813500 i: 4
+last assignment 1770000 to  6 is 1770000
+dp
+1 , 6819500
+2 , 3473500
+3 , 3548000
+4 , 2813500
+5 , 1825500
+6 , 1770000
+6 add 42500 and set objects to: 1770000
+5 remove 22500 and set objects to: 1825500
+1 add 14500 and set objects to: 6819500
+2 remove 8500 and set objects to: 3473500
+3 remove 14500 and set objects to: 3548000
+4 remove 11500 and set objects to: 2813500
+Progress: 173801473 Rate: 0.2328225232 MB/s Hit Rate: 83.12490587% Evicted Items: 10003898 Evicted Bytes: 2090814682 Utilization: 0 
+Progress: 174325761 Rate: 7.888770802 MB/s Hit Rate: 83.14593609% Evicted Items: 10059085 Evicted Bytes: 2102348765 Utilization: 0 
+Progress: 174850049 Rate: 8.114806704 MB/s Hit Rate: 83.16695229% Evicted Items: 10109255 Evicted Bytes: 2112834295 Utilization: 0 
+Progress: 175374337 Rate: 8.035197083 MB/s Hit Rate: 83.18783599% Evicted Items: 10159425 Evicted Bytes: 2123319825 Utilization: 0 
+Progress: 175898625 Rate: 7.852643441 MB/s Hit Rate: 83.20879076% Evicted Items: 10214612 Evicted Bytes: 2134853908 Utilization: 0 
+Progress: 176422913 Rate: 7.916046451 MB/s Hit Rate: 83.22937386% Evicted Items: 10264782 Evicted Bytes: 2145339438 Utilization: 0 
+Progress: 176947201 Rate: 7.94827682 MB/s Hit Rate: 83.24961005% Evicted Items: 10314952 Evicted Bytes: 2155824968 Utilization: 0 
+Progress: 177471489 Rate: 7.812336407 MB/s Hit Rate: 83.27000617% Evicted Items: 10370139 Evicted Bytes: 2167359051 Utilization: 0 
+Progress: 177995777 Rate: 8.041769913 MB/s Hit Rate: 83.29027482% Evicted Items: 10420309 Evicted Bytes: 2177844581 Utilization: 0 
+Progress: 178520065 Rate: 8.000602656 MB/s Hit Rate: 83.31022781% Evicted Items: 10470479 Evicted Bytes: 2188330111 Utilization: 0 
+Progress: 179044353 Rate: 7.900016056 MB/s Hit Rate: 83.3304845% Evicted Items: 10520649 Evicted Bytes: 2198815641 Utilization: 0 
+P: 20250000
+6
+ size 1770000 wss 2949000 L size 1504500 H size 2035500 E size 2949000
+5
+ size 1825500 wss 3954500 L size 1551500 H size 2099500 E size 3954500
+1
+ size 6819500 wss 6854000 L size 5796500 H size 7842500 E size 6854000
+2
+ size 3473500 wss 3486000 L size 2952000 H size 3995000 E size 3486000
+3
+ size 3548000 wss 5187500 L size 3015500 H size 4080500 E size 5187500
+4
+ size 2813500 wss 3172500 L size 2391000 H size 3236000 E size 3172500
+6
+low: 1504500 upper 2035500
+4
+low: 3895500 upper 5271500
+2
+low: 6847500 upper 9266500
+5
+low: 8399000 upper 11366000
+3
+low: 11414500 upper 15446500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6839500 i: 1
+T : 13410500 i: 3
+A[i] : 3540500 i: 3
+T : 9870000 i: 5
+A[i] : 1823000 i: 5
+T : 8047000 i: 2
+A[i] : 3486000 i: 2
+T : 4561000 i: 4
+A[i] : 2820500 i: 4
+last assignment 1740500 to  6 is 1740500
+dp
+1 , 6839500
+2 , 3486000
+3 , 3540500
+4 , 2820500
+5 , 1823000
+6 , 1740500
+6 remove 29500 and set objects to: 1740500
+5 remove 2500 and set objects to: 1823000
+1 add 20000 and set objects to: 6839500
+2 add 12500 and set objects to: 3486000
+3 remove 7500 and set objects to: 3540500
+4 add 7000 and set objects to: 2820500
+Progress: 179568641 Rate: 0.454670357 MB/s Hit Rate: 83.35030048% Evicted Items: 10575836 Evicted Bytes: 2210349724 Utilization: 0 
+Progress: 180092929 Rate: 7.943208713 MB/s Hit Rate: 83.37040642% Evicted Items: 10626006 Evicted Bytes: 2220835254 Utilization: 0 
+Progress: 180617217 Rate: 8.057822501 MB/s Hit Rate: 83.39017472% Evicted Items: 10676176 Evicted Bytes: 2231320784 Utilization: 0 
+Progress: 181141505 Rate: 7.787897021 MB/s Hit Rate: 83.40970825% Evicted Items: 10731363 Evicted Bytes: 2242854867 Utilization: 0 
+Progress: 181665793 Rate: 7.833417191 MB/s Hit Rate: 83.42931013% Evicted Items: 10781533 Evicted Bytes: 2253340397 Utilization: 0 
+Progress: 182190081 Rate: 7.978479665 MB/s Hit Rate: 83.44878053% Evicted Items: 10831703 Evicted Bytes: 2263825927 Utilization: 0 
+Progress: 182714369 Rate: 8.030258634 MB/s Hit Rate: 83.46811401% Evicted Items: 10881873 Evicted Bytes: 2274311457 Utilization: 0 
+Progress: 183238657 Rate: 7.87223247 MB/s Hit Rate: 83.48757808% Evicted Items: 10932043 Evicted Bytes: 2284796987 Utilization: 0 
+Progress: 183762945 Rate: 7.718587672 MB/s Hit Rate: 83.50669273% Evicted Items: 10987230 Evicted Bytes: 2296331070 Utilization: 0 
+Progress: 184287233 Rate: 7.921502487 MB/s Hit Rate: 83.52581746% Evicted Items: 11037400 Evicted Bytes: 2306816600 Utilization: 0 
+Progress: 184811521 Rate: 7.924551087 MB/s Hit Rate: 83.54506635% Evicted Items: 11087570 Evicted Bytes: 2317302130 Utilization: 0 
+Progress: 185335809 Rate: 7.971047252 MB/s Hit Rate: 83.56408115% Evicted Items: 11137740 Evicted Bytes: 2327787660 Utilization: 0 
+P: 20250000
+6
+ size 1740500 wss 2985500 L size 1479000 H size 2002000 E size 2985500
+5
+ size 1823000 wss 4040000 L size 1549500 H size 2096500 E size 4040000
+1
+ size 6839500 wss 6860500 L size 5813500 H size 7865500 E size 6860500
+2
+ size 3486000 wss 3485000 L size 2963000 H size 4009000 E size 3485000
+3
+ size 3540500 wss 5256000 L size 3009000 H size 4072000 E size 5256000
+4
+ size 2820500 wss 3176000 L size 2397000 H size 3244000 E size 3176000
+6
+low: 1479000 upper 2002000
+4
+low: 3876000 upper 5246000
+2
+low: 6839000 upper 9255000
+5
+low: 8388500 upper 11351500
+3
+low: 11397500 upper 15423500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6853500 i: 1
+T : 13396500 i: 3
+A[i] : 3536500 i: 3
+T : 9860000 i: 5
+A[i] : 1822500 i: 5
+T : 8037500 i: 2
+A[i] : 3485000 i: 2
+T : 4552500 i: 4
+A[i] : 2817000 i: 4
+last assignment 1735500 to  6 is 1735500
+dp
+1 , 6853500
+2 , 3485000
+3 , 3536500
+4 , 2817000
+5 , 1822500
+6 , 1735500
+6 remove 5000 and set objects to: 1735500
+5 remove 500 and set objects to: 1822500
+1 add 14000 and set objects to: 6853500
+2 remove 1000 and set objects to: 3485000
+3 remove 4000 and set objects to: 3536500
+4 remove 3500 and set objects to: 2817000
+Progress: 185597953 Rate: 0.2372523093 MB/s Hit Rate: 83.57345075% Evicted Items: 11162825 Evicted Bytes: 2333030425 Utilization: 0 
+Progress: 185860097 Rate: 6.283703231 MB/s Hit Rate: 83.58291066% Evicted Items: 11187910 Evicted Bytes: 2338273190 Utilization: 0 
+Progress: 186384385 Rate: 6.954698931 MB/s Hit Rate: 83.60159722% Evicted Items: 11243097 Evicted Bytes: 2349807273 Utilization: 0 
+Progress: 186908673 Rate: 7.034399261 MB/s Hit Rate: 83.6202806% Evicted Items: 11293267 Evicted Bytes: 2360292803 Utilization: 0 
+Progress: 187170817 Rate: 6.820303592 MB/s Hit Rate: 83.6296728% Evicted Items: 11318352 Evicted Bytes: 2365535568 Utilization: 0 
+Progress: 187432961 Rate: 4.702536553 MB/s Hit Rate: 83.6389779% Evicted Items: 11343437 Evicted Bytes: 2370778333 Utilization: 0 
+Progress: 187695105 Rate: 5.226236159 MB/s Hit Rate: 83.64825595% Evicted Items: 11368522 Evicted Bytes: 2376021098 Utilization: 0 
+Progress: 188219393 Rate: 6.555451797 MB/s Hit Rate: 83.66675257% Evicted Items: 11418692 Evicted Bytes: 2386506628 Utilization: 0 
+Progress: 188743681 Rate: 7.534009647 MB/s Hit Rate: 83.68517452% Evicted Items: 11468862 Evicted Bytes: 2396992158 Utilization: 0 
+Progress: 189267969 Rate: 7.507719872 MB/s Hit Rate: 83.7032503% Evicted Items: 11524049 Evicted Bytes: 2408526241 Utilization: 0 
+Progress: 189792257 Rate: 7.698478276 MB/s Hit Rate: 83.72118091% Evicted Items: 11574219 Evicted Bytes: 2419011771 Utilization: 0 
+Progress: 190316545 Rate: 7.727535514 MB/s Hit Rate: 83.73919873% Evicted Items: 11624389 Evicted Bytes: 2429497301 Utilization: 0 
+Progress: 190840833 Rate: 7.745933556 MB/s Hit Rate: 83.75711284% Evicted Items: 11674559 Evicted Bytes: 2439982831 Utilization: 0 
+Progress: 191365121 Rate: 7.687398313 MB/s Hit Rate: 83.77497216% Evicted Items: 11724729 Evicted Bytes: 2450468361 Utilization: 0 
+P: 20250000
+6
+ size 1735500 wss 3037500 L size 1475000 H size 1996000 E size 3037500
+5
+ size 1822500 wss 4124000 L size 1549000 H size 2096000 E size 4124000
+1
+ size 6853500 wss 6862500 L size 5825000 H size 7882000 E size 6862500
+2
+ size 3485000 wss 3485500 L size 2962000 H size 4008000 E size 3485500
+3
+ size 3536500 wss 5313500 L size 3006000 H size 4067000 E size 5313500
+4
+ size 2817000 wss 3194500 L size 2394000 H size 3240000 E size 3194500
+6
+low: 1475000 upper 1996000
+4
+low: 3869000 upper 5236000
+2
+low: 6831000 upper 9244000
+5
+low: 8380000 upper 11340000
+3
+low: 11386000 upper 15407000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6862500 i: 1
+T : 13387500 i: 3
+A[i] : 3528000 i: 3
+T : 9859500 i: 5
+A[i] : 1718500 i: 5
+T : 8141000 i: 2
+A[i] : 3485500 i: 2
+T : 4655500 i: 4
+A[i] : 2921000 i: 4
+last assignment 1734500 to  6 is 1734500
+dp
+1 , 6862500
+2 , 3485500
+3 , 3528000
+4 , 2921000
+5 , 1718500
+6 , 1734500
+6 remove 1000 and set objects to: 1734500
+5 remove 104000 and set objects to: 1718500
+1 add 9000 and set objects to: 6862500
+2 add 500 and set objects to: 3485500
+3 remove 8500 and set objects to: 3528000
+4 add 104000 and set objects to: 2921000
+Progress: 191627265 Rate: 0.2273605182 MB/s Hit Rate: 83.78394527% Evicted Items: 11749814 Evicted Bytes: 2455711126 Utilization: 0 
+Progress: 192151553 Rate: 7.673401889 MB/s Hit Rate: 83.8015261% Evicted Items: 11805001 Evicted Bytes: 2467245209 Utilization: 0 
+Progress: 192675841 Rate: 7.819583386 MB/s Hit Rate: 83.81907249% Evicted Items: 11855171 Evicted Bytes: 2477730739 Utilization: 0 
+Progress: 193200129 Rate: 7.864223171 MB/s Hit Rate: 83.83631092% Evicted Items: 11905341 Evicted Bytes: 2488216269 Utilization: 0 
+Progress: 193724417 Rate: 7.843371247 MB/s Hit Rate: 83.85347049% Evicted Items: 11955511 Evicted Bytes: 2498701799 Utilization: 0 
+Progress: 194248705 Rate: 7.862649422 MB/s Hit Rate: 83.8707866% Evicted Items: 12005681 Evicted Bytes: 2509187329 Utilization: 0 
+Progress: 194772993 Rate: 7.493914287 MB/s Hit Rate: 83.88800589% Evicted Items: 12060868 Evicted Bytes: 2520721412 Utilization: 0 
+Progress: 195297281 Rate: 7.815222859 MB/s Hit Rate: 83.90514502% Evicted Items: 12111038 Evicted Bytes: 2531206942 Utilization: 0 
+Progress: 195821569 Rate: 8.005428371 MB/s Hit Rate: 83.9222128% Evicted Items: 12161208 Evicted Bytes: 2541692472 Utilization: 0 
+Progress: 196345857 Rate: 7.730262615 MB/s Hit Rate: 83.93915123% Evicted Items: 12211378 Evicted Bytes: 2552178002 Utilization: 0 
+Progress: 196870145 Rate: 7.833746826 MB/s Hit Rate: 83.95599335% Evicted Items: 12261548 Evicted Bytes: 2562663532 Utilization: 0 
+Progress: 197394433 Rate: 7.752276007 MB/s Hit Rate: 83.97280122% Evicted Items: 12311718 Evicted Bytes: 2573149062 Utilization: 0 
+P: 20250000
+6
+ size 1734500 wss 3080500 L size 1474000 H size 1995000 E size 3080500
+5
+ size 1718500 wss 4192000 L size 1460500 H size 1976500 E size 4192000
+1
+ size 6862500 wss 6868500 L size 5833000 H size 7892000 E size 6868500
+2
+ size 3485500 wss 3505000 L size 2962500 H size 4008500 E size 3505000
+3
+ size 3528000 wss 5371000 L size 2998500 H size 4057500 E size 5371000
+4
+ size 2921000 wss 3228500 L size 2482500 H size 3359500 E size 3228500
+6
+low: 1474000 upper 1995000
+4
+low: 3956500 upper 5354500
+2
+low: 6919000 upper 9363000
+5
+low: 8379500 upper 11339500
+3
+low: 11378000 upper 15397000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6868500 i: 1
+T : 13381500 i: 3
+A[i] : 3519000 i: 3
+T : 9862500 i: 5
+A[i] : 1808500 i: 5
+T : 8054000 i: 2
+A[i] : 3505000 i: 2
+T : 4549000 i: 4
+A[i] : 2819000 i: 4
+last assignment 1730000 to  6 is 1730000
+dp
+1 , 6868500
+2 , 3505000
+3 , 3519000
+4 , 2819000
+5 , 1808500
+6 , 1730000
+6 remove 4500 and set objects to: 1730000
+5 add 90000 and set objects to: 1808500
+1 add 6000 and set objects to: 6868500
+2 add 19500 and set objects to: 3505000
+3 remove 9000 and set objects to: 3519000
+4 remove 102000 and set objects to: 2819000
+Progress: 197656577 Rate: 0.2252981233 MB/s Hit Rate: 83.98136827% Evicted Items: 12336803 Evicted Bytes: 2578391827 Utilization: 0 
+Progress: 198180865 Rate: 7.650537527 MB/s Hit Rate: 83.99787277% Evicted Items: 12391990 Evicted Bytes: 2589925910 Utilization: 0 
+Progress: 198705153 Rate: 7.795811803 MB/s Hit Rate: 84.0144326% Evicted Items: 12442160 Evicted Bytes: 2600411440 Utilization: 0 
+Progress: 199229441 Rate: 7.738223261 MB/s Hit Rate: 84.03100716% Evicted Items: 12492330 Evicted Bytes: 2610896970 Utilization: 0 
+Progress: 199753729 Rate: 7.765975208 MB/s Hit Rate: 84.0473986% Evicted Items: 12542500 Evicted Bytes: 2621382500 Utilization: 0 
+Progress: 200278017 Rate: 7.658100644 MB/s Hit Rate: 84.06374417% Evicted Items: 12592670 Evicted Bytes: 2631868030 Utilization: 0 
+Progress: 200802305 Rate: 7.812854408 MB/s Hit Rate: 84.07999741% Evicted Items: 12642840 Evicted Bytes: 2642353560 Utilization: 0 
+Progress: 201326593 Rate: 7.705107599 MB/s Hit Rate: 84.09637262% Evicted Items: 12693010 Evicted Bytes: 2652839090 Utilization: 0 
+Progress: 201850881 Rate: 7.595990664 MB/s Hit Rate: 84.11246064% Evicted Items: 12748197 Evicted Bytes: 2664373173 Utilization: 0 
+Progress: 202375169 Rate: 7.79203198 MB/s Hit Rate: 84.12854289% Evicted Items: 12798367 Evicted Bytes: 2674858703 Utilization: 0 
+Progress: 202899457 Rate: 7.742016136 MB/s Hit Rate: 84.14454399% Evicted Items: 12848537 Evicted Bytes: 2685344233 Utilization: 0 
+Progress: 203423745 Rate: 8.194861064 MB/s Hit Rate: 84.16034807% Evicted Items: 12898707 Evicted Bytes: 2695829763 Utilization: 0 
+P: 20250000
+6
+ size 1730000 wss 3112000 L size 1470500 H size 1989500 E size 3112000
+5
+ size 1808500 wss 4269000 L size 1537000 H size 2080000 E size 4269000
+1
+ size 6868500 wss 6878000 L size 5838000 H size 7899000 E size 6878000
+2
+ size 3505000 wss 3498000 L size 2979000 H size 4031000 E size 3498000
+3
+ size 3519000 wss 5425000 L size 2991000 H size 4047000 E size 5425000
+4
+ size 2819000 wss 3251500 L size 2396000 H size 3242000 E size 3251500
+6
+low: 1470500 upper 1989500
+4
+low: 3866500 upper 5231500
+2
+low: 6845500 upper 9262500
+5
+low: 8382500 upper 11342500
+3
+low: 11373500 upper 15389500
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6878000 i: 1
+T : 13372000 i: 3
+A[i] : 3512500 i: 3
+T : 9859500 i: 5
+A[i] : 1723500 i: 5
+T : 8136000 i: 2
+A[i] : 3498000 i: 2
+T : 4638000 i: 4
+A[i] : 2913000 i: 4
+last assignment 1725000 to  6 is 1725000
+dp
+1 , 6878000
+2 , 3498000
+3 , 3512500
+4 , 2913000
+5 , 1723500
+6 , 1725000
+6 remove 5000 and set objects to: 1725000
+5 remove 85000 and set objects to: 1723500
+1 add 9500 and set objects to: 6878000
+2 remove 7000 and set objects to: 3498000
+3 remove 6500 and set objects to: 3512500
+4 add 94000 and set objects to: 2913000
+Progress: 203685889 Rate: 0.2343871886 MB/s Hit Rate: 84.16818891% Evicted Items: 12923792 Evicted Bytes: 2701072528 Utilization: 0 
+Progress: 204210177 Rate: 7.8648702 MB/s Hit Rate: 84.18384449% Evicted Items: 12973962 Evicted Bytes: 2711558058 Utilization: 0 
+Progress: 204734465 Rate: 7.683354452 MB/s Hit Rate: 84.19899739% Evicted Items: 13029149 Evicted Bytes: 2723092141 Utilization: 0 
+Progress: 205258753 Rate: 7.850849287 MB/s Hit Rate: 84.21432135% Evicted Items: 13079319 Evicted Bytes: 2733577671 Utilization: 0 
+Progress: 205783041 Rate: 7.872649994 MB/s Hit Rate: 84.22963574% Evicted Items: 13129489 Evicted Bytes: 2744063201 Utilization: 0 
+Progress: 206307329 Rate: 7.880579775 MB/s Hit Rate: 84.24481752% Evicted Items: 13179659 Evicted Bytes: 2754548731 Utilization: 0 
+Progress: 206831617 Rate: 7.889654912 MB/s Hit Rate: 84.26010799% Evicted Items: 13229829 Evicted Bytes: 2765034261 Utilization: 0 
+Progress: 207355905 Rate: 7.627875136 MB/s Hit Rate: 84.27531342% Evicted Items: 13285016 Evicted Bytes: 2776568344 Utilization: 0 
+Progress: 207880193 Rate: 7.748330635 MB/s Hit Rate: 84.29041282% Evicted Items: 13335186 Evicted Bytes: 2787053874 Utilization: 0 
+Progress: 208404481 Rate: 7.830360344 MB/s Hit Rate: 84.30560082% Evicted Items: 13385356 Evicted Bytes: 2797539404 Utilization: 0 
+Progress: 208928769 Rate: 7.790894615 MB/s Hit Rate: 84.32082173% Evicted Items: 13435526 Evicted Bytes: 2808024934 Utilization: 0 
+Progress: 209453057 Rate: 7.788052417 MB/s Hit Rate: 84.33589004% Evicted Items: 13485696 Evicted Bytes: 2818510464 Utilization: 0 
+P: 20250000
+6
+ size 1725000 wss 3167000 L size 1466000 H size 1984000 E size 3167000
+5
+ size 1723500 wss 4339500 L size 1464500 H size 1982500 E size 4339500
+1
+ size 6878000 wss 6886000 L size 5846000 H size 7910000 E size 6886000
+2
+ size 3498000 wss 3516000 L size 2973000 H size 4023000 E size 3516000
+3
+ size 3512500 wss 5473000 L size 2985500 H size 4039500 E size 5473000
+4
+ size 2913000 wss 3273000 L size 2476000 H size 3350000 E size 3273000
+6
+low: 1466000 upper 1984000
+4
+low: 3942000 upper 5334000
+2
+low: 6915000 upper 9357000
+5
+low: 8379500 upper 11339500
+3
+low: 11365000 upper 15379000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6886000 i: 1
+T : 13364000 i: 3
+A[i] : 3500500 i: 3
+T : 9863500 i: 5
+A[i] : 1711500 i: 5
+T : 8152000 i: 2
+A[i] : 3516000 i: 2
+T : 4636000 i: 4
+A[i] : 2910500 i: 4
+last assignment 1725500 to  6 is 1725500
+dp
+1 , 6886000
+2 , 3516000
+3 , 3500500
+4 , 2910500
+5 , 1711500
+6 , 1725500
+6 add 500 and set objects to: 1725500
+5 remove 12000 and set objects to: 1711500
+1 add 8000 and set objects to: 6886000
+2 add 18000 and set objects to: 3516000
+3 remove 12000 and set objects to: 3500500
+4 remove 2500 and set objects to: 2910500
+Progress: 209715201 Rate: 0.2242118667 MB/s Hit Rate: 84.34331703% Evicted Items: 13510781 Evicted Bytes: 2823753229 Utilization: 0 
+Progress: 210239489 Rate: 7.858692645 MB/s Hit Rate: 84.35806788% Evicted Items: 13560951 Evicted Bytes: 2834238759 Utilization: 0 
+Progress: 210763777 Rate: 7.816477387 MB/s Hit Rate: 84.37318422% Evicted Items: 13611121 Evicted Bytes: 2844724289 Utilization: 0 
+Progress: 211288065 Rate: 7.747904634 MB/s Hit Rate: 84.38807267% Evicted Items: 13661291 Evicted Bytes: 2855209819 Utilization: 0 
+Progress: 211812353 Rate: 7.711699783 MB/s Hit Rate: 84.40288789% Evicted Items: 13711461 Evicted Bytes: 2865695349 Utilization: 0 
+Progress: 212336641 Rate: 7.624737142 MB/s Hit Rate: 84.41756025% Evicted Items: 13766648 Evicted Bytes: 2877229432 Utilization: 0 
+Progress: 212860929 Rate: 7.758980957 MB/s Hit Rate: 84.43214153% Evicted Items: 13816818 Evicted Bytes: 2887714962 Utilization: 0 
+Progress: 213385217 Rate: 7.755128279 MB/s Hit Rate: 84.44693001% Evicted Items: 13866988 Evicted Bytes: 2898200492 Utilization: 0 
+Progress: 213909505 Rate: 7.681124212 MB/s Hit Rate: 84.46152397% Evicted Items: 13917158 Evicted Bytes: 2908686022 Utilization: 0 
+Progress: 214433793 Rate: 7.787978836 MB/s Hit Rate: 84.47587309% Evicted Items: 13967328 Evicted Bytes: 2919171552 Utilization: 0 
+Progress: 214958081 Rate: 7.846948678 MB/s Hit Rate: 84.49019548% Evicted Items: 14017498 Evicted Bytes: 2929657082 Utilization: 0 
+Progress: 215482369 Rate: 7.708903899 MB/s Hit Rate: 84.50452289% Evicted Items: 14067668 Evicted Bytes: 2940142612 Utilization: 0 
+P: 20250000
+6
+ size 1725500 wss 3203000 L size 1466500 H size 1984500 E size 3203000
+5
+ size 1711500 wss 4414000 L size 1454500 H size 1968500 E size 4414000
+1
+ size 6886000 wss 6880500 L size 5853000 H size 7919000 E size 6880500
+2
+ size 3516000 wss 3497000 L size 2988500 H size 4043500 E size 3497000
+3
+ size 3500500 wss 5538000 L size 2975000 H size 4026000 E size 5538000
+4
+ size 2910500 wss 3282000 L size 2473500 H size 3347500 E size 3282000
+6
+low: 1466500 upper 1984500
+4
+low: 3940000 upper 5332000
+2
+low: 6928500 upper 9375500
+5
+low: 8383000 upper 11344000
+3
+low: 11358000 upper 15370000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6880500 i: 1
+T : 13369500 i: 3
+A[i] : 3514000 i: 3
+T : 9855500 i: 5
+A[i] : 1711000 i: 5
+T : 8144500 i: 2
+A[i] : 3497000 i: 2
+T : 4647500 i: 4
+A[i] : 2902500 i: 4
+last assignment 1745000 to  6 is 1745000
+dp
+1 , 6880500
+2 , 3497000
+3 , 3514000
+4 , 2902500
+5 , 1711000
+6 , 1745000
+6 add 19500 and set objects to: 1745000
+5 remove 500 and set objects to: 1711000
+1 remove 5500 and set objects to: 6880500
+2 remove 19000 and set objects to: 3497000
+3 add 13500 and set objects to: 3514000
+4 remove 8000 and set objects to: 2902500
+Progress: 215744513 Rate: 0.2374888614 MB/s Hit Rate: 84.51162642% Evicted Items: 14092753 Evicted Bytes: 2945385377 Utilization: 0 
+Progress: 216268801 Rate: 7.78668983 MB/s Hit Rate: 84.5256847% Evicted Items: 14142923 Evicted Bytes: 2955870907 Utilization: 0 
+Progress: 216793089 Rate: 7.799045697 MB/s Hit Rate: 84.53960903% Evicted Items: 14193093 Evicted Bytes: 2966356437 Utilization: 0 
+Progress: 217317377 Rate: 7.755420959 MB/s Hit Rate: 84.55330097% Evicted Items: 14243263 Evicted Bytes: 2976841967 Utilization: 0 
+Progress: 217841665 Rate: 7.562574752 MB/s Hit Rate: 84.56697613% Evicted Items: 14298450 Evicted Bytes: 2988376050 Utilization: 0 
+Progress: 218365953 Rate: 7.699865466 MB/s Hit Rate: 84.58091168% Evicted Items: 14348620 Evicted Bytes: 2998861580 Utilization: 0 
+Progress: 218890241 Rate: 7.725376634 MB/s Hit Rate: 84.59462468% Evicted Items: 14398790 Evicted Bytes: 3009347110 Utilization: 0 
+Progress: 219414529 Rate: 7.730138779 MB/s Hit Rate: 84.60815958% Evicted Items: 14448960 Evicted Bytes: 3019832640 Utilization: 0 
+Progress: 219938817 Rate: 7.745199674 MB/s Hit Rate: 84.62179318% Evicted Items: 14499130 Evicted Bytes: 3030318170 Utilization: 0 
+Progress: 220463105 Rate: 7.804563143 MB/s Hit Rate: 84.63537282% Evicted Items: 14549300 Evicted Bytes: 3040803700 Utilization: 0 
+Progress: 220987393 Rate: 7.825566937 MB/s Hit Rate: 84.64897898% Evicted Items: 14599470 Evicted Bytes: 3051289230 Utilization: 0 
+P: 20250000
+6
+ size 1745000 wss 3245500 L size 1483000 H size 2007000 E size 3245500
+5
+ size 1711000 wss 4466000 L size 1454000 H size 1968000 E size 4466000
+1
+ size 6880500 wss 6885500 L size 5848000 H size 7913000 E size 6885500
+2
+ size 3497000 wss 3502000 L size 2972000 H size 4022000 E size 3502000
+3
+ size 3514000 wss 5583500 L size 2986500 H size 4041500 E size 5583500
+4
+ size 2902500 wss 3300000 L size 2467000 H size 3338000 E size 3300000
+6
+low: 1483000 upper 2007000
+4
+low: 3950000 upper 5345000
+2
+low: 6922000 upper 9367000
+5
+low: 8376000 upper 11335000
+3
+low: 11362500 upper 15376500
+1
+low: 17210500 upper 23289500
+T : 20250000 i: 1
+A[i] : 6885500 i: 1
+T : 13364500 i: 3
+A[i] : 3506000 i: 3
+T : 9858500 i: 5
+A[i] : 1706500 i: 5
+T : 8152000 i: 2
+A[i] : 3502000 i: 2
+T : 4650000 i: 4
+A[i] : 2895500 i: 4
+last assignment 1754500 to  6 is 1754500
+dp
+1 , 6885500
+2 , 3502000
+3 , 3506000
+4 , 2895500
+5 , 1706500
+6 , 1754500
+6 add 9500 and set objects to: 1754500
+5 remove 4500 and set objects to: 1706500
+1 add 5000 and set objects to: 6885500
+2 add 5000 and set objects to: 3502000
+3 remove 8000 and set objects to: 3506000
+4 remove 7000 and set objects to: 2895500
+Progress: 221511681 Rate: 0.4389802267 MB/s Hit Rate: 84.66237175% Evicted Items: 14649640 Evicted Bytes: 3061774760 Utilization: 0 
+Progress: 222035969 Rate: 8.004811372 MB/s Hit Rate: 84.67600078% Evicted Items: 14699810 Evicted Bytes: 3072260290 Utilization: 0 
+Progress: 222560257 Rate: 7.803476964 MB/s Hit Rate: 84.68945866% Evicted Items: 14749980 Evicted Bytes: 3082745820 Utilization: 0 
+Progress: 223084545 Rate: 7.6854652 MB/s Hit Rate: 84.70272867% Evicted Items: 14805167 Evicted Bytes: 3094279903 Utilization: 0 
+Progress: 223608833 Rate: 7.65555292 MB/s Hit Rate: 84.71592034% Evicted Items: 14855337 Evicted Bytes: 3104765433 Utilization: 0 
+Progress: 224133121 Rate: 7.769623786 MB/s Hit Rate: 84.72907172% Evicted Items: 14905507 Evicted Bytes: 3115250963 Utilization: 0 
+Progress: 224657409 Rate: 7.773299045 MB/s Hit Rate: 84.74217819% Evicted Items: 14955677 Evicted Bytes: 3125736493 Utilization: 0 
+Progress: 225181697 Rate: 7.856022827 MB/s Hit Rate: 84.75538527% Evicted Items: 15005847 Evicted Bytes: 3136222023 Utilization: 0 
+Progress: 225705985 Rate: 7.713523705 MB/s Hit Rate: 84.76843707% Evicted Items: 15056017 Evicted Bytes: 3146707553 Utilization: 0 
+Progress: 226230273 Rate: 7.773975159 MB/s Hit Rate: 84.78130372% Evicted Items: 15106187 Evicted Bytes: 3157193083 Utilization: 0 
+Progress: 226754561 Rate: 7.892397906 MB/s Hit Rate: 84.79414923% Evicted Items: 15156357 Evicted Bytes: 3167678613 Utilization: 0 
+Progress: 227278849 Rate: 7.780352833 MB/s Hit Rate: 84.80695573% Evicted Items: 15206527 Evicted Bytes: 3178164143 Utilization: 0 
+P: 20250000
+6
+ size 1754500 wss 3269000 L size 1491000 H size 2018000 E size 3269000
+5
+ size 1706500 wss 4532500 L size 1450500 H size 1962500 E size 4532500
+1
+ size 6885500 wss 6902000 L size 5852500 H size 7918500 E size 6902000
+2
+ size 3502000 wss 3490000 L size 2976500 H size 4027500 E size 3490000
+3
+ size 3506000 wss 5636000 L size 2980000 H size 4032000 E size 5636000
+4
+ size 2895500 wss 3308000 L size 2461000 H size 3330000 E size 3308000
+6
+low: 1491000 upper 2018000
+4
+low: 3952000 upper 5348000
+2
+low: 6928500 upper 9375500
+5
+low: 8379000 upper 11338000
+3
+low: 11359000 upper 15370000
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6902000 i: 1
+T : 13348000 i: 3
+A[i] : 3521000 i: 3
+T : 9827000 i: 5
+A[i] : 1706000 i: 5
+T : 8121000 i: 2
+A[i] : 3490000 i: 2
+T : 4631000 i: 4
+A[i] : 2896000 i: 4
+last assignment 1735000 to  6 is 1735000
+dp
+1 , 6902000
+2 , 3490000
+3 , 3521000
+4 , 2896000
+5 , 1706000
+6 , 1735000
+6 remove 19500 and set objects to: 1735000
+5 remove 500 and set objects to: 1706000
+1 add 16500 and set objects to: 6902000
+2 remove 12000 and set objects to: 3490000
+3 add 15000 and set objects to: 3521000
+4 add 500 and set objects to: 2896000
+Progress: 227540993 Rate: 0.2283039705 MB/s Hit Rate: 84.81329289% Evicted Items: 15231612 Evicted Bytes: 3183406908 Utilization: 0 
+Progress: 228065281 Rate: 7.753454004 MB/s Hit Rate: 84.82599149% Evicted Items: 15281782 Evicted Bytes: 3193892438 Utilization: 0 
+Progress: 228589569 Rate: 7.838642533 MB/s Hit Rate: 84.83876526% Evicted Items: 15331952 Evicted Bytes: 3204377968 Utilization: 0 
+Progress: 229113857 Rate: 7.848378015 MB/s Hit Rate: 84.8515229% Evicted Items: 15382122 Evicted Bytes: 3214863498 Utilization: 0 
+Progress: 229638145 Rate: 7.62785308 MB/s Hit Rate: 84.86410646% Evicted Items: 15437309 Evicted Bytes: 3226397581 Utilization: 0 
+Progress: 230162433 Rate: 7.808627357 MB/s Hit Rate: 84.8766857% Evicted Items: 15487479 Evicted Bytes: 3236883111 Utilization: 0 
+Progress: 230686721 Rate: 7.746037035 MB/s Hit Rate: 84.88904346% Evicted Items: 15537649 Evicted Bytes: 3247368641 Utilization: 0 
+Progress: 231211009 Rate: 7.815926137 MB/s Hit Rate: 84.90146412% Evicted Items: 15587819 Evicted Bytes: 3257854171 Utilization: 0 
+Progress: 231735297 Rate: 7.821208243 MB/s Hit Rate: 84.91392999% Evicted Items: 15637989 Evicted Bytes: 3268339701 Utilization: 0 
+Progress: 232259585 Rate: 7.726273132 MB/s Hit Rate: 84.92626294% Evicted Items: 15688159 Evicted Bytes: 3278825231 Utilization: 0 
+Progress: 232783873 Rate: 7.838175549 MB/s Hit Rate: 84.93846086% Evicted Items: 15738329 Evicted Bytes: 3289310761 Utilization: 0 
+Progress: 233308161 Rate: 7.715545563 MB/s Hit Rate: 84.95077197% Evicted Items: 15788499 Evicted Bytes: 3299796291 Utilization: 0 
+P: 20250000
+6
+ size 1735000 wss 3303000 L size 1474500 H size 1995500 E size 3303000
+5
+ size 1706000 wss 4587500 L size 1450000 H size 1962000 E size 4587500
+1
+ size 6902000 wss 6911500 L size 5866500 H size 7937500 E size 6911500
+2
+ size 3490000 wss 3488000 L size 2966500 H size 4013500 E size 3488000
+3
+ size 3521000 wss 5665500 L size 2992500 H size 4049500 E size 5665500
+4
+ size 2896000 wss 3317500 L size 2461500 H size 3330500 E size 3317500
+6
+low: 1474500 upper 1995500
+4
+low: 3936000 upper 5326000
+2
+low: 6902500 upper 9339500
+5
+low: 8352500 upper 11301500
+3
+low: 11345000 upper 15351000
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6911500 i: 1
+T : 13338500 i: 3
+A[i] : 3493500 i: 3
+T : 9845000 i: 5
+A[i] : 1703000 i: 5
+T : 8142000 i: 2
+A[i] : 3488000 i: 2
+T : 4654000 i: 4
+A[i] : 2910500 i: 4
+last assignment 1743500 to  6 is 1743500
+dp
+1 , 6911500
+2 , 3488000
+3 , 3493500
+4 , 2910500
+5 , 1703000
+6 , 1743500
+6 add 8500 and set objects to: 1743500
+5 remove 3000 and set objects to: 1703000
+1 add 9500 and set objects to: 6911500
+2 remove 2000 and set objects to: 3488000
+3 remove 27500 and set objects to: 3493500
+4 add 14500 and set objects to: 2910500
+Progress: 233570305 Rate: 0.2346066119 MB/s Hit Rate: 84.95679399% Evicted Items: 15813584 Evicted Bytes: 3305039056 Utilization: 0 
+Progress: 234094593 Rate: 7.85656284 MB/s Hit Rate: 84.96897741% Evicted Items: 15863754 Evicted Bytes: 3315524586 Utilization: 0 
+Progress: 234618881 Rate: 7.789131189 MB/s Hit Rate: 84.9811132% Evicted Items: 15913924 Evicted Bytes: 3326010116 Utilization: 0 
+Progress: 235143169 Rate: 7.733130267 MB/s Hit Rate: 84.9930928% Evicted Items: 15964094 Evicted Bytes: 3336495646 Utilization: 0 
+Progress: 235667457 Rate: 7.777580119 MB/s Hit Rate: 85.00504075% Evicted Items: 16014264 Evicted Bytes: 3346981176 Utilization: 0 
+Progress: 236191745 Rate: 7.767578106 MB/s Hit Rate: 85.01706774% Evicted Items: 16064434 Evicted Bytes: 3357466706 Utilization: 0 
+Progress: 236716033 Rate: 7.852774668 MB/s Hit Rate: 85.02909131% Evicted Items: 16114604 Evicted Bytes: 3367952236 Utilization: 0 
+Progress: 237240321 Rate: 7.707697147 MB/s Hit Rate: 85.04090578% Evicted Items: 16164774 Evicted Bytes: 3378437766 Utilization: 0 
+Progress: 237764609 Rate: 7.738502842 MB/s Hit Rate: 85.05280904% Evicted Items: 16214944 Evicted Bytes: 3388923296 Utilization: 0 
+Progress: 238288897 Rate: 7.69985736 MB/s Hit Rate: 85.06457808% Evicted Items: 16265114 Evicted Bytes: 3399408826 Utilization: 0 
+Progress: 238813185 Rate: 7.735316592 MB/s Hit Rate: 85.0760195% Evicted Items: 16315284 Evicted Bytes: 3409894356 Utilization: 0 
+Progress: 239337473 Rate: 7.46315048 MB/s Hit Rate: 85.08757751% Evicted Items: 16370471 Evicted Bytes: 3421428439 Utilization: 0 
+P: 20250000
+6
+ size 1743500 wss 3344500 L size 1481500 H size 2005500 E size 3344500
+5
+ size 1703000 wss 4642000 L size 1447500 H size 1958500 E size 4642000
+1
+ size 6911500 wss 6926500 L size 5874500 H size 7948500 E size 6926500
+2
+ size 3488000 wss 3490500 L size 2964500 H size 4011500 E size 3490500
+3
+ size 3493500 wss 5697000 L size 2969000 H size 4018000 E size 5697000
+4
+ size 2910500 wss 3315500 L size 2473500 H size 3347500 E size 3315500
+4
+low: 2473500 upper 3347500
+6
+low: 3955000 upper 5353000
+2
+low: 6919500 upper 9364500
+5
+low: 8367000 upper 11323000
+3
+low: 11336000 upper 15341000
+1
+low: 17210500 upper 23289500
+T : 20250000 i: 1
+A[i] : 6926500 i: 1
+T : 13323500 i: 3
+A[i] : 3484000 i: 3
+T : 9839500 i: 5
+A[i] : 1703000 i: 5
+T : 8136500 i: 2
+A[i] : 3490500 i: 2
+T : 4646000 i: 6
+A[i] : 1745500 i: 6
+last assignment 2900500 to  4 is 2900500
+dp
+1 , 6926500
+2 , 3490500
+3 , 3484000
+4 , 2900500
+5 , 1703000
+6 , 1745500
+6 add 2000 and set objects to: 1745500
+5 remove 0 and set objects to: 1703000
+1 add 15000 and set objects to: 6926500
+2 add 2500 and set objects to: 3490500
+3 remove 9500 and set objects to: 3484000
+4 remove 10000 and set objects to: 2900500
+Progress: 239599617 Rate: 0.2298311194 MB/s Hit Rate: 85.09329414% Evicted Items: 16395556 Evicted Bytes: 3426671204 Utilization: 0 
+Progress: 240123905 Rate: 7.105107323 MB/s Hit Rate: 85.10489984% Evicted Items: 16445726 Evicted Bytes: 3437156734 Utilization: 0 
+Progress: 240648193 Rate: 7.288259037 MB/s Hit Rate: 85.11663532% Evicted Items: 16495896 Evicted Bytes: 3447642264 Utilization: 0 
+Progress: 241172481 Rate: 7.508065407 MB/s Hit Rate: 85.12823395% Evicted Items: 16546066 Evicted Bytes: 3458127794 Utilization: 0 
+Progress: 241696769 Rate: 8.18420417 MB/s Hit Rate: 85.13971399% Evicted Items: 16596236 Evicted Bytes: 3468613324 Utilization: 0 
+Progress: 242221057 Rate: 8.219924826 MB/s Hit Rate: 85.15115837% Evicted Items: 16646406 Evicted Bytes: 3479098854 Utilization: 0 
+Progress: 242745345 Rate: 8.220468295 MB/s Hit Rate: 85.16253478% Evicted Items: 16696576 Evicted Bytes: 3489584384 Utilization: 0 
+Progress: 243269633 Rate: 8.136544013 MB/s Hit Rate: 85.17375691% Evicted Items: 16746746 Evicted Bytes: 3500069914 Utilization: 0 
+Progress: 243793921 Rate: 8.147606827 MB/s Hit Rate: 85.18487951% Evicted Items: 16796916 Evicted Bytes: 3510555444 Utilization: 0 
+Progress: 244318209 Rate: 7.932666376 MB/s Hit Rate: 85.19605956% Evicted Items: 16847086 Evicted Bytes: 3521040974 Utilization: 0 
+Progress: 244842497 Rate: 8.118424992 MB/s Hit Rate: 85.20730405% Evicted Items: 16897256 Evicted Bytes: 3531526504 Utilization: 0 
+Progress: 245366785 Rate: 8.105902932 MB/s Hit Rate: 85.21846788% Evicted Items: 16947426 Evicted Bytes: 3542012034 Utilization: 0 
+P: 20250000
+6
+ size 1745500 wss 3373000 L size 1483500 H size 2007500 E size 3373000
+5
+ size 1703000 wss 4705000 L size 1447500 H size 1958500 E size 4705000
+1
+ size 6926500 wss 6911000 L size 5887500 H size 7965500 E size 6911000
+2
+ size 3490500 wss 3487000 L size 2966500 H size 4014500 E size 3487000
+3
+ size 3484000 wss 5730000 L size 2961000 H size 4007000 E size 5730000
+4
+ size 2900500 wss 3330000 L size 2465000 H size 3336000 E size 3330000
+4
+low: 2465000 upper 3336000
+6
+low: 3948500 upper 5343500
+2
+low: 6915000 upper 9358000
+5
+low: 8362500 upper 11316500
+3
+low: 11323500 upper 15323500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6911000 i: 1
+T : 13339000 i: 3
+A[i] : 3496000 i: 3
+T : 9843000 i: 5
+A[i] : 1709500 i: 5
+T : 8133500 i: 2
+A[i] : 3487000 i: 2
+T : 4646500 i: 6
+A[i] : 1743500 i: 6
+last assignment 2903000 to  4 is 2903000
+dp
+1 , 6911000
+2 , 3487000
+3 , 3496000
+4 , 2903000
+5 , 1709500
+6 , 1743500
+6 remove 2000 and set objects to: 1743500
+5 add 6500 and set objects to: 1709500
+1 remove 15500 and set objects to: 6911000
+2 remove 3500 and set objects to: 3487000
+3 add 12000 and set objects to: 3496000
+4 add 2500 and set objects to: 2903000
+Progress: 245628929 Rate: 0.2108992268 MB/s Hit Rate: 85.22408118% Evicted Items: 16972511 Evicted Bytes: 3547254799 Utilization: 0 
+Progress: 245891073 Rate: 4.58231311 MB/s Hit Rate: 85.22953733% Evicted Items: 16997596 Evicted Bytes: 3552497564 Utilization: 0 
+Progress: 246153217 Rate: 4.560078023 MB/s Hit Rate: 85.23506676% Evicted Items: 17022681 Evicted Bytes: 3557740329 Utilization: 0 
+Progress: 246415361 Rate: 6.369561532 MB/s Hit Rate: 85.24061649% Evicted Items: 17047766 Evicted Bytes: 3562983094 Utilization: 0 
+Progress: 246939649 Rate: 7.7809286 MB/s Hit Rate: 85.25149351% Evicted Items: 17097936 Evicted Bytes: 3573468624 Utilization: 0 
+Progress: 247463937 Rate: 8.274826077 MB/s Hit Rate: 85.26243557% Evicted Items: 17148106 Evicted Bytes: 3583954154 Utilization: 0 
+Progress: 247988225 Rate: 8.140726662 MB/s Hit Rate: 85.27331927% Evicted Items: 17198276 Evicted Bytes: 3594439684 Utilization: 0 
+Progress: 248512513 Rate: 8.192681974 MB/s Hit Rate: 85.28423229% Evicted Items: 17248446 Evicted Bytes: 3604925214 Utilization: 0 
+Progress: 249036801 Rate: 8.266755532 MB/s Hit Rate: 85.29491103% Evicted Items: 17298616 Evicted Bytes: 3615410744 Utilization: 0 
+Progress: 249561089 Rate: 8.266634553 MB/s Hit Rate: 85.30557697% Evicted Items: 17348786 Evicted Bytes: 3625896274 Utilization: 0 
+Progress: 250085377 Rate: 8.238602517 MB/s Hit Rate: 85.31619538% Evicted Items: 17398956 Evicted Bytes: 3636381804 Utilization: 0 
+Progress: 250609665 Rate: 8.15436092 MB/s Hit Rate: 85.32666801% Evicted Items: 17449126 Evicted Bytes: 3646867334 Utilization: 0 
+Progress: 251133953 Rate: 7.843906169 MB/s Hit Rate: 85.3372323% Evicted Items: 17499296 Evicted Bytes: 3657352864 Utilization: 0 
+P: 20250000
+6
+ size 1743500 wss 3412500 L size 1481500 H size 2005500 E size 3412500
+5
+ size 1709500 wss 4783000 L size 1453000 H size 1966000 E size 4783000
+1
+ size 6911000 wss 6932000 L size 5874000 H size 7948000 E size 6932000
+2
+ size 3487000 wss 3491500 L size 2963500 H size 4010500 E size 3491500
+3
+ size 3496000 wss 5774500 L size 2971500 H size 4020500 E size 5774500
+4
+ size 2903000 wss 3338000 L size 2467500 H size 3338500 E size 3338000
+4
+low: 2467500 upper 3338500
+6
+low: 3949000 upper 5344000
+2
+low: 6912500 upper 9354500
+5
+low: 8365500 upper 11320500
+3
+low: 11337000 upper 15341000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6932000 i: 1
+T : 13318000 i: 3
+A[i] : 3476500 i: 3
+T : 9841500 i: 5
+A[i] : 1711000 i: 5
+T : 8130500 i: 2
+A[i] : 3491500 i: 2
+T : 4639000 i: 6
+A[i] : 1743500 i: 6
+last assignment 2895500 to  4 is 2895500
+dp
+1 , 6932000
+2 , 3491500
+3 , 3476500
+4 , 2895500
+5 , 1711000
+6 , 1743500
+6 remove 0 and set objects to: 1743500
+5 add 1500 and set objects to: 1711000
+1 add 21000 and set objects to: 6932000
+2 add 4500 and set objects to: 3491500
+3 remove 19500 and set objects to: 3476500
+4 remove 7500 and set objects to: 2895500
+Progress: 251658241 Rate: 0.4565353464 MB/s Hit Rate: 85.34762383% Evicted Items: 17549466 Evicted Bytes: 3667838394 Utilization: 0 
+Progress: 252182529 Rate: 8.256966537 MB/s Hit Rate: 85.35810974% Evicted Items: 17599636 Evicted Bytes: 3678323924 Utilization: 0 
+Progress: 252706817 Rate: 8.180253059 MB/s Hit Rate: 85.36861784% Evicted Items: 17649806 Evicted Bytes: 3688809454 Utilization: 0 
+Progress: 253231105 Rate: 8.315695081 MB/s Hit Rate: 85.3789604% Evicted Items: 17699976 Evicted Bytes: 3699294984 Utilization: 0 
+Progress: 253755393 Rate: 8.327294335 MB/s Hit Rate: 85.38926495% Evicted Items: 17750146 Evicted Bytes: 3709780514 Utilization: 0 
+Progress: 254279681 Rate: 8.252445958 MB/s Hit Rate: 85.39962257% Evicted Items: 17800316 Evicted Bytes: 3720266044 Utilization: 0 
+Progress: 254803969 Rate: 8.061070472 MB/s Hit Rate: 85.40981002% Evicted Items: 17855503 Evicted Bytes: 3731800127 Utilization: 0 
+Progress: 255328257 Rate: 8.211847448 MB/s Hit Rate: 85.41998893% Evicted Items: 17905673 Evicted Bytes: 3742285657 Utilization: 0 
+Progress: 255852545 Rate: 8.094985112 MB/s Hit Rate: 85.43010931% Evicted Items: 17955843 Evicted Bytes: 3752771187 Utilization: 0 
+Progress: 256376833 Rate: 8.171541448 MB/s Hit Rate: 85.44018127% Evicted Items: 18006013 Evicted Bytes: 3763256717 Utilization: 0 
+Progress: 256901121 Rate: 8.208285214 MB/s Hit Rate: 85.45024327% Evicted Items: 18056183 Evicted Bytes: 3773742247 Utilization: 0 
+Progress: 257425409 Rate: 8.020098541 MB/s Hit Rate: 85.46045968% Evicted Items: 18106353 Evicted Bytes: 3784227777 Utilization: 0 
+P: 20250000
+6
+ size 1743500 wss 3450500 L size 1481500 H size 2005500 E size 3450500
+5
+ size 1711000 wss 4834500 L size 1454000 H size 1968000 E size 4834500
+1
+ size 6932000 wss 6944500 L size 5892000 H size 7972000 E size 6944500
+2
+ size 3491500 wss 3485500 L size 2967500 H size 4015500 E size 3485500
+3
+ size 3476500 wss 5821500 L size 2955000 H size 3998000 E size 5821500
+4
+ size 2895500 wss 3343500 L size 2461000 H size 3330000 E size 3343500
+4
+low: 2461000 upper 3330000
+6
+low: 3942500 upper 5335500
+2
+low: 6910000 upper 9351000
+5
+low: 8364000 upper 11319000
+3
+low: 11319000 upper 15317000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6944500 i: 1
+T : 13305500 i: 3
+A[i] : 3472500 i: 3
+T : 9833000 i: 5
+A[i] : 1699500 i: 5
+T : 8133500 i: 2
+A[i] : 3485500 i: 2
+T : 4648000 i: 6
+A[i] : 1742500 i: 6
+last assignment 2905500 to  4 is 2905500
+dp
+1 , 6944500
+2 , 3485500
+3 , 3472500
+4 , 2905500
+5 , 1699500
+6 , 1742500
+6 remove 1000 and set objects to: 1742500
+5 remove 11500 and set objects to: 1699500
+1 add 12500 and set objects to: 6944500
+2 remove 6000 and set objects to: 3485500
+3 remove 4000 and set objects to: 3472500
+4 add 10000 and set objects to: 2905500
+Progress: 257687553 Rate: 0.2240480708 MB/s Hit Rate: 85.46552881% Evicted Items: 18131438 Evicted Bytes: 3789470542 Utilization: 0 
+Progress: 258211841 Rate: 8.159097582 MB/s Hit Rate: 85.47550724% Evicted Items: 18181608 Evicted Bytes: 3799956072 Utilization: 0 
+Progress: 258736129 Rate: 8.20243918 MB/s Hit Rate: 85.4855434% Evicted Items: 18231778 Evicted Bytes: 3810441602 Utilization: 0 
+Progress: 259260417 Rate: 8.136303693 MB/s Hit Rate: 85.4954761% Evicted Items: 18281948 Evicted Bytes: 3820927132 Utilization: 0 
+Progress: 259784705 Rate: 8.068807726 MB/s Hit Rate: 85.50543723% Evicted Items: 18332118 Evicted Bytes: 3831412662 Utilization: 0 
+Progress: 260308993 Rate: 8.199876742 MB/s Hit Rate: 85.51540432% Evicted Items: 18382288 Evicted Bytes: 3841898192 Utilization: 0 
+Progress: 260833281 Rate: 8.206068494 MB/s Hit Rate: 85.52526004% Evicted Items: 18432458 Evicted Bytes: 3852383722 Utilization: 0 
+Progress: 261357569 Rate: 8.388489841 MB/s Hit Rate: 85.53516843% Evicted Items: 18482628 Evicted Bytes: 3862869252 Utilization: 0 
+Progress: 261881857 Rate: 8.23938248 MB/s Hit Rate: 85.54503944% Evicted Items: 18532798 Evicted Bytes: 3873354782 Utilization: 0 
+Progress: 262406145 Rate: 8.102194381 MB/s Hit Rate: 85.55476849% Evicted Items: 18582968 Evicted Bytes: 3883840312 Utilization: 0 
+Progress: 262930433 Rate: 8.303796797 MB/s Hit Rate: 85.56434844% Evicted Items: 18633138 Evicted Bytes: 3894325842 Utilization: 0 
+P: 20250000
+6
+ size 1742500 wss 3472500 L size 1481000 H size 2004000 E size 3472500
+5
+ size 1699500 wss 4892500 L size 1444500 H size 1954500 E size 4892500
+1
+ size 6944500 wss 6938000 L size 5902500 H size 7986500 E size 6938000
+2
+ size 3485500 wss 3482000 L size 2962500 H size 4008500 E size 3482000
+3
+ size 3472500 wss 5856500 L size 2951500 H size 3993500 E size 5856500
+4
+ size 2905500 wss 3347500 L size 2469500 H size 3341500 E size 3347500
+4
+low: 2469500 upper 3341500
+6
+low: 3950500 upper 5345500
+2
+low: 6913000 upper 9354000
+5
+low: 8357500 upper 11308500
+3
+low: 11309000 upper 15302000
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6930000 i: 1
+T : 13320000 i: 3
+A[i] : 3530500 i: 3
+T : 9789500 i: 5
+A[i] : 1699500 i: 5
+T : 8090000 i: 2
+A[i] : 3482000 i: 2
+T : 4608000 i: 6
+A[i] : 1727500 i: 6
+last assignment 2880500 to  4 is 2880500
+dp
+1 , 6930000
+2 , 3482000
+3 , 3530500
+4 , 2880500
+5 , 1699500
+6 , 1727500
+6 remove 15000 and set objects to: 1727500
+5 remove 0 and set objects to: 1699500
+1 remove 14500 and set objects to: 6930000
+2 remove 3500 and set objects to: 3482000
+3 add 58000 and set objects to: 3530500
+4 remove 25000 and set objects to: 2880500
+Progress: 263454721 Rate: 0.4330296557 MB/s Hit Rate: 85.57389368% Evicted Items: 18683308 Evicted Bytes: 3904811372 Utilization: 0 
+Progress: 263979009 Rate: 7.766895154 MB/s Hit Rate: 85.58358284% Evicted Items: 18733478 Evicted Bytes: 3915296902 Utilization: 0 
+Progress: 264503297 Rate: 8.090944509 MB/s Hit Rate: 85.59313265% Evicted Items: 18783648 Evicted Bytes: 3925782432 Utilization: 0 
+Progress: 265027585 Rate: 8.097281976 MB/s Hit Rate: 85.60271447% Evicted Items: 18833818 Evicted Bytes: 3936267962 Utilization: 0 
+Progress: 265551873 Rate: 8.072173134 MB/s Hit Rate: 85.61216281% Evicted Items: 18883988 Evicted Bytes: 3946753492 Utilization: 0 
+Progress: 266076161 Rate: 7.342287113 MB/s Hit Rate: 85.62166712% Evicted Items: 18934158 Evicted Bytes: 3957239022 Utilization: 0 
+Progress: 266338305 Rate: 6.985791299 MB/s Hit Rate: 85.62642195% Evicted Items: 18959243 Evicted Bytes: 3962481787 Utilization: 0 
+Progress: 266862593 Rate: 7.089607729 MB/s Hit Rate: 85.6357833% Evicted Items: 19009413 Evicted Bytes: 3972967317 Utilization: 0 
+Progress: 267386881 Rate: 8.214592894 MB/s Hit Rate: 85.64508214% Evicted Items: 19059583 Evicted Bytes: 3983452847 Utilization: 0 
+Progress: 267911169 Rate: 8.078758436 MB/s Hit Rate: 85.65423521% Evicted Items: 19109753 Evicted Bytes: 3993938377 Utilization: 0 
+Progress: 268435457 Rate: 8.247065737 MB/s Hit Rate: 85.66342741% Evicted Items: 19159923 Evicted Bytes: 4004423907 Utilization: 0 
+Progress: 268959745 Rate: 8.250999113 MB/s Hit Rate: 85.67265962% Evicted Items: 19210093 Evicted Bytes: 4014909437 Utilization: 0 
+P: 20250000
+6
+ size 1727500 wss 3492500 L size 1468000 H size 1987000 E size 3492500
+5
+ size 1699500 wss 4950500 L size 1444500 H size 1954500 E size 4950500
+1
+ size 6930000 wss 6927000 L size 5890500 H size 7969500 E size 6927000
+2
+ size 3482000 wss 3481000 L size 2959500 H size 4004500 E size 3481000
+3
+ size 3530500 wss 5879500 L size 3000500 H size 4060500 E size 5879500
+4
+ size 2880500 wss 3361500 L size 2448000 H size 3313000 E size 3361500
+4
+low: 2448000 upper 3313000
+2
+low: 5407500 upper 7317500
+6
+low: 6875500 upper 9304500
+5
+low: 8320000 upper 11259000
+3
+low: 11320500 upper 15319500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6927000 i: 1
+T : 13323000 i: 3
+A[i] : 3524500 i: 3
+T : 9798500 i: 5
+A[i] : 1705500 i: 5
+T : 8093000 i: 6
+A[i] : 1736000 i: 6
+T : 6357000 i: 2
+A[i] : 3481000 i: 2
+last assignment 2876000 to  4 is 2876000
+dp
+1 , 6927000
+2 , 3481000
+3 , 3524500
+4 , 2876000
+5 , 1705500
+6 , 1736000
+6 add 8500 and set objects to: 1736000
+5 add 6000 and set objects to: 1705500
+1 remove 3000 and set objects to: 6927000
+2 remove 1000 and set objects to: 3481000
+3 remove 6000 and set objects to: 3524500
+4 remove 4500 and set objects to: 2876000
+Progress: 269484033 Rate: 0.4398318597 MB/s Hit Rate: 85.68178689% Evicted Items: 19260263 Evicted Bytes: 4025394967 Utilization: 0 
+Progress: 269746177 Rate: 6.169896112 MB/s Hit Rate: 85.68634241% Evicted Items: 19285348 Evicted Bytes: 4030637732 Utilization: 0 
+Progress: 270270465 Rate: 7.168623546 MB/s Hit Rate: 85.69546726% Evicted Items: 19335518 Evicted Bytes: 4041123262 Utilization: 0 
+Progress: 270532609 Rate: 6.908146412 MB/s Hit Rate: 85.70004397% Evicted Items: 19360603 Evicted Bytes: 4046366027 Utilization: 0 
+Progress: 271056897 Rate: 7.114417856 MB/s Hit Rate: 85.70911253% Evicted Items: 19415790 Evicted Bytes: 4057900110 Utilization: 0 
+Progress: 271581185 Rate: 7.347203952 MB/s Hit Rate: 85.71805181% Evicted Items: 19465960 Evicted Bytes: 4068385640 Utilization: 0 
+Progress: 272105473 Rate: 7.102444408 MB/s Hit Rate: 85.72702095% Evicted Items: 19516130 Evicted Bytes: 4078871170 Utilization: 0 
+Progress: 272629761 Rate: 7.183519075 MB/s Hit Rate: 85.73600109% Evicted Items: 19566300 Evicted Bytes: 4089356700 Utilization: 0 
+Progress: 273154049 Rate: 7.351403061 MB/s Hit Rate: 85.74494858% Evicted Items: 19616470 Evicted Bytes: 4099842230 Utilization: 0 
+Progress: 273678337 Rate: 7.409869131 MB/s Hit Rate: 85.75375217% Evicted Items: 19666640 Evicted Bytes: 4110327760 Utilization: 0 
+Progress: 273940481 Rate: 6.817254229 MB/s Hit Rate: 85.75817528% Evicted Items: 19691725 Evicted Bytes: 4115570525 Utilization: 0 
+Progress: 274464769 Rate: 7.597161786 MB/s Hit Rate: 85.76695352% Evicted Items: 19741895 Evicted Bytes: 4126056055 Utilization: 0 
+Progress: 274989057 Rate: 8.148948725 MB/s Hit Rate: 85.77576993% Evicted Items: 19792065 Evicted Bytes: 4136541585 Utilization: 0 
+P: 20250000
+6
+ size 1736000 wss 3535000 L size 1475500 H size 1996500 E size 3535000
+5
+ size 1705500 wss 5000500 L size 1449500 H size 1961500 E size 5000500
+1
+ size 6927000 wss 6935500 L size 5887500 H size 7966500 E size 6935500
+2
+ size 3481000 wss 3494000 L size 2958500 H size 4003500 E size 3494000
+3
+ size 3524500 wss 5918000 L size 2995500 H size 4053500 E size 5918000
+4
+ size 2876000 wss 3372000 L size 2444500 H size 3307500 E size 3372000
+4
+low: 2444500 upper 3307500
+2
+low: 5403000 upper 7311000
+6
+low: 6878500 upper 9307500
+5
+low: 8328000 upper 11269000
+3
+low: 11323500 upper 15322500
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6935500 i: 1
+T : 13314500 i: 3
+A[i] : 3522500 i: 3
+T : 9792000 i: 5
+A[i] : 1696000 i: 5
+T : 8096000 i: 6
+A[i] : 1736500 i: 6
+T : 6359500 i: 2
+A[i] : 3494000 i: 2
+last assignment 2865500 to  4 is 2865500
+dp
+1 , 6935500
+2 , 3494000
+3 , 3522500
+4 , 2865500
+5 , 1696000
+6 , 1736500
+6 add 500 and set objects to: 1736500
+5 remove 9500 and set objects to: 1696000
+1 add 8500 and set objects to: 6935500
+2 add 13000 and set objects to: 3494000
+3 remove 2000 and set objects to: 3522500
+4 remove 10500 and set objects to: 2865500
+Progress: 275513345 Rate: 0.452193002 MB/s Hit Rate: 85.78446277% Evicted Items: 19842235 Evicted Bytes: 4147027115 Utilization: 0 
+Progress: 276037633 Rate: 7.942957492 MB/s Hit Rate: 85.79304542% Evicted Items: 19892405 Evicted Bytes: 4157512645 Utilization: 0 
+Progress: 276561921 Rate: 8.129001513 MB/s Hit Rate: 85.80174378% Evicted Items: 19942575 Evicted Bytes: 4167998175 Utilization: 0 
+Progress: 277086209 Rate: 7.982902361 MB/s Hit Rate: 85.81030673% Evicted Items: 19992745 Evicted Bytes: 4178483705 Utilization: 0 
+Progress: 277348353 Rate: 5.69063894 MB/s Hit Rate: 85.8146754% Evicted Items: 20017830 Evicted Bytes: 4183726470 Utilization: 0 
+Progress: 277610497 Rate: 6.784156307 MB/s Hit Rate: 85.81903402% Evicted Items: 20042915 Evicted Bytes: 4188969235 Utilization: 0 
+Progress: 278134785 Rate: 7.976761347 MB/s Hit Rate: 85.82753821% Evicted Items: 20093085 Evicted Bytes: 4199454765 Utilization: 0 
+Progress: 278659073 Rate: 7.896641585 MB/s Hit Rate: 85.83616614% Evicted Items: 20148272 Evicted Bytes: 4210988848 Utilization: 0 
+Progress: 279183361 Rate: 8.396129938 MB/s Hit Rate: 85.84483223% Evicted Items: 20193425 Evicted Bytes: 4220425825 Utilization: 0 
+Progress: 279707649 Rate: 8.044754056 MB/s Hit Rate: 85.85337824% Evicted Items: 20248612 Evicted Bytes: 4231959908 Utilization: 0 
+Progress: 280231937 Rate: 8.459679636 MB/s Hit Rate: 85.8620161% Evicted Items: 20293765 Evicted Bytes: 4241396885 Utilization: 0 
+Progress: 280756225 Rate: 8.307237901 MB/s Hit Rate: 85.87055046% Evicted Items: 20343935 Evicted Bytes: 4251882415 Utilization: 0 
+Progress: 281280513 Rate: 8.007595561 MB/s Hit Rate: 85.87897408% Evicted Items: 20399122 Evicted Bytes: 4263416498 Utilization: 0 
+P: 20250000
+6
+ size 1736500 wss 3557000 L size 1476000 H size 1997000 E size 3557000
+5
+ size 1696000 wss 5071500 L size 1441500 H size 1950500 E size 5071500
+1
+ size 6935500 wss 6946500 L size 5895000 H size 7976000 E size 6946500
+2
+ size 3494000 wss 3469500 L size 2969500 H size 4018500 E size 3469500
+3
+ size 3522500 wss 5957500 L size 2994000 H size 4051000 E size 5957500
+4
+ size 2865500 wss 3383500 L size 2435500 H size 3295500 E size 3383500
+4
+low: 2435500 upper 3295500
+2
+low: 5405000 upper 7314000
+6
+low: 6881000 upper 9311000
+5
+low: 8322500 upper 11261500
+3
+low: 11316500 upper 15312500
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6946500 i: 1
+T : 13303500 i: 3
+A[i] : 3457500 i: 3
+T : 9846000 i: 5
+A[i] : 1706500 i: 5
+T : 8139500 i: 6
+A[i] : 1733000 i: 6
+T : 6406500 i: 2
+A[i] : 3469500 i: 2
+last assignment 2937000 to  4 is 2937000
+dp
+1 , 6946500
+2 , 3469500
+3 , 3457500
+4 , 2937000
+5 , 1706500
+6 , 1733000
+6 remove 3500 and set objects to: 1733000
+5 add 10500 and set objects to: 1706500
+1 add 11000 and set objects to: 6946500
+2 remove 24500 and set objects to: 3469500
+3 remove 65000 and set objects to: 3457500
+4 add 71500 and set objects to: 2937000
+Progress: 281542657 Rate: 0.2270596618 MB/s Hit Rate: 85.88314767% Evicted Items: 20424207 Evicted Bytes: 4268659263 Utilization: 0 
+Progress: 281804801 Rate: 6.503927982 MB/s Hit Rate: 85.88735181% Evicted Items: 20449292 Evicted Bytes: 4273902028 Utilization: 0 
+Progress: 282329089 Rate: 7.170371325 MB/s Hit Rate: 85.89572251% Evicted Items: 20499462 Evicted Bytes: 4284387558 Utilization: 0 
+Progress: 282591233 Rate: 6.497165965 MB/s Hit Rate: 85.89992523% Evicted Items: 20524547 Evicted Bytes: 4289630323 Utilization: 0 
+Progress: 283115521 Rate: 8.065517954 MB/s Hit Rate: 85.9082992% Evicted Items: 20574717 Evicted Bytes: 4300115853 Utilization: 0 
+Progress: 283639809 Rate: 7.917737468 MB/s Hit Rate: 85.91644442% Evicted Items: 20624887 Evicted Bytes: 4310601383 Utilization: 0 
+Progress: 284164097 Rate: 6.78042202 MB/s Hit Rate: 85.92472147% Evicted Items: 20675057 Evicted Bytes: 4321086913 Utilization: 0 
+Progress: 284426241 Rate: 3.010962322 MB/s Hit Rate: 85.92881761% Evicted Items: 20700142 Evicted Bytes: 4326329678 Utilization: 0 
+Progress: 284688385 Rate: 2.729242668 MB/s Hit Rate: 85.9329329% Evicted Items: 20725227 Evicted Bytes: 4331572443 Utilization: 0 
+Progress: 284950529 Rate: 4.184098838 MB/s Hit Rate: 85.93691218% Evicted Items: 20750312 Evicted Bytes: 4336815208 Utilization: 0 
+Progress: 285212673 Rate: 6.678291983 MB/s Hit Rate: 85.94098266% Evicted Items: 20775397 Evicted Bytes: 4342057973 Utilization: 0 
+Progress: 285736961 Rate: 7.843598854 MB/s Hit Rate: 85.94904523% Evicted Items: 20825567 Evicted Bytes: 4352543503 Utilization: 0 
+Progress: 286261249 Rate: 8.111207256 MB/s Hit Rate: 85.95716421% Evicted Items: 20875737 Evicted Bytes: 4363029033 Utilization: 0 
+Progress: 286785537 Rate: 8.248571207 MB/s Hit Rate: 85.96516423% Evicted Items: 20925907 Evicted Bytes: 4373514563 Utilization: 0 
+Progress: 287309825 Rate: 8.153472102 MB/s Hit Rate: 85.97310233% Evicted Items: 20976077 Evicted Bytes: 4384000093 Utilization: 0 
+P: 20250000
+6
+ size 1733000 wss 3597000 L size 1473000 H size 1993000 E size 3597000
+5
+ size 1706500 wss 5123500 L size 1450500 H size 1962500 E size 5123500
+1
+ size 6946500 wss 6951000 L size 5904500 H size 7988500 E size 6951000
+2
+ size 3469500 wss 3482000 L size 2949000 H size 3990000 E size 3482000
+3
+ size 3457500 wss 5982000 L size 2938500 H size 3976500 E size 5982000
+4
+ size 2937000 wss 3391500 L size 2496000 H size 3378000 E size 3391500
+4
+low: 2496000 upper 3378000
+2
+low: 5445000 upper 7368000
+6
+low: 6918000 upper 9361000
+5
+low: 8368500 upper 11323500
+3
+low: 11307000 upper 15300000
+1
+low: 17211500 upper 23288500
+T : 20250000 i: 1
+A[i] : 6951000 i: 1
+T : 13299000 i: 3
+A[i] : 3516000 i: 3
+T : 9783000 i: 5
+A[i] : 1687500 i: 5
+T : 8095500 i: 6
+A[i] : 1685000 i: 6
+T : 6410500 i: 2
+A[i] : 3482000 i: 2
+last assignment 2928500 to  4 is 2928500
+dp
+1 , 6951000
+2 , 3482000
+3 , 3516000
+4 , 2928500
+5 , 1687500
+6 , 1685000
+6 remove 48000 and set objects to: 1685000
+5 remove 19000 and set objects to: 1687500
+1 add 4500 and set objects to: 6951000
+2 add 12500 and set objects to: 3482000
+3 add 58500 and set objects to: 3516000
+4 remove 8500 and set objects to: 2928500
+Progress: 287571969 Rate: 0.2280532982 MB/s Hit Rate: 85.97711478% Evicted Items: 21001162 Evicted Bytes: 4389242858 Utilization: 0 
+Progress: 288096257 Rate: 8.34389521 MB/s Hit Rate: 85.98503793% Evicted Items: 21051332 Evicted Bytes: 4399728388 Utilization: 0 
+Progress: 288620545 Rate: 8.188148004 MB/s Hit Rate: 85.99293923% Evicted Items: 21106519 Evicted Bytes: 4411262471 Utilization: 0 
+Progress: 289144833 Rate: 8.334767896 MB/s Hit Rate: 86.00069532% Evicted Items: 21156689 Evicted Bytes: 4421748001 Utilization: 0 
+Progress: 289669121 Rate: 8.401993872 MB/s Hit Rate: 86.0085093% Evicted Items: 21206859 Evicted Bytes: 4432233531 Utilization: 0 
+Progress: 290193409 Rate: 8.428213044 MB/s Hit Rate: 86.01606416% Evicted Items: 21257029 Evicted Bytes: 4442719061 Utilization: 0 
+Progress: 290717697 Rate: 8.45604253 MB/s Hit Rate: 86.02365231% Evicted Items: 21307199 Evicted Bytes: 4453204591 Utilization: 0 
+Progress: 291241985 Rate: 8.000449602 MB/s Hit Rate: 86.03131683% Evicted Items: 21357369 Evicted Bytes: 4463690121 Utilization: 0 
+Progress: 291766273 Rate: 8.152353801 MB/s Hit Rate: 86.03911181% Evicted Items: 21412556 Evicted Bytes: 4475224204 Utilization: 0 
+Progress: 292290561 Rate: 8.343609213 MB/s Hit Rate: 86.0467543% Evicted Items: 21462726 Evicted Bytes: 4485709734 Utilization: 0 
+Progress: 292814849 Rate: 8.373863801 MB/s Hit Rate: 86.05433629% Evicted Items: 21512896 Evicted Bytes: 4496195264 Utilization: 0 
+Progress: 293339137 Rate: 8.383845026 MB/s Hit Rate: 86.0619372% Evicted Items: 21563066 Evicted Bytes: 4506680794 Utilization: 0 
+P: 20250000
+6
+ size 1685000 wss 3639500 L size 1432000 H size 1938000 E size 3639500
+5
+ size 1687500 wss 5169500 L size 1434000 H size 1941000 E size 5169500
+1
+ size 6951000 wss 6946000 L size 5908000 H size 7994000 E size 6946000
+2
+ size 3482000 wss 3482500 L size 2959500 H size 4004500 E size 3482500
+3
+ size 3516000 wss 6000000 L size 2988500 H size 4043500 E size 6000000
+4
+ size 2928500 wss 3407000 L size 2489000 H size 3368000 E size 3407000
+4
+low: 2489000 upper 3368000
+2
+low: 5448500 upper 7372500
+6
+low: 6880500 upper 9310500
+5
+low: 8314500 upper 11251500
+3
+low: 11303000 upper 15295000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6946000 i: 1
+T : 13304000 i: 3
+A[i] : 3510500 i: 3
+T : 9793500 i: 5
+A[i] : 1701500 i: 5
+T : 8092000 i: 6
+A[i] : 1685500 i: 6
+T : 6406500 i: 2
+A[i] : 3482500 i: 2
+last assignment 2924000 to  4 is 2924000
+dp
+1 , 6946000
+2 , 3482500
+3 , 3510500
+4 , 2924000
+5 , 1701500
+6 , 1685500
+6 add 500 and set objects to: 1685500
+5 add 14000 and set objects to: 1701500
+1 remove 5000 and set objects to: 6946000
+2 add 500 and set objects to: 3482500
+3 remove 5500 and set objects to: 3510500
+4 remove 4500 and set objects to: 2924000
+Progress: 293601281 Rate: 0.2273823073 MB/s Hit Rate: 86.06573752% Evicted Items: 21588151 Evicted Bytes: 4511923559 Utilization: 0 
+Progress: 294125569 Rate: 8.164789565 MB/s Hit Rate: 86.07337836% Evicted Items: 21638321 Evicted Bytes: 4522409089 Utilization: 0 
+Progress: 294649857 Rate: 8.308370981 MB/s Hit Rate: 86.08112166% Evicted Items: 21688491 Evicted Bytes: 4532894619 Utilization: 0 
+Progress: 295174145 Rate: 8.25473589 MB/s Hit Rate: 86.08863824% Evicted Items: 21738661 Evicted Bytes: 4543380149 Utilization: 0 
+Progress: 295698433 Rate: 8.141415664 MB/s Hit Rate: 86.09616604% Evicted Items: 21788831 Evicted Bytes: 4553865679 Utilization: 0 
+Progress: 296222721 Rate: 8.376449492 MB/s Hit Rate: 86.10373539% Evicted Items: 21839001 Evicted Bytes: 4564351209 Utilization: 0 
+Progress: 296747009 Rate: 8.306710258 MB/s Hit Rate: 86.111186% Evicted Items: 21889171 Evicted Bytes: 4574836739 Utilization: 0 
+Progress: 297271297 Rate: 8.06186995 MB/s Hit Rate: 86.11868231% Evicted Items: 21944358 Evicted Bytes: 4586370822 Utilization: 0 
+Progress: 297795585 Rate: 8.495565058 MB/s Hit Rate: 86.12621804% Evicted Items: 21994528 Evicted Bytes: 4596856352 Utilization: 0 
+Progress: 298319873 Rate: 8.423701302 MB/s Hit Rate: 86.13367701% Evicted Items: 22044698 Evicted Bytes: 4607341882 Utilization: 0 
+Progress: 298844161 Rate: 8.378886612 MB/s Hit Rate: 86.14108002% Evicted Items: 22094868 Evicted Bytes: 4617827412 Utilization: 0 
+Progress: 299368449 Rate: 8.165870343 MB/s Hit Rate: 86.1484237% Evicted Items: 22145038 Evicted Bytes: 4628312942 Utilization: 0 
+P: 20250000
+6
+ size 1685500 wss 3658000 L size 1432500 H size 1938500 E size 3658000
+5
+ size 1701500 wss 5228000 L size 1446000 H size 1957000 E size 5228000
+1
+ size 6946000 wss 6944500 L size 5904000 H size 7988000 E size 6944500
+2
+ size 3482500 wss 3463500 L size 2960000 H size 4005000 E size 3463500
+3
+ size 3510500 wss 6025500 L size 2983500 H size 4037500 E size 6025500
+4
+ size 2924000 wss 3393500 L size 2485000 H size 3363000 E size 3393500
+4
+low: 2485000 upper 3363000
+2
+low: 5445000 upper 7368000
+6
+low: 6877500 upper 9306500
+5
+low: 8323500 upper 11263500
+3
+low: 11307000 upper 15301000
+1
+low: 17211000 upper 23289000
+T : 20250000 i: 1
+A[i] : 6944500 i: 1
+T : 13305500 i: 3
+A[i] : 3540000 i: 3
+T : 9765500 i: 5
+A[i] : 1692500 i: 5
+T : 8073000 i: 6
+A[i] : 1694000 i: 6
+T : 6379000 i: 2
+A[i] : 3463500 i: 2
+last assignment 2915500 to  4 is 2915500
+dp
+1 , 6944500
+2 , 3463500
+3 , 3540000
+4 , 2915500
+5 , 1692500
+6 , 1694000
+6 add 8500 and set objects to: 1694000
+5 remove 9000 and set objects to: 1692500
+1 remove 1500 and set objects to: 6944500
+2 remove 19000 and set objects to: 3463500
+3 add 29500 and set objects to: 3540000
+4 remove 8500 and set objects to: 2915500
+Progress: 299630593 Rate: 0.2329404435 MB/s Hit Rate: 86.15212561% Evicted Items: 22170123 Evicted Bytes: 4633555707 Utilization: 0 
+total execution time: 1964.192

@@ -4,6 +4,7 @@
 #include <deque>
 #include <algorithm>
 #include <map>
+#include <limits>
 
 #include "common.h"
 #include "lru.h"
@@ -13,6 +14,12 @@
 #ifndef LSC_MULTI_H
 #define LSC_MULTI_H
 
+extern size_t AET_repart;
+extern size_t CH_shq_size;
+
+extern size_t W_LEN; //window to take inst hit rate
+extern bool lru_test; //do lru test, no sharing between apps => reserved == 100%
+extern size_t noisyN; //appid of noisy neighbor
 
 class lsc_multi : public policy {
   public:
@@ -150,7 +157,8 @@ class lsc_multi : public policy {
           //std::cout << "a: " << accesses << "\n";
           //std::cout << "w: " << w_accesses << "\n";
           //std::cout << "a-w: " << accesses-w_accesses << "\n";
-          if ( (w_accesses) >= 500000 )
+          //NEED TO CHANGE ACCORDING TO WRKLOAD LEN?
+          if ( (w_accesses) >= W_LEN )
           {
                 w_rate = double(w_hits) / (w_accesses); 
                 w_accesses = 0;
@@ -186,12 +194,12 @@ class lsc_multi : public policy {
         }
 
         double need() {
-          return double(target_mem + credit_bytes) / bytes_in_use;
+            return double(target_mem + credit_bytes) / (live_items*OSIZE);
         }
 
         const size_t appid;
         const size_t min_mem_pct;
-        const size_t target_mem;
+        size_t target_mem;
         const size_t min_mem;
         const size_t steal_size;
 
@@ -257,6 +265,11 @@ class lsc_multi : public policy {
 
 
 
+    void arbitrate();
+    void arbitrate_greedy();
+    void arbitrate_greedyFast();
+    void arbitrate_ilp();
+    void arbitrate_sa();
     void rollover(double timestamp);
     void clean();
     void dump_usage();

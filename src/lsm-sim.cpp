@@ -116,6 +116,7 @@ bool roundup  = false; //< no rounding default
 float lsm_util = 1.0; //< default util factor
 std::string trace = "data/m.cap.out"; //< default filepath
 std::string app_str; //< for logging apps
+std::string app_n; //< for logging apps sizes
 std::string app_steal_sizes_str;
 double hit_start_time = 1; //< default warmup time
 size_t global_mem = 0;
@@ -157,6 +158,23 @@ bool mrc = false;
 //memcached documentation for format
 //this is used to evaluate timing
 bool net = false;
+
+/* AET params */
+size_t AET_sample_rate = 10000;
+size_t AET_repart = 100000;
+size_t AET_PGAP = 500;
+size_t AET_RTH = 100000+3;
+
+/* CH params */
+size_t CH_shq_size = 10;
+size_t CH_cz = 500;
+
+/* window length for running hit rate */
+size_t W_LEN = 50000;
+bool lru_test = false;
+
+/* noisy neighbor number of reqs */
+size_t noisyN = -1;
 
 const std::string usage =
   "-f    specify file path\n"
@@ -224,8 +242,24 @@ std::unordered_map<size_t, size_t> memcachier_app_size = { {1, 701423104}
 
 //APP 1 is ETC
 //APP 2 is PSA
-std::unordered_map<size_t, size_t>        syn_app_size = { {1, 3000000*OSIZE}
-                                                         , {2, 3000000*OSIZE}
+std::unordered_map<size_t, size_t>        syn_app_size = { {1, 50000*OSIZE}
+                                                         , {2, 50000*OSIZE}
+                                                         , {3, 50000*OSIZE}
+                                                         , {4, 50000*OSIZE}
+                                                         , {5, 50000*OSIZE}
+                                                         , {6, 50000*OSIZE}
+                                                         , {7, 50000*OSIZE}
+                                                         , {8, 50000*OSIZE}
+                                                         , {9, 50000*OSIZE}
+                                                         , {10,50000*OSIZE}
+                                                         , {11,50000*OSIZE}
+                                                         , {12,50000*OSIZE}
+                                                         , {13,50000*OSIZE}
+                                                         , {14,50000*OSIZE}
+                                                         , {15,50000*OSIZE}
+                                                         , {16,50000*OSIZE}
+                                                         , {100,1*OSIZE}
+                                                                
                                                          };
 
 
@@ -239,33 +273,75 @@ int main(int argc, char *argv[]) {
   int c;
   std::vector<int32_t> ordered_apps{};
   while ((c = getopt(argc, argv,
-                     "p:s:l:f:a:ru:w:vhg:MP:S:B:E:N:W:T:t:"
-                     "m:d:F:n:D:L:K:k:C:c:YP:RP:x:y:ZP:A:")) != -1)
+                     "p:s:l:f:a:ru:w:vhg:MP:S:E:N:W:T:t:"
+                     "m:d:F:n:D:L:K:k:C:c:YP:RP:x:G:H:I:J:Q:U:i:j:Z:")) != -1)
   {
     switch (c)
     {
+        case 'G':
+            AET_sample_rate = atol(optarg);
+            break;
+        case 'H':
+            AET_repart = atol(optarg);
+            break;
+        case 'I':
+            AET_PGAP = atol(optarg);
+            break;
+        case 'J':
+            CH_cz = atol(optarg);
+            break;
+        case 'Q':
+            CH_shq_size = atol(optarg);
+            break;
+        case 'U':
+            AET_RTH = atol(optarg);
+            break;
+
+        //include noisy neighbor (only writes), argument is the number of
+        //writes to include, is set as the last app
+        case 'j':
+            noisyN = atol(optarg);
+            break;
+        case 'i':
+            W_LEN = atol(optarg);
+            break;
+
         //Y is for synthetic trace set 
       case 'Y':
         syn = true;
         break;
-     //Z is to use network 
+     //Z is to do LRU test 
       case 'Z':
-        net = true;
+      {  
+        long flag = atol(optarg);
+        if (flag == 1)
+            lru_test = true;
+        else
+            lru_test = false;
+      } 
         break;
+
         //R is for using full miss RATIO curve
         //to guide allocation
       case 'R':
         mrc = true;
         break;
       //only if we are using synthetic apps, specify alloc sizes
-      //x == etc or APP1
-      //y == psa or APP2
+      //go in appid id order
       case 'x':
-        syn_app_size[1] = atol(optarg);
-        break;
-      case 'y':
-        syn_app_size[2] = atol(optarg);
-        break;
+        {
+          string_vec v;
+          csv_tokenize(std::string(optarg), &v);
+          int appid = 1;
+          for (const auto& e : v) {
+            size_t n = stoi(e);
+            syn_app_size[appid] = n;
+            appid = appid + 1;
+            app_n += e;
+            app_n += ",";
+          }
+          break;
+        }
       case 'f':
         trace = optarg;
         break;
@@ -343,9 +419,6 @@ int main(int argc, char *argv[]) {
         break;
       case 'S':
         segment_size = atol(optarg);
-        break;
-      case 'B':
-        block_size = atol(optarg);
         break;
       case 'l':
         request_limit = atoi(optarg); 
@@ -440,9 +513,6 @@ int main(int argc, char *argv[]) {
       case 'k':
         K = atof(optarg);
         break;
-      case 'H':
-        L_FC = atol(optarg);
-        break;
       case 't':
         threshold = atof(optarg);
         break;
@@ -450,14 +520,20 @@ int main(int argc, char *argv[]) {
         CLOCK_MAX_VALUE = atol(optarg);
         CLOCK_MAX_VALUE_KLRU = atol(optarg);
         break;
-      case 'A':
-        USER_SVM_TH = atol(optarg);
-
-        break;
     }
   }
 
+  /* setup noisy neighbor */
+  //if (noisyN > 0)
+  //{
+  //    int noisyid = 100;
+  //    app_str += "100";
+  //    app_str += ",";
+  //    apps.insert(noisyid);
+  //    ordered_apps.push_back(noisyid);
+  //}
   assert(apps.size() >= app_steal_sizes.size());
+  
 
   if (policy_type == FLASHSHIELD ||
       policy_type == FLASHCACHE ||
@@ -553,7 +629,10 @@ int main(int argc, char *argv[]) {
             assert(memcachier_app_size[appid] > 0);
           else
             assert(syn_app_size[appid] > 0);
-          uint32_t app_steal_size = 65536;
+          //uint32_t app_steal_size = 65536;
+          uint32_t app_steal_size = CH_cz*OSIZE;
+          std::cerr << "steal size (credit): " << app_steal_size/OSIZE << "\n";
+          std::cerr << "steal size (MRC gap): " << AET_PGAP << "\n";
           auto it = app_steal_sizes.find(appid);
           if (it != app_steal_sizes.end()) {
             app_steal_size = it->second;
@@ -665,8 +744,11 @@ int main(int argc, char *argv[]) {
     exit(-1);
   }
 
+
   // List input parameters
   std::cerr << "performing trace analysis on apps " << app_str << std::endl
+            << "with app sizes " << app_n << std::endl
+            << "with noisy neighbor " << noisyN << std::endl
             << "with steal weights of " << app_steal_sizes_str << std::endl
             << "policy " << policy_names[policy_type] << std::endl
             << "using trace file " << trace << std::endl
@@ -805,7 +887,7 @@ int main(int argc, char *argv[]) {
             char get_resp[1024];
             memset(get_resp,0,1024);
 
-            sprintf(get_resp,"VALUE %d %d %d %d\r\n%s\r\n",
+            sprintf(get_resp,"VALUE %lu %d %d %d\r\n%s\r\n",
                     r.kid,0,200,i,data);
             
             write(conn,get_resp,strlen(get_resp));
@@ -845,8 +927,8 @@ int main(int argc, char *argv[]) {
   }
   else
   {
-    double avg_get_latency = 0;
-    double avg_set_latency = 0;
+    //double avg_get_latency = 0;
+    //double avg_set_latency = 0;
     // proc file line by line
     std::ifstream t_stream(trace);
     assert(t_stream.is_open());
@@ -878,8 +960,8 @@ int main(int argc, char *argv[]) {
                     << "Evicted Items: " << stats->evicted_items << " "
                     << "Evicted Bytes: " << stats->evicted_bytes << " "
                     << "Utilization: " << stats->get_utilization() << " "
-                    << "Avg GET: " << avg_get_latency/stats->accesses << " "
-                    << "Avg SET: " << avg_set_latency/stats->accesses << " "
+                    //<< "Avg GET: " << avg_get_latency/stats->accesses << " "
+                    //<< "Avg SET: " << avg_set_latency/stats->accesses << " "
                     << std::endl;
           bytes = 0;
           last_progress = now;
@@ -905,25 +987,26 @@ int main(int argc, char *argv[]) {
       }
       
 
-      clock_t start, end;
-      double cpu_time_used;
+      //clock_t start, end;
+      //double cpu_time_used;
       //measure how long it takes
-      start = clock();
-      int status = policy->proc(&r, r.time < hit_start_time);
-      end = clock();
+      //start = clock();
+      //int status = 
+      policy->proc(&r, r.time < hit_start_time);
+      //end = clock();
 
-      cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+      //cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
 
       //get was hit
-      if (status == 1)
-      {
-          avg_get_latency += cpu_time_used;
-      }
-      //we did a set
-      else
-      {
-          avg_set_latency += cpu_time_used;
-      }
+      //if (status == 1)
+      //{
+      //    avg_get_latency += cpu_time_used;
+      //}
+      ////we did a set
+      //else
+      //{
+      //    avg_set_latency += cpu_time_used;
+      //}
 
       if (verbose 
           && ( policy_type == FLASHSHIELD || policy_type == VICTIMCACHE || policy_type == RIPQ ) 

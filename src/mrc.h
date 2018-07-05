@@ -14,13 +14,11 @@
  * Constants in AET
  */
 
-#define PGAP 1000 //mrc output step
-#define MAXL 100000+3 //number of bins in  reuse time histogram
-#define MAXH 1000000 //size of hash table
-#define domain 256 //reuse time histogram compression factor
-#define STEP 1000 // sampling rate
-#define MAX_TENANTS 10 //max number of MRCs to create
-                        //MAX_TENANTS+1 is the combined MRC
+#define domain 256 //reuse time histogram compression factor 
+
+extern size_t AET_sample_rate;
+extern size_t AET_PGAP;
+extern size_t AET_RTH;
 
 #define OSIZE 200 //object size
 
@@ -29,50 +27,52 @@ class mrc {
     public:
         mrc();
         ~mrc();
+        //copy cons
+        mrc(const mrc &m);
+        //override =
+        mrc & operator=(const mrc &m);
 
-        void sample(uint32_t key);
-        long long getN();
+        void sample(uint64_t key);
         size_t get_hash_table_size();
-        long long solve(long long *c_size_idx, 
-                        double* miss_rate,
-                        long long *max);
+
+        uint64_t solve_MRC();
         
-        void balance(long long *app_idx, double *app_mrc, 
-                     long long app_actual, long long app_upper,
-                     long long app_reserved, 
-                     long long *other_idx, double *other_mrc,
-                     long long other_actual, long long other_upper,
-                     long long other_reserved,
-                     long long *app_m, long long *other_m,
-                     double *m1, double *m2);
+        //not used yet, may be defined as 95% of max HR
+        uint64_t wss;
+
+        //MRC
+        std::map<uint64_t, double> MRC;
     private:
-        long long AET_domain_value_to_index(long long value);
-        long long AET_domain_index_to_value(long long index);
+        uint64_t AET_domain_value_to_index(uint64_t value);
+        uint64_t AET_domain_index_to_value(uint64_t index);
 
         /*
          * AET variables
          */
-        //reuse time distribution
-        long long AET_rtd[MAXL];
         
         //Hash table to track logical reuse time
-        std::map<uint32_t,long long> AET_hash;
+        std::map<uint32_t,uint64_t> AET_hash;
+        
         
         //number of accesses recorded
         //in rtd
-        long long AET_n;
+        uint64_t AET_n;
         //number of cold misses
-        long long AET_m;
+        uint64_t AET_m;
         
         //counts for hash table
-        long long AET_node_cnt;
-        long long AET_node_max;
+        uint64_t AET_node_cnt;
+        uint64_t AET_node_max;
         
         //for sampling, if n==loc insert to hash table
-        long long AET_loc;
+        uint64_t AET_loc;
         
         //AET hash table total
-        long long AET_tott;
+        uint64_t AET_tott;
+        
+        //reuse time distribution
+        uint64_t *AET_rtd;
+       
 }; 
 
 #endif

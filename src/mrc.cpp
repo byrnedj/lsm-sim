@@ -8,28 +8,51 @@
 
 
 mrc::mrc()
-    : AET_hash{}
+    : wss{0}
+    , MRC{}
+    , AET_hash{}
     , AET_n{0}
     , AET_m{0}
     , AET_node_cnt{0}
     , AET_node_max{0}
     , AET_loc{}
     , AET_tott{0}
+    , AET_rtd{}
 {
     srand(128);
-    memset(AET_rtd,0,sizeof(long long)*MAXL);
-    AET_loc = rand()%(STEP*2)+1;
+    AET_rtd = (uint64_t*) calloc(AET_RTH,sizeof(uint64_t));
+    AET_loc = rand()%(AET_sample_rate*2)+1;
 
 }
 
-mrc::~mrc() {
+mrc::mrc(const mrc &m)
+    : wss{0}
+    , MRC{}
+    , AET_hash{}
+    , AET_n{0}
+    , AET_m{0}
+    , AET_node_cnt{0}
+    , AET_node_max{0}
+    , AET_loc{}
+    , AET_tott{0}
+    , AET_rtd{}
+{
+    srand(128);
+    AET_rtd = m.AET_rtd;
+    AET_loc = rand()%(AET_sample_rate*2)+1;
+
 }
+
+mrc::~mrc() {}
+
+
+uint64_t mrc::get_hash_table_size() { return AET_hash.size(); }
 
 /* Helper methods for AET */
 
-long long mrc::AET_domain_value_to_index(long long value)
+uint64_t mrc::AET_domain_value_to_index(uint64_t value)
 {
-    long long loc = 0, step = 1;
+    uint64_t loc = 0, step = 1;
     int index = 0;
     while (loc+(step*domain) < value) 
     {
@@ -45,9 +68,9 @@ long long mrc::AET_domain_value_to_index(long long value)
     return index;
 }
 
-long long mrc::AET_domain_index_to_value(long long index)
+uint64_t mrc::AET_domain_index_to_value(uint64_t index)
 {
-    long long value = 0, step = 1;
+    uint64_t value = 0, step = 1;
     while (index > domain) 
     {
         value += step*domain;
@@ -62,7 +85,7 @@ long long mrc::AET_domain_index_to_value(long long index)
     return value;
 }
 
-void mrc::sample(uint32_t kid)
+void mrc::sample(uint64_t kid)
 {
 
     AET_n++;
@@ -71,7 +94,7 @@ void mrc::sample(uint32_t kid)
     if (it != AET_hash.end())
     {
 
-        long long t = it->second;
+        uint64_t t = it->second;
         AET_rtd[AET_domain_value_to_index(AET_n-t)]++;
         AET_tott++;
         //remove it from table
@@ -81,11 +104,11 @@ void mrc::sample(uint32_t kid)
     //check if we should add this sample to hash table
     if (AET_n == AET_loc)
     {
-        long long n = AET_n;
-        uint32_t nkey = kid;
+        uint64_t n = AET_n;
+        uint64_t nkey = kid;
         AET_hash[nkey] = n;
 
-        AET_loc += rand()%(STEP*2)+1;
+        AET_loc += rand()%(AET_sample_rate*2)+1;
         AET_node_cnt++;
     }
     if (AET_node_cnt > AET_node_max)
@@ -94,127 +117,16 @@ void mrc::sample(uint32_t kid)
 }
 
 
-long long mrc::getN()
-{
-    double N = AET_tott+1.0*AET_tott/
-                (AET_n-(AET_node_cnt*STEP))*(AET_node_cnt*STEP);
-    return N;
-}
 
-size_t mrc::get_hash_table_size()
-{
-    return AET_hash.size();
-}
-
-
-void mrc::balance(long long *app_idx, double *app_mrc, 
-                  long long app_actual, long long app_upper,
-                  long long app_reserved, 
-                  long long *other_idx, double *other_mrc,
-                  long long other_actual, long long other_upper,
-                  long long other_reserved,
-                  long long *app_m, long long *other_m,
-                  double *m1, double *m2)
-{
-    int i = 0;
-    int j = 0;
-    int k = 0;
-    int l = 0;
-    double min1 = 2;
-    double min2 = 2;
-    
-    long long app_min1 = -1;
-    long long other_min1 = -1;
-    
-    long long app_min2 = -1;
-    long long other_min2 = -1;
-
-
-    while (app_idx[i] != app_actual ) i++;
-    while (other_idx[j] != other_actual) j++;
-
-    k = i;
-    l = j;
-
-    //print out rebalancing info
-    //std::cerr << "upper "  << "app " << app_upper <<  "\n";
-    //std::cerr << "actual " << "app " << app_idx[i] <<  "\n";
-    //std::cerr << "actual " << "other " << other_idx[j] <<  "\n";
-    //std::cerr << "lower "  << "other " << other_reserved <<  "\n";
-
-
-
-    while ( app_idx[i] < app_upper  &&
-            other_idx[j] > other_reserved )
-    {
-        double t = (app_mrc[i] + other_mrc[j])/2;
-        //std::cerr << "mr app[" << i*PGAP << "]: " << app_mrc[i] << "\n";
-        //std::cerr << "mr other[" << j*PGAP << "]: " << other_mrc[j] << "\n";
-        //std::cerr << "mr avg: " << t << "\n";
-        if (t < min1)
-        {
-            min1 = t;
-            app_min1 = app_idx[i];
-            other_min1 = other_idx[j];
-        }
-        i++;
-        j--;
-    }
-
-    //std::cerr << "second direction" << "\n";
-    
-    while ( other_idx[l] < other_upper  &&
-            app_idx[k] > app_reserved )
-    {
-        double t = (app_mrc[k] + other_mrc[l])/2;
-        //std::cerr << "mr app[" << k*PGAP << "]: " << app_mrc[k] << "\n";
-        //std::cerr << "mr other[" << l*PGAP << "]: " << other_mrc[l] << "\n";
-        //std::cerr << "mr avg: " << t << "\n";
-        if (t < min2)
-        {
-            min2 = t;
-            app_min2 = app_idx[k];
-            other_min2 = other_idx[l];
-        }
-        k--;
-        l++;
-    }
-
-    std::cerr << "app min1 " << app_min1 << "\n";
-    std::cerr << "other min1 " << other_min1 << "\n";
-    std::cerr << "min1 " << min1 << "\n";
-    
-    std::cerr << "app min2 " << app_min2 << "\n";
-    std::cerr << "other min2 " << other_min2 << "\n";
-    std::cerr << "min2 " << min2 << "\n";
-
-    if (min1 < min2)
-    {
-        *app_m = app_min1;
-        *other_m = other_min1;
-    }
-    else
-    {
-        *app_m = app_min2;
-        *other_m = other_min2;
-    }
-    *m1 = min1;
-    *m2 = min2;
-
-}
-
-
-//ADD N!
-long long mrc::solve(long long* cache_size_index, 
-                      double* miss_rate,
-                      long long *app_max)
+uint64_t mrc::solve_MRC()
 {
 
     //get number of cold misses
-    AET_m = AET_node_cnt*STEP;
-    
+    AET_m = AET_node_cnt*AET_sample_rate;
+
+
     double sum = 0; 
-    long long T = 0;
+    uint64_t T = 0;
     double tot = 0;
 
     //tott is total references in HT
@@ -223,18 +135,20 @@ long long mrc::solve(long long* cache_size_index,
     double N = AET_tott+1.0*AET_tott/
         (AET_n-AET_m)*AET_m;
 
-    
-    double cmiss_rate = 2;
-    long long cache_size = 0;
+    //sanity check to make sure we actually have refs
+    if (N < 1) return 0;
 
-    long long step = 1; 
+    uint64_t cache_size = 0;
+
+    uint64_t step = 1; 
     int dom = 0;
     int dT = 0; 
-    long long loc = 0;
-    long long c_index = 0;
+    uint64_t loc = 0;
+    uint64_t c_index = 0;
     
+    uint64_t c = 1;
+    double cmiss_rate = 0;
     
-    long long c = 1;
     while (c <= AET_m)
     {
         while (T <= AET_n && tot/N < c) 
@@ -256,20 +170,21 @@ long long mrc::solve(long long* cache_size_index,
         //how to get AET(c), we know mr(c) = P(AET(c))
         //so (N-sum)/N must be P(AET(c))
         //T == AET(c)
-        if (c % PGAP == 0)
+        if (c % AET_PGAP == 0)
         {
-            //pmiss_rate = cmiss_rate;
             cmiss_rate = (N-sum)/N;
             cache_size = c;
             
-            cache_size_index[c_index] = cache_size;
-            miss_rate[c_index] = cmiss_rate;
             c_index++;
-            //std::cerr << cmiss_rate << "," << c <<  "\n";
+            MRC[cache_size] = cmiss_rate;
+
         }
         c++;
     }
-   
-    *app_max = cache_size_index[c_index-1];
-    return 1;
+
+
+    //double tmiss_rate = cmiss_rate + 0.05;
+    //uint64_t icache_size = cache_size;
+    
+    return cache_size;
 }

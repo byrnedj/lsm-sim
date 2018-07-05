@@ -1,11 +1,15 @@
 #CXX := g++-4.9
 CXX := g++
-CXXFLAGS := -std=c++14 -Wall -g -pedantic-errors -Werror -O0 \
+CXXFLAGS := -std=c++14 -Wall -g -pedantic-errors -O3 \
     						-Wno-init-self \
 						-Wno-maybe-uninitialized \
 						-Wno-unused-parameter \
 						-Wextra \
-						-Weffc++
+						-Weffc++ \
+						-I./Rehearse/include/coin \
+						-L./Rehearse/lib \
+						-L./Rehearse/src
+
 # REPLAY := yes enables a policy that can feed traces to memcached, but it
 # requires libmemcached to be linked in as a result. Only enable it if you
 # have the library and headers installed.
@@ -14,7 +18,7 @@ REPLAY ?= no
 LDFLAGS :=
 
 ifeq ($(REPLAY),yes)
-LDFLAGS += -lmemcached
+LDFLAGS +=   -lmemcached
 else
 CXXFLAGS += -DNOREPLAY
 endif
@@ -29,7 +33,7 @@ all: lsm-sim
 	$(CXX) $(CXXFLAGS) -c $<
 
 lsm-sim: $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $^ -lpython2.7
+	$(CXX) $(LDFLAGS)  -o $@ $^  -lpython2.7
 
 clean:
 	-rm lsm-sim src/*.o

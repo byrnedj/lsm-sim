@@ -42,7 +42,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 	double currTime = r->time;
 	updateCredits(currTime);
 	bool updateWrites = true;
-	uint32_t mfuKid=0;
+	uint64_t mfuKid=0;
 
 //#ifdef COMPARE_TIME
 //	updateDramFlashiness(currTime);
@@ -73,7 +73,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 				if (!warmup) {stat.hits_dram++;}
 
 				size_t qN = item.queueNumber;
-//				std::pair<uint32_t, double> p = *(item.dramLocation);
+//				std::pair<uint64_t, double> p = *(item.dramLocation);
 //#ifdef COMPARE_TIME
 //				p.second += hitCredit(item, currTime);
 //#else
@@ -90,7 +90,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 						updateWrites = false;
 				}
 
-				std::vector<uint32_t> objects{r->kid};
+				std::vector<uint64_t> objects{r->kid};
 				dramAddandReorder(objects, r->size(),qN, updateWrites, warmup);
 
 			} else {
@@ -139,7 +139,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 	newItem.last_accessed = r->time;
 	newItem.lastAccessInTrace = counter;
 
-	assert(((unsigned int) newItem.size) <= DRAM_SIZE_FC_KLRU);
+	assert(((uint64_t) newItem.size) <= DRAM_SIZE_FC_KLRU);
 
 
 	while (true) {
@@ -151,7 +151,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 			allObjects[newItem.kId] = newItem;
 			lastCreditUpdate = r->time;
 			
-                        std::vector<uint32_t> objects{r->kid};
+                        std::vector<uint64_t> objects{r->kid};
                         dramAdd(objects, r->size(),0, true, warmup);
 
 			return PROC_MISS;
@@ -182,7 +182,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 //				// beginning of the last queue
 //				// ------------
 //
-//				uint32_t lruKid = ((dram[0]).back()).first;
+//				uint64_t lruKid = ((dram[0]).back()).first;
 //				FlashCacheLruk::Item& lruItem = allObjects[lruKid];
 //
 //				assert(lruItem.size > 0);
@@ -217,7 +217,7 @@ size_t FlashCacheLruk::proc(const request* r, bool warmup) {
 			else {
 				// If we don't have space in the flash, we will delete the GLRU item
 				// and make room for the new item
-				uint32_t globalLruKid = globalLru.back();
+				uint64_t globalLruKid = globalLru.back();
 				FlashCacheLruk::Item& globalLruItem = allObjects[globalLruKid];
 				globalLru.erase(globalLruItem.globalLruIt);
 				if (globalLruItem.isInDram) {
@@ -272,15 +272,15 @@ double FlashCacheLruk::hitCredit(const Item& item, const double& currTime) const
 	return ((1 - mul) * (L_FC_KLRU / diff));
 }
 
-void FlashCacheLruk::dramAdd(std::vector<uint32_t>& objects,
+void FlashCacheLruk::dramAdd(std::vector<uint64_t>& objects,
 		size_t sum,
 		size_t k,
 		bool updateWrites,
 		bool warmup) {
 
-	    for (const uint32_t& elem : objects) {
+	    for (const uint64_t& elem : objects) {
 				FlashCacheLruk::Item& item = allObjects[elem];
-				std::pair<uint32_t, double> it;
+				std::pair<uint64_t, double> it;
 				it.first = elem;
 				it.second=0;
 				dram[k].emplace_front(it);
@@ -293,7 +293,7 @@ void FlashCacheLruk::dramAdd(std::vector<uint32_t>& objects,
 				}
 }
 
-void FlashCacheLruk::dramAddandReorder(std::vector<uint32_t>& objects,
+void FlashCacheLruk::dramAddandReorder(std::vector<uint64_t>& objects,
 		size_t sum,
 		size_t k,
 		bool updateWrites,
@@ -301,7 +301,7 @@ void FlashCacheLruk::dramAddandReorder(std::vector<uint32_t>& objects,
 
 	    assert(k < FC_K_LRU);
 
-		std::vector<uint32_t> newObjects;
+		std::vector<uint64_t> newObjects;
 
 		size_t newSum = 0;
 
@@ -310,7 +310,7 @@ void FlashCacheLruk::dramAddandReorder(std::vector<uint32_t>& objects,
 			while (sum + kLruSizes[k] > FC_KLRU_QUEUE_SIZE) {
 				assert(kLruSizes[k] > 0);
 				assert(dram[k].size() > 0);
-				uint32_t elem = (dram[k].back()).first;
+				uint64_t elem = (dram[k].back()).first;
 				FlashCacheLruk::Item& item = allObjects[elem];
 				dram[k].pop_back();
 				kLruSizes[k] -= item.size;
@@ -325,7 +325,7 @@ void FlashCacheLruk::dramAddandReorder(std::vector<uint32_t>& objects,
 				assert(0);
 				assert(kLruSizes[k] > 0);
 				assert(dram[k].size() > 0);
-				uint32_t elem = (dram[k].back()).first;
+				uint64_t elem = (dram[k].back()).first;
 				FlashCacheLruk::Item& item = allObjects[elem];
 				dram[k].pop_back();
 				kLruSizes[k] -= item.size;
@@ -340,9 +340,9 @@ void FlashCacheLruk::dramAddandReorder(std::vector<uint32_t>& objects,
 			assert(newSum == 0);
 		}
 
-//		for (const uint32_t& elem : objects) {
+//		for (const uint64_t& elem : objects) {
 //			FlashCacheLruk::Item& item = allObjects[elem];
-//			std::pair<uint32_t, double> it;
+//			std::pair<uint64_t, double> it;
 //			it.first = elem;
 //			it.second=0;
 //			dram[k].emplace_front(it);
@@ -362,7 +362,7 @@ void FlashCacheLruk::dramAddandReorder(std::vector<uint32_t>& objects,
 
 void FlashCacheLruk::dump_stats(void) {
 	assert(stat.apps->size() == 1);
-	uint32_t appId = 0;
+	uint64_t appId = 0;
 	for(const auto& app : *stat.apps) {appId = app;}
 	std::string filename{stat.policy
 #ifdef RELATIVE

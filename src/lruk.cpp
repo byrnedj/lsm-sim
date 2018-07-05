@@ -47,7 +47,7 @@ size_t Lruk::proc(const request *r, bool warmup) {
 			} else {
 				updateWrites = false;
 			}
-			std::vector<uint32_t> objects{r->kid};
+			std::vector<uint64_t> objects{r->kid};
 			insert(objects, r->size(),qN, updateWrites, warmup);
 			return 1;	
 		} else {
@@ -59,12 +59,12 @@ size_t Lruk::proc(const request *r, bool warmup) {
 	newItem.size = r->size();
 	newItem.queueNumber = 0;
 	allObjects[r->kid] = newItem;
-	std::vector<uint32_t> objects{r->kid};
+	std::vector<uint64_t> objects{r->kid};
 	insert(objects,r->size(),0, true, warmup);
 	return PROC_MISS;
 }
 
-void Lruk::insert(std::vector<uint32_t>& objects, 
+void Lruk::insert(std::vector<uint64_t>& objects, 
 		size_t sum, 
 		size_t k, 
 		bool updateWrites,
@@ -72,12 +72,12 @@ void Lruk::insert(std::vector<uint32_t>& objects,
 
 	assert(k < K_LRU);
 
-	std::vector<uint32_t> newObjects;
+	std::vector<uint64_t> newObjects;
 	size_t newSum = 0;
 	while (sum + kLruSizes[k] > KLRU_QUEUE_SIZE) {
 		assert(kLruSizes[k] > 0);
 		assert(kLru[k].size() > 0);
-		uint32_t elem = kLru[k].back();
+		uint64_t elem = kLru[k].back();
 		kLru[k].pop_back();
 		Lruk::LKItem& item = allObjects[elem];
 		kLruSizes[k] -= item.size;
@@ -93,7 +93,7 @@ void Lruk::insert(std::vector<uint32_t>& objects,
 		assert(newSum == 0);
 	}
 	
-	for (const uint32_t& elem : objects) {
+	for (const uint64_t& elem : objects) {
 		Lruk::LKItem& item = allObjects[elem];
 		kLru[k].emplace_front(elem);
 		item.iter = kLru[k].begin();
@@ -112,7 +112,7 @@ void Lruk::insert(std::vector<uint32_t>& objects,
 
 void Lruk::dump_stats(void) {
 	assert(stat.apps->size() == 1);
-	uint32_t appId = 0;
+	uint64_t appId = 0;
 	for(const auto& app : *stat.apps) {appId = app;}
 	std::string filename{stat.policy
 			+ "-app" + std::to_string(appId)
